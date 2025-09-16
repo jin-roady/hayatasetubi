@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>施工実績｜早田設備株式会社</title>
+  <link rel="stylesheet" href="assets/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+<header class="header">
+  <div class="container hdr-flex">
+    <a class="brand" href="index.html" aria-label="早田設備">
+      <span class="brand-badge">HS</span>
+      <span>早田設備株式会社</span>
+    </a>
+     <!-- ▼ レスポンシブ対応ナビ（PC=横並び / SP=パネル） -->
+     <nav class="nav" role="navigation" aria-label="グローバルナビ">
+      <details class="menu" id="site-menu">
+        <!-- トグル（モバイルのみ表示） -->
+        <summary class="nav__toggle" aria-label="メニューを開閉">
+          <span class="nav__label nav__label-open">☰ メニュー</span>
+          <span class="nav__label nav__label-close">✕ 閉じる</span>
+        </summary>
+          
+
+        <!-- オーバーレイ（モバイル時のみ表示） -->
+        <div class="nav__sheet" aria-hidden="true">
+          <div class="nav__backdrop"></div>
+          <div class="nav__panel" role="dialog" aria-modal="true" aria-label="メニュー">
+            <ul class="nav__list" role="list">
+              <li><a class="nav__link" href="services.html">事業内容</a></li>
+              <li><a class="nav__link" href="services.html#flow">施工の流れ</a></li>
+              <li><a class="nav__link" href="company.html">会社案内</a></li>
+              <li><a class="nav__link" href="portfolio.html">施工実績</a></li>
+              <li><a class="nav__link" href="recruit.html">採用情報</a></li>
+              <li><a class="nav__link" href="contact.html">お問い合わせ</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- デスクトップ用 横並び -->
+        <ul class="nav__list" role="list">
+          <li><a class="nav__link" href="services.html">事業内容</a></li>
+          <li><a class="nav__link" href="services.html#flow">施工の流れ</a></li>
+          <li><a class="nav__link" href="company.html">会社案内</a></li>
+          <li><a class="nav__link" href="portfolio.html">施工実績</a></li>
+          <li><a class="nav__link" href="recruit.html">採用情報</a></li>
+          <li><a class="nav__link" href="contact.html">お問い合わせ</a></li>
+        </ul>
+      </details>
+    </nav>
+    <!-- ▲ レスポンシブ対応ナビ -->
+  </div>
+</header>
+
+<section class="kv">
+  <div class="container">
+    <div class="breadcrumbs"><a href="index.html">HOME</a> › 施工実績</div>
+    <h1 class="title">施工実績</h1>
+    <p class="note">住宅から公共施設まで、多様な施工事例をご紹介します。</p>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="filter-heading">
+  <div class="container">
+    <h2 id="filter-heading" class="h2-slim">カテゴリ</h2>
+    <ul class="category-nav" role="list">
+      <li><button class="pill" type="button">すべて</button></li>
+      <li><button class="pill" type="button">住宅</button></li>
+      <li><button class="pill" type="button">店舗・オフィス</button></li>
+      <li><button class="pill" type="button">学校・公共</button></li>
+      <li><button class="pill" type="button">工場</button></li>
+    </ul>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container card-grid">
+    <!-- サンプル事例6件（省略） -->
+    <article class="card"><a class="thumb" href="#"><span>戸建て給湯器更新</span></a><div class="stack-sm"><time class="meta">2025.06.12</time><h3>戸建て｜給湯器更新・配管更新</h3><p class="meta">所在地：○○市 / 工期：1日</p></div></article>
+    <article class="card"><a class="thumb" href="#"><span>学校トイレ改修</span></a><div class="stack-sm"><time class="meta">2025.05.28</time><h3>学校｜トイレ改修・衛生器具更新</h3><p class="meta">所在地：○○町 / 工期：3週間</p></div></article>
+    <article class="card"><a class="thumb" href="#"><span>店舗空調更新</span></a><div class="stack-sm"><time class="meta">2025.04.10</time><h3>店舗｜パッケージエアコン更新</h3><p class="meta">所在地：○○市 / 工期：2日</p></div></article>
+    <article class="card"><a class="thumb" href="#"><span>工場配管工事</span></a><div class="stack-sm"><time class="meta">2025.03.02</time><h3>工場｜給排水配管増設</h3><p class="meta">所在地：○○市 / 工期：5日</p></div></article>
+    <article class="card"><a class="thumb" href="#"><span>集合住宅リフォーム</span></a><div class="stack-sm"><time class="meta">2025.02.15</time><h3>集合住宅｜水回りリフォーム</h3><p class="meta">所在地：○○市 / 工期：7日</p></div></article>
+    <article class="card"><a class="thumb" href="#"><span>公共施設空調換気</span></a><div class="stack-sm"><time class="meta">2025.01.22</time><h3>公共施設｜空調・換気設備更新</h3><p class="meta">所在地：○○市 / 工期：4週間</p></div></article>
+  </div>
+
+  <div class="container btn-row" style="margin-top: 24px; justify-content:center">
+    <a class="btn ghost" href="contact.html">工事のご相談・お見積りはこちら</a>
+  </div>
+</section>
+
+<footer class="footer" role="contentinfo">
+  <div class="container foot-flex">
+    <div>
+      <div class="tel">📞 0237-43-5303</div>
+      <div class="note">9:00–17:30（土日祝・年末年始を除く）</div>
+    </div>
+    <div>
+      <a class="btn ghost" href="contact.html">お問い合わせ</a>
+    </div>
+  </div>
+  <div class="container" style="margin-top:28px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap">
+    <div class="brand">
+      <span class="brand-badge">HS</span>
+      <span>早田設備株式会社</span>
+    </div>
+    <small>© Hayata Setsubi Co., Ltd.</small>
+  </div>
+</footer>
+</body>
+</html>
