@@ -1,0 +1,716 @@
+.recruit-feature {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 32px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  .recruit-feature__images {
+    grid-column: span 7;
+  }
+  
+  .recruit-feature__text {
+    grid-column: span 5;
+  }
+  
+  .image-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  
+  .img-box {
+    background: var(--surface, #f5f5f5);
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .img-box span {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+  
+  /* 小さな画面対応 */
+  @media (max-width: 1024px) {
+    .recruit-feature {
+      grid-template-columns: 1fr;
+    }
+  
+    .recruit-feature__images,
+    .recruit-feature__text {
+      grid-column: span 12;
+    }
+  }
+  
+  .btn--arrow::after {
+    content: "→";
+    margin-left: 0.5em;
+    transition: transform 0.2s ease;
+  }
+  
+  .btn--arrow:hover::after {
+    transform: translateX(4px);
+  }
+
+  /* Work Style: 画面中央配置用 */
+.section--center{
+  min-block-size: calc(100svh - 80px); /* ヘッダー分の余白があれば調整 */
+  display: grid;
+  place-items: center; /* 縦横センタリング */
+}
+
+/* セクション内の2カラムをクラスで管理（インラインstyle撤去） */
+.workstyle-grid{
+  display: grid;
+  gap: 32px;
+  align-items: center;         /* 垂直中央（行内） */
+  grid-template-columns: 1fr;  /* SP: 1カラム */
+}
+@media (min-width: 900px){
+  .workstyle-grid{
+    grid-template-columns: 1.1fr 1fr; /* PC: 2カラム */
+  }
+}
+
+/* セクション内のテキストを中央寄せしたい場合は必要に応じて */
+#work-style .h2-slim{ text-align: left; }      /* ←見出し中央が好みなら消す */
+@media (max-width: 900px){
+  #work-style .h2-slim{ text-align: center; }
+}
+
+/* レイアウト */
+.fit-block{
+  display:grid;
+  gap:32px;
+  align-items:center;
+  grid-template-columns:1fr;
+  margin-inline:auto;
+}
+@media (min-width: 900px){
+  .fit-block{
+    grid-template-columns:1fr 1.15fr 1fr; /* 左  中央  右 */
+    gap:40px;
+  }
+}
+
+/* 中央テキストの整形 */
+.fit-center{
+  max-width:60ch;
+  margin-inline:auto;
+}
+.fit-center .check-list{
+  margin:12px auto 0;
+}
+.fit-note{
+  margin-top:10px;
+}
+
+/* 画像コラージュ（左右） */
+.fit-rail{
+  max-width:520px;
+  margin-inline:auto;
+  position:relative;
+  height:auto;
+  display:grid;
+  gap:16px;
+}
+@media (min-width: 900px){
+  .fit-rail{
+    /* 2枚を少しずらして重ねる */
+    display:block;
+    min-height:420px;
+  }
+}
+.fit-photo{
+  border-radius:14px;
+  overflow:hidden;
+  box-shadow: 0 6px 20px rgba(0,0,0,.08);
+  background:#fff;
+}
+.fit-photo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+/* PC時の重なり表現 */
+@media (min-width: 900px){
+  .fit-photo--a{
+    position:absolute;
+    inset:auto 14% 38% 0;      /* top/right/bottom/left */
+    transform:rotate(-1.5deg);
+    aspect-ratio: 4 / 3;
+  }
+  .fit-photo--b{
+    position:absolute;
+    inset:28% 0 0 18%;
+    transform:rotate(2deg);
+    aspect-ratio: 1 / 1;
+  }
+}
+
+/* SP時は縦積みで均一比率 */
+@media (max-width: 899px){
+  .fit-photo--a{ aspect-ratio: 4/3; }
+  .fit-photo--b{ aspect-ratio: 1/1; }
+}
+
+/* 細かなトーン（サイトに合わせて調整可） */
+.h3-slim.t-center{ margin-top:8px; }
+.check-list li{ line-height:1.9; }
+
+/* === 初期設定と変数 === */
+:root {
+  --color-brand: #0055a4; /* 会社のブランドカラー（例: フレンチブルー） */
+  --color-text: #333333;
+  --color-text-light: #555555;
+  --color-accent: #ff9800; /* ボタンなどのアクセントカラー */
+  --color-background: #ffffff;
+  --color-background-soft: #f7f9fc;
+  --color-border: #e0e0e0;
+  
+  --font-family-base: 'Noto Sans JP', sans-serif;
+  --font-size-base: 16px;
+  --line-height-base: 1.7;
+
+  --container-width: 1120px;
+  --container-padding: 24px;
+  
+  --border-radius: 12px;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  color: var(--color-text);
+  background-color: var(--color-background);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0 0 0.5em 0;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+p {
+  margin: 0 0 1em 0;
+}
+p:last-child {
+  margin-bottom: 0;
+}
+
+a {
+  color: var(--color-brand);
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+a:hover {
+  opacity: 0.8;
+}
+
+/* === 共通コンポーネント === */
+.container {
+  max-width: var(--container-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
+}
+
+.container--narrow {
+  max-width: 840px;
+}
+
+.section {
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+.section--soft {
+  background-color: var(--color-background-soft);
+}
+
+.t-center { text-align: center; }
+
+.eyebrow {
+  color: var(--color-brand);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.h2-slim {
+  font-size: 2.25rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 24px;
+}
+
+.section-lead {
+    max-width: 60ch;
+    margin: 0 auto 48px auto;
+    color: var(--color-text-light);
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 32px;
+  background-color: var(--color-accent);
+  color: white;
+  border-radius: 999px;
+  font-weight: 700;
+  text-align: center;
+  border: 2px solid transparent;
+}
+.btn--large {
+  padding: 16px 48px;
+  font-size: 1.1rem;
+}
+
+
+/* === Header === */
+.header {
+  padding: 16px 0;
+  background-color: #fff;
+  border-bottom: 1px solid var(--color-border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 800;
+  font-size: 1.25rem;
+  color: var(--color-text);
+}
+.brand-badge {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border: 2px solid var(--color-brand);
+  border-radius: 8px;
+  color: var(--color-brand);
+  font-weight: 900;
+}
+.nav__list {
+  display: flex;
+  gap: 24px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.nav__link {
+  font-weight: 700;
+  color: var(--color-text-light);
+}
+.nav__link.is-active {
+  color: var(--color-brand);
+}
+
+/* === Hero Section === */
+.hero {
+  padding: 100px 0;
+}
+.hero-grid {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  align-items: center;
+  gap: 48px;
+}
+.hero__title {
+  font-size: 3.5rem;
+  font-weight: 900;
+  margin-bottom: 16px;
+}
+.hero__lead {
+  font-size: 1.1rem;
+  color: var(--color-text-light);
+}
+.hero-visual {
+  display: flex;
+  justify-content: flex-end;
+}
+.hero-image {
+  width: 100%;
+  max-width: 360px;
+  height: 480px;
+  object-fit: cover;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+}
+
+
+/* === Work Style Section === */
+.workstyle-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 64px;
+}
+.workstyle-image {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: var(--border-radius);
+}
+
+
+/* === Growth & Enjoy Section === */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+}
+.stat-card {
+    background-color: var(--color-background);
+    padding: 32px;
+    border-radius: var(--border-radius);
+    text-align: center;
+    border: 1px solid var(--color-border);
+}
+.stat-card__icon {
+    font-size: 2.5rem;
+    margin-bottom: 16px;
+}
+.stat-card__title {
+    font-size: 1.25rem;
+    margin-bottom: 8px;
+}
+
+/* === Fit Section === */
+.fit-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: 32px;
+  align-items: center;
+}
+.fit-gallery {
+  display: grid;
+  gap: 32px;
+}
+.fit-gallery img {
+  width: 100%;
+  border-radius: var(--border-radius);
+  object-fit: cover;
+  box-shadow: var(--shadow);
+}
+.fit-photo-1 { height: 280px; }
+.fit-photo-2 { height: 200px; }
+.fit-photo-3 { height: 200px; }
+.fit-photo-4 { height: 280px; }
+
+.fit-content {
+  padding: 32px;
+}
+.check-list {
+  list-style: none;
+  padding: 0;
+  margin: 24px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-align: left;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.check-list li::before {
+  content: '✓';
+  color: var(--color-brand);
+  margin-right: 12px;
+  font-weight: 700;
+}
+.fit-note {
+  font-size: 0.9rem;
+  color: var(--color-text-light);
+}
+
+
+/* === Jobs Section === */
+.job-accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.job-acc {
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+}
+.job-acc__head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px;
+    cursor: pointer;
+    background-color: #fff;
+}
+.job-acc__head::-webkit-details-marker { display: none; }
+.job-acc__title { font-size: 1.25rem; font-weight: 700; }
+.job-acc__summary-text { color: var(--color-text-light); display: block; font-size: 0.9rem; }
+.job-acc__tags { display: flex; gap: 8px; }
+.tag {
+    background-color: var(--color-background-soft);
+    padding: 4px 12px;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+.job-acc__body {
+    padding: 0 24px 24px 24px;
+    background-color: #fff;
+    border-top: 1px solid var(--color-border);
+}
+.info-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.info-table th, .info-table td {
+    padding: 16px;
+    text-align: left;
+    border-bottom: 1px solid var(--color-border);
+    vertical-align: top;
+}
+.info-table th {
+    width: 150px;
+    font-weight: 700;
+}
+.btn-row {
+    margin-top: 24px;
+    text-align: right;
+}
+
+
+/* === Benefits & Voices Section === */
+.support-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 64px;
+    align-items: center;
+}
+.benefits-grid {
+    display: grid;
+    gap: 16px;
+    margin-top: 32px;
+}
+.benefit-card {
+    background-color: var(--color-background);
+    padding: 24px;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--color-border);
+}
+.benefit-card__title {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+}
+.voices-content {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+}
+.voice-card {
+    position: relative;
+    padding-left: 60px;
+}
+.voice-card__photo {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    transform: translate(-50%, -20%);
+    border: 4px solid var(--color-background);
+}
+.voice-card__body {
+    background: var(--color-background);
+    padding: 24px;
+    border-radius: var(--border-radius);
+}
+blockquote {
+    margin: 0;
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+cite {
+    display: block;
+    margin-top: 16px;
+    font-style: normal;
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    text-align: right;
+}
+
+/* === Flow & CTA Section === */
+.flow-steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    list-style: none;
+    padding: 0;
+    margin: 48px 0;
+    text-align: center;
+    position: relative;
+}
+.flow-steps::before {
+    content: '';
+    position: absolute;
+    top: 36px;
+    left: calc(16.66% + 16px);
+    right: calc(16.66% + 16px);
+    height: 2px;
+    background-color: var(--color-border);
+    z-index: -1;
+}
+.flow-step__number {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background-color: var(--color-brand);
+    color: white;
+    display: grid;
+    place-items: center;
+    font-size: 2rem;
+    font-weight: 900;
+    margin: 0 auto 24px auto;
+    border: 4px solid var(--color-background);
+}
+.flow-step__title {
+    font-size: 1.25rem;
+}
+.flow-step__text {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+}
+.cta-box {
+    background-color: var(--color-brand);
+    color: white;
+    text-align: center;
+    padding: 64px;
+    border-radius: 24px;
+    margin-top: 80px;
+}
+.cta-box__title {
+    font-size: 2rem;
+    font-weight: 900;
+}
+.cta-box__text {
+    margin: 16px auto 32px auto;
+    max-width: 50ch;
+    opacity: 0.9;
+}
+.cta-box .btn {
+    background-color: var(--color-accent);
+    color: white;
+}
+
+
+/* === Footer === */
+.footer {
+    padding: 48px 0 24px 0;
+    background-color: var(--color-text);
+    color: #f0f0f0;
+}
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 32px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+.footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 800;
+}
+.footer-brand .brand-badge {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+}
+.footer .tel {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+.footer .note {
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+.footer .btn {
+    background-color: var(--color-background);
+    color: var(--color-text);
+}
+.copyright {
+    padding-top: 24px;
+    text-align: center;
+    font-size: 0.8rem;
+    opacity: 0.7;
+}
+
+
+/* === レスポンシブ対応 === */
+@media (max-width: 992px) {
+    .h2-slim { font-size: 2rem; }
+    
+    .hero-grid { grid-template-columns: 1fr; text-align: center; }
+    .hero-visual { justify-content: center; margin-top: 32px; }
+    .hero-image { max-width: 320px; height: 400px; }
+    
+    .workstyle-grid { grid-template-columns: 1fr; }
+    .workstyle-visual { order: -1; } /* 画像を上にする */
+    
+    .fit-grid { grid-template-columns: 1fr; }
+    .fit-gallery { display: none; } /* スマホでは複雑なので非表示に */
+
+    .support-grid { grid-template-columns: 1fr; }
+    .voices-content { margin-top: 64px; }
+}
+
+@media (max-width: 768px) {
+    .section { padding-top: 64px; padding-bottom: 64px; }
+    
+    .nav__list { display: none; } /* 簡単のため非表示。実際にはハンバーガーメニューを実装 */
+    
+    .stats-grid { grid-template-columns: 1fr; }
+    
+    .job-acc__head { flex-direction: column; align-items: flex-start; gap: 12px; }
+    
+    .flow-steps { grid-template-columns: 1fr; gap: 48px; }
+    .flow-steps::before { display: none; }
+    
+    .footer-container { flex-direction: column; text-align: center; }
+}
