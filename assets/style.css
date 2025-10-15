@@ -821,4 +821,24 @@ html.menu-open{ overflow:hidden; }
     }
   }
 
+  .policy-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 24px;
+  }
+  
+  .policy-list li {
+    background: #f8f8f8;
+    border-left: 4px solid var(--brand, #0066cc);
+    padding: 16px 20px;
+    border-radius: 8px;
+  }
+  
+  .policy-list h3 {
+    font-size: 1.1rem;
+    margin-bottom: 6px;
+    color: var(--brand, #0066cc);
+  }
   
