@@ -739,7 +739,7 @@ h2::before {
     width: 100%;
     min-height: 280px;
     aspect-ratio: 4 / 3;
-    background: url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1200&q=80') center/cover no-repeat;
+    background: url('/assets/images/recruit.png') center/cover no-repeat;
     clip-path: polygon(6% 0%, 94% 0%, 100% 50%, 94% 100%, 6% 100%, 0% 50%);
     box-shadow: 0 16px 40px rgba(30, 136, 255, .18);
     border: 0;
