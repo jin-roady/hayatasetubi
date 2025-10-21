@@ -85,17 +85,25 @@
         <div class="fv__scroll" aria-hidden="true">
           <span>Scroll</span><span class="fv__scroll-line"></span>
         </div>
-        <!-- 右サイド飾り -->
-        <aside class="fv__side" aria-label="サイド装飾">
-          <span class="fv__dash" aria-hidden="true"></span>
+       <!-- 右サイド飾り -->
+       <aside class="fv__side" aria-label="サイド装飾">
+        <span class="fv__dash" aria-hidden="true"></span>
 
-          <!-- マスコット画像：パスを環境にあわせて調整 -->
-          <figure class="fv__mascot" aria-describedby="mascot-caption">
-            <img src="assets/images/mascot.png" alt="現場で活躍するマスコット" width="220" height="160"
-              onerror="this.style.opacity='0.3'; this.parentElement.style.outline='2px dashed #f66'; this.parentElement.title='画像を読み込めません（パス要確認）';" />
-            <figcaption id="mascot-caption" class="sr-only">右側のマスコットがメッセージを伝えています。</figcaption>
-          </figure>
-        </aside>
+        <!-- 吹き出し -->
+        <div class="fv__balloon">
+          <p>水まわりのことなら<br>おまかせください！</p>
+        </div>
+
+        <!-- マスコット画像：ハヤタくん -->
+        <figure class="fv__mascot" aria-describedby="mascot-caption">
+          <img src="assets/images/mascot.png" alt="ハヤタくん - 早田設備のマスコットキャラクター" width="220" height="160"
+            onerror="this.style.opacity='0.3'; this.parentElement.style.outline='2px dashed #f66'; this.parentElement.title='画像を読み込めません（パス要確認）';" />
+          <figcaption id="mascot-caption" class="sr-only">ハヤタくんがメッセージを伝えています。</figcaption>
+        </figure>
+
+        <!-- キャラクター名 -->
+        <div class="fv__mascot-name">ハヤタくん</div>
+      </aside>
 
 
         <!-- ページャ -->
@@ -381,6 +389,54 @@
         });
       })();
     </script>
+    <script>
+      // マスコットをFVセクションの直後に出したり、元へ戻したりする
+      (function () {
+        const mq = window.matchMedia('(max-width: 899px)');
+        const fv = document.querySelector('.masthead .fv');
+        const inner = document.querySelector('.masthead .fv .fv__inner');
+        const side = document.querySelector('.masthead .fv .fv__side');
+    
+        if (!fv || !inner || !side) return;
+    
+        // マスコット一時退避先（FVの直後）
+        let slot = document.getElementById('fv-mascot-slot');
+        if (!slot) {
+          slot = document.createElement('div');
+          slot.id = 'fv-mascot-slot';
+          // アクセシビリティ的には装飾だが、ここはそのまま
+          fv.insertAdjacentElement('afterend', slot);
+        }
+    
+        const moveBelow = () => {
+          // FVの直後（slotの中）へ移動
+          slot.appendChild(side);
+          side.classList.add('is-below');
+        };
+    
+        const moveBack = () => {
+          // 元の .fv__inner の末尾へ戻す（右下オーバーレイ）
+          inner.appendChild(side);
+          side.classList.remove('is-below');
+        };
+    
+        const apply = (e) => {
+          if (mq.matches) {
+            moveBelow();
+          } else {
+            moveBack();
+          }
+        };
+    
+        // 初期適用
+        apply();
+    
+        // 画面幅が変わったら切り替え
+        mq.addEventListener ? mq.addEventListener('change', apply) : mq.addListener(apply);
+        window.addEventListener('orientationchange', apply, { passive: true });
+      })();
+    </script>
+    
 </body>
 
 </html>
