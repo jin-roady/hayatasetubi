@@ -6,1882 +6,2784 @@
 
 /* ========= Tokens ========= */
 :root {
-    /* 色設計（明るいブルー系） */
-    --blue-1: #2a9df4;
-    --blue-2: #1e88ff;
-    --blue-3: #1665ff;
-    --blue-4: #0f3fff;
-    --ink: #0e255a;
-    --ink-2: #1349a6;
-    --accent: var(--blue-2);
-    --bg: #f5f9ff;
-    --paper: #ffffff;
-    --muted: #6c7aa3;
+  /* 色設計（明るいブルー系） */
+  --blue-1: #2a9df4;
+  --blue-2: #1e88ff;
+  --blue-3: #1665ff;
+  --blue-4: #0f3fff;
+  --ink: #0e255a;
+  --ink-2: #1349a6;
+  --accent: var(--blue-2);
+  --bg: #f5f9ff;
+  --paper: #ffffff;
+  --muted: #6c7aa3;
 
-    /* エフェクト */
-    --shadow-1: 0 8px 22px rgba(0, 0, 0, .10);
-    --shadow-2: 0 12px 34px rgba(0, 0, 0, .14);
+  /* エフェクト */
+  --shadow-1: 0 8px 22px rgba(0, 0, 0, .10);
+  --shadow-2: 0 12px 34px rgba(0, 0, 0, .14);
 
-    /* RADIUS・ギャップ */
-    --radius: 14px;
-    --gap: clamp(20px, 3.6vw, 48px);
+  /* RADIUS・ギャップ */
+  --radius: 14px;
+  --gap: clamp(20px, 3.6vw, 48px);
 
-    /* HERO位置（PC用） */
-    --hero-inset-x: clamp(40px, 6vw, 120px);
-    --hero-top: clamp(180px, 32vh, 42vh);
-    --hero-width: min(720px, 56vw);
+  /* HERO位置（PC用） */
+  --hero-inset-x: clamp(40px, 6vw, 120px);
+  --hero-top: clamp(180px, 32vh, 42vh);
+  --hero-width: min(720px, 56vw);
 }
 
 /* ========= Reset-lite ========= */
 * {
-    box-sizing: border-box
+  box-sizing: border-box
 }
 
 html,
 body {
-    height: 100%
+  height: 100%
 }
 
 body {
-    margin: 0;
-    font-family: "Hiragino Kaku Gothic ProN", "Noto Sans JP", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "メイリオ", Meiryo, sans-serif;
-    color: var(--ink);
-    background: linear-gradient(180deg, #f5f9ff 0%, #ffffff 70%);
-    -webkit-font-smoothing: antialiased;
-    line-height: 1.75;
+  margin: 0;
+  font-family: "Hiragino Kaku Gothic ProN", "Noto Sans JP", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "メイリオ", Meiryo, sans-serif;
+  color: var(--ink);
+  background: linear-gradient(180deg, #f5f9ff 0%, #ffffff 70%);
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.75;
 }
 
 a {
-    color: inherit
+  color: inherit
 }
 
 a:hover {
-    color: var(--blue-3);
+  color: var(--blue-3);
 }
 
 /* ========= Layout helpers ========= */
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 clamp(16px, 4vw, 32px)
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 clamp(16px, 4vw, 32px)
 }
 
 .section {
-    padding: clamp(40px, 8vh, 96px) 0
+  padding: clamp(40px, 8vh, 96px) 0
 }
 
 /* ========= Buttons ========= */
 .btn {
-    --h: 50px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: .65em;
-    height: var(--h);
-    padding: 0 24px;
-    border-radius: 999px;
-    font-weight: 800;
-    font-size: 15px;
-    text-decoration: none;
-    border: 2px solid transparent;
-    transition: .2s transform, .25s box-shadow, .25s background, .25s color, .25s border-color;
-    box-shadow: var(--shadow-1);
-    will-change: transform, box-shadow
+  --h: 50px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .65em;
+  height: var(--h);
+  padding: 0 24px;
+  border-radius: 999px;
+  font-weight: 800;
+  font-size: 15px;
+  text-decoration: none;
+  border: 2px solid transparent;
+  transition: .2s transform, .25s box-shadow, .25s background, .25s color, .25s border-color;
+  box-shadow: var(--shadow-1);
+  will-change: transform, box-shadow
 }
 
 .btn:active {
-    transform: translateY(1px)
+  transform: translateY(1px)
 }
 
 .btn--primary {
-    color: #fff;
-    background: linear-gradient(135deg, var(--blue-2) 0%, var(--blue-4) 100%);
+  color: #fff;
+  background: linear-gradient(135deg, var(--blue-2) 0%, var(--blue-4) 100%);
 }
 
 .btn--primary:hover {
-    filter: brightness(1.05);
-    box-shadow: 0 12px 34px rgba(30, 136, 255, .22);
+  filter: brightness(1.05);
+  box-shadow: 0 12px 34px rgba(30, 136, 255, .22);
 }
 
 .btn--ghost {
-    background: rgba(255, 255, 255, .85);
-    color: var(--ink-2);
-    border: 2px solid rgba(30, 136, 255, .28);
-    backdrop-filter: blur(4px)
+  background: rgba(255, 255, 255, .85);
+  color: var(--ink-2);
+  border: 2px solid rgba(30, 136, 255, .28);
+  backdrop-filter: blur(4px)
 }
 
 .btn--ghost:hover {
-    background: #fff;
-    border-color: rgba(30, 136, 255, .45);
+  background: #fff;
+  border-color: rgba(30, 136, 255, .45);
 }
 
 /* ========= Topbar (ロゴのみ) ========= */
 .topbar {
-    position: absolute;
-    inset: 0 auto auto 0;
-    height: 72px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    z-index: 10
+  position: absolute;
+  inset: 0 auto auto 0;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 10
 }
 
 .brand--hero .brand-logo {
-    height: 48px;
-    filter: drop-shadow(0 2px 12px rgba(0, 0, 0, .25))
+  height: 48px;
+  filter: drop-shadow(0 2px 12px rgba(0, 0, 0, .25))
 }
 
 /* ========= Burger Menu ========= */
 .nav__toggle {
-    position: fixed;
-    right: clamp(12px, 2vw, 20px);
-    top: clamp(12px, 2vw, 20px);
-    z-index: 10020;
-    width: 56px;
-    height: 56px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, var(--blue-2), var(--blue-3));
-    color: #fff;
-    display: grid;
-    place-items: center;
-    box-shadow: var(--shadow-1);
-    border: 0;
-    cursor: pointer;
+  position: fixed;
+  right: clamp(12px, 2vw, 20px);
+  top: clamp(12px, 2vw, 20px);
+  z-index: 10020;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--blue-2), var(--blue-3));
+  color: #fff;
+  display: grid;
+  place-items: center;
+  box-shadow: var(--shadow-1);
+  border: 0;
+  cursor: pointer;
 }
 
 .burger {
-    position: relative;
-    width: 26px;
-    height: 16px;
-    display: block
+  position: relative;
+  width: 26px;
+  height: 16px;
+  display: block
 }
 
 .burger i {
-    position: absolute;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: #fff;
-    border-radius: 2px;
-    transition: .25s
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #fff;
+  border-radius: 2px;
+  transition: .25s
 }
 
 .burger i:nth-child(1) {
-    top: 0
+  top: 0
 }
 
 .burger i:nth-child(2) {
-    top: 7px
+  top: 7px
 }
 
 .burger i:nth-child(3) {
-    top: 14px
+  top: 14px
 }
 
 details[open] .burger i:nth-child(1) {
-    top: 7px;
-    transform: rotate(45deg)
+  top: 7px;
+  transform: rotate(45deg)
 }
 
 details[open] .burger i:nth-child(2) {
-    opacity: 0
+  opacity: 0
 }
 
 details[open] .burger i:nth-child(3) {
-    top: 7px;
-    transform: rotate(-45deg)
+  top: 7px;
+  transform: rotate(-45deg)
 }
 
 /* パネル */
 .nav__sheet {
-    display: none
+  display: none
 }
 
 details[open] .nav__sheet {
-    display: block;
-    position: fixed;
-    inset: 0;
-    z-index: 10010;
+  display: block;
+  position: fixed;
+  inset: 0;
+  z-index: 10010;
 }
 
 .nav__backdrop {
-    position: absolute;
-    inset: 0;
-    background: rgba(10, 14, 40, .28);
-    backdrop-filter: blur(4px)
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 14, 40, .28);
+  backdrop-filter: blur(4px)
 }
 
 .nav__panel {
-    position: absolute;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    width: min(360px, 86vw);
-    background: var(--paper);
-    padding: 28px 22px;
-    box-shadow: -8px 0 28px rgba(0, 0, 0, .18)
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: min(360px, 86vw);
+  background: var(--paper);
+  padding: 28px 22px;
+  box-shadow: -8px 0 28px rgba(0, 0, 0, .18)
 }
 
 .nav__list {
-    list-style: none;
-    margin: 0;
-    padding: 0
+  list-style: none;
+  margin: 0;
+  padding: 0
 }
 
 .nav__link {
-    display: block;
-    padding: 16px 14px;
-    border-bottom: 1px solid #e7eaf1;
-    text-decoration: none;
-    font-weight: 700
+  display: block;
+  padding: 16px 14px;
+  border-bottom: 1px solid #e7eaf1;
+  text-decoration: none;
+  font-weight: 700
 }
 
 .nav__link:hover {
-    background: #f6f7fb;
-    color: var(--ink-2)
+  background: #f6f7fb;
+  color: var(--ink-2)
 }
 
 .nav__close {
-    position: absolute;
-    top: 12px;
-    right: 12px;
-    width: 42px;
-    height: 42px;
-    border-radius: 50%;
-    border: 0;
-    background: linear-gradient(135deg, var(--blue-2), var(--blue-3));
-    color: #fff;
-    box-shadow: var(--shadow-1)
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 0;
+  background: linear-gradient(135deg, var(--blue-2), var(--blue-3));
+  color: #fff;
+  box-shadow: var(--shadow-1)
 }
 
 /* ========= FV（フルスクリーンスライダー） ========= */
 .fv {
-    position: relative;
-    min-height: 100svh;
-    isolation: isolate;
-    overflow: hidden;
-    background: #f5f9ff;
+  position: relative;
+  min-height: 100svh;
+  isolation: isolate;
+  overflow: hidden;
+  background: #f5f9ff;
 }
 
 .fv__inner {
-    position: relative;
-    width: 100%;
-    min-height: 100svh;
-    margin: 0 auto;
+  position: relative;
+  width: 100%;
+  min-height: 100svh;
+  margin: 0 auto;
 }
 
 /* スライダー */
 .fv-slider {
-    position: absolute;
-    inset: 0;
-    z-index: 1;
+  position: absolute;
+  inset: 0;
+  z-index: 1;
 }
 
 .fv-slides {
-    position: relative;
-    width: 100%;
-    height: 100svh;
+  position: relative;
+  width: 100%;
+  height: 100svh;
 }
 
 .fv-slide {
-    position: absolute;
-    inset: 0;
-    background: center/cover no-repeat;
-    opacity: 0;
-    transform: scale(1.05);
-    transition: opacity 1.2s ease, transform 1.2s ease;
+  position: absolute;
+  inset: 0;
+  background: center/cover no-repeat;
+  opacity: 0;
+  transform: scale(1.05);
+  transition: opacity 1.2s ease, transform 1.2s ease;
 }
 
 .fv-slide.is-active {
-    opacity: 1;
-    transform: scale(1);
+  opacity: 1;
+  transform: scale(1);
 }
 
 .fv-slide.is-active .ken {
-    animation: ken 15s ease-in-out both;
+  animation: ken 15s ease-in-out both;
 }
 
 @keyframes ken {
-    from {
-        transform: scale(1);
-    }
-    to {
-        transform: scale(1.08);
-    }
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(1.08);
+  }
 }
 
 /* コピー（PC） */
 @media (min-width:901px) {
-    .masthead .fv .fv__copy {
-        position: absolute;
-        left: var(--hero-inset-x);
-        top: var(--hero-top);
-        bottom: auto;
-        width: var(--hero-width);
-        transform: none;
-        z-index: 3;
-        isolation: isolate;
-    }
-
-    .masthead .fv .fv__title {
-        margin: 0 0 12px;
-        font-size: clamp(40px, 6vw, 50px);
-        font-weight: 900;
-        line-height: 1.12;
-        word-break: keep-all;
-        letter-spacing: .02em;
-        background: linear-gradient(90deg, var(--blue-2) 0%, #b43a9a 55%, var(--blue-4) 100%);
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
-        text-shadow: 0 3px 22px rgba(0, 0, 0, .10);
-    }
-
-    .masthead .fv .fv__lead {
-        margin: 0 0 18px;
-        font-size: clamp(14px, 1.3vw, 18px);
-        line-height: 1.9;
-        color: rgba(13, 37, 90, .86);
-    }
-
-    .masthead .fv .fv__copy .btn {
-        margin-right: 10px;
-    }
-}
-
-/* コピー（モバイル） */
-@media (max-width: 900px) {
-    .masthead .fv .fv__copy {
-        position: absolute;
-        top: auto;
-        bottom: clamp(6vh, 12vh, 14vh);
-        left: clamp(16px, 5vw, 24px);
-        right: clamp(16px, 5vw, 24px);
-        width: auto;
-        transform: none;
-        text-align: left;
-        z-index: 3;
-    }
-
-    .masthead .fv .fv__title {
-        font-size: clamp(24px, 6vw, 32px);
-        line-height: 1.25;
-        margin-bottom: 10px;
-        background: linear-gradient(90deg, var(--blue-2) 0%, var(--blue-4) 100%);
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
-    }
-
-    .masthead .fv .fv__lead {
-        font-size: clamp(13px, 4vw, 16px);
-        line-height: 1.7;
-        margin-bottom: 18px;
-        color: rgba(13, 37, 90, .9);
-    }
-
-    .masthead .fv .fv__copy .btn {
-        margin-right: 8px;
-    }
-}
-
-/* Scrollインジケータ（PC右端） */
-.fv__scroll {
+  .masthead .fv .fv__copy {
     position: absolute;
-    right: calc(clamp(10px, 1.8vw, 20px) + env(safe-area-inset-right, 0px));
-    top: 44%;
-    transform: translateY(-50%) rotate(90deg);
-    display: flex;
-    gap: 12px;
-    align-items: center;
+    left: var(--hero-inset-x);
+    top: var(--hero-top);
+    bottom: auto;
+    width: var(--hero-width);
+    transform: none;
     z-index: 3;
-    color: rgba(15, 23, 85, .65);
-    font-size: 12px;
-    letter-spacing: .12em;
-    text-transform: uppercase;
-    pointer-events: none;
-    opacity: .9;
-}
-
-.fv__scroll-line {
-    width: clamp(72px, 8vw, 100px);
-    height: 1.5px;
-    background: linear-gradient(90deg, rgba(15, 23, 85, 0) 0%, rgba(15, 23, 85, .55) 100%);
-}
-
-@media (max-width: 1280px) {
-    .fv__scroll {
-        top: 46%;
-    }
-}
-
-@media (max-width: 900px) {
-    .fv__scroll {
-        display: none;
-    }
-}
-
-/* 右側サイド装飾 */
-.fv__side {
-    position: absolute;
-    right: clamp(8px, 1.6vw, 20px);
-    bottom: clamp(10px, 2vh, 24px);
-    width: clamp(110px, 14vw, 220px);
-    display: grid;
-    grid-template-rows: auto auto;
-    align-items: end;
-    justify-items: center;
-    gap: 14px;
-    z-index: 50;
-    pointer-events: none;
-}
-
-.fv__dash {
-    position: absolute;
-    right: 50%;
-    bottom: calc(100% + 6px);
-    width: 2px;
-    height: 74%;
-    background: repeating-linear-gradient(to bottom, rgba(19, 73, 166, .95) 0 18px, transparent 18px 36px);
-    transform: translateX(50%);
-    opacity: .75;
-}
-
-.fv__balloon {
-    position: relative;
-    width: clamp(120px, 16vw, 200px);
-    background: #fff;
-    border: 3px solid rgba(19, 73, 166, .85);
-    border-radius: 18px;
-    box-shadow: var(--shadow-1);
-    padding: 12px 14px;
-    pointer-events: auto;
-    transform: translateY(-2px);
-}
-
-.fv__balloon p {
-    margin: 0;
-    text-align: center;
-    color: var(--ink-2);
-    font-weight: 800;
-    line-height: 1.24;
-    font-size: clamp(12px, 1.7vw, 16px);
-}
-
-.fv__balloon::after {
-    content: "";
-    position: absolute;
-    right: 18%;
-    bottom: -14px;
-    width: 22px;
-    height: 22px;
-    background: #fff;
-    border-right: 3px solid rgba(19, 73, 166, .85);
-    border-bottom: 3px solid rgba(19, 73, 166, .85);
-    transform: rotate(45deg);
-    border-radius: 4px;
-}
-
-.fv__mascot {
-    background: none;
-    box-shadow: none;
-    border: none;
-    width: auto;
-    height: auto;
-    padding: 0;
-    margin: 0;
-    display: grid;
-    place-items: center;
-    overflow: visible;
-}
-
-.fv__mascot img {
-    display: block;
-    width: clamp(180px, 22vw, 320px);
-    height: auto;
-    max-width: 100%;
-    object-fit: contain;
-    background: transparent;
-}
-
-@media (max-width: 1280px) {
-    .fv__side {
-        right: clamp(6px, 2vw, 16px);
-    }
-
-    .fv__balloon {
-        width: clamp(120px, 18vw, 180px);
-    }
-}
-
-@media (max-width: 900px) {
-    .fv__mascot img {
-        width: clamp(140px, 46vw, 200px);
-    }
-}
-
-/* ページャ */
-.fv-pager {
-    position: absolute;
-    left: clamp(22px, 6vw, 120px);
-    bottom: clamp(14px, 4vh, 28px);
-    display: flex;
-    gap: 8px;
-    z-index: 3;
-}
-
-.fv-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: rgba(15, 23, 85, .25);
-    border: 0;
-    cursor: pointer;
-}
-
-.fv-dot.is-active {
-    background: linear-gradient(90deg, var(--blue-2), var(--blue-4));
-}
-
-.fv-badge {
-    position: absolute;
-    right: clamp(14px, 2vw, 24px);
-    bottom: clamp(14px, 3vh, 24px);
-    z-index: 4;
-    background: rgba(0, 0, 0, .45);
-    color: #fff;
-    padding: 6px 10px;
-    border-radius: 10px;
-    font-size: 12px;
-    backdrop-filter: blur(4px);
-    user-select: none;
-    opacity: 0;
-    transition: .2s;
-}
-
-.fv.is-paused .fv-badge {
-    opacity: 1;
-}
-
-/* ========= 見出し（旗アイコン） ========= */
-h2 {
-    position: relative;
-    margin: 0 0 16px;
-    font-size: clamp(22px, 3.2vw, 28px);
-    font-weight: 900;
-    color: var(--ink);
-}
-
-h2::before {
-    content: "";
-    display: inline-block;
-    vertical-align: middle;
-    margin-right: 10px;
-    width: 14px;
-    height: 10px;
-    background: linear-gradient(135deg, var(--blue-2), var(--blue-4));
-    clip-path: polygon(0 0, 100% 0, 70% 50%, 100% 100%, 0 100%);
-    border-radius: 2px;
-}
-
-/* ========= Hexカード風の共通マスク ========= */
-.hex-mask,
-.about-grid .ph,
-.works-grid .ph {
-    clip-path: polygon(6% 0%, 94% 0%, 100% 50%, 94% 100%, 6% 100%, 0% 50%);
-    overflow: hidden;
-    border-radius: 0;
-    box-shadow: 0 12px 32px rgba(22, 101, 255, .16);
-    background: #e9eef7;
-}
-
-/* ========= About / Works ========= */
-.about-grid,
-.works-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--gap);
-    align-items: center;
-}
-
-.about-grid .ph {
-    position: relative;
-    z-index: 1;
-    background: url('/assets/images/about-1.jpg') center/cover no-repeat;
-    min-height: 320px;
-}
-
-.works-grid .ph {
-    background: url('/assets/images/about-2.jpg') center/cover no-repeat;
-    min-height: 320px;
-}
-
-.about-grid p,
-.works-grid p {
-    color: var(--muted);
-}
-
-@media (max-width:900px) {
-    .about-grid,
-    .works-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-/* ========= サービス ========= */
-.svc-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: clamp(14px, 2.2vw, 22px);
-}
-
-.svc {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    text-decoration: none;
-    color: var(--ink);
-    padding: 26px 18px;
-    background: var(--paper);
-    border: 0;
-    border-radius: var(--radius);
-    box-shadow: var(--shadow-1);
-    position: relative;
-    overflow: hidden;
-    transition: .25s;
-}
-
-.svc::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    height: 3px;
-    background: linear-gradient(90deg, var(--blue-2), var(--blue-3));
-    transform: translateX(-100%);
-    transition: .35s ease;
-}
-
-.svc:hover::before {
-    transform: translateX(0);
-}
-
-.svc:hover {
-    box-shadow: var(--shadow-2);
-    transform: translateY(-2px);
-}
-
-.ico {
-    width: 64px;
-    height: 64px;
-    border-radius: 16px;
-    display: grid;
-    place-items: center;
-    color: #fff;
-    font-weight: 900;
-    margin-bottom: 10px;
-    background: linear-gradient(135deg, var(--blue-2), var(--blue-4));
-}
-
-/* ========= News ========= */
-.news-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: clamp(14px, 2.2vw, 22px);
-}
-
-.news {
-    background: var(--paper);
-    box-shadow: var(--shadow-1);
-    border-radius: var(--radius);
-    overflow: hidden;
-    cursor: pointer;
-    transition: .25s;
-}
-
-.news:hover {
-    box-shadow: var(--shadow-2);
-    transform: translateY(-2px);
-}
-
-.news .thumb {
-    aspect-ratio: 16/9;
-    background: url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=1200&q=80') center/cover no-repeat;
-}
-
-.news time {
-    display: block;
-    padding: 14px 16px 6px;
-    font-weight: 800;
-    color: var(--blue-3);
-}
-
-.news h3 {
-    padding: 0 16px 18px;
-    margin: 0;
-}
-
-/* ========= Recruit ========= */
-.recruit {
-    display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
-    gap: clamp(20px, 4vw, 48px);
-    align-items: center;
-    background: linear-gradient(135deg, rgba(30, 136, 255, .07), rgba(22, 101, 255, .07));
-    border-radius: var(--radius);
-    box-shadow: var(--shadow-1);
-    padding: clamp(28px, 5vw, 48px);
-}
-
-.recruit .ph {
-    width: 100%;
-    min-height: 280px;
-    aspect-ratio: 4 / 3;
-    background: url('/assets/images/recruit.png') center/cover no-repeat;
-    clip-path: polygon(6% 0%, 94% 0%, 100% 50%, 94% 100%, 6% 100%, 0% 50%);
-    box-shadow: 0 16px 40px rgba(30, 136, 255, .18);
-    border: 0;
-}
-
-.recruit h2 {
-    margin-bottom: 12px;
-}
-
-.recruit .note {
-    margin-bottom: 18px;
-    line-height: 1.9;
-}
-
-@media (max-width: 900px) {
-    .recruit {
-        grid-template-columns: 1fr;
-    }
-
-    .recruit .ph {
-        min-height: 220px;
-    }
-}
-
-/* ========= Footer ========= */
-.footer {
-    background: linear-gradient(180deg, #f0f6ff 0%, #eaf2ff 100%);
-    margin-top: clamp(40px, 8vh, 80px);
-    padding: clamp(36px, 6vw, 56px) 0 28px;
-}
-
-.footer-nav {
-    display: flex;
-    gap: clamp(12px, 2vw, 24px);
-    flex-wrap: wrap;
-    margin: 0 0 24px;
-}
-
-.footer-nav a {
-    font-weight: 700;
-    text-decoration: none;
-}
-
-.foot-flex {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 22px;
-    align-items: center;
-    padding-bottom: 22px;
-    border-bottom: 1px solid #dfe5ef;
-}
-
-.tel {
-    font-size: clamp(22px, 3.2vw, 30px);
-    font-weight: 900;
-    color: var(--blue-3);
-}
-
-@media (max-width:768px) {
-    .foot-flex {
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
-}
-
-/* ========= 細かな文字色 ========= */
-.note {
-    color: var(--muted);
-}
-
-/* ========= アクセシビリティ：スクリーンリーダー用 ========= */
-.sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
-}
-
-/* ========= ユーティリティ ========= */
-.br-md,
-.br-sm {
-    display: none;
-}
-
-@media (max-width:1100px) {
-    .br-md {
-        display: block;
-    }
-}
-
-@media (max-width:560px) {
-    .br-sm {
-        display: block;
-    }
-}
-
-/* ========= FV（フルスクリーンスライダー） ========= */
-.fv {
-    position: relative;
-    min-height: 100svh;
     isolation: isolate;
-    overflow: hidden;
-    background: #f5f9ff;
-}
+  }
 
-.fv__inner {
-    position: relative;
-    width: 100%;
-    min-height: 100svh;
-    margin: 0 auto;
-}
-
-/* 左右の白い面取り - 非表示 */
-.fv__deco {
-    display: none;
-}
-
-/* スライダー */
-.fv-slider {
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-}
-
-.fv-slides {
-    position: relative;
-    width: 100%;
-    height: 100svh;
-}
-
-.fv-slide {
-    position: absolute;
-    inset: 0;
-    background: center/cover no-repeat;
-    opacity: 0;
-    transform: scale(1.05);
-    transition: opacity 1.2s ease, transform 1.2s ease;
-}
-
-.fv-slide.is-active {
-    opacity: 1;
-    transform: scale(1);
-}
-
-.fv-slide.is-active .ken {
-    animation: ken 15s ease-in-out both;
-}
-
-@keyframes ken {
-    from {
-        transform: scale(1);
-    }
-    to {
-        transform: scale(1.08);
-    }
-}
-
-.masthead .fv .fv__title {
+  .masthead .fv .fv__title {
     margin: 0 0 12px;
     font-size: clamp(40px, 6vw, 50px);
     font-weight: 900;
     line-height: 1.12;
     word-break: keep-all;
     letter-spacing: .02em;
-    background: linear-gradient(90deg, var(--blue-2) 0%, var(--blue-3) 100%);
+    background: linear-gradient(90deg, var(--blue-2) 0%, #b43a9a 55%, var(--blue-4) 100%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
     text-shadow: 0 3px 22px rgba(0, 0, 0, .10);
+  }
+
+  .masthead .fv .fv__lead {
+    margin: 0 0 18px;
+    font-size: clamp(14px, 1.3vw, 18px);
+    line-height: 1.9;
+    color: rgba(13, 37, 90, .86);
+  }
+
+  .masthead .fv .fv__copy .btn {
+    margin-right: 10px;
+  }
 }
 
-.masthead .fv .fv__copy {
+/* コピー（モバイル） */
+@media (max-width: 900px) {
+  .masthead .fv .fv__copy {
     position: absolute;
-    left: var(--hero-inset-x);
-    top: calc(var(--hero-top) + 60px); /* ← ここを変更 */
-    bottom: auto;
-    width: var(--hero-width);
+    top: auto;
+    bottom: clamp(6vh, 12vh, 14vh);
+    left: clamp(16px, 5vw, 24px);
+    right: clamp(16px, 5vw, 24px);
+    width: auto;
     transform: none;
+    text-align: left;
     z-index: 3;
-    isolation: isolate;
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(2px);
-    padding: clamp(24px, 3vw, 36px);
-    border-radius: var(--radius);
-    box-shadow: none;
+  }
+
+  .masthead .fv .fv__title {
+    font-size: clamp(24px, 6vw, 32px);
+    line-height: 1.25;
+    margin-bottom: 10px;
+    background: linear-gradient(90deg, var(--blue-2) 0%, var(--blue-4) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .masthead .fv .fv__lead {
+    font-size: clamp(13px, 4vw, 16px);
+    line-height: 1.7;
+    margin-bottom: 18px;
+    color: rgba(13, 37, 90, .9);
+  }
+
+  .masthead .fv .fv__copy .btn {
+    margin-right: 8px;
+  }
+}
+
+/* Scrollインジケータ（PC右端） */
+.fv__scroll {
+  position: absolute;
+  right: calc(clamp(10px, 1.8vw, 20px) + env(safe-area-inset-right, 0px));
+  top: 44%;
+  transform: translateY(-50%) rotate(90deg);
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  z-index: 3;
+  color: rgba(15, 23, 85, .65);
+  font-size: 12px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  pointer-events: none;
+  opacity: .9;
+}
+
+.fv__scroll-line {
+  width: clamp(72px, 8vw, 100px);
+  height: 1.5px;
+  background: linear-gradient(90deg, rgba(15, 23, 85, 0) 0%, rgba(15, 23, 85, .55) 100%);
+}
+
+@media (max-width: 1280px) {
+  .fv__scroll {
+    top: 46%;
+  }
+}
+
+@media (max-width: 900px) {
+  .fv__scroll {
+    display: none;
+  }
 }
 
 /* 右側サイド装飾 */
 .fv__side {
-    position: absolute;
-    right: clamp(12px, 2vw, 32px);
-    bottom: clamp(20px, 4vh, 40px);
-    width: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 16px;
-    z-index: 50;
-    pointer-events: none;
+  position: absolute;
+  right: clamp(8px, 1.6vw, 20px);
+  bottom: clamp(10px, 2vh, 24px);
+  width: clamp(110px, 14vw, 220px);
+  display: grid;
+  grid-template-rows: auto auto;
+  align-items: end;
+  justify-items: center;
+  gap: 14px;
+  z-index: 50;
+  pointer-events: none;
 }
 
 .fv__dash {
-    position: absolute;
-    right: 50%;
-    top: -90px;
-    width: 2px;
-    height: 80px;
-    background: repeating-linear-gradient(to bottom, rgba(19, 73, 166, .95) 0 18px, transparent 18px 36px);
-    transform: translateX(50%);
-    opacity: .75;
+  position: absolute;
+  right: 50%;
+  bottom: calc(100% + 6px);
+  width: 2px;
+  height: 74%;
+  background: repeating-linear-gradient(to bottom, rgba(19, 73, 166, .95) 0 18px, transparent 18px 36px);
+  transform: translateX(50%);
+  opacity: .75;
 }
 
 .fv__balloon {
-    position: relative;
-    width: clamp(160px, 18vw, 220px);
-    background: #fff;
-    border: 3px solid rgba(19, 73, 166, .85);
-    border-radius: 18px;
-    box-shadow: var(--shadow-1);
-    padding: 14px 16px;
-    pointer-events: auto;
-    order: 1;
+  position: relative;
+  width: clamp(120px, 16vw, 200px);
+  background: #fff;
+  border: 3px solid rgba(19, 73, 166, .85);
+  border-radius: 18px;
+  box-shadow: var(--shadow-1);
+  padding: 12px 14px;
+  pointer-events: auto;
+  transform: translateY(-2px);
 }
 
 .fv__balloon p {
-    margin: 0;
-    text-align: center;
-    color: var(--ink-2);
-    font-weight: 800;
-    line-height: 1.4;
-    font-size: clamp(13px, 1.5vw, 16px);
+  margin: 0;
+  text-align: center;
+  color: var(--ink-2);
+  font-weight: 800;
+  line-height: 1.24;
+  font-size: clamp(12px, 1.7vw, 16px);
 }
 
 .fv__balloon::after {
-    content: "";
-    position: absolute;
-    left: 50%;
-    bottom: -14px;
-    width: 22px;
-    height: 22px;
-    background: #fff;
-    border-right: 3px solid rgba(19, 73, 166, .85);
-    border-bottom: 3px solid rgba(19, 73, 166, .85);
-    transform: translateX(-50%) rotate(45deg);
-    border-radius: 4px;
+  content: "";
+  position: absolute;
+  right: 18%;
+  bottom: -14px;
+  width: 22px;
+  height: 22px;
+  background: #fff;
+  border-right: 3px solid rgba(19, 73, 166, .85);
+  border-bottom: 3px solid rgba(19, 73, 166, .85);
+  transform: rotate(45deg);
+  border-radius: 4px;
+}
+
+.fv__mascot {
+  background: none;
+  box-shadow: none;
+  border: none;
+  width: auto;
+  height: auto;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  place-items: center;
+  overflow: visible;
+}
+
+.fv__mascot img {
+  display: block;
+  width: clamp(180px, 22vw, 320px);
+  height: auto;
+  max-width: 100%;
+  object-fit: contain;
+  background: transparent;
+}
+
+@media (max-width: 1280px) {
+  .fv__side {
+    right: clamp(6px, 2vw, 16px);
+  }
+
+  .fv__balloon {
+    width: clamp(120px, 18vw, 180px);
+  }
+}
+
+@media (max-width: 900px) {
+  .fv__mascot img {
+    width: clamp(140px, 46vw, 200px);
+  }
+}
+
+/* ページャ */
+.fv-pager {
+  position: absolute;
+  left: clamp(22px, 6vw, 120px);
+  bottom: clamp(14px, 4vh, 28px);
+  display: flex;
+  gap: 8px;
+  z-index: 3;
+}
+
+.fv-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(15, 23, 85, .25);
+  border: 0;
+  cursor: pointer;
+}
+
+.fv-dot.is-active {
+  background: linear-gradient(90deg, var(--blue-2), var(--blue-4));
+}
+
+.fv-badge {
+  position: absolute;
+  right: clamp(14px, 2vw, 24px);
+  bottom: clamp(14px, 3vh, 24px);
+  z-index: 4;
+  background: rgba(0, 0, 0, .45);
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 10px;
+  font-size: 12px;
+  backdrop-filter: blur(4px);
+  user-select: none;
+  opacity: 0;
+  transition: .2s;
+}
+
+.fv.is-paused .fv-badge {
+  opacity: 1;
+}
+
+/* ========= 見出し（旗アイコン） ========= */
+h2 {
+  position: relative;
+  margin: 0 0 16px;
+  font-size: clamp(22px, 3.2vw, 28px);
+  font-weight: 900;
+  color: var(--ink);
+}
+
+h2::before {
+  content: "";
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 10px;
+  width: 14px;
+  height: 10px;
+  background: linear-gradient(135deg, var(--blue-2), var(--blue-4));
+  clip-path: polygon(0 0, 100% 0, 70% 50%, 100% 100%, 0 100%);
+  border-radius: 2px;
+}
+
+/* ========= Hexカード風の共通マスク ========= */
+.hex-mask,
+.about-grid .ph,
+.works-grid .ph {
+  clip-path: polygon(6% 0%, 94% 0%, 100% 50%, 94% 100%, 6% 100%, 0% 50%);
+  overflow: hidden;
+  border-radius: 0;
+  box-shadow: 0 12px 32px rgba(22, 101, 255, .16);
+  background: #e9eef7;
+}
+
+/* ========= About / Works ========= */
+.about-grid,
+.works-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--gap);
+  align-items: center;
+}
+
+.about-grid .ph {
+  position: relative;
+  z-index: 1;
+  background: url('/assets/images/about-1.jpg') center/cover no-repeat;
+}
+
+.works-grid .ph {
+  background: url('/assets/images/about-2.jpg') center/cover no-repeat;
+}
+
+.about-grid p,
+.works-grid p {
+  color: var(--muted);
+}
+
+@media (max-width:900px) {
+
+  .about-grid,
+  .works-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ========= サービス ========= */
+.svc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: clamp(14px, 2.2vw, 22px);
+}
+
+.svc {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  text-decoration: none;
+  color: var(--ink);
+  padding: 26px 18px;
+  background: var(--paper);
+  border: 0;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-1);
+  position: relative;
+  overflow: hidden;
+  transition: .25s;
+}
+
+.svc::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--blue-2), var(--blue-3));
+  transform: translateX(-100%);
+  transition: .35s ease;
+}
+
+.svc:hover::before {
+  transform: translateX(0);
+}
+
+.svc:hover {
+  box-shadow: var(--shadow-2);
+  transform: translateY(-2px);
+}
+
+.ico {
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  font-weight: 900;
+  margin-bottom: 10px;
+  background: linear-gradient(135deg, var(--blue-2), var(--blue-4));
+}
+
+/* ========= News ========= */
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: clamp(14px, 2.2vw, 22px);
+}
+
+.news {
+  background: var(--paper);
+  box-shadow: var(--shadow-1);
+  border-radius: var(--radius);
+  overflow: hidden;
+  cursor: pointer;
+  transition: .25s;
+}
+
+.news:hover {
+  box-shadow: var(--shadow-2);
+  transform: translateY(-2px);
+}
+
+.news .thumb {
+  aspect-ratio: 16/9;
+  background: url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=1200&q=80') center/cover no-repeat;
+}
+
+.news time {
+  display: block;
+  padding: 14px 16px 6px;
+  font-weight: 800;
+  color: var(--blue-3);
+}
+
+.news h3 {
+  padding: 0 16px 18px;
+  margin: 0;
+}
+
+/* ========= Recruit ========= */
+.recruit {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: clamp(20px, 4vw, 48px);
+  align-items: center;
+  background: linear-gradient(135deg, rgba(30, 136, 255, .07), rgba(22, 101, 255, .07));
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-1);
+  padding: clamp(28px, 5vw, 48px);
+}
+
+.recruit .ph {
+  width: 100%;
+  min-height: 280px;
+  aspect-ratio: 4 / 3;
+  background: url('/assets/images/recruit.png') center/cover no-repeat;
+  clip-path: polygon(6% 0%, 94% 0%, 100% 50%, 94% 100%, 6% 100%, 0% 50%);
+  box-shadow: 0 16px 40px rgba(30, 136, 255, .18);
+  border: 0;
+}
+
+.recruit h2 {
+  margin-bottom: 12px;
+}
+
+.recruit .note {
+  margin-bottom: 18px;
+  line-height: 1.9;
+}
+
+@media (max-width: 900px) {
+  .recruit {
+    grid-template-columns: 1fr;
+  }
+
+  .recruit .ph {
+    min-height: 220px;
+  }
+}
+
+/* ========= Footer ========= */
+.footer {
+  background: linear-gradient(180deg, #f0f6ff 0%, #eaf2ff 100%);
+  margin-top: clamp(40px, 8vh, 80px);
+  padding: clamp(36px, 6vw, 56px) 0 28px;
+}
+
+.footer-nav {
+  display: flex;
+  gap: clamp(12px, 2vw, 24px);
+  flex-wrap: wrap;
+  margin: 0 0 24px;
+}
+
+.footer-nav a {
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.foot-flex {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 22px;
+  align-items: center;
+  padding-bottom: 22px;
+  border-bottom: 1px solid #dfe5ef;
+}
+
+.tel {
+  font-size: clamp(22px, 3.2vw, 30px);
+  font-weight: 900;
+  color: var(--blue-3);
+}
+
+@media (max-width:768px) {
+  .foot-flex {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+}
+
+/* ========= 細かな文字色 ========= */
+.note {
+  color: var(--muted);
+}
+
+/* ========= アクセシビリティ：スクリーンリーダー用 ========= */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ========= ユーティリティ ========= */
+.br-md,
+.br-sm {
+  display: none;
+}
+
+@media (max-width:1100px) {
+  .br-md {
+    display: block;
+  }
+}
+
+@media (max-width:560px) {
+  .br-sm {
+    display: block;
+  }
+}
+
+/* ========= FV（フルスクリーンスライダー） ========= */
+.fv {
+  position: relative;
+  min-height: 100svh;
+  isolation: isolate;
+  overflow: hidden;
+  background: #f5f9ff;
+}
+
+.fv__inner {
+  position: relative;
+  width: 100%;
+  min-height: 100svh;
+  margin: 0 auto;
+}
+
+/* 左右の白い面取り - 非表示 */
+.fv__deco {
+  display: none;
+}
+
+/* スライダー */
+.fv-slider {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.fv-slides {
+  position: relative;
+  width: 100%;
+  height: 100svh;
+}
+
+.fv-slide {
+  position: absolute;
+  inset: 0;
+  background: center/cover no-repeat;
+  opacity: 0;
+  transform: scale(1.05);
+  transition: opacity 1.2s ease, transform 1.2s ease;
+}
+
+.fv-slide.is-active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.fv-slide.is-active .ken {
+  animation: ken 15s ease-in-out both;
+}
+
+@keyframes ken {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(1.08);
+  }
+}
+
+.masthead .fv .fv__title {
+  margin: 0 0 12px;
+  font-size: clamp(40px, 6vw, 50px);
+  font-weight: 900;
+  line-height: 1.12;
+  word-break: keep-all;
+  letter-spacing: .02em;
+  background: linear-gradient(90deg, var(--blue-2) 0%, var(--blue-3) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 3px 22px rgba(0, 0, 0, .10);
+}
+
+.masthead .fv .fv__copy {
+  position: absolute;
+  left: var(--hero-inset-x);
+  top: calc(var(--hero-top) + 60px);
+  /* ← ここを変更 */
+  bottom: auto;
+  width: var(--hero-width);
+  transform: none;
+  z-index: 3;
+  isolation: isolate;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(2px);
+  padding: clamp(24px, 3vw, 36px);
+  border-radius: var(--radius);
+  box-shadow: none;
+}
+
+/* 右側サイド装飾 */
+.fv__side {
+  position: absolute;
+  right: clamp(12px, 2vw, 32px);
+  bottom: clamp(20px, 4vh, 40px);
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  z-index: 50;
+  pointer-events: none;
+}
+
+.fv__dash {
+  position: absolute;
+  right: 50%;
+  top: -90px;
+  width: 2px;
+  height: 80px;
+  background: repeating-linear-gradient(to bottom, rgba(19, 73, 166, .95) 0 18px, transparent 18px 36px);
+  transform: translateX(50%);
+  opacity: .75;
+}
+
+.fv__balloon {
+  position: relative;
+  width: clamp(160px, 18vw, 220px);
+  background: #fff;
+  border: 3px solid rgba(19, 73, 166, .85);
+  border-radius: 18px;
+  box-shadow: var(--shadow-1);
+  padding: 14px 16px;
+  pointer-events: auto;
+  order: 1;
+}
+
+.fv__balloon p {
+  margin: 0;
+  text-align: center;
+  color: var(--ink-2);
+  font-weight: 800;
+  line-height: 1.4;
+  font-size: clamp(13px, 1.5vw, 16px);
+}
+
+.fv__balloon::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -14px;
+  width: 22px;
+  height: 22px;
+  background: #fff;
+  border-right: 3px solid rgba(19, 73, 166, .85);
+  border-bottom: 3px solid rgba(19, 73, 166, .85);
+  transform: translateX(-50%) rotate(45deg);
+  border-radius: 4px;
 }
 
 /* === Mascot balloon & name layout override === */
 /* 縦並び：吹き出し → マスコット → キャラ名 */
-.fv__side{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    gap:12px;              /* 要素間の余白 */
+.fv__side {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  /* 要素間の余白 */
+}
+
+/* 吹き出しを最上段にして上配置（既に上なら念のため順序指定） */
+.fv__balloon {
+  order: 1;
+  margin-bottom: 6px;
+  /* 風船と頭の間 */
+}
+
+/* マスコット本体を2段目 */
+.fv__mascot {
+  order: 2;
+}
+
+/* キャラクター名を3段目（白文字＋視認性アップ） */
+.fv__mascot-name {
+  order: 3;
+  margin-top: 4px;
+  font-weight: 900;
+  font-size: clamp(12px, 1.8vw, 14px);
+  color: #fff;
+  /* ← 白文字 */
+  text-shadow: 0 2px 8px rgba(0, 0, 0, .45);
+  /* 背景に乗っても読めるように */
+}
+
+/* 吹き出しの三角（尾）は下向きセンターでマスコットに向ける */
+.fv__balloon::after {
+  left: 50%;
+  right: auto;
+  bottom: -14px;
+  transform: translateX(-50%) rotate(45deg);
+}
+
+/* モバイルで少し詰める */
+@media (max-width: 900px) {
+  .fv__side {
+    gap: 10px;
   }
-  
-  /* 吹き出しを最上段にして上配置（既に上なら念のため順序指定） */
-  .fv__balloon{
-    order:1;
-    margin-bottom:6px;     /* 風船と頭の間 */
+
+  .fv__balloon {
+    width: clamp(140px, 58vw, 220px);
   }
-  
-  /* マスコット本体を2段目 */
-  .fv__mascot{
-    order:2;
+
+  .fv__mascot img {
+    width: clamp(140px, 46vw, 200px);
   }
-  
-  /* キャラクター名を3段目（白文字＋視認性アップ） */
-  .fv__mascot-name{
-    order:3;
-    margin-top:4px;
-    font-weight:900;
-    font-size:clamp(12px,1.8vw,14px);
-    color:#fff;                     /* ← 白文字 */
-    text-shadow:0 2px 8px rgba(0,0,0,.45); /* 背景に乗っても読めるように */
-  }
-  
-  /* 吹き出しの三角（尾）は下向きセンターでマスコットに向ける */
-  .fv__balloon::after{
-    left:50%;
-    right:auto;
-    bottom:-14px;
-    transform:translateX(-50%) rotate(45deg);
-  }
-  
-  /* モバイルで少し詰める */
-  @media (max-width: 900px){
-    .fv__side{ gap:10px; }
-    .fv__balloon{ width:clamp(140px,58vw,220px); }
-    .fv__mascot img{ width:clamp(140px,46vw,200px); }
-  }
+}
+
 /* === Mascot & balloon: size down + avoid overlap with side deco === */
 
 /* サイド全体を少し内側＆上に寄せる（装飾と離す） */
-.fv__side{
-    right: clamp(22px, 3.6vw, 48px);   /* 右端からさらに内側へ */
-    bottom: clamp(26px, 4.6vh, 52px);  /* 下端から少し上げる */
-    gap: 10px;                         /* 余白をやや詰める */
+.fv__side {
+  right: clamp(22px, 3.6vw, 48px);
+  /* 右端からさらに内側へ */
+  bottom: clamp(26px, 4.6vh, 52px);
+  /* 下端から少し上げる */
+  gap: 10px;
+  /* 余白をやや詰める */
+}
+
+/* 風船をひと回り小さく */
+.fv__balloon {
+  width: clamp(120px, 14vw, 180px);
+  /* 120-180pxの範囲で縮小 */
+  padding: 10px 12px;
+}
+
+.fv__balloon p {
+  font-size: clamp(11px, 1.4vw, 14px);
+  line-height: 1.3;
+}
+
+/* 吹き出しの尾：中央下でマスコットに向ける（位置微調整） */
+.fv__balloon::after {
+  bottom: -12px;
+  /* 尾の出幅を少し短く */
+  right: auto;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+}
+
+/* マスコットを少し小さく */
+.fv__mascot img {
+  width: clamp(150px, 18vw, 240px);
+  /* 150-240pxに縮小レンジ */
+}
+
+/* キャラ名は小さめ＋読みやすさ維持（白のまま） */
+.fv__mascot-name {
+  font-size: clamp(11px, 1.6vw, 13px);
+  margin-top: 2px;
+  color: #fff;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, .45);
+}
+
+/* 縦の破線デコ（fv__dash）と干渉しないよう少しだけ上に逃がす */
+.fv__dash {
+  top: -110px;
+  /* 既存よりさらに上へオフセット */
+  height: 70px;
+  /* 長さを短くして重なりを回避 */
+  opacity: .7;
+}
+
+/* ==== Responsive fine-tune ==== */
+@media (max-width: 1280px) {
+  .fv__side {
+    right: clamp(18px, 3vw, 34px);
+    bottom: clamp(22px, 4vh, 40px);
   }
-  
-  /* 風船をひと回り小さく */
-  .fv__balloon{
-    width: clamp(120px, 14vw, 180px);  /* 120-180pxの範囲で縮小 */
-    padding: 10px 12px;
+
+  .fv__balloon {
+    width: clamp(120px, 16vw, 170px);
   }
-  .fv__balloon p{
-    font-size: clamp(11px, 1.4vw, 14px);
-    line-height: 1.3;
+
+  .fv__mascot img {
+    width: clamp(140px, 22vw, 210px);
   }
-  /* 吹き出しの尾：中央下でマスコットに向ける（位置微調整） */
-  .fv__balloon::after{
-    bottom: -12px;                     /* 尾の出幅を少し短く */
-    right: auto; left: 50%;
-    transform: translateX(-50%) rotate(45deg);
+
+  .fv__dash {
+    top: -100px;
+    height: 64px;
   }
-  
-  /* マスコットを少し小さく */
-  .fv__mascot img{
-    width: clamp(150px, 18vw, 240px);  /* 150-240pxに縮小レンジ */
+}
+
+@media (max-width: 900px) {
+
+  /* モバイルはさらに一段階コンパクトに */
+  .fv__side {
+    right: clamp(14px, 5vw, 24px);
+    bottom: clamp(20px, 8vh, 36px);
+    gap: 8px;
   }
-  
-  /* キャラ名は小さめ＋読みやすさ維持（白のまま） */
-  .fv__mascot-name{
-    font-size: clamp(11px, 1.6vw, 13px);
-    margin-top: 2px;
-    color: #fff;
-    text-shadow: 0 2px 8px rgba(0,0,0,.45);
+
+  .fv__balloon {
+    width: clamp(130px, 54vw, 180px);
+    padding: 9px 11px;
   }
-  
-  /* 縦の破線デコ（fv__dash）と干渉しないよう少しだけ上に逃がす */
-  .fv__dash{
-    top: -110px;        /* 既存よりさらに上へオフセット */
-    height: 70px;       /* 長さを短くして重なりを回避 */
-    opacity: .7;
+
+  .fv__balloon p {
+    font-size: clamp(12px, 3.6vw, 13px);
   }
-  
-  /* ==== Responsive fine-tune ==== */
-  @media (max-width: 1280px){
-    .fv__side{ right: clamp(18px, 3vw, 34px); bottom: clamp(22px, 4vh, 40px); }
-    .fv__balloon{ width: clamp(120px, 16vw, 170px); }
-    .fv__mascot img{ width: clamp(140px, 22vw, 210px); }
-    .fv__dash{ top: -100px; height: 64px; }
+
+  .fv__mascot img {
+    width: clamp(130px, 42vw, 190px);
   }
-  
-  @media (max-width: 900px){
-    /* モバイルはさらに一段階コンパクトに */
-    .fv__side{ right: clamp(14px, 5vw, 24px); bottom: clamp(20px, 8vh, 36px); gap: 8px; }
-    .fv__balloon{ width: clamp(130px, 54vw, 180px); padding: 9px 11px; }
-    .fv__balloon p{ font-size: clamp(12px, 3.6vw, 13px); }
-    .fv__mascot img{ width: clamp(130px, 42vw, 190px); }
-    .fv__dash{ top: -90px; height: 56px; }
+
+  .fv__dash {
+    top: -90px;
+    height: 56px;
   }
+}
+
 /* === Mascot area refinement: unified compact spacing === */
 .fv__side {
-    right: clamp(20px, 3vw, 40px);   /* 少し内側に配置 */
-    bottom: clamp(24px, 4vh, 48px);  /* 少し上に上げる */
-    gap: 6px;                        /* 全体の余白を詰めて統一感 */
+  right: clamp(20px, 3vw, 40px);
+  /* 少し内側に配置 */
+  bottom: clamp(24px, 4vh, 48px);
+  /* 少し上に上げる */
+  gap: 6px;
+  /* 全体の余白を詰めて統一感 */
+}
+
+/* 吹き出しサイズを少し小さくし、上との距離を短く */
+.fv__balloon {
+  width: clamp(120px, 14vw, 180px);
+  padding: 8px 10px;
+  border-width: 2.5px;
+  margin-bottom: 2px;
+  /* 吹き出しとマスコットの距離を詰める */
+}
+
+.fv__balloon p {
+  font-size: clamp(11px, 1.3vw, 14px);
+  line-height: 1.25;
+}
+
+.fv__balloon::after {
+  bottom: -10px;
+  /* 尾を短くして近づける */
+  transform: translateX(-50%) rotate(45deg);
+}
+
+/* マスコットサイズをやや小さく調整 */
+.fv__mascot img {
+  width: clamp(140px, 18vw, 210px);
+}
+
+/* キャラ名：白文字＋余白を抑える */
+.fv__mascot-name {
+  margin-top: 0;
+  font-size: clamp(11px, 1.4vw, 13px);
+  color: #fff;
+  font-weight: 800;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, .45);
+}
+
+/* 縦ライン（破線）と干渉しないよう位置調整 */
+.fv__dash {
+  top: -90px;
+  height: 60px;
+  opacity: .7;
+}
+
+/* モバイル時も統一感を保つ */
+@media (max-width: 900px) {
+  .fv__side {
+    right: clamp(16px, 5vw, 24px);
+    bottom: clamp(22px, 6vh, 36px);
+    gap: 4px;
   }
-  
-  /* 吹き出しサイズを少し小さくし、上との距離を短く */
+
   .fv__balloon {
-    width: clamp(120px, 14vw, 180px);
-    padding: 8px 10px;
-    border-width: 2.5px;
-    margin-bottom: 2px;              /* 吹き出しとマスコットの距離を詰める */
+    width: clamp(130px, 50vw, 170px);
+    padding: 7px 9px;
   }
+
   .fv__balloon p {
-    font-size: clamp(11px, 1.3vw, 14px);
-    line-height: 1.25;
+    font-size: clamp(12px, 3.6vw, 13px);
   }
-  .fv__balloon::after {
-    bottom: -10px;                   /* 尾を短くして近づける */
-    transform: translateX(-50%) rotate(45deg);
-  }
-  
-  /* マスコットサイズをやや小さく調整 */
+
   .fv__mascot img {
-    width: clamp(140px, 18vw, 210px);
+    width: clamp(130px, 42vw, 180px);
   }
-  
-  /* キャラ名：白文字＋余白を抑える */
-  .fv__mascot-name {
-    margin-top: 0;
-    font-size: clamp(11px, 1.4vw, 13px);
-    color: #fff;
-    font-weight: 800;
-    text-shadow: 0 2px 8px rgba(0,0,0,.45);
+
+  .fv__dash {
+    top: -80px;
+    height: 52px;
   }
-  
-  /* 縦ライン（破線）と干渉しないよう位置調整 */
+}
+
+/* === Mascot area: slightly enlarged, unified spacing === */
+.fv__side {
+  right: clamp(22px, 3vw, 42px);
+  bottom: clamp(22px, 4vh, 44px);
+  gap: 8px;
+  /* 少し広げる */
+}
+
+/* 吹き出しをひと回り大きく */
+.fv__balloon {
+  width: clamp(140px, 16vw, 200px);
+  padding: 10px 12px;
+  border-width: 3px;
+  margin-bottom: 4px;
+}
+
+.fv__balloon p {
+  font-size: clamp(12px, 1.5vw, 15px);
+  line-height: 1.35;
+}
+
+.fv__balloon::after {
+  bottom: -12px;
+  transform: translateX(-50%) rotate(45deg);
+}
+
+/* マスコットをやや拡大 */
+.fv__mascot img {
+  width: clamp(160px, 20vw, 240px);
+}
+
+/* キャラ名を少し大きく＋視認性アップ */
+.fv__mascot-name {
+  margin-top: 2px;
+  font-size: clamp(12px, 1.6vw, 14px);
+  color: #fff;
+  font-weight: 900;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, .5);
+}
+
+/* 破線デコを少し長く＆被らないように調整 */
+.fv__dash {
+  top: -100px;
+  height: 68px;
+  opacity: .75;
+}
+
+/* === モバイル時 === */
+@media (max-width: 900px) {
+  .fv__side {
+    right: clamp(16px, 5vw, 24px);
+    bottom: clamp(20px, 6vh, 36px);
+    gap: 6px;
+  }
+
+  .fv__balloon {
+    width: clamp(140px, 54vw, 190px);
+    padding: 9px 11px;
+  }
+
+  .fv__balloon p {
+    font-size: clamp(12px, 3.6vw, 14px);
+  }
+
+  .fv__mascot img {
+    width: clamp(150px, 46vw, 200px);
+  }
+
   .fv__dash {
     top: -90px;
     height: 60px;
-    opacity: .7;
   }
-  
-  /* モバイル時も統一感を保つ */
-  @media (max-width: 900px) {
-    .fv__side {
-      right: clamp(16px, 5vw, 24px);
-      bottom: clamp(22px, 6vh, 36px);
-      gap: 4px;
-    }
-    .fv__balloon {
-      width: clamp(130px, 50vw, 170px);
-      padding: 7px 9px;
-    }
-    .fv__balloon p {
-      font-size: clamp(12px, 3.6vw, 13px);
-    }
-    .fv__mascot img {
-      width: clamp(130px, 42vw, 180px);
-    }
-    .fv__dash {
-      top: -80px;
-      height: 52px;
-    }
+}
+
+/* === Scroll indicator: right edge placement (no overlap) === */
+.fv__scroll {
+  right: clamp(18px, 2vw, 0px);
+  /* 右端寄りに固定 */
+  left: auto;
+  /* 左位置解除 */
+  top: 30%;
+  /* やや中央下に配置して視認性を確保 */
+  transform: translateY(-50%) rotate(90deg);
+  color: rgba(15, 23, 85, .65);
+  font-size: 12px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 5;
+  /* マスコットより前、吹き出しより後ろ */
+  opacity: .9;
+  pointer-events: none;
+}
+
+.fv__scroll-line {
+  width: clamp(72px, 8vw, 100px);
+  height: 1.5px;
+  background: linear-gradient(90deg, rgba(15, 23, 85, 0) 0%, rgba(15, 23, 85, .55) 100%);
+}
+
+/* モバイルでは非表示のまま */
+@media (max-width: 900px) {
+  .fv__scroll {
+    display: none;
   }
-/* === Mascot area: slightly enlarged, unified spacing === */
-.fv__side {
-    right: clamp(22px, 3vw, 42px);
-    bottom: clamp(22px, 4vh, 44px);
-    gap: 8px; /* 少し広げる */
+}
+
+/* =========================
+ Tablet & Mobile only
+ ※ PC(≥1280px)は変更しない
+========================= */
+
+/* ===== タブレット（900–1279px）===== */
+@media (min-width:900px) and (max-width:1279px) {
+
+  /* コピーカードの圧迫感を軽減（PCは触らない） */
+  .masthead .fv .fv__copy {
+    padding: clamp(18px, 2.6vw, 28px);
+    background: rgba(255, 255, 255, .14);
+    backdrop-filter: blur(4px);
+    border-radius: 16px;
+    box-shadow: 0 10px 32px rgba(15, 23, 85, .12);
   }
-  
-  /* 吹き出しをひと回り大きく */
+
+  .masthead .fv .fv__title {
+    font-size: clamp(34px, 4.4vw, 44px);
+    line-height: 1.14;
+  }
+
+  .masthead .fv .fv__lead {
+    font-size: clamp(13px, 1.4vw, 16px);
+    line-height: 1.8;
+    max-width: 54ch;
+  }
+
+  .masthead .fv .fv__copy .btn {
+    --h: 46px;
+    padding: 0 20px;
+    white-space: nowrap;
+  }
+
+  /* 右下：吹き出し・マスコットは少し内側＆上へ（被り回避） */
+  .fv__side {
+    right: clamp(18px, 3.2vw, 36px);
+    bottom: clamp(24px, 6vh, 56px);
+    gap: 8px;
+  }
+
   .fv__balloon {
-    width: clamp(140px, 16vw, 200px);
+    width: clamp(150px, 22vw, 200px);
     padding: 10px 12px;
-    border-width: 3px;
     margin-bottom: 4px;
   }
+
   .fv__balloon p {
     font-size: clamp(12px, 1.5vw, 15px);
     line-height: 1.35;
   }
+
   .fv__balloon::after {
     bottom: -12px;
     transform: translateX(-50%) rotate(45deg);
   }
-  
-  /* マスコットをやや拡大 */
+
   .fv__mascot img {
-    width: clamp(160px, 20vw, 240px);
+    width: clamp(170px, 22vw, 230px);
   }
-  
-  /* キャラ名を少し大きく＋視認性アップ */
+
   .fv__mascot-name {
-    margin-top: 2px;
-    font-size: clamp(12px, 1.6vw, 14px);
+    font-size: 13px;
     color: #fff;
-    font-weight: 900;
-    text-shadow: 0 2px 10px rgba(0,0,0,.5);
+    text-shadow: 0 2px 10px rgba(0, 0, 0, .5);
   }
-  
-  /* 破線デコを少し長く＆被らないように調整 */
-  .fv__dash {
-    top: -100px;
-    height: 68px;
-    opacity: .75;
-  }
-  
-  /* === モバイル時 === */
-  @media (max-width: 900px) {
-    .fv__side {
-      right: clamp(16px, 5vw, 24px);
-      bottom: clamp(20px, 6vh, 36px);
-      gap: 6px;
-    }
-    .fv__balloon {
-      width: clamp(140px, 54vw, 190px);
-      padding: 9px 11px;
-    }
-    .fv__balloon p {
-      font-size: clamp(12px, 3.6vw, 14px);
-    }
-    .fv__mascot img {
-      width: clamp(150px, 46vw, 200px);
-    }
-    .fv__dash {
-      top: -90px;
-      height: 60px;
-    }
-  }
-/* === Scroll indicator: right edge placement (no overlap) === */
-.fv__scroll {
-    right: clamp(18px, 2vw, 0px);     /* 右端寄りに固定 */
-    left: auto;                        /* 左位置解除 */
-    top: 30%;                          /* やや中央下に配置して視認性を確保 */
+
+  /* スクロールUI：右端固定、やや下（装飾と重ならない） */
+  .fv__scroll {
+    right: clamp(16px, 2.6vw, 26px);
+    left: auto;
+    top: 46%;
     transform: translateY(-50%) rotate(90deg);
-    color: rgba(15, 23, 85, .65);
-    font-size: 12px;
-    letter-spacing: .12em;
-    text-transform: uppercase;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    z-index: 5;                        /* マスコットより前、吹き出しより後ろ */
-    opacity: .9;
-    pointer-events: none;
-  }
-  
-  .fv__scroll-line {
-    width: clamp(72px, 8vw, 100px);
-    height: 1.5px;
-    background: linear-gradient(90deg, rgba(15, 23, 85, 0) 0%, rgba(15, 23, 85, .55) 100%);
-  }
-  
-  /* モバイルでは非表示のまま */
-  @media (max-width: 900px) {
-    .fv__scroll { display: none; }
   }
 
-  /* =========================
-   Tablet & Mobile only
-   ※ PC(≥1280px)は変更しない
-========================= */
+  /* ページャ：ボタンと干渉しない位置に */
+  .fv-pager {
+    left: clamp(16px, 5vw, 80px);
+    bottom: clamp(10px, 3vh, 24px);
+  }
+}
 
-/* ===== タブレット（900–1279px）===== */
-@media (min-width:900px) and (max-width:1279px){
-    /* コピーカードの圧迫感を軽減（PCは触らない） */
-    .masthead .fv .fv__copy{
-      padding: clamp(18px, 2.6vw, 28px);
-      background: rgba(255,255,255,.14);
-      backdrop-filter: blur(4px);
-      border-radius: 16px;
-      box-shadow: 0 10px 32px rgba(15,23,85,.12);
-    }
-    .masthead .fv .fv__title{
-      font-size: clamp(34px, 4.4vw, 44px);
-      line-height: 1.14;
-    }
-    .masthead .fv .fv__lead{
-      font-size: clamp(13px, 1.4vw, 16px);
-      line-height: 1.8;
-      max-width: 54ch;
-    }
-    .masthead .fv .fv__copy .btn{ --h:46px; padding:0 20px; white-space:nowrap; }
-  
-    /* 右下：吹き出し・マスコットは少し内側＆上へ（被り回避） */
-    .fv__side{
-      right: clamp(18px, 3.2vw, 36px);
-      bottom: clamp(24px, 6vh, 56px);
-      gap: 8px;
-    }
-    .fv__balloon{
-      width: clamp(150px, 22vw, 200px);
-      padding: 10px 12px;
-      margin-bottom: 4px;
-    }
-    .fv__balloon p{ font-size: clamp(12px, 1.5vw, 15px); line-height:1.35; }
-    .fv__balloon::after{ bottom:-12px; transform:translateX(-50%) rotate(45deg); }
-    .fv__mascot img{ width: clamp(170px, 22vw, 230px); }
-    .fv__mascot-name{ font-size: 13px; color:#fff; text-shadow:0 2px 10px rgba(0,0,0,.5); }
-  
-    /* スクロールUI：右端固定、やや下（装飾と重ならない） */
-    .fv__scroll{ right: clamp(16px, 2.6vw, 26px); left:auto; top:46%; transform:translateY(-50%) rotate(90deg); }
-  
-    /* ページャ：ボタンと干渉しない位置に */
-    .fv-pager{ left: clamp(16px, 5vw, 80px); bottom: clamp(10px, 3vh, 24px); }
-  }
-  
-  /* ===== モバイル（≤899px）===== */
-  @media (max-width: 899px){
-    .masthead .fv .fv__copy{
-      left: clamp(14px, 5vw, 24px);
-      right: clamp(14px, 5vw, 24px);
-      bottom: clamp(7vh, 12vh, 16vh);
-      top: auto;
-      padding: clamp(14px, 3.8vw, 20px);
-      background: rgba(255,255,255,.14);
-      backdrop-filter: blur(4px);
-      border-radius: 16px;
-      box-shadow: 0 10px 32px rgba(15,23,85,.12);
-    }
-    .masthead .fv .fv__title{
-      font-size: clamp(26px, 7vw, 32px);
-      line-height: 1.22;
-      margin-bottom: 8px;
-    }
-    .masthead .fv .fv__lead{
-      font-size: clamp(13px, 3.9vw, 15px);
-      line-height: 1.7;
-      margin-bottom: 14px;
-    }
-    .masthead .fv .fv__copy .btn{ --h:44px; padding:0 18px; margin-right:8px; white-space:nowrap; }
-  
-    /* 右下セットをコンパクト＆内側へ */
-    .fv__side{
-      right: clamp(10px, 5vw, 18px);
-      bottom: clamp(16px, 9vh, 22vh);
-      gap: 6px;
-    }
-    .fv__balloon{
-      width: clamp(130px, 54vw, 180px);
-      padding: 8px 10px;
-      margin-bottom: 4px;
-    }
-    .fv__balloon p{ font-size: clamp(12px, 3.8vw, 14px); line-height:1.35; }
-    .fv__mascot img{ width: clamp(140px, 46vw, 190px); }
-    .fv__mascot-name{ font-size: clamp(11px, 3.2vw, 12px); color:#fff; text-shadow:0 2px 8px rgba(0,0,0,.45); }
-  
-    /* スクロールUIは非表示（誤タップ防止 & 画面密度最適化） */
-    .fv__scroll{ display:none; }
-  
-    /* ページャを左下寄せに */
-    .fv-pager{ left: clamp(12px, 6vw, 24px); bottom: clamp(8px, 4vh, 18px); }
-  }
-  
-  /* ===== 極小端末（≤360px）===== */
-  @media (max-width: 360px){
-    .masthead .fv .fv__lead{ display:none; }      /* タイトルとCTAを優先 */
-    .masthead .fv .fv__copy .btn{ --h:42px; padding:0 16px; }
-    .fv__balloon{ width: min(70vw, 180px); }
-  }
-  /* =========================
-   Responsive refinement (Tablet & Mobile only)
-   ※ PC（1280px以上）は現状維持
-========================= */
-
-/* ===== タブレット（900–1279px）===== */
-@media (min-width:900px) and (max-width:1279px){
-    .masthead .fv .fv__copy{
-      padding: clamp(18px, 2.6vw, 28px);
-      background: rgba(255,255,255,.14);
-      backdrop-filter: blur(4px);
-      border-radius: 16px;
-      box-shadow: 0 10px 32px rgba(15,23,85,.12);
-    }
-    .masthead .fv .fv__title{
-      font-size: clamp(34px, 4.4vw, 44px);
-      line-height: 1.14;
-    }
-    .masthead .fv .fv__lead{
-      font-size: clamp(13px, 1.4vw, 16px);
-      line-height: 1.8;
-      max-width: 54ch;
-    }
-    .masthead .fv .fv__copy .btn{ --h:46px; padding:0 20px; white-space:nowrap; }
-  
-    /* 右下キャラ：やや上＆内側（コピーと干渉防止） */
-    .fv__side{
-      right: clamp(18px, 3.2vw, 36px);
-      bottom: clamp(24px, 6vh, 56px);
-      gap: 8px;
-    }
-    .fv__balloon{
-      width: clamp(150px, 22vw, 200px);
-      padding: 10px 12px;
-    }
-    .fv__balloon p{ font-size: clamp(12px, 1.5vw, 15px); line-height:1.35; }
-    .fv__mascot img{ width: clamp(170px, 22vw, 230px); }
-    .fv__mascot-name{ font-size: 13px; color:#fff; text-shadow:0 2px 10px rgba(0,0,0,.5); }
-  
-    /* スクロールUIを右端に維持しつつ、マスコットと被らない高さに調整 */
-    .fv__scroll{
-      right: clamp(18px, 2vw, 28px);
-      left: auto;
-      top: 45%;
-      transform: translateY(-50%) rotate(90deg);
-    }
-  }
-  
-  /* ===== モバイル（～899px）===== */
-  @media (max-width: 899px){
-    .masthead .fv .fv__copy{
-      left: clamp(14px, 5vw, 24px);
-      right: clamp(14px, 5vw, 24px);
-      bottom: clamp(7vh, 12vh, 16vh);
-      top: auto;
-      padding: clamp(14px, 3.8vw, 20px);
-      background: rgba(255,255,255,.14);
-      backdrop-filter: blur(4px);
-      border-radius: 16px;
-      box-shadow: 0 10px 32px rgba(15,23,85,.12);
-    }
-    .masthead .fv .fv__title{
-      font-size: clamp(26px, 7vw, 32px);
-      line-height: 1.22;
-      margin-bottom: 8px;
-    }
-    .masthead .fv .fv__lead{
-      font-size: clamp(13px, 3.9vw, 15px);
-      line-height: 1.7;
-      margin-bottom: 14px;
-    }
-    .masthead .fv .fv__copy .btn{ --h:44px; padding:0 18px; margin-right:8px; white-space:nowrap; }
-  
-    /* マスコット＋吹き出し：よりコンパクト */
-    .fv__side{
-      right: clamp(10px, 5vw, 18px);
-      bottom: clamp(16px, 9vh, 22vh);
-      gap: 6px;
-    }
-    .fv__balloon{
-      width: clamp(130px, 54vw, 180px);
-      padding: 8px 10px;
-    }
-    .fv__balloon p{ font-size: clamp(12px, 3.8vw, 14px); line-height:1.35; }
-    .fv__mascot img{ width: clamp(140px, 46vw, 190px); }
-    .fv__mascot-name{ font-size: clamp(11px, 3.2vw, 12px); color:#fff; text-shadow:0 2px 8px rgba(0,0,0,.45); }
-  
-    /* スクロールUIは非表示（スマホでは圧迫回避） */
-    .fv__scroll{ display:none; }
-  
-    /* ページャを左下寄せに */
-    .fv-pager{ left: clamp(12px, 6vw, 24px); bottom: clamp(8px, 4vh, 18px); }
-  }
-  
-  /* ===== 極小端末（～360px）===== */
-  @media (max-width: 360px){
-    .masthead .fv .fv__lead{ display:none; }
-    .masthead .fv .fv__copy .btn{ --h:42px; padding:0 16px; }
-    .fv__balloon{ width: min(70vw, 180px); }
-  }
-  /* ===== モバイル（～899px）===== */
+/* ===== モバイル（≤899px）===== */
 @media (max-width: 899px) {
-    /* ... (fv__copy, fv__title, fv__lead, .btn の既存ルールはそのまま) ... */
-  
-    .masthead .fv .fv__copy {
-      left: clamp(14px, 5vw, 24px);
-      right: clamp(14px, 5vw, 24px);
-      bottom: clamp(7vh, 12vh, 16vh);
-      top: auto;
-      padding: clamp(14px, 3.8vw, 20px);
-      background: rgba(255, 255, 255, .14);
-      backdrop-filter: blur(4px);
-      border-radius: 16px;
-      box-shadow: 0 10px 32px rgba(15, 23, 85, .12);
-    }
-  
-    .masthead .fv .fv__title {
-      font-size: clamp(26px, 7vw, 32px);
-      line-height: 1.22;
-      margin-bottom: 8px;
-    }
-  
-    .masthead .fv .fv__lead {
-      font-size: clamp(13px, 3.9vw, 15px);
-      line-height: 1.7;
-      margin-bottom: 14px;
-    }
-  
-    .masthead .fv .fv__copy .btn {
-      --h: 44px;
-      padding: 0 18px;
-      margin-right: 8px;
-      white-space: nowrap;
-    }
-  
-    /* ▼▼▼ 変更箇所 ▼▼▼ */
-    /* マスコット＋吹き出し：非表示にして視認性を優先 */
-    .fv__side {
-      display: none;
-      /*
-        right: clamp(10px, 5vw, 18px);
-        bottom: clamp(16px, 9vh, 22vh);
-        gap: 6px;
-        */
-    }
-  
-    /* 非表示にしたため、以下のルールは影響しませんが、そのままでOKです */
-    .fv__balloon {
-      width: clamp(130px, 54vw, 180px);
-      padding: 8px 10px;
-    }
-  
-    .fv__balloon p {
-      font-size: clamp(12px, 3.8vw, 14px);
-      line-height: 1.35;
-    }
-  
-    .fv__mascot img {
-      width: clamp(140px, 46vw, 190px);
-    }
-  
-    .fv__mascot-name {
-      font-size: clamp(11px, 3.2vw, 12px);
-      color: #fff;
-      text-shadow: 0 2px 8px rgba(0, 0, 0, .45);
-    }
-  
-    /* ▲▲▲ 変更ここまで ▲▲▲ */
-  
-  
-    /* スクロールUIは非表示（スマホでは圧迫回避） */
-    .fv__scroll {
-      display: none;
-    }
-  
-    /* ページャを左下寄せに */
-    .fv-pager {
-      left: clamp(12px, 6vw, 24px);
-      bottom: clamp(8px, 4vh, 18px);
-    }
+  .masthead .fv .fv__copy {
+    left: clamp(14px, 5vw, 24px);
+    right: clamp(14px, 5vw, 24px);
+    bottom: clamp(7vh, 12vh, 16vh);
+    top: auto;
+    padding: clamp(14px, 3.8vw, 20px);
+    background: rgba(255, 255, 255, .14);
+    backdrop-filter: blur(4px);
+    border-radius: 16px;
+    box-shadow: 0 10px 32px rgba(15, 23, 85, .12);
   }
 
-  /* ===== Mascot: 下配置スタイル（スマホ/タブレット）===== */
-@media (max-width: 899px){
-    /* 既存の display:none を打ち消す */
-    .fv__side { display: none; } /* ←既存想定 */
-    .fv__side.is-below {
-      position: static !important;
-      display: flex !important;
-      flex-direction: row;
-      justify-content: center;
-      align-items: flex-end;
-      gap: 12px;
-      width: min(680px, 92vw);
-      margin: clamp(12px, 4vw, 20px) auto 0;
-      padding: 10px 12px;
-      pointer-events: auto;
-      z-index: 1; /* FVより上でOK */
-    }
-  
-    /* 吹き出し：横並び向けに少しコンパクト */
-    .fv__balloon {
-      width: auto;
-      max-width: 60%;
-      padding: 10px 12px;
-      border-width: 2.5px;
-    }
-    .fv__balloon p {
-      font-size: clamp(12px, 3.6vw, 14px);
-      line-height: 1.35;
-    }
-    /* 尾は右寄り下向き（マスコット側） */
-    .fv__balloon::after {
-      left: auto;
-      right: 12%;
-      bottom: -10px;
-      transform: rotate(45deg);
-    }
-  
-    /* マスコット画像：やや大きめで横並びに合わせる */
-    .fv__mascot img {
-      width: clamp(120px, 34vw, 180px);
-    }
-  
-    /* キャラ名は下配置でも視認性を維持 */
-    .fv__mascot-name{
-      margin-left: 6px;
-      margin-bottom: 2px;
-      font-size: clamp(11px, 3.2vw, 13px);
-      color: #fff;
-      text-shadow: 0 2px 8px rgba(0,0,0,.45);
-    }
-  
-    /* 破線デコは非表示（下配置では不要） */
-    .fv__dash { display: none !important; }
+  .masthead .fv .fv__title {
+    font-size: clamp(26px, 7vw, 32px);
+    line-height: 1.22;
+    margin-bottom: 8px;
   }
-  
-  /* ===== Mascot: PC復帰時の保険 ===== */
-  @media (min-width: 900px){
-    .fv__side.is-below { display: none !important; }
+
+  .masthead .fv .fv__lead {
+    font-size: clamp(13px, 3.9vw, 15px);
+    line-height: 1.7;
+    margin-bottom: 14px;
   }
+
+  .masthead .fv .fv__copy .btn {
+    --h: 44px;
+    padding: 0 18px;
+    margin-right: 8px;
+    white-space: nowrap;
+  }
+
+  /* 右下セットをコンパクト＆内側へ */
+  .fv__side {
+    right: clamp(10px, 5vw, 18px);
+    bottom: clamp(16px, 9vh, 22vh);
+    gap: 6px;
+  }
+
+  .fv__balloon {
+    width: clamp(130px, 54vw, 180px);
+    padding: 8px 10px;
+    margin-bottom: 4px;
+  }
+
+  .fv__balloon p {
+    font-size: clamp(12px, 3.8vw, 14px);
+    line-height: 1.35;
+  }
+
+  .fv__mascot img {
+    width: clamp(140px, 46vw, 190px);
+  }
+
+  .fv__mascot-name {
+    font-size: clamp(11px, 3.2vw, 12px);
+    color: #fff;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, .45);
+  }
+
+  /* スクロールUIは非表示（誤タップ防止 & 画面密度最適化） */
+  .fv__scroll {
+    display: none;
+  }
+
+  /* ページャを左下寄せに */
+  .fv-pager {
+    left: clamp(12px, 6vw, 24px);
+    bottom: clamp(8px, 4vh, 18px);
+  }
+}
+
+/* ===== 極小端末（≤360px）===== */
+@media (max-width: 360px) {
+  .masthead .fv .fv__lead {
+    display: none;
+  }
+
+  /* タイトルとCTAを優先 */
+  .masthead .fv .fv__copy .btn {
+    --h: 42px;
+    padding: 0 16px;
+  }
+
+  .fv__balloon {
+    width: min(70vw, 180px);
+  }
+}
+
+/* =========================
+ Responsive refinement (Tablet & Mobile only)
+ ※ PC（1280px以上）は現状維持
+========================= */
+
+/* ===== タブレット（900–1279px）===== */
+@media (min-width:900px) and (max-width:1279px) {
+  .masthead .fv .fv__copy {
+    padding: clamp(18px, 2.6vw, 28px);
+    background: rgba(255, 255, 255, .14);
+    backdrop-filter: blur(4px);
+    border-radius: 16px;
+    box-shadow: 0 10px 32px rgba(15, 23, 85, .12);
+  }
+
+  .masthead .fv .fv__title {
+    font-size: clamp(34px, 4.4vw, 44px);
+    line-height: 1.14;
+  }
+
+  .masthead .fv .fv__lead {
+    font-size: clamp(13px, 1.4vw, 16px);
+    line-height: 1.8;
+    max-width: 54ch;
+  }
+
+  .masthead .fv .fv__copy .btn {
+    --h: 46px;
+    padding: 0 20px;
+    white-space: nowrap;
+  }
+
+  /* 右下キャラ：やや上＆内側（コピーと干渉防止） */
+  .fv__side {
+    right: clamp(18px, 3.2vw, 36px);
+    bottom: clamp(24px, 6vh, 56px);
+    gap: 8px;
+  }
+
+  .fv__balloon {
+    width: clamp(150px, 22vw, 200px);
+    padding: 10px 12px;
+  }
+
+  .fv__balloon p {
+    font-size: clamp(12px, 1.5vw, 15px);
+    line-height: 1.35;
+  }
+
+  .fv__mascot img {
+    width: clamp(170px, 22vw, 230px);
+  }
+
+  .fv__mascot-name {
+    font-size: 13px;
+    color: #fff;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, .5);
+  }
+
+  /* スクロールUIを右端に維持しつつ、マスコットと被らない高さに調整 */
+  .fv__scroll {
+    right: clamp(18px, 2vw, 28px);
+    left: auto;
+    top: 45%;
+    transform: translateY(-50%) rotate(90deg);
+  }
+}
+
+/* ===== モバイル（～899px）===== */
+@media (max-width: 899px) {
+  .masthead .fv .fv__copy {
+    left: clamp(14px, 5vw, 24px);
+    right: clamp(14px, 5vw, 24px);
+    bottom: clamp(7vh, 12vh, 16vh);
+    top: auto;
+    padding: clamp(14px, 3.8vw, 20px);
+    background: rgba(255, 255, 255, .14);
+    backdrop-filter: blur(4px);
+    border-radius: 16px;
+    box-shadow: 0 10px 32px rgba(15, 23, 85, .12);
+  }
+
+  .masthead .fv .fv__title {
+    font-size: clamp(26px, 7vw, 32px);
+    line-height: 1.22;
+    margin-bottom: 8px;
+  }
+
+  .masthead .fv .fv__lead {
+    font-size: clamp(13px, 3.9vw, 15px);
+    line-height: 1.7;
+    margin-bottom: 14px;
+  }
+
+  .masthead .fv .fv__copy .btn {
+    --h: 44px;
+    padding: 0 18px;
+    margin-right: 8px;
+    white-space: nowrap;
+  }
+
+  /* マスコット＋吹き出し：よりコンパクト */
+  .fv__side {
+    right: clamp(10px, 5vw, 18px);
+    bottom: clamp(16px, 9vh, 22vh);
+    gap: 6px;
+  }
+
+  .fv__balloon {
+    width: clamp(130px, 54vw, 180px);
+    padding: 8px 10px;
+  }
+
+  .fv__balloon p {
+    font-size: clamp(12px, 3.8vw, 14px);
+    line-height: 1.35;
+  }
+
+  .fv__mascot img {
+    width: clamp(140px, 46vw, 190px);
+  }
+
+  .fv__mascot-name {
+    font-size: clamp(11px, 3.2vw, 12px);
+    color: #fff;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, .45);
+  }
+
+  /* スクロールUIは非表示（スマホでは圧迫回避） */
+  .fv__scroll {
+    display: none;
+  }
+
+  /* ページャを左下寄せに */
+  .fv-pager {
+    left: clamp(12px, 6vw, 24px);
+    bottom: clamp(8px, 4vh, 18px);
+  }
+}
+
+/* ===== 極小端末（～360px）===== */
+@media (max-width: 360px) {
+  .masthead .fv .fv__lead {
+    display: none;
+  }
+
+  .masthead .fv .fv__copy .btn {
+    --h: 42px;
+    padding: 0 16px;
+  }
+
+  .fv__balloon {
+    width: min(70vw, 180px);
+  }
+}
+
+/* ===== モバイル（～899px）===== */
+@media (max-width: 899px) {
+  /* ... (fv__copy, fv__title, fv__lead, .btn の既存ルールはそのまま) ... */
+
+  .masthead .fv .fv__copy {
+    left: clamp(14px, 5vw, 24px);
+    right: clamp(14px, 5vw, 24px);
+    bottom: clamp(7vh, 12vh, 16vh);
+    top: auto;
+    padding: clamp(14px, 3.8vw, 20px);
+    background: rgba(255, 255, 255, .14);
+    backdrop-filter: blur(4px);
+    border-radius: 16px;
+    box-shadow: 0 10px 32px rgba(15, 23, 85, .12);
+  }
+
+  .masthead .fv .fv__title {
+    font-size: clamp(26px, 7vw, 32px);
+    line-height: 1.22;
+    margin-bottom: 8px;
+  }
+
+  .masthead .fv .fv__lead {
+    font-size: clamp(13px, 3.9vw, 15px);
+    line-height: 1.7;
+    margin-bottom: 14px;
+  }
+
+  .masthead .fv .fv__copy .btn {
+    --h: 44px;
+    padding: 0 18px;
+    margin-right: 8px;
+    white-space: nowrap;
+  }
+
+  /* ▼▼▼ 変更箇所 ▼▼▼ */
+  /* マスコット＋吹き出し：非表示にして視認性を優先 */
+  .fv__side {
+    display: none;
+    /*
+      right: clamp(10px, 5vw, 18px);
+      bottom: clamp(16px, 9vh, 22vh);
+      gap: 6px;
+      */
+  }
+
+  /* 非表示にしたため、以下のルールは影響しませんが、そのままでOKです */
+  .fv__balloon {
+    width: clamp(130px, 54vw, 180px);
+    padding: 8px 10px;
+  }
+
+  .fv__balloon p {
+    font-size: clamp(12px, 3.8vw, 14px);
+    line-height: 1.35;
+  }
+
+  .fv__mascot img {
+    width: clamp(140px, 46vw, 190px);
+  }
+
+  .fv__mascot-name {
+    font-size: clamp(11px, 3.2vw, 12px);
+    color: #fff;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, .45);
+  }
+
+  /* ▲▲▲ 変更ここまで ▲▲▲ */
+
+
+  /* スクロールUIは非表示（スマホでは圧迫回避） */
+  .fv__scroll {
+    display: none;
+  }
+
+  /* ページャを左下寄せに */
+  .fv-pager {
+    left: clamp(12px, 6vw, 24px);
+    bottom: clamp(8px, 4vh, 18px);
+  }
+}
+
+/* ===== Mascot: 下配置スタイル（スマホ/タブレット）===== */
+@media (max-width: 899px) {
+
+  /* 既存の display:none を打ち消す */
+  .fv__side {
+    display: none;
+  }
+
+  /* ←既存想定 */
+  .fv__side.is-below {
+    position: static !important;
+    display: flex !important;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 12px;
+    width: min(680px, 92vw);
+    margin: clamp(12px, 4vw, 20px) auto 0;
+    padding: 10px 12px;
+    pointer-events: auto;
+    z-index: 1;
+    /* FVより上でOK */
+  }
+
+  /* 吹き出し：横並び向けに少しコンパクト */
+  .fv__balloon {
+    width: auto;
+    max-width: 60%;
+    padding: 10px 12px;
+    border-width: 2.5px;
+  }
+
+  .fv__balloon p {
+    font-size: clamp(12px, 3.6vw, 14px);
+    line-height: 1.35;
+  }
+
+  /* 尾は右寄り下向き（マスコット側） */
+  .fv__balloon::after {
+    left: auto;
+    right: 12%;
+    bottom: -10px;
+    transform: rotate(45deg);
+  }
+
+  /* マスコット画像：やや大きめで横並びに合わせる */
+  .fv__mascot img {
+    width: clamp(120px, 34vw, 180px);
+  }
+
+  /* キャラ名は下配置でも視認性を維持 */
+  .fv__mascot-name {
+    margin-left: 6px;
+    margin-bottom: 2px;
+    font-size: clamp(11px, 3.2vw, 13px);
+    color: #fff;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, .45);
+  }
+
+  /* 破線デコは非表示（下配置では不要） */
+  .fv__dash {
+    display: none !important;
+  }
+}
+
+/* ===== Mascot: PC復帰時の保険 ===== */
+@media (min-width: 900px) {
+  .fv__side.is-below {
+    display: none !important;
+  }
+}
+
 /* ===== Responsive (～899px): 中央寄せ・縦並び ===== */
-@media (max-width: 899px){
-    /* FV内で使う場合／.is-belowでFV直下へ出す場合の両対応 */
-    .fv__side,
-    .fv__side.is-below{
-      position: static !important;
-      display: flex !important;
-      flex-direction: column;        /* ← 縦並び */
-      align-items: center;           /* ← 中央寄せ */
-      justify-content: center;
-      gap: 8px;
-      width: min(680px, 92vw);
-      margin: clamp(12px, 4vw, 20px) auto 0;
-      pointer-events: auto;
-      z-index: 1;
-    }
-  
-    /* 並び順：1) 吹き出し 2) マスコット 3) 名称 */
-    .fv__balloon{ order:1; width:auto; max-width: 80%; padding:10px 12px; border-width:2.5px; }
-    .fv__balloon p{ font-size: clamp(12px, 3.6vw, 14px); line-height:1.35; }
-    .fv__balloon::after{
-      left:50%; right:auto; bottom:-10px;
-      transform: translateX(-50%) rotate(45deg); /* ↓向きセンター */
-    }
-  
-    .fv__mascot{ order:2; }
-    .fv__mascot img{
-      display:block; margin:0 auto;
-      width: clamp(140px, 40vw, 200px); height:auto; object-fit: contain;
-    }
-  
-    .fv__mascot-name{
-      order:3; margin-top:4px;
-      font-weight:900; font-size: clamp(11px, 3.2vw, 13px);
-      color:#fff; text-shadow:0 2px 8px rgba(0,0,0,.45);
-      text-align:center;
-    }
-  
-    /* 下配置では不要な装飾は隠す */
-    .fv__dash{ display:none !important; }
-    .fv__scroll{ display:none !important; }
+@media (max-width: 899px) {
+
+  /* FV内で使う場合／.is-belowでFV直下へ出す場合の両対応 */
+  .fv__side,
+  .fv__side.is-below {
+    position: static !important;
+    display: flex !important;
+    flex-direction: column;
+    /* ← 縦並び */
+    align-items: center;
+    /* ← 中央寄せ */
+    justify-content: center;
+    gap: 8px;
+    width: min(680px, 92vw);
+    margin: clamp(12px, 4vw, 20px) auto 0;
+    pointer-events: auto;
+    z-index: 1;
   }
+
+  /* 並び順：1) 吹き出し 2) マスコット 3) 名称 */
+  .fv__balloon {
+    order: 1;
+    width: auto;
+    max-width: 80%;
+    padding: 10px 12px;
+    border-width: 2.5px;
+  }
+
+  .fv__balloon p {
+    font-size: clamp(12px, 3.6vw, 14px);
+    line-height: 1.35;
+  }
+
+  .fv__balloon::after {
+    left: 50%;
+    right: auto;
+    bottom: -10px;
+    transform: translateX(-50%) rotate(45deg);
+    /* ↓向きセンター */
+  }
+
+  .fv__mascot {
+    order: 2;
+  }
+
+  .fv__mascot img {
+    display: block;
+    margin: 0 auto;
+    width: clamp(140px, 40vw, 200px);
+    height: auto;
+    object-fit: contain;
+  }
+
+  .fv__mascot-name {
+    order: 3;
+    margin-top: 4px;
+    font-weight: 900;
+    font-size: clamp(11px, 3.2vw, 13px);
+    color: #fff;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, .45);
+    text-align: center;
+  }
+
+  /* 下配置では不要な装飾は隠す */
+  .fv__dash {
+    display: none !important;
+  }
+
+  .fv__scroll {
+    display: none !important;
+  }
+}
+
 /* ===== Responsive: マスコット名称の文字色を青に ===== */
-@media (max-width: 899px){
-    .fv__mascot-name{
-      color: #1349a6 !important;  /* 青系（既存変数なら var(--ink-2) でもOK） */
-      text-shadow: none;          /* 背景が明るい場合は影を消して読みやすく */
-    }
+@media (max-width: 899px) {
+  .fv__mascot-name {
+    color: #1349a6 !important;
+    /* 青系（既存変数なら var(--ink-2) でもOK） */
+    text-shadow: none;
+    /* 背景が明るい場合は影を消して読みやすく */
   }
+}
+
 /* ===== Balloon text fix: 文字切れ防止（～899px） ===== */
-@media (max-width: 899px){
-    .fv__balloon{
-      /* 横幅を画面に合わせて安全に */
-      width: auto;
-      max-width: min(90vw, 520px);
-      /* 下側に余白を多めに（尾との干渉を避ける） */
-      padding: 12px 14px 18px;
+@media (max-width: 899px) {
+  .fv__balloon {
+    /* 横幅を画面に合わせて安全に */
+    width: auto;
+    max-width: min(90vw, 520px);
+    /* 下側に余白を多めに（尾との干渉を避ける） */
+    padding: 12px 14px 18px;
+  }
+
+  .fv__balloon p {
+    margin: 0;
+    /* 必ず折り返す（CJKでも安全） */
+    white-space: normal;
+    overflow-wrap: anywhere;
+    /* 最も強い折り返し */
+    word-break: normal;
+    /* 日本語の自然な禁則処理 */
+    line-height: 1.45;
+    /* 行間を少しゆとり */
+    /* フォントが大きすぎる端末に備えてクランプ */
+    font-size: clamp(12px, 3.6vw, 15px);
+  }
+
+  /* 尾（▼）が当たらないよう微調整 */
+  .fv__balloon::after {
+    bottom: -12px;
+    /* 尾を少し下へ */
+  }
+}
+
+/* ===== PC側も念のため（任意。切れが出る場合のみ） ===== */
+@media (min-width: 900px) {
+  .fv__balloon {
+    max-width: 520px;
+    /* 右下オーバーレイでも伸びすぎ防止 */
+    padding-bottom: 16px;
+    /* 尾の分の余白を確保 */
+  }
+
+  .fv__balloon p {
+    overflow-wrap: anywhere;
+    word-break: normal;
+    line-height: 1.4;
+  }
+}
+
+/* ===== FVテキストのバランス最適化（～899px） ===== */
+@media (max-width: 899px) {
+
+  /* カード位置とサイズ */
+  .masthead .fv .fv__copy {
+    /* 画面左右の余白をやや広げ、カード幅を絞る */
+    left: clamp(18px, 6vw, 28px);
+    right: clamp(18px, 6vw, 28px);
+    max-width: min(680px, 88vw);
+    /* 少し下げて顔や被写体に被りにくく */
+    bottom: clamp(10vh, 14vh, 18vh);
+    top: auto;
+
+    /* 背景の視認性を少しだけ上げる（強すぎない） */
+    background: rgba(255, 255, 255, .18);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    box-shadow: 0 12px 36px rgba(15, 23, 85, .12);
+    border-radius: 20px;
+    padding: clamp(16px, 4.2vw, 22px);
+  }
+
+  /* 見出しを一段コンパクトに */
+  .masthead .fv .fv__title {
+    font-size: clamp(24px, 6.2vw, 30px);
+    line-height: 1.18;
+    letter-spacing: .01em;
+    margin-bottom: 8px;
+  }
+
+  /* 本文は行長を短くして読みやすく（＝面積を抑える） */
+  .masthead .fv .fv__lead {
+    font-size: clamp(13px, 3.6vw, 15px);
+    line-height: 1.75;
+    max-width: 34ch;
+    /* ← 行長を制御してカード幅を自然に縮める */
+    margin-bottom: 14px;
+  }
+
+  /* ボタンは窮屈なら自動改行OKにし、サイズも少しだけ小さく */
+  .masthead .fv .fv__copy .btn {
+    --h: 44px;
+    padding: 0 16px;
+    margin-right: 8px;
+    white-space: normal;
+    /* ← テキスト長い場合も折り返し可 */
+  }
+
+  .masthead .fv .fv__copy .btn:last-child {
+    margin-right: 0;
+  }
+
+  /* 画面がさらに背の低い端末では余白を詰める */
+  @media (max-height: 680px) {
+    .masthead .fv .fv__copy {
+      bottom: clamp(8vh, 12vh, 14vh);
+      padding: clamp(14px, 3.6vw, 18px);
     }
-    .fv__balloon p{
-      margin: 0;
-      /* 必ず折り返す（CJKでも安全） */
-      white-space: normal;
-      overflow-wrap: anywhere; /* 最も強い折り返し */
-      word-break: normal;      /* 日本語の自然な禁則処理 */
-      line-height: 1.45;       /* 行間を少しゆとり */
-      /* フォントが大きすぎる端末に備えてクランプ */
-      font-size: clamp(12px, 3.6vw, 15px);
+
+    .masthead .fv .fv__title {
+      margin-bottom: 6px;
     }
-    /* 尾（▼）が当たらないよう微調整 */
-    .fv__balloon::after{
-      bottom: -12px;           /* 尾を少し下へ */
+
+    .masthead .fv .fv__lead {
+      margin-bottom: 12px;
     }
   }
-  
-  /* ===== PC側も念のため（任意。切れが出る場合のみ） ===== */
-  @media (min-width: 900px){
-    .fv__balloon{
-      max-width: 520px;        /* 右下オーバーレイでも伸びすぎ防止 */
-      padding-bottom: 16px;    /* 尾の分の余白を確保 */
-    }
-    .fv__balloon p{
-      overflow-wrap: anywhere;
-      word-break: normal;
-      line-height: 1.4;
-    }
-  }
-  /* ===== FVテキストのバランス最適化（～899px） ===== */
-@media (max-width: 899px){
-    /* カード位置とサイズ */
-    .masthead .fv .fv__copy{
-      /* 画面左右の余白をやや広げ、カード幅を絞る */
-      left: clamp(18px, 6vw, 28px);
-      right: clamp(18px, 6vw, 28px);
-      max-width: min(680px, 88vw);
-      /* 少し下げて顔や被写体に被りにくく */
-      bottom: clamp(10vh, 14vh, 18vh);
-      top: auto;
-  
-      /* 背景の視認性を少しだけ上げる（強すぎない） */
-      background: rgba(255,255,255,.18);
-      backdrop-filter: blur(6px);
-      -webkit-backdrop-filter: blur(6px);
-      box-shadow: 0 12px 36px rgba(15,23,85,.12);
-      border-radius: 20px;
-      padding: clamp(16px, 4.2vw, 22px);
-    }
-  
-    /* 見出しを一段コンパクトに */
-    .masthead .fv .fv__title{
-      font-size: clamp(24px, 6.2vw, 30px);
-      line-height: 1.18;
-      letter-spacing: .01em;
-      margin-bottom: 8px;
-    }
-  
-    /* 本文は行長を短くして読みやすく（＝面積を抑える） */
-    .masthead .fv .fv__lead{
-      font-size: clamp(13px, 3.6vw, 15px);
-      line-height: 1.75;
-      max-width: 34ch;         /* ← 行長を制御してカード幅を自然に縮める */
-      margin-bottom: 14px;
-    }
-  
-    /* ボタンは窮屈なら自動改行OKにし、サイズも少しだけ小さく */
-    .masthead .fv .fv__copy .btn{
-      --h: 44px;
-      padding: 0 16px;
-      margin-right: 8px;
-      white-space: normal;      /* ← テキスト長い場合も折り返し可 */
-    }
-    .masthead .fv .fv__copy .btn:last-child{ margin-right: 0; }
-  
-    /* 画面がさらに背の低い端末では余白を詰める */
-    @media (max-height: 680px){
-      .masthead .fv .fv__copy{
-        bottom: clamp(8vh, 12vh, 14vh);
-        padding: clamp(14px, 3.6vw, 18px);
-      }
-      .masthead .fv .fv__title{ margin-bottom: 6px; }
-      .masthead .fv .fv__lead{ margin-bottom: 12px; }
-    }
-  }
-  
-  /* ===== 写真の被りをより減らすための微Vignette（任意） ===== */
-  /* テキストカードの背面だけほんのり明るくしてコントラスト確保（目立ち過ぎない） */
-  .fv::after{
-    content:"";
-    position:absolute; inset:0; pointer-events:none; z-index:2;
-    /* 左下に淡い明度グラデを敷く（カード背面の読みやすさUP） */
-    background: radial-gradient(
-      60% 40% at 22% 70%,
-      rgba(245,249,255,.26) 0%,
-      rgba(245,249,255,.18) 40%,
-      transparent 70%
-    );
-  }
+}
+
+/* ===== 写真の被りをより減らすための微Vignette（任意） ===== */
+/* テキストカードの背面だけほんのり明るくしてコントラスト確保（目立ち過ぎない） */
+.fv::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  /* 左下に淡い明度グラデを敷く（カード背面の読みやすさUP） */
+  background: radial-gradient(60% 40% at 22% 70%,
+      rgba(245, 249, 255, .26) 0%,
+      rgba(245, 249, 255, .18) 40%,
+      transparent 70%);
+}
+
 /* ===== FVテキスト：画面幅に拡張＆文字切れ防止（～899px） ===== */
-@media (max-width: 899px){
-    .masthead .fv .fv__copy{
-      /* 画面左右の余白だけ残して横幅を最大化 */
-      left: clamp(10px, 4vw, 16px);
-      right: clamp(10px, 4vw, 16px);
-      max-width: 96vw;          /* ほぼ全幅 */
-      width: auto;
-      bottom: clamp(9vh, 12vh, 16vh);
-      padding: clamp(14px, 3.6vw, 20px);
-      overflow: visible;         /* テキストのはみ出し抑止 */
+@media (max-width: 899px) {
+  .masthead .fv .fv__copy {
+    /* 画面左右の余白だけ残して横幅を最大化 */
+    left: clamp(10px, 4vw, 16px);
+    right: clamp(10px, 4vw, 16px);
+    max-width: 96vw;
+    /* ほぼ全幅 */
+    width: auto;
+    bottom: clamp(9vh, 12vh, 16vh);
+    padding: clamp(14px, 3.6vw, 20px);
+    overflow: visible;
+    /* テキストのはみ出し抑止 */
+  }
+
+  /* 見出し：自然改行＋切れ防止 */
+  .masthead .fv .fv__title {
+    font-size: clamp(24px, 6.2vw, 30px);
+    line-height: 1.25;
+    white-space: normal;
+    word-break: keep-all;
+    /* 日本語の不自然な分割を抑える */
+    overflow-wrap: anywhere;
+    /* それでも溢れそうなら安全に折返し */
+    margin-bottom: 10px;
+  }
+
+  /* リード文：行長制限を解除して横幅に追従、切れ防止 */
+  .masthead .fv .fv__lead {
+    max-width: none;
+    /* ← 34ch を解除して横幅に合わせる */
+    font-size: clamp(13px, 3.6vw, 15px);
+    line-height: 1.8;
+    white-space: normal;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+    margin-bottom: 14px;
+  }
+
+  /* ボタン：折返しOK＋狭幅では詰まない */
+  .masthead .fv .fv__copy .btn {
+    --h: 44px;
+    padding: 0 16px;
+    white-space: normal;
+    /* 長い文言でも改行可 */
+    margin-right: 8px;
+  }
+
+  .masthead .fv .fv__copy .btn:last-child {
+    margin-right: 0;
+  }
+
+  /* さらに狭い端末（幅≤380px）はボタンを縦積みにして詰まり回避 */
+  @media (max-width: 380px) {
+    .masthead .fv .fv__copy .btn {
+      display: block;
+      width: 100%;
+      text-align: center;
+      margin-right: 0;
     }
-  
-    /* 見出し：自然改行＋切れ防止 */
-    .masthead .fv .fv__title{
-      font-size: clamp(24px, 6.2vw, 30px);
-      line-height: 1.25;
-      white-space: normal;
-      word-break: keep-all;      /* 日本語の不自然な分割を抑える */
-      overflow-wrap: anywhere;   /* それでも溢れそうなら安全に折返し */
-      margin-bottom: 10px;
-    }
-  
-    /* リード文：行長制限を解除して横幅に追従、切れ防止 */
-    .masthead .fv .fv__lead{
-      max-width: none;           /* ← 34ch を解除して横幅に合わせる */
-      font-size: clamp(13px, 3.6vw, 15px);
-      line-height: 1.8;
-      white-space: normal;
-      word-break: break-word;
-      overflow-wrap: anywhere;
-      margin-bottom: 14px;
-    }
-  
-    /* ボタン：折返しOK＋狭幅では詰まない */
-    .masthead .fv .fv__copy .btn{
-      --h: 44px;
-      padding: 0 16px;
-      white-space: normal;       /* 長い文言でも改行可 */
-      margin-right: 8px;
-    }
-    .masthead .fv .fv__copy .btn:last-child{ margin-right: 0; }
-  
-    /* さらに狭い端末（幅≤380px）はボタンを縦積みにして詰まり回避 */
-    @media (max-width: 380px){
-      .masthead .fv .fv__copy .btn{
-        display: block;
-        width: 100%;
-        text-align: center;
-        margin-right: 0;
-      }
-      .masthead .fv .fv__copy .btn + .btn{ margin-top: 8px; }
+
+    .masthead .fv .fv__copy .btn+.btn {
+      margin-top: 8px;
     }
   }
+}
+
 /* ===== FVテキスト：自然なボカシ（枠が見えない） ===== */
-.masthead .fv .fv__copy{
-    position: relative;
-    background: transparent;          /* ← 本体に色は付けない */
-    box-shadow: none;                 /* ← 影の硬さも消す */
-    border: 0;
+.masthead .fv .fv__copy {
+  position: relative;
+  background: transparent;
+  /* ← 本体に色は付けない */
+  box-shadow: none;
+  /* ← 影の硬さも消す */
+  border: 0;
+}
+
+/* ボケ本体を敷く（裏側にだけ適用） */
+.masthead .fv .fv__copy::before {
+  content: "";
+  position: absolute;
+  inset: -18px;
+  /* ← 少し大きめに広げて縁を外へ */
+  z-index: -1;
+  /* ← テキストの裏に回す */
+  border-radius: 28px;
+
+  /* フロステッドガラス風 */
+  background: rgba(255, 255, 255, .14);
+  backdrop-filter: blur(12px) saturate(120%) contrast(105%);
+  -webkit-backdrop-filter: blur(12px) saturate(120%) contrast(105%);
+
+  /* 縁をフェード＝“箱感”を消す（角丸にも追従） */
+  -webkit-mask-image:
+    radial-gradient(120% 120% at 50% 50%, #000 62%, rgba(0, 0, 0, 0) 100%);
+  mask-image:
+    radial-gradient(120% 120% at 50% 50%, #000 62%, rgba(0, 0, 0, 0) 100%);
+
+  /* 微妙な光のにじみ（好みで調整/不要なら削除） */
+  box-shadow: 0 18px 50px rgba(15, 23, 85, .10);
+}
+
+/* 端末が backdrop-filter 非対応のときのフォールバック */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .masthead .fv .fv__copy::before {
+    background: rgba(255, 255, 255, .28);
+    /* 少しだけ不透明に */
+    -webkit-mask-image: none;
+    mask-image: none;
   }
-  
-  /* ボケ本体を敷く（裏側にだけ適用） */
-  .masthead .fv .fv__copy::before{
-    content:"";
-    position:absolute; inset:-18px;   /* ← 少し大きめに広げて縁を外へ */
-    z-index:-1;                       /* ← テキストの裏に回す */
-    border-radius: 28px;
-  
-    /* フロステッドガラス風 */
-    background: rgba(255,255,255,.14);
-    backdrop-filter: blur(12px) saturate(120%) contrast(105%);
-    -webkit-backdrop-filter: blur(12px) saturate(120%) contrast(105%);
-  
-    /* 縁をフェード＝“箱感”を消す（角丸にも追従） */
+}
+
+/* モバイル時はボケをやや強め、はみ出しを抑える */
+@media (max-width: 899px) {
+  .masthead .fv .fv__copy::before {
+    inset: -14px;
+    border-radius: 22px;
+    backdrop-filter: blur(14px) saturate(120%) contrast(105%);
+    -webkit-backdrop-filter: blur(14px) saturate(120%) contrast(105%);
     -webkit-mask-image:
-      radial-gradient(120% 120% at 50% 50%, #000 62%, rgba(0,0,0,0) 100%);
+      radial-gradient(140% 140% at 50% 60%, #000 64%, rgba(0, 0, 0, 0) 100%);
     mask-image:
-      radial-gradient(120% 120% at 50% 50%, #000 62%, rgba(0,0,0,0) 100%);
-  
-    /* 微妙な光のにじみ（好みで調整/不要なら削除） */
-    box-shadow: 0 18px 50px rgba(15,23,85,.10);
+      radial-gradient(140% 140% at 50% 60%, #000 64%, rgba(0, 0, 0, 0) 100%);
   }
-  
-  /* 端末が backdrop-filter 非対応のときのフォールバック */
-  @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))){
-    .masthead .fv .fv__copy::before{
-      background: rgba(255,255,255,.28); /* 少しだけ不透明に */
-      -webkit-mask-image: none;
-      mask-image: none;
-    }
-  }
-  
-  /* モバイル時はボケをやや強め、はみ出しを抑える */
-  @media (max-width: 899px){
-    .masthead .fv .fv__copy::before{
-      inset:-14px;
-      border-radius: 22px;
-      backdrop-filter: blur(14px) saturate(120%) contrast(105%);
-      -webkit-backdrop-filter: blur(14px) saturate(120%) contrast(105%);
-      -webkit-mask-image:
-        radial-gradient(140% 140% at 50% 60%, #000 64%, rgba(0,0,0,0) 100%);
-      mask-image:
-        radial-gradient(140% 140% at 50% 60%, #000 64%, rgba(0,0,0,0) 100%);
-    }
-  }
+}
+
 /* ===== FVテキスト位置をレスポンシブ時もPCと同じ位置に戻す ===== */
-@media (max-width: 899px){
-    .masthead .fv .fv__copy{
-      position: absolute;
-      top: auto;
-      bottom: 8vh;               /* ← PC時と同程度の下マージン */
-      left: clamp(40px, 8vw, 80px);
-      right: auto;
-      transform: none;
-      max-width: 620px;          /* テキスト幅をPCと同程度に固定 */
-      margin: 0;
-    }
-  
-    /* 見出し・本文も自然な位置で折り返すよう調整 */
-    .masthead .fv .fv__title,
-    .masthead .fv .fv__lead{
-      text-align: left;
-      white-space: normal;
-      word-break: keep-all;
-      overflow-wrap: anywhere;
-    }
+@media (max-width: 899px) {
+  .masthead .fv .fv__copy {
+    position: absolute;
+    top: auto;
+    bottom: 8vh;
+    /* ← PC時と同程度の下マージン */
+    left: clamp(40px, 8vw, 80px);
+    right: auto;
+    transform: none;
+    max-width: 620px;
+    /* テキスト幅をPCと同程度に固定 */
+    margin: 0;
   }
-        
+
+  /* 見出し・本文も自然な位置で折り返すよう調整 */
+  .masthead .fv .fv__title,
+  .masthead .fv .fv__lead {
+    text-align: left;
+    white-space: normal;
+    word-break: keep-all;
+    overflow-wrap: anywhere;
+  }
+}
+
+/* ================================
+ Services Page Add-on Styles
+ (Header/Footerは触らない)
+ ================================ */
+
+/* 基本トークン（既存の :root があればそれを尊重） */
+:root {
+  --brand: #5B9BD5;
+  /* 早田設備のブランドブルー（過去指示より） */
+  --ink: #111;
+  --muted: #6b7280;
+  --line: #e5e7eb;
+  --bg-soft: #f8fafc;
+  --shadow: 0 8px 24px rgba(0, 0, 0, .06);
+  --radius: 16px;
+}
+
+.section--soft {
+  background: var(--bg-soft);
+}
+
+.container--narrow {
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+.t-center {
+  text-align: center;
+}
+
+.btn-row {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+/* -----------------------------
+ キービジュアル（上部帯）
+------------------------------*/
+.kv {
+  padding: clamp(28px, 4.5vw, 60px) 0;
+  background:
+    radial-gradient(1200px 600px at 100% -10%, rgba(91, 155, 213, .12), transparent 60%),
+    linear-gradient(180deg, #fff, #f9fbff);
+  border-bottom: 1px solid var(--line);
+}
+
+.kv .breadcrumbs {
+  font-size: 13px;
+  color: var(--muted);
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.kv .breadcrumbs a {
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.kv .title {
+  margin: 8px 0 6px;
+  font-size: clamp(28px, 4.2vw, 40px);
+  line-height: 1.2;
+  letter-spacing: .01em;
+}
+
+.kv .note {
+  color: #374151;
+  max-width: 56ch;
+}
+
+/* -----------------------------
+ 見出し・テキスト
+------------------------------*/
+.section h2 {
+  font-size: clamp(22px, 3.2vw, 28px);
+  margin-bottom: 6px;
+}
+
+.section .sub {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.h2-slim {
+  font-size: clamp(22px, 3.2vw, 28px);
+  font-weight: 700;
+  letter-spacing: .02em;
+  margin-bottom: 20px;
+}
+
+/* -----------------------------
+ 2カラムグリッド（画像＋テキスト）
+------------------------------*/
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1.05fr .95fr;
+  gap: clamp(16px, 3.5vw, 28px);
+  align-items: start;
+}
+
+@media (max-width: 960px) {
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 画像プレースホルダー（.ph） */
+.ph {
+  aspect-ratio: 4 / 3;
+  border: 1px dashed #cbd5e1;
+  border-radius: var(--radius);
+  display: grid;
+  place-items: center;
+  background:
+    linear-gradient(135deg, rgba(91, 155, 213, .08), rgba(255, 255, 255, .9));
+  color: #64748b;
+  font-size: 14px;
+}
+
+.ph span {
+  padding: 8px 10px;
+}
+
+/* -----------------------------
+ カードグリッド（サービス／実績）
+------------------------------*/
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(12px, 2.8vw, 24px);
+}
+
+@media (max-width: 960px) {
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* カード */
+.card {
+  display: block;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 14px;
+  text-decoration: none;
+  color: inherit;
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+
+.card:hover,
+.card:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+  border-color: rgba(91, 155, 213, .35);
+  outline: none;
+}
+
+.card .thumb {
+  aspect-ratio: 4 / 3;
+  border-radius: calc(var(--radius) - 4px);
+  background:
+    linear-gradient(180deg, rgba(91, 155, 213, .15), rgba(91, 155, 213, .05));
+  display: grid;
+  place-items: end start;
+  padding: 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+.card .thumb::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(180px 120px at 100% 0, rgba(91, 155, 213, .18), transparent 60%);
+}
+
+.card .thumb span {
+  background: #fff;
+  border: 1px solid var(--line);
+  color: #334155;
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 999px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, .04);
+}
+
+.card h3 {
+  font-size: 16px;
+  margin: 10px 2px 2px;
+  line-height: 1.5;
+}
+
+.card .meta {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* 実績カード（article.card）内の time 表示 */
+#works .card time.meta {
+  display: block;
+  margin-top: 8px;
+}
+
+/* -----------------------------
+ テル・案内
+------------------------------*/
+.tel {
+  font-size: clamp(18px, 3.2vw, 22px);
+  font-weight: 700;
+  letter-spacing: .02em;
+}
+
+/* -----------------------------
+ CTA バンド（法人セクションの下）
+------------------------------*/
+.cta-band {
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap: clamp(14px, 3vw, 24px);
+  padding: clamp(16px, 3.4vw, 26px);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background:
+    linear-gradient(180deg, #fff, #f7fbff);
+}
+
+.cta-band .ph {
+  aspect-ratio: 16 / 9;
+}
+
+@media (max-width: 960px) {
+  .cta-band {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* -----------------------------
+ ボタン（ページ内での軽い上書き）
+------------------------------*/
+.kv .btn {
+  margin-top: 4px;
+}
+
+.btn.ghost {
+  background: #fff;
+  border: 1px solid var(--line);
+  color: #111;
+}
+
+.btn.ghost:hover {
+  border-color: rgba(91, 155, 213, .35);
+}
+
+/* -----------------------------
+ 施工フロー（ステップの縦タイムライン）
+------------------------------*/
+.flow-steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 14px;
+  counter-reset: step;
+}
+
+.flow-step {
+  position: relative;
+  padding: 14px 14px 14px 56px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: #fff;
+}
+
+.flow-step__number {
+  position: absolute;
+  left: 14px;
+  top: 14px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: rgba(91, 155, 213, .12);
+  color: #1f2a44;
+  font-weight: 700;
+}
+
+.flow-step:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  left: 30px;
+  top: calc(14px + 32px);
+  width: 4px;
+  bottom: -14px;
+  background: linear-gradient(#e8eef6, #edf2f7);
+  border-radius: 2px;
+}
+
+.flow-step__title {
+  margin: 2px 0 4px;
+  font-size: 16px;
+}
+
+.flow-step__text {
+  margin: 0;
+  color: #374151;
+  font-size: 14px;
+}
+
+/* -----------------------------
+ アクセシビリティ・モーション
+------------------------------*/
+@media (prefers-reduced-motion: reduce) {
+
+  .card,
+  .kv {
+    transition: none !important;
+  }
+}
+
+/* -----------------------------
+ 細かな余白調整
+------------------------------*/
+#sec-area .note {
+  margin-bottom: 10px;
+}
+
+.section .grid-2.container {
+  padding: 0;
+}
+
+/* ph を実画像に対応させる */
+.ph {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: #fff;
+  aspect-ratio: 4 / 3;
+  /* 既定。必要に応じて個別上書き */
+}
+
+/* 16:9が良い箇所だけ個別指定（対応エリア地図、CTAなど） */
+.ph.is-16x9 {
+  aspect-ratio: 16 / 9;
+}
+
+.ph img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  /* 画像を端までフィット */
+  object-position: center;
+}
+
+/* 旧プレースホルダー文字を残しても表示されないように */
+.ph span {
+  position: absolute;
+  inset: 0;
+  display: none;
+}
+
+/* =======================
+ Header: 左ロゴ / 右上FAB
+ ======================= */
+.header {
+  background: transparent;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 64px;
+}
+
+.brand-logo {
+  height: 28px;
+  /* スクショ程度のサイズ感 */
+  width: auto;
+  display: block;
+}
+
+@media (min-width: 960px) {
+  .brand-logo {
+    height: 32px;
+  }
+}
+
+/* 右上の丸ボタン（FAB） */
+.nav__toggle.fab {
+  position: fixed;
+  /* 画面右上に固定 */
+  right: clamp(14px, 2vw, 24px);
+  top: clamp(10px, 1.8vw, 18px);
+  z-index: 2000;
+  width: 56px;
+  height: 56px;
+  /* 直径 */
+  border-radius: 999px;
+  background: #1e66ff;
+  /* ブランド寄りの青 */
+  box-shadow: 0 8px 24px rgba(0, 0, 0, .18);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  border: none;
+}
+
+/* ハンバーガー線 */
+.nav__toggle.fab .burger {
+  display: inline-grid;
+  gap: 6px;
+}
+
+.nav__toggle.fab .burger i {
+  display: block;
+  width: 26px;
+  height: 2px;
+  background: #fff;
+  border-radius: 2px;
+}
+
+/* 開いた時の見た目（任意：少し淡く） */
+.menu[open] .nav__toggle.fab {
+  background: #2968ff;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, .25);
+}
+
+/* indexのヒーロー等が被らないよう、ヘッダー周辺の重なり調整 */
+.header {
+  position: relative;
+  z-index: 100;
+}
+
+.kv,
+.section {
+  isolation: isolate;
+}
+
+/* シート側は既存スタイルを活用（必要なら最小限） */
+.nav__sheet {
+  position: fixed;
+  inset: 0;
+  z-index: 1999;
+}
+
+.nav__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, .35);
+}
+
+.nav__panel {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: min(86vw, 420px);
+  background: #fff;
+  box-shadow: -8px 0 24px rgba(0, 0, 0, .12);
+  padding: 20px 20px 28px;
+  overflow: auto;
+}
+
+.nav__close {
+  border: none;
+  font-size: 22px;
+  padding: 6px;
+}
+
+.nav__list {
+  list-style: none;
+  margin: 12px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+}
+
+.nav__link {
+  display: block;
+  padding: 12px 10px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #111;
+}
+
+.nav__link:hover {
+  background: #f5f7fb;
+}
+
+/* ==== Bigger header logo (all pages) ==== */
+.header .brand-logo {
+  height: 40px;
+  /* SP～タブレット */
+  width: auto;
+}
+
+@media (min-width: 960px) {
+  .header .brand-logo {
+    height: 56px;
+    /* PC */
+  }
+}
+
+/* ヘッダーの高さをロゴに合わせて確保 */
+.header .topbar {
+  min-height: 72px;
+  /* SP */
+}
+
+@media (min-width: 960px) {
+  .header .topbar {
+    min-height: 84px;
+  }
+
+  /* PC */
+}
+
+/* 余白が窮屈なら（任意） */
+.header .brand {
+  display: flex;
+  align-items: center;
+  padding: 6px 0;
+}
+
+/* 右上の丸いバーガー（FAB）の縦位置を微調整（任意） */
+.nav__toggle.fab {
+  top: 14px;
+}
+
+@media (min-width: 960px) {
+  .nav__toggle.fab {
+    top: 16px;
+  }
+}
+
+/* ===== 3本線 ↔ ✕ の両方向アニメーション ===== */
+.nav__toggle.fab .burger {
+  position: relative;
+  width: 26px;
+  height: 20px;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.nav__toggle.fab .burger i {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #fff;
+  border-radius: 2px;
+  transition:
+    transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.25s ease,
+    top 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 通常時の位置 */
+.nav__toggle.fab .burger i:nth-child(1) {
+  top: 0;
+}
+
+.nav__toggle.fab .burger i:nth-child(2) {
+  top: 9px;
+}
+
+.nav__toggle.fab .burger i:nth-child(3) {
+  top: 18px;
+}
+
+/* open 時のアニメーション（✕） */
+.menu[open] .nav__toggle.fab .burger i:nth-child(1) {
+  top: 9px;
+  transform: rotate(45deg);
+}
+
+.menu[open] .nav__toggle.fab .burger i:nth-child(2) {
+  opacity: 0;
+  transform: translateX(-10px);
+}
+
+.menu[open] .nav__toggle.fab .burger i:nth-child(3) {
+  top: 9px;
+  transform: rotate(-45deg);
+}

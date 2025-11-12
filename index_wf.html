@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>早田設備株式会社｜TOP</title>
+<link rel="stylesheet" href="assets/style.css" />
+
+</head>
+<body>
+
+  <header class="header">
+    <div class="container" style="display:flex; align-items:center; justify-content:space-between; gap:16px">
+      <a class="brand" href="index.html" aria-label="早田設備">
+        <span class="brand-badge">HS</span>
+        <span>早田設備株式会社</span>
+      </a>
+  
+      <!-- ▼ レスポンシブ対応ナビ（PC=横並び / SP=パネル） -->
+      <nav class="nav" role="navigation" aria-label="グローバルナビ">
+        <details class="menu" id="site-menu">
+          <!-- トグル（モバイルのみ表示） -->
+          <summary class="nav__toggle" aria-label="メニューを開閉">
+            <span class="nav__label nav__label-open">☰ メニュー</span>
+            <span class="nav__label nav__label-close">✕ 閉じる</span>
+          </summary>
+            
+  
+          <!-- オーバーレイ（モバイル時のみ表示） -->
+          <div class="nav__sheet" aria-hidden="true">
+            <div class="nav__backdrop"></div>
+            <div class="nav__panel" role="dialog" aria-modal="true" aria-label="メニュー">
+              <ul class="nav__list" role="list">
+                <li><a class="nav__link" href="services.html">事業内容</a></li>
+                <li><a class="nav__link" href="services.html#flow">施工の流れ</a></li>
+                <li><a class="nav__link" href="company.html">会社案内</a></li>
+                <li><a class="nav__link" href="portfolio.html">施工実績</a></li>
+                <li><a class="nav__link" href="recruit.html">採用情報</a></li>
+                <li><a class="nav__link" href="contact.html">お問い合わせ</a></li>
+              </ul>
+            </div>
+          </div>
+  
+          <!-- デスクトップ用 横並び -->
+          <ul class="nav__list" role="list">
+            <li><a class="nav__link" href="services.html">事業内容</a></li>
+            <li><a class="nav__link" href="services.html#flow">施工の流れ</a></li>
+            <li><a class="nav__link" href="company.html">会社案内</a></li>
+            <li><a class="nav__link" href="portfolio.html">施工実績</a></li>
+            <li><a class="nav__link" href="recruit.html">採用情報</a></li>
+            <li><a class="nav__link" href="contact.html">お問い合わせ</a></li>
+          </ul>
+        </details>
+      </nav>
+      <!-- ▲ レスポンシブ対応ナビ -->
+    </div>
+  </header>
+  
+
+  <!-- HERO：大写真＋短いコピー＋単一CTA -->
+  <section class="hero section" aria-labelledby="hero-heading">
+    <div class="container hero-wrap">
+      <div class="hero-visual" role="img" aria-label="現場写真プレースホルダー">
+        <div class="ph-content">
+          <span class="ph-label">メインビジュアル（16:9）</span>
+        </div>
+      </div>
+      <div class="hero-text">
+        <h1 id="hero-heading">水と空気を通じて、地域の暮らしを支える。</h1>
+        <p class="sub">人々が安心して暮らせる環境をつくること。<br>
+          私たちは、水・空気・熱という見えないインフラを守り、<br>
+          快適な生活空間を提供することを使命とします。
+          </p>
+        <div class="btn-row">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT：写真＋一文 -->
+  <section class="section" aria-labelledby="about-heading">
+    <div class="container about-grid">
+      <div class="ph" role="img" aria-label="作業風景プレースホルダー">
+        <div class="ph-content">
+          <span class="ph-label">施工写真（4:3）</span>
+        </div>
+      </div>
+      <div>
+        <h2 id="about-heading">地域に支えられて、これからも。</h2>
+        <p>ご家庭の水回りから施設・公共まで。工事の大小を問わず、誠実に、丁寧に。創業年や許認可等の基本情報は、詳細ページで簡潔に。</p>
+        <div class="btn-row btn-row--left">
+          <a class="btn ghost" href="/company.html">私たちについて</a>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES：アイコン＋名称のミニマル -->
+  <section class="section" aria-labelledby="services-heading">
+    <div class="container">
+      <h2 id="services-heading" style="margin-bottom:24px">サービス</h2>
+      <div class="svc-grid" role="list">
+        <a class="svc" href="/services/plumbing" role="listitem" aria-label="給排水衛生設備">
+          <span class="ico">W</span>
+          <h3>給排水衛生設備</h3>
+          <p>設計・施工・メンテ</p>
+        </a>
+        <a class="svc" href="/services/hvac" role="listitem" aria-label="空調設備">
+          <span class="ico">A</span>
+          <h3>空調設備</h3>
+          <p>快適性と省エネ</p>
+        </a>
+        <a class="svc" href="/services/waterworks" role="listitem" aria-label="上下水道">
+          <span class="ico">S</span>
+          <h3>上下水道</h3>
+          <p>公共・民間に対応</p>
+        </a>
+        <a class="svc" href="/services/renovation" role="listitem" aria-label="リフォーム">
+          <span class="ico">R</span>
+          <h3>リフォーム</h3>
+          <p>水回り・内装</p>
+        </a>
+      </div>
+      <div class="btn-row" style="justify-content:center; margin-top:28px">
+        <a class="btn ghost" href="/services.html">サービスについて</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORKS：写真主役＋短いコピー -->
+  <section class="section" aria-labelledby="works-heading">
+    <div class="container works-grid">
+      <div class="ph" role="img" aria-label="施工事例写真プレースホルダー">
+        <div class="ph-content">
+          <span class="ph-label">施工事例（4:3）</span>
+        </div>
+      </div>
+      <div>
+        <h2 id="works-heading">頼んでよかった、と言われる仕事に。</h2>
+        <p>人物や手元の写真で、技術と人柄を可視化。説明は最小限、写真で伝える構成。</p>
+        <div class="btn-row btn-row--left">
+          <a class="btn ghost" href="/portfolio.html">施工実績を見る</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWS：静かなカード 3-4件（色統一済） -->
+  <section class="section" aria-labelledby="news-heading">
+    <div class="container">
+      <h2 id="news-heading" style="margin-bottom:24px">お知らせ</h2>
+      <div class="news-grid">
+        <article class="news">
+          <div class="thumb" role="img" aria-label="お知らせサムネイル">
+
+          </div>
+          <time datetime="2025-08-21">2025.08.21</time>
+          <h3>夏季休業のお知らせ（サンプル）</h3>
+        </article>
+        <article class="news">
+          <div class="thumb" role="img" aria-label="お知らせサムネイル">
+
+          </div>
+          <time datetime="2025-06-10">2025.06.10</time>
+          <h3>施工実績を追加しました（サンプル）</h3>
+        </article>
+        <article class="news">
+          <div class="thumb" role="img" aria-label="お知らせサムネイル">
+
+          </div>
+          <time datetime="2025-05-01">2025.05.01</time>
+          <h3>採用情報更新のお知らせ（サンプル）</h3>
+        </article>
+        <article class="news">
+          <div class="thumb" role="img" aria-label="お知らせサムネイル">
+
+          </div>
+          <time datetime="2025-04-18">2025.04.18</time>
+          <h3>ブログを更新しました（サンプル）</h3>
+        </article>
+      </div>
+      <div class="btn-row" style="justify-content:center; margin-top:28px">
+        <a class="btn ghost" href="/news.html">お知らせ一覧へ</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- RECRUIT：淡色帯、短い文＋CTAのみ -->
+  <section class="section" aria-labelledby="recruit-heading">
+    <div class="container recruit">
+      <div>
+        <h2 id="recruit-heading">正社員 募集中</h2>
+        <p class="note">地域密着の現場で、一緒に働きませんか。未経験の方も歓迎。<br>募集要項は採用ページへ。</p>
+        <div class="btn-row btn-row--left">
+          <a class="btn" href="/recruit.html">採用情報を見る</a>
+        </div>
+      </div>
+      <div class="ph" role="img" aria-label="社員写真プレースホルダー">
+        <div class="ph-content">
+
+          <span class="ph-label">社員写真（4:3）</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer：電話とお問い合わせのみ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container foot-flex">
+      <div>
+        <div class="tel">📞 0858-22-7571</div>
+        <div class="note">9:00–17:00（第２、第４土、日祝・年末年始を除く）</div>
+      </div>
+      <div style="justify-self:end">
+        <a class="btn" href="/contact.html">お問い合わせ</a>
+      </div>
+    </div>
+    <div class="container" style="margin-top:28px; color:var(--muted); display:flex; align-items:center; gap:12px; justify-content:space-between; flex-wrap:wrap">
+      <div style="display:flex; align-items:center; gap:10px; color:var(--brand); font-weight:800">
+        <span style="width:28px;height:28px;border:2px solid var(--brand);border-radius:8px;display:grid;place-items:center">HS</span>
+        <span>早田設備株式会社</span>
+      </div>
+      <small>© Hayata Setsubi Co., Ltd.</small>
+    </div>
+  </footer>
+  <script>
+    (function(){
+      const menu = document.getElementById('site-menu');
+      if(!menu) return;
+  
+      // リンククリックで閉じる
+      menu.querySelectorAll('.nav__panel .nav__link').forEach(a=>{
+        a.addEventListener('click', ()=> { menu.open = false; });
+      });
+  
+      // 背景クリックで閉じる
+      const backdrop = menu.querySelector('.nav__backdrop');
+      if (backdrop) backdrop.addEventListener('click', ()=> { menu.open = false; });
+  
+      // ESCで閉じる
+      document.addEventListener('keydown', (e)=>{
+        if(e.key === 'Escape' && menu.open){ menu.open = false; }
+      });
+    })();
+  </script>
+  
+</body>
+</html>
