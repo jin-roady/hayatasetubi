@@ -1,0 +1,563 @@
+@charset "UTF-8";
+
+/* =========================================================
+   Recruit Page Unique Design
+   Concept: Soft, Welcoming, Growth
+   "Gentle Future" and "Comfortable Workplace"
+========================================================= */
+
+:root {
+    /* Palette: Soft Pastels & Gentle Blues */
+    --rec-primary: #7fbfff;
+    /* Soft Sky Blue */
+    --rec-accent: #b2ebf2;
+    /* Pale Cyan/Mint */
+    --rec-text-main: #4a5568;
+    /* Softer Dark Gray */
+    --rec-text-light: #718096;
+    /* Muted Gray */
+    --rec-bg-body: #f0f7ff;
+    /* Clean White -> Soft Blueish White */
+    --rec-bg-soft: #e6f2ff;
+    /* Alice Blue -> Stronger Pale Blue */
+    --rec-gradient: linear-gradient(120deg, #8ec5fc 0%, #b0e0f8 100%);
+    /* Soft Cloud Gradient -> Slightly more vibrant */
+}
+
+body {
+    background: var(--rec-bg-body);
+    color: var(--rec-text-main);
+    font-family: "Noto Sans JP", sans-serif;
+}
+
+/* ---------------------------------------------------------
+   HERO SECTION (Soft & Light)
+--------------------------------------------------------- */
+.rec-hero {
+    position: relative;
+    height: 85vh;
+    min-height: 600px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: #fff;
+    color: var(--rec-text-main);
+    /* Dark text for light bg */
+}
+
+.rec-hero__bg {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+}
+
+.rec-hero__bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.8;
+    /* Lighter image */
+    transform: scale(1.05);
+    animation: heroFloat 20s infinite alternate ease-in-out;
+    filter: brightness(1.1) contrast(0.9);
+    /* Soften image look */
+}
+
+@keyframes heroFloat {
+    from {
+        transform: scale(1.05);
+    }
+
+    to {
+        transform: scale(1.15);
+    }
+}
+
+/* White/Light Overlay for readability */
+.rec-hero__overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.8));
+    backdrop-filter: blur(2px);
+}
+
+.rec-hero__content {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    padding: 20px;
+    max-width: 800px;
+}
+
+.rec-hero__title {
+    font-size: clamp(32px, 6vw, 64px);
+    font-weight: 900;
+    line-height: 1.2;
+    margin-bottom: 24px;
+    letter-spacing: 0.05em;
+    color: #5a9bd5;
+    /* Soft Blue Title */
+    opacity: 0;
+    animation: fadeInUp 1.2s ease-out forwards 0.3s;
+}
+
+.rec-hero__lead {
+    font-size: clamp(15px, 2.5vw, 20px);
+    font-weight: 700;
+    margin-bottom: 40px;
+    line-height: 2;
+    color: var(--rec-text-main);
+    opacity: 0;
+    animation: fadeInUp 1.2s ease-out forwards 0.6s;
+}
+
+.rec-hero__btn {
+    display: inline-block;
+    padding: 14px 40px;
+    background: var(--rec-gradient);
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    opacity: 0;
+    animation: fadeInUp 1.2s ease-out forwards 0.9s;
+    box-shadow: 0 8px 20px rgba(161, 196, 253, 0.4);
+    letter-spacing: 0.05em;
+}
+
+.rec-hero__btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(161, 196, 253, 0.6);
+    filter: brightness(1.05);
+}
+
+.rec-scroll {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    color: var(--rec-text-light);
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    opacity: 0.7;
+}
+
+.rec-scroll::after {
+    content: "";
+    width: 1px;
+    height: 50px;
+    background: var(--rec-text-light);
+    animation: scrollLine 2s infinite;
+}
+
+@keyframes scrollLine {
+    0% {
+        transform: scaleY(0);
+        transform-origin: top;
+    }
+
+    50% {
+        transform: scaleY(1);
+        transform-origin: top;
+    }
+
+    51% {
+        transform: scaleY(1);
+        transform-origin: bottom;
+    }
+
+    100% {
+        transform: scaleY(0);
+        transform-origin: bottom;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ---------------------------------------------------------
+   SECTIONS COMMON
+--------------------------------------------------------- */
+.rec-section {
+    padding: 80px 0;
+    position: relative;
+}
+
+.rec-container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.rec-head {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.rec-head__en {
+    display: block;
+    font-size: 13px;
+    font-weight: 700;
+    color: #8ab4f8;
+    /* Soft Blue */
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+.rec-head__jp {
+    font-size: clamp(24px, 3.5vw, 32px);
+    font-weight: 700;
+    color: var(--rec-text-main);
+    letter-spacing: 0.05em;
+}
+
+/* ---------------------------------------------------------
+   MESSAGE SECTION (Rounded & Soft)
+--------------------------------------------------------- */
+.rec-message {
+    background: #fff;
+    border-radius: 50px;
+    padding: 80px 40px;
+    margin: -60px auto 0;
+    width: 90%;
+    max-width: 1000px;
+    position: relative;
+    z-index: 10;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.03);
+    border: 1px solid #f0f4f8;
+}
+
+.rec-message__inner {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.rec-message__text {
+    font-size: 16px;
+    line-height: 2.2;
+    color: var(--rec-text-main);
+    margin-bottom: 24px;
+}
+
+/* ---------------------------------------------------------
+   BENEFITS (Soft Cards)
+--------------------------------------------------------- */
+.rec-benefits {
+    background: var(--rec-bg-soft);
+}
+
+.rec-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.rec-card {
+    background: #fff;
+    border-radius: 30px;
+    padding: 36px;
+    box-shadow: 0 8px 24px rgba(149, 157, 165, 0.05);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    border: 1px solid #fff;
+}
+
+.rec-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 32px rgba(149, 157, 165, 0.1);
+}
+
+.rec-card__icon {
+    font-size: 40px;
+    margin-bottom: 20px;
+    background: #f0f9ff;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    color: #5a9bd5;
+}
+
+.rec-card__title {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: var(--rec-text-main);
+}
+
+.rec-card__text {
+    font-size: 14px;
+    line-height: 1.8;
+    color: var(--rec-text-light);
+}
+
+/* ---------------------------------------------------------
+   JOBS (Clean & Simple)
+--------------------------------------------------------- */
+.rec-jobs {
+    background: #fff;
+}
+
+.rec-job-item {
+    border-bottom: 1px solid #f0f0f0;
+    padding: 32px 0;
+    transition: background 0.3s;
+}
+
+.rec-job-item:hover {
+    background: #fafbfc;
+}
+
+.rec-job-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    gap: 16px;
+}
+
+.rec-job-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--rec-text-main);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.rec-job-tag {
+    font-size: 11px;
+    background: #e2e8f0;
+    color: #4a5568;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-weight: 500;
+}
+
+.rec-job-arrow {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #f7fafc;
+    color: #a0aec0;
+    display: grid;
+    place-items: center;
+    font-size: 12px;
+    transition: all 0.3s;
+}
+
+.rec-job-item:hover .rec-job-arrow {
+    background: #ebf8ff;
+    color: #4299e1;
+}
+
+details[open] .rec-job-arrow {
+    transform: rotate(90deg);
+}
+
+/* ---------------------------------------------------------
+   CTA (Soft Gradient)
+--------------------------------------------------------- */
+.rec-cta {
+    background: var(--rec-gradient);
+    color: #fff;
+    text-align: center;
+    border-radius: 40px;
+    margin: 60px 20px;
+    padding: 80px 20px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(161, 196, 253, 0.2);
+}
+
+/* Soft gentle bubbles instead of rotating lines */
+.rec-cta::before,
+.rec-cta::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.rec-cta::before {
+    width: 300px;
+    height: 300px;
+    top: -50px;
+    left: -50px;
+}
+
+.rec-cta::after {
+    width: 200px;
+    height: 200px;
+    bottom: -20px;
+    right: -20px;
+}
+
+.rec-cta__content {
+    position: relative;
+    z-index: 2;
+}
+
+.rec-cta__title {
+    font-size: clamp(28px, 4vw, 40px);
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.rec-cta__btn {
+    display: inline-block;
+    background: #fff;
+    color: #5a9bd5;
+    padding: 18px 50px;
+    border-radius: 50px;
+    font-size: 18px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: transform 0.3s, box-shadow 0.3s;
+    margin-top: 24px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+}
+
+.rec-cta__btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+    color: #4a8bc5;
+}
+
+/* ---------------------------------------------------------
+   ANIMATION UTILS
+--------------------------------------------------------- */
+[data-animate] {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+[data-animate].in-view {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ---------------------------------------------------------
+   MASCOT CHARACTERS
+--------------------------------------------------------- */
+
+/* Hero Mascot */
+.rec-hero__mascot {
+    position: absolute;
+    bottom: 10%;
+    right: 10%;
+    width: clamp(150px, 20vw, 300px);
+    z-index: 4;
+    pointer-events: none;
+    animation: mascotFloat 6s ease-in-out infinite;
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.1));
+}
+
+.rec-hero__mascot img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+@keyframes mascotFloat {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-20px) rotate(2deg);
+    }
+}
+
+/* Message Mascot (Peeking) */
+.rec-message__mascot {
+    position: absolute;
+    top: -60px;
+    right: 40px;
+    width: clamp(100px, 15vw, 180px);
+    z-index: 11;
+    transform: rotate(10deg);
+    filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.1));
+}
+
+.rec-message__mascot img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* CTA Mascot */
+.rec-cta__mascot {
+    position: absolute;
+    bottom: 0;
+    left: 5%;
+    width: clamp(120px, 18vw, 220px);
+    z-index: 3;
+    transform-origin: bottom center;
+    animation: mascotWave 3s ease-in-out infinite;
+}
+
+.rec-cta__mascot img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+@keyframes mascotWave {
+
+    0%,
+    100% {
+        transform: rotate(-5deg);
+    }
+
+    50% {
+        transform: rotate(5deg);
+    }
+}
+
+/* Responsive Adjustments for Mascots */
+@media (max-width: 768px) {
+    .rec-hero__mascot {
+        right: 5%;
+        bottom: 15%;
+        opacity: 0.8;
+    }
+
+    .rec-message__mascot {
+        top: -50px;
+        right: 20px;
+        width: 100px;
+    }
+
+    .rec-cta__mascot {
+        left: -20px;
+        opacity: 0.3;
+        /* Fade out on mobile to not obstruct text */
+    }
+}

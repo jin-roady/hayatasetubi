@@ -46,7 +46,7 @@ body {
   margin: 0;
   font-family: "Hiragino Kaku Gothic ProN", "Noto Sans JP", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "メイリオ", Meiryo, sans-serif;
   color: var(--ink);
-  background: linear-gradient(180deg, #f5f9ff 0%, #ffffff 70%);
+  background: linear-gradient(180deg, #e6f0ff 0%, #ffffff 70%);
   -webkit-font-smoothing: antialiased;
   line-height: 1.75;
 }
@@ -1457,11 +1457,9 @@ h2::before {
     white-space: nowrap;
   }
 
-  /* 右下セットをコンパクト＆内側へ */
+  /* 右下セットを非表示（別セクションで表示） */
   .fv__side {
-    right: clamp(10px, 5vw, 18px);
-    bottom: clamp(16px, 9vh, 22vh);
-    gap: 6px;
+    display: none;
   }
 
   .fv__balloon {
@@ -2126,10 +2124,7 @@ h2::before {
   /* ← テキストの裏に回す */
   border-radius: 28px;
 
-  /* フロステッドガラス風 */
-  background: rgba(255, 255, 255, .14);
-  backdrop-filter: blur(12px) saturate(120%) contrast(105%);
-  -webkit-backdrop-filter: blur(12px) saturate(120%) contrast(105%);
+
 
   /* 縁をフェード＝“箱感”を消す（角丸にも追従） */
   -webkit-mask-image:
@@ -2148,20 +2143,6 @@ h2::before {
     /* 少しだけ不透明に */
     -webkit-mask-image: none;
     mask-image: none;
-  }
-}
-
-/* モバイル時はボケをやや強め、はみ出しを抑える */
-@media (max-width: 899px) {
-  .masthead .fv .fv__copy::before {
-    inset: -14px;
-    border-radius: 22px;
-    backdrop-filter: blur(14px) saturate(120%) contrast(105%);
-    -webkit-backdrop-filter: blur(14px) saturate(120%) contrast(105%);
-    -webkit-mask-image:
-      radial-gradient(140% 140% at 50% 60%, #000 64%, rgba(0, 0, 0, 0) 100%);
-    mask-image:
-      radial-gradient(140% 140% at 50% 60%, #000 64%, rgba(0, 0, 0, 0) 100%);
   }
 }
 
@@ -2786,4 +2767,876 @@ h2::before {
 .menu[open] .nav__toggle.fab .burger i:nth-child(3) {
   top: 9px;
   transform: rotate(-45deg);
+}
+
+/* =========================================================
+   【統一デザインパターン】ページ共通スタイル
+   会社案内・事業内容などで使用
+========================================================= */
+
+/* ---------------------------------------------------------
+   ページ全体背景（共通）
+--------------------------------------------------------- */
+.page-company,
+.page-service {
+  background:
+    radial-gradient(circle at top left, rgba(40, 116, 252, 0.06), transparent 55%),
+    radial-gradient(circle at bottom right, rgba(9, 132, 227, 0.06), transparent 50%),
+    #f7f9fc;
+}
+
+/* ---------------------------------------------------------
+   セクション背景パターン（共通）
+--------------------------------------------------------- */
+.page-company .section,
+.page-service .section {
+  padding-block: clamp(56px, 7vw, 88px);
+}
+
+/* デフォルト：透明（地の背景を見せる） */
+.page-company .section--panel,
+.page-service .section--panel {
+  background: transparent;
+}
+
+/* ふんわりホワイト系 */
+.page-company .section--alt,
+.page-service .section--alt {
+  background: radial-gradient(circle at top, #ffffff 0%, #f4f7ff 80%);
+}
+
+/* やさしい淡ブルー */
+.page-company .section--soft,
+.page-service .section--soft {
+  background: linear-gradient(180deg, #f7f9ff 0%, #edf3ff 100%);
+}
+
+/* CTA用（少しタイトな余白） */
+.page-company .section--cta,
+.page-service .section--cta {
+  padding-block: clamp(48px, 6vw, 72px);
+  background: transparent;
+}
+
+/* コンテナの左右余白を統一 */
+.page-company .section .container,
+.page-service .section .container,
+.page-company section .container,
+.page-service section .container {
+  padding-inline: clamp(18px, 5vw, 60px);
+  margin-inline: auto;
+  max-width: 1200px;
+  box-sizing: border-box;
+}
+
+/* =========================================================
+   【統一デザインパターン】ページ共通スタイル
+   Company / Service / Portfolio 共通
+========================================================= */
+
+/* ---------------------------------------------------------
+   ページ全体背景（共通）
+--------------------------------------------------------- */
+.is-index,
+.page-company,
+.page-service,
+.page-portfolio,
+.page-contact {
+  background: #ffffff;
+}
+
+/* ---------------------------------------------------------
+   セクション背景パターン（共通）
+--------------------------------------------------------- */
+.page-company .section,
+.page-service .section,
+.page-portfolio .section,
+.page-contact .section {
+  padding-block: clamp(56px, 7vw, 88px);
+}
+
+/* デフォルト：透明（地の背景を見せる） */
+.page-company .section--panel,
+.page-service .section--panel,
+.page-portfolio .section--panel,
+.page-contact .section--panel {
+  background: transparent;
+}
+
+/* ふんわりホワイト系 */
+.page-company .section--alt,
+.page-service .section--alt,
+.page-portfolio .section--alt,
+.page-contact .section--alt {
+  background: radial-gradient(circle at top, #ffffff 0%, #f4f7ff 80%);
+}
+
+/* やさしい淡ブルー */
+.page-company .section--soft,
+.page-service .section--soft,
+.page-portfolio .section--soft,
+.page-contact .section--soft {
+  background: linear-gradient(180deg, #f7f9ff 0%, #edf3ff 100%);
+}
+
+/* CTA用（少しタイトな余白） */
+.page-company .section--cta,
+.page-service .section--cta,
+.page-portfolio .section--cta,
+.page-contact .section--cta {
+  padding-block: clamp(48px, 6vw, 72px);
+  background: transparent;
+}
+
+/* コンテナの左右余白を統一 */
+.page-company .section .container,
+.page-service .section .container,
+.page-portfolio .section .container,
+.page-contact .section .container,
+.page-company section .container,
+.page-service section .container,
+.page-portfolio section .container,
+.page-contact section .container {
+  padding-inline: clamp(18px, 5vw, 60px);
+  margin-inline: auto;
+  max-width: 1200px;
+  box-sizing: border-box;
+}
+
+/* ---------------------------------------------------------
+   統一KVデザイン（Company / Service / Portfolio共通）
+--------------------------------------------------------- */
+.kv--company,
+.kv--service,
+.kv--portfolio,
+.kv--contact {
+  --left-max: 560px;
+  --gutter-x: clamp(20px, 4vw, 48px);
+  --top-pad: clamp(72px, 9vw, 140px);
+  --bottom-pad: clamp(48px, 7vw, 110px);
+  position: relative;
+  min-height: 620px;
+  background: #fff;
+  isolation: isolate;
+}
+
+.kv--company .kv__inner,
+.kv--service .kv__inner,
+.kv--portfolio .kv__inner,
+.kv--contact .kv__inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: var(--top-pad) var(--gutter-x) var(--bottom-pad);
+  position: relative;
+  z-index: 2;
+}
+
+.kv--company .kv__body,
+.kv--service .kv__body,
+.kv--portfolio .kv__body,
+.kv--contact .kv__body {
+  width: min(var(--left-max), 52vw);
+}
+
+/* 見出し統一デザイン */
+.kv--company .kv__title,
+.kv--service .kv__title,
+.kv--portfolio .kv__title,
+.kv--contact .kv__title {
+  margin: 0 0 clamp(18px, 2vw, 28px);
+  line-height: 1.15;
+}
+
+.kv--company .kv__title .jp,
+.kv--service .kv__title .jp,
+.kv--portfolio .kv__title .jp,
+.kv--contact .kv__title .jp {
+  display: block;
+  font-weight: 900;
+  font-size: clamp(34px, 6vw, 56px);
+  letter-spacing: .02em;
+  color: #14286b;
+}
+
+.kv--company .kv__title .en,
+.kv--service .kv__title .en,
+.kv--portfolio .kv__title .en,
+.kv--contact .kv__title .en {
+  display: block;
+  margin-top: 6px;
+  font-weight: 800;
+  font-size: clamp(20px, 3.6vw, 36px);
+  letter-spacing: .06em;
+  background: linear-gradient(90deg, #2a9df4 0%, #b43a9a 55%, #0f3fff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* 本文統一 */
+.kv--company .kv__lead,
+.kv--service .kv__lead,
+.kv--portfolio .kv__lead,
+.kv--contact .kv__lead,
+.kv--company .kv__intro,
+.kv--service .kv__intro,
+.kv--portfolio .kv__intro,
+.kv--contact .kv__intro {
+  margin: 0;
+  color: #14286b;
+  font-weight: 700;
+  font-size: clamp(15px, 1.6vw, 18px);
+  line-height: 2.2;
+  letter-spacing: .03em;
+  max-width: 640px;
+}
+
+/* 右全面写真（統一斜めカット） */
+.kv--company .kv__media,
+.kv--service .kv__media,
+.kv--portfolio .kv__media,
+.kv--contact .kv__media {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 30%;
+  background: var(--kv-img) center/cover no-repeat;
+  z-index: 1;
+  clip-path: polygon(58% 0, 100% 0, 100% 100%, 42% 100%);
+}
+
+/* 左側を白でなじませて可読性UP */
+.kv--company .kv__media::before,
+.kv--service .kv__media::before,
+.kv--portfolio .kv__media::before,
+.kv--contact .kv__media::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(255, 255, 255, .9) 0%, rgba(255, 255, 255, 0) 18%);
+  pointer-events: none;
+}
+
+/* マスコット＆吹き出し統一配置 */
+.kv--company .kv__mascot,
+.kv--service .kv__mascot,
+.kv--portfolio .kv__mascot,
+.kv--contact .kv__mascot {
+  position: absolute;
+  z-index: 3;
+  right: clamp(26%, 30vw, 35%);
+  bottom: clamp(42px, 7vw, 84px);
+  transform: translateX(18%);
+  width: clamp(120px, 15vw, 200px);
+  aspect-ratio: 1/1;
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+  pointer-events: none;
+}
+
+.kv--company .kv__mascot img,
+.kv--service .kv__mascot img,
+.kv--portfolio .kv__mascot img,
+.kv--contact .kv__mascot img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.kv--company .kv__balloon,
+.kv--service .kv__balloon,
+.kv--portfolio .kv__balloon,
+.kv--contact .kv__balloon {
+  position: relative;
+  pointer-events: auto;
+  background: #fff;
+  border: 3px solid rgba(19, 73, 166, .85);
+  border-radius: 18px;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, .10);
+  padding: 10px 14px;
+  transform: translateY(4px);
+  text-align: center;
+}
+
+.kv--company .kv__balloon p,
+.kv--service .kv__balloon p,
+.kv--portfolio .kv__balloon p,
+.kv--contact .kv__balloon p {
+  margin: 0;
+  font-weight: 900;
+  line-height: 1.25;
+  color: #1349a6;
+  font-size: clamp(11px, 1.4vw, 14px);
+}
+
+.kv--company .kv__balloon::after,
+.kv--service .kv__balloon::after,
+.kv--portfolio .kv__balloon::after,
+.kv--contact .kv__balloon::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -12px;
+  width: 20px;
+  height: 20px;
+  background: #fff;
+  border-right: 3px solid rgba(19, 73, 166, .85);
+  border-bottom: 3px solid rgba(19, 73, 166, .85);
+  transform: translateX(-50%) rotate(45deg);
+  border-radius: 4px;
+}
+
+/* SP時の改行表示 */
+.sp-br {
+  display: none;
+}
+
+/* ---------------------------------------------------------
+   KV レスポンシブ統一（タブレット〜スマホ）
+--------------------------------------------------------- */
+@media (max-width:768px) {
+  .sp-br {
+    display: inline;
+  }
+
+  .kv--company,
+  .kv--service,
+  .kv--portfolio,
+  .kv--contact {
+    --sp-safe: 58vw;
+    min-height: min(88vh, 760px);
+  }
+
+  .kv--company .kv__inner,
+  .kv--service .kv__inner,
+  .kv--portfolio .kv__inner,
+  .kv--contact .kv__inner {
+    padding: clamp(56px, 10vw, 80px) clamp(7vw, 8vw, 28px) clamp(32px, 9vw, 56px);
+    max-width: 100%;
+  }
+
+  .kv--company .kv__body,
+  .kv--service .kv__body,
+  .kv--portfolio .kv__body,
+  .kv--contact .kv__body {
+    width: 100%;
+    max-width: var(--sp-safe);
+  }
+
+  .kv--company .kv__media,
+  .kv--service .kv__media,
+  .kv--portfolio .kv__media,
+  .kv--contact .kv__media {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-size: cover;
+    background-position: 62% 40%;
+    clip-path: polygon(62% 0, 100% 0, 100% 100%, 38% 100%);
+  }
+
+  .kv--company .kv__media::before,
+  .kv--service .kv__media::before,
+  .kv--portfolio .kv__media::before,
+  .kv--contact .kv__media::before {
+    background: linear-gradient(90deg,
+        rgba(255, 255, 255, 0.96) 0%,
+        rgba(255, 255, 255, 0.88) 16%,
+        rgba(255, 255, 255, 0.00) 36%);
+  }
+
+  /* マスコット：ボタン直下へ */
+  .kv--company .kv__mascot,
+  .kv--service .kv__mascot,
+  .kv--portfolio .kv__mascot,
+  .kv--contact .kv__mascot {
+    position: relative;
+    left: 0;
+    margin-top: clamp(0px, 1.5vw, 6px);
+    margin-left: clamp(10px, 6vw, 40px);
+    width: clamp(100px, 28vw, 155px);
+    transform: none;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .kv--company .kv__balloon,
+  .kv--service .kv__balloon,
+  .kv--portfolio .kv__balloon,
+  .kv--contact .kv__balloon {
+    padding: 7px 11px;
+    border-width: 2.5px;
+  }
+
+  .kv--company .kv__balloon::after,
+  .kv--service .kv__balloon::after,
+  .kv--portfolio .kv__balloon::after,
+  .kv--contact .kv__balloon::after {
+    left: 30%;
+    bottom: -10px;
+    width: 16px;
+    height: 16px;
+  }
+}
+
+@media (max-width:375px) {
+
+  .kv--company .kv__media,
+  .kv--service .kv__media,
+  .kv--portfolio .kv__media,
+  .kv--contact .kv__media {
+    clip-path: polygon(66% 0, 100% 0, 100% 100%, 34% 100%);
+    background-position: 60% 42%;
+  }
+}
+
+/* ---------------------------------------------------------
+   統一セクション見出しデザイン
+--------------------------------------------------------- */
+.sec-head {
+  margin-bottom: clamp(16px, 2.4vw, 22px);
+}
+
+.sec-head__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #2455b3;
+  background: rgba(36, 85, 179, 0.06);
+}
+
+.sec-head__label::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #2a9df4, #b43a9a);
+}
+
+.sec-head__title {
+  margin: 10px 0 0;
+  font-size: clamp(22px, 2.4vw, 28px);
+  letter-spacing: 0.08em;
+  color: #14286b;
+  position: relative;
+  display: inline-block;
+}
+
+
+.sec-head--center {
+  text-align: center;
+}
+
+.sec-head--center .sec-head__title::after {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* ---------------------------------------------------------
+   統一2カラムレイアウト
+--------------------------------------------------------- */
+.section__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: clamp(28px, 4vw, 40px);
+  align-items: center;
+}
+
+.section__inner--reverse {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+}
+
+@media (max-width: 900px) {
+
+  .section__inner,
+  .section__inner--reverse {
+    grid-template-columns: 1fr;
+  }
+
+  .section__image {
+    order: -1;
+  }
+}
+
+/* カード風背景（代表挨拶・沿革など） */
+.section--panel .section__inner {
+  background: #ffffff;
+  border-radius: 22px;
+  box-shadow: 0 18px 50px rgba(15, 35, 80, 0.08);
+  padding: clamp(24px, 4vw, 32px);
+}
+
+@media (max-width: 900px) {
+  .section--panel .section__inner {
+    padding: clamp(20px, 4vw, 24px);
+  }
+}
+
+/* ---------------------------------------------------------
+   統一写真枠
+--------------------------------------------------------- */
+.ph {
+  width: 100%;
+  display: block;
+  overflow: hidden;
+  border-radius: 18px;
+  background: #ffffff;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, .06);
+}
+
+.ph.is-4x3 {
+  aspect-ratio: 4 / 3;
+}
+
+.ph.is-16x9 {
+  aspect-ratio: 16 / 9;
+}
+
+.ph img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  border-radius: inherit;
+}
+
+/* プレースホルダー（実装前） */
+.ph span {
+  display: grid;
+  place-items: center;
+  color: #64748b;
+  font-size: 14px;
+  background: linear-gradient(135deg, rgba(91, 155, 213, .08), rgba(255, 255, 255, .9));
+  height: 100%;
+}
+
+/* =========================================================
+   【統一見出しデザイン】全ページ共通
+========================================================= */
+
+/* ---------------------------------------------------------
+   ページタイトル（h1 - KV内の大見出し）
+--------------------------------------------------------- */
+.kv__title {
+  margin: 0 0 clamp(18px, 2vw, 28px);
+  line-height: 1.15;
+}
+
+.kv__title .jp {
+  display: block;
+  font-weight: 900;
+  font-size: clamp(34px, 6vw, 56px);
+  letter-spacing: .02em;
+  color: #14286b;
+  text-shadow: 0 2px 8px rgba(20, 40, 107, .08);
+}
+
+.kv__title .en {
+  display: block;
+  margin-top: 6px;
+  font-weight: 800;
+  font-size: clamp(20px, 3.6vw, 36px);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  background: linear-gradient(90deg, #2a9df4 0%, #b43a9a 55%, #0f3fff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ---------------------------------------------------------
+   セクション見出し（h2 - 大セクションの見出し）
+--------------------------------------------------------- */
+.page-company h2,
+.page-service h2,
+.page-portfolio h2,
+.page-company .sec-head__title,
+.page-service .sec-head__title,
+.page-portfolio .sec-head__title {
+  margin: 10px 0 0;
+  font-size: clamp(22px, 2.4vw, 28px);
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  color: #14286b;
+  position: relative;
+  display: inline-block;
+  line-height: 1.3;
+}
+
+
+
+/* 見出しの上に付くラベル（Message, Profile など） */
+.sec-head__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #2455b3;
+  background: linear-gradient(135deg, #f3f6ff 0%, #eaf1ff 100%);
+  box-shadow: 0 4px 12px rgba(27, 69, 174, 0.12);
+  margin-bottom: 12px;
+}
+
+/* ラベルの左側のドット */
+.sec-head__label::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: radial-gradient(circle at 30% 30%, #ffffff 0%, #4b9bff 40%, #b93aa2 100%);
+  box-shadow: 0 2px 8px rgba(75, 155, 255, 0.3);
+}
+
+/* 見出しブロック全体 */
+.sec-head {
+  margin-bottom: clamp(18px, 2.6vw, 26px);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.sec-head--center {
+  text-align: center;
+  align-items: center;
+}
+
+/* ---------------------------------------------------------
+   中見出し（h3 - セクション内の小見出し）
+--------------------------------------------------------- */
+.page-company h3,
+.page-service h3,
+.page-portfolio h3 {
+  margin: clamp(24px, 3vw, 32px) 0 clamp(10px, 1.4vw, 14px);
+  font-size: clamp(18px, 2.2vw, 22px);
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: 0.04em;
+  line-height: 1.4;
+  position: relative;
+  padding-left: 16px;
+}
+
+/* 最初のh3は上マージンなし */
+.page-company h3:first-child,
+.page-service h3:first-child,
+.page-portfolio h3:first-child {
+  margin-top: 0;
+}
+
+/* カード内やボックス内のh3は装飾なし */
+.card h3,
+.svc h3,
+.policy-list h3,
+.flow-step h3 {
+  margin: 0;
+  padding-left: 0;
+  font-size: clamp(16px, 2vw, 18px);
+  font-weight: 800;
+  color: #14286b;
+}
+
+.card h3::before,
+.svc h3::before,
+.policy-list h3::before,
+.flow-step h3::before {
+  display: none;
+}
+
+/* ---------------------------------------------------------
+   小見出し（h4 - さらに細かい見出し）
+--------------------------------------------------------- */
+.page-company h4,
+.page-service h4,
+.page-portfolio h4 {
+  margin: clamp(18px, 2.4vw, 24px) 0 clamp(8px, 1.2vw, 12px);
+  font-size: clamp(16px, 1.8vw, 18px);
+  font-weight: 700;
+  color: #1f56b3;
+  letter-spacing: 0.03em;
+  line-height: 1.5;
+}
+
+/* ---------------------------------------------------------
+   センター寄せ見出し用クラス
+--------------------------------------------------------- */
+.h2-center,
+.h2-slim {
+  text-align: center;
+  margin-bottom: clamp(20px, 2.8vw, 32px);
+  padding-left: 0;
+}
+
+.h2-center::before,
+.h2-slim::before {
+  display: none;
+}
+
+.h2-center::after,
+.h2-slim::after {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* ---------------------------------------------------------
+   レスポンシブ調整
+--------------------------------------------------------- */
+@media (max-width: 768px) {
+
+  /* h2の下線を短く */
+  .page-company h2::after,
+  .page-service h2::after,
+  .page-portfolio h2::after,
+  .page-company .sec-head__title::after,
+  .page-service .sec-head__title::after,
+  .page-portfolio .sec-head__title::after {
+    width: 48px;
+    height: 2.5px;
+    bottom: -6px;
+  }
+
+  /* h3の左バーを細く */
+  .page-company h3::before,
+  .page-service h3::before,
+  .page-portfolio h3::before {
+    width: 3px;
+    height: 1em;
+  }
+
+  /* ラベルを小さく */
+  .sec-head__label {
+    padding: 4px 10px;
+    font-size: 10px;
+    gap: 6px;
+  }
+
+  .sec-head__label::before {
+    width: 6px;
+    height: 6px;
+  }
+}
+
+/* ---------------------------------------------------------
+   特定セクションの見出し調整
+--------------------------------------------------------- */
+
+/* 会社概要テーブル見出しは装飾なし */
+.info-table h2,
+.info-table h3 {
+  padding-left: 0;
+}
+
+.info-table h2::before,
+.info-table h3::before {
+  display: none;
+}
+
+/* CTAバンド内の見出し */
+.cta-band h2,
+.cta-band h3 {
+  padding-left: 0;
+  margin: 8px 0;
+}
+
+.cta-band h2::before,
+.cta-band h3::before {
+  display: none;
+}
+
+.cta-band h2::after,
+.cta-band h3::after {
+  display: none;
+}
+
+/* ---------------------------------------------------------
+   Utility Classes for Responsive Display
+--------------------------------------------------------- */
+.u-hidden-mobile {
+  display: block;
+}
+
+.u-hidden-desktop {
+  display: none;
+}
+
+@media (max-width: 899px) {
+  .u-hidden-mobile {
+    display: none !important;
+  }
+
+  .u-hidden-desktop {
+    display: block !important;
+  }
+}
+
+/* ---------------------------------------------------------
+   Mobile Mascot Section
+--------------------------------------------------------- */
+.mobile-mascot-section {
+  background: #fff;
+  padding: 0;
+  margin: 0;
+}
+
+/* ========= Sub Page Specifics (Solid Color Separation) ========= */
+body.page-sub {
+  background-color: #ffffff;
+}
+
+/* 
+   パターンではなく「色面のコントラスト」で区切りを明確化
+   - 白背景: #ffffff
+   - ソフト背景: #eef6ff (爽やかな薄いブルー)
+   - 代替背景: #f4f7fa (落ち着いたグレーブルー)
+*/
+
+/* デフォルトのセクション（白背景） */
+.page-sub .section:not(.section--soft):not(.section--alt):not(.kv) {
+  background-color: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+/* ソフト背景（明確なブルー系） */
+.page-sub .section--soft {
+  background-color: #eef6ff;
+  /* 色味を少し強めて視認性を向上 */
+  background-image: none;
+  border-top: 1px solid #dbeafe;
+  border-bottom: 1px solid #dbeafe;
+}
+
+/* 代替背景（明確なグレー系） */
+.page-sub .section--alt {
+  background-color: #f1f5f9;
+  /* 白との差がわかるグレー */
+  background-image: none;
+  border-top: 1px solid #e2e8f0;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+/* KV下の境界線 */
+.page-sub .kv {
+  border-bottom: 1px solid #e2e8f0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  position: relative;
+  z-index: 2;
+}
+
+/* コンテンツのメリハリを高めるための微調整 */
+.page-sub .section h2 {
+  position: relative;
+  display: inline-block;
 }

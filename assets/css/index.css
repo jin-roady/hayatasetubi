@@ -1,0 +1,991 @@
+@charset "UTF-8";
+
+/* =========================================================
+   Top Page Specific Styles (Modern & Calm Design)
+   Base: main.css
+========================================================= */
+
+/* ---------------------------------------------------------
+   Hero Section (FV) - Modern Clean Design
+--------------------------------------------------------- */
+
+/* 暗いオーバーレイを削除 */
+.fv-slide::before {
+    display: none;
+}
+
+/* 白いオーバーレイ（左側全体） */
+.fv-slide::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(100deg,
+            rgba(255, 255, 255, 0.98) 0%,
+            rgba(255, 255, 255, 0.98) 10%,
+            rgba(255, 255, 255, 0.6) 45%,
+            transparent 55%,
+            transparent 100%);
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* テキストコンテンツのスタイリング */
+.fv__copy {
+    position: relative;
+    z-index: 10;
+    max-width: 900px;
+    padding: 0;
+    background: transparent !important;
+    backdrop-filter: none !important;
+    box-shadow: none !important;
+}
+
+.fv__title {
+    font-size: clamp(32px, 5vw, 56px);
+    line-height: 1.4;
+    margin-bottom: 28px;
+    font-weight: 900;
+    color: #1e88ff;
+    text-shadow: none;
+    letter-spacing: 0.05em;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: slideUpFade 1s ease-out 0.3s forwards;
+    position: relative;
+}
+
+/* タイトル下のアクセントラインを削除 */
+.fv__title::after {
+    display: none;
+}
+
+.fv__lead {
+    font-size: clamp(14px, 1.5vw, 16px);
+    font-weight: 400;
+    line-height: 2;
+    color: #4a5568;
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+    display: block;
+    box-shadow: none;
+    border: none;
+    margin-bottom: 32px;
+    max-width: 550px;
+    text-shadow: none;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: slideUpFade 1s ease-out 0.6s forwards;
+}
+
+.fv__copy .btn {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: slideUpFade 1s ease-out 0.9s forwards;
+}
+
+/* ボタンのスタイル強化 */
+.fv__copy .btn--primary {
+    background: #1e88ff;
+    color: #ffffff;
+    padding: 14px 32px;
+    border-radius: 50px;
+    font-weight: 700;
+    box-shadow: 0 4px 15px rgba(30, 136, 255, 0.3);
+    transition: all 0.3s ease;
+}
+
+.fv__copy .btn--primary:hover {
+    background: #0f6fd9;
+    box-shadow: 0 6px 20px rgba(30, 136, 255, 0.4);
+    transform: translateY(-2px);
+}
+
+.fv__copy .btn--ghost {
+    background: transparent;
+    color: #1e88ff;
+    border: 2px solid #1e88ff;
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-weight: 700;
+    transition: all 0.3s ease;
+}
+
+.fv__copy .btn--ghost:hover {
+    background: #1e88ff;
+    color: #ffffff;
+}
+
+@keyframes slideUpFade {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* スライドインジケーター（ページャー）の調整 */
+.fv-pager {
+    display: flex;
+    gap: 12px;
+    z-index: 20;
+}
+
+.fv-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(30, 136, 255, 0.3);
+    border: none;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 0;
+}
+
+.fv-dot.is-active {
+    background: #1e88ff;
+    width: 28px;
+    border-radius: 5px;
+}
+
+.fv-dot:hover {
+    background: rgba(30, 136, 255, 0.6);
+    transform: scale(1.2);
+}
+
+/* スクロールインジケーターの調整 */
+.fv__scroll {
+    color: rgba(30, 136, 255, 0.7);
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.fv__scroll-line {
+    background: rgba(30, 136, 255, 0.5);
+}
+
+/* マスコット吹き出しのスタイル調整 */
+.fv__balloon {
+    background: #ffffff;
+    border: 3px solid #1e88ff;
+    color: #1e88ff;
+    box-shadow: 0 4px 15px rgba(30, 136, 255, 0.2);
+}
+
+.fv__balloon::after {
+    border-color: #ffffff transparent transparent transparent;
+}
+
+.fv__balloon p {
+    font-weight: 600;
+}
+
+/* ---------------------------------------------------------
+   Section Common - Scroll Animation
+--------------------------------------------------------- */
+.fade-up {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.fade-up.in-view {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Common Section Button */
+.section-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    font-size: 15px;
+    letter-spacing: 0.05em;
+    color: #1e88ff;
+    text-decoration: none;
+    font-weight: 700;
+    padding: 16px 48px;
+    background: #ffffff;
+    border: 1px solid #cce4ff;
+    border-radius: 50px;
+    box-shadow: 0 4px 15px rgba(30, 136, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.section-btn:hover {
+    background: #1e88ff;
+    color: #ffffff;
+    border-color: #1e88ff;
+    box-shadow: 0 8px 25px rgba(30, 136, 255, 0.25);
+    transform: translateY(-2px);
+}
+
+/* ---------------------------------------------------------
+   About Section - Clean Design & Bottom Button
+--------------------------------------------------------- */
+.about-section {
+    position: relative;
+    padding: 140px 0;
+    background: #fbfcfd;
+    overflow: hidden;
+}
+
+.about-layout {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 80px;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* --- 左側：画像エリア --- */
+.about-main-image {
+    position: relative;
+    z-index: 1;
+    padding: 24px;
+}
+
+.about-main-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 85%;
+    height: 85%;
+    border: 2px solid #daeaff;
+    z-index: -1;
+    transition: all 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.about-img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    border-radius: 6px;
+    box-shadow: 20px 20px 60px rgba(0, 0, 0, 0.06);
+    transition: transform 0.6s ease, box-shadow 0.6s ease;
+}
+
+.about-main-image:hover::before {
+    top: 15px;
+    left: 15px;
+    border-color: #1e88ff;
+}
+
+.about-main-image:hover .about-img {
+    transform: translateY(-5px) scale(1.01);
+    box-shadow: 25px 30px 70px rgba(0, 0, 0, 0.1);
+}
+
+
+/* --- 右側：縦書きテキストエリア --- */
+.about-text {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    height: 420px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-right: auto;
+}
+
+/* ▼▼▼ 見出しの修正箇所 ▼▼▼ */
+.about-text h2 {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: clamp(32px, 4vw, 30px);
+    font-weight: 700;
+    color: #1e88ff;
+
+    /* 本文との間隔 */
+    margin-left: 80px;
+
+    /* 縦書きの行間（改行した行同士の間隔） */
+    line-height: 1.8;
+
+    letter-spacing: 0.15em;
+    font-feature-settings: "palt";
+
+    /* 装飾を確実に無効化 */
+    background: none;
+    border: none;
+}
+
+/* 念のため擬似要素も削除 */
+.about-text h2::before,
+.about-text h2::after {
+    content: none;
+    display: none;
+}
+
+.about-description {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 16px;
+    line-height: 2.6;
+    color: #5a6c88;
+    margin-left: 50px;
+    letter-spacing: 0.08em;
+    text-align: justify;
+}
+
+/* --- ボタンエリア（セクション下部中央） --- */
+.about-btn-wrapper {
+    margin-top: 80px;
+    text-align: center;
+}
+
+.about-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    font-size: 15px;
+    letter-spacing: 0.05em;
+    color: #1e88ff;
+    text-decoration: none;
+    font-weight: 700;
+    padding: 16px 48px;
+    background: #ffffff;
+    border: 1px solid #cce4ff;
+    border-radius: 50px;
+    box-shadow: 0 4px 15px rgba(30, 136, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.about-link:hover {
+    background: #1e88ff;
+    color: #ffffff;
+    border-color: #1e88ff;
+    box-shadow: 0 8px 25px rgba(30, 136, 255, 0.25);
+    transform: translateY(-2px);
+}
+
+
+/* ---------------------------------------------------------
+   Responsive (モバイル対応)
+--------------------------------------------------------- */
+@media (max-width: 900px) {
+    .about-section {
+        padding: 80px 0;
+    }
+
+    .about-layout {
+        grid-template-columns: 1fr;
+        gap: 50px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .about-main-image {
+        width: 100%;
+        padding: 10px;
+        max-width: 500px;
+        margin: 0 auto;
+        order: 1;
+    }
+
+    .about-text {
+        writing-mode: horizontal-tb;
+        height: auto;
+        width: 100%;
+        align-items: flex-start;
+        padding: 0 20px;
+        order: 2;
+    }
+
+    .about-text h2 {
+        font-size: 28px;
+        margin-left: 0;
+        margin-bottom: 24px;
+        line-height: 1.5;
+        /* モバイルでは改行タグを無効化したい場合は以下を追加 */
+        /* display: inline; */
+    }
+
+    /* モバイルで「、」の改行を消したい場合は br を display: none にしますが、
+       今回は「改行になるようにして」とのことですので、そのままでOKです。 */
+
+    .about-description {
+        font-size: 15px;
+        margin-left: 0;
+        margin-bottom: 0;
+        line-height: 2;
+    }
+
+    .about-btn-wrapper {
+        margin-top: 40px;
+    }
+
+    .about-link {
+        width: 90%;
+        max-width: 300px;
+    }
+
+    .about-main-image::before {
+        width: 95%;
+        height: 95%;
+        top: 5px;
+        left: 5px;
+    }
+}
+
+/* ---------------------------------------------------------
+   Services Section - Card Grid
+--------------------------------------------------------- */
+.services-section {
+    background: #ffffff;
+    padding: 160px 0;
+    position: relative;
+}
+
+.services-header {
+    text-align: left;
+    margin-bottom: 80px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.services-header h2 {
+    font-size: clamp(36px, 5vw, 48px);
+    font-weight: 700;
+    color: #003e8a;
+    margin-bottom: 30px;
+    letter-spacing: 0.05em;
+    position: relative;
+    display: block;
+    padding-left: 24px;
+}
+
+.services-header h2::before {
+    content: '';
+    position: absolute;
+    top: 6px;
+    left: 0;
+    width: 6px;
+    height: calc(100% - 12px);
+    background: #1e88ff;
+    border-radius: 4px;
+}
+
+.services-header p {
+    font-size: 16px;
+    color: #4a5568;
+    line-height: 1.9;
+    margin-top: 20px;
+}
+
+/* Horizontal Card Layout */
+.svc-horizontal-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 28px;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: start;
+}
+
+/* Stepped Layout (Desktop) */
+@media (min-width: 1201px) {
+    .svc-horizontal-card:nth-child(2) {
+        margin-top: 50px;
+    }
+
+    .svc-horizontal-card:nth-child(3) {
+        margin-top: 100px;
+    }
+
+    .svc-horizontal-card:nth-child(4) {
+        margin-top: 150px;
+    }
+}
+
+/* Stepped Layout (Tablet) */
+@media (max-width: 1200px) and (min-width: 769px) {
+    .svc-horizontal-card:nth-child(even) {
+        margin-top: 60px;
+    }
+}
+
+.svc-horizontal-card {
+    background: #fafbfc;
+    border-radius: 16px;
+    padding: 48px 36px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid #e2e8f0;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.svc-horizontal-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: #1e88ff;
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+}
+
+.svc-horizontal-card:hover::before {
+    transform: scaleX(1);
+}
+
+.svc-horizontal-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 40px rgba(30, 136, 255, 0.15);
+    border-color: #1e88ff;
+    background: #ffffff;
+}
+
+.svc-horizontal-card__icon {
+    width: 64px;
+    height: 64px;
+    background: #f7fafc;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-size: 30px;
+    margin-bottom: 28px;
+    transition: all 0.4s ease;
+}
+
+.svc-horizontal-card:hover .svc-horizontal-card__icon {
+    transform: scale(1.08);
+    background: #1e88ff;
+    color: #ffffff;
+}
+
+.svc-horizontal-card h3 {
+    font-size: 19px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: #1a202c;
+    letter-spacing: 0.01em;
+}
+
+.svc-horizontal-card p {
+    color: #4a5568;
+    font-size: 14px;
+    line-height: 2;
+    margin-bottom: 24px;
+    flex: 1;
+}
+
+.svc-horizontal-card__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+    color: #2d3748;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.svc-horizontal-card__link:hover {
+    gap: 10px;
+    color: #1a202c;
+}
+
+/* Responsive for horizontal cards */
+@media (max-width: 1200px) {
+    .svc-horizontal-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .svc-horizontal-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ---------------------------------------------------------
+   Works Section - Minimalist Showcase
+--------------------------------------------------------- */
+.works-section {
+    padding: 160px 0;
+    background: #fafbfc;
+}
+
+.works-showcase {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.works-info {
+    order: 1;
+}
+
+.works-info h2 {
+    font-size: clamp(36px, 5vw, 48px);
+    font-weight: 700;
+    color: #003e8a;
+    margin-bottom: 40px;
+    line-height: 1.4;
+    letter-spacing: 0.05em;
+    position: relative;
+    padding-left: 24px;
+}
+
+.works-info h2::before {
+    content: '';
+    position: absolute;
+    top: 6px;
+    left: 0;
+    width: 6px;
+    height: calc(100% - 12px);
+    background: #1e88ff;
+    border-radius: 4px;
+}
+
+.works-info p {
+    font-size: 16px;
+    line-height: 2.2;
+    color: #4a5568;
+    margin-bottom: 50px;
+}
+
+.works-stat {
+    display: flex;
+    gap: 80px;
+    margin: 60px 0;
+    padding: 50px 0;
+    border-top: 1px solid #e2e8f0;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-item .num {
+    font-size: 52px;
+    font-weight: 700;
+    color: #1a202c;
+    line-height: 1;
+    margin-bottom: 12px;
+}
+
+.stat-item .label {
+    font-size: 13px;
+    color: #718096;
+    letter-spacing: 0.2em;
+    font-weight: 600;
+}
+
+.works-img-box {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+    order: 2;
+    transition: all 0.4s ease;
+}
+
+.works-img-box:hover {
+    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.1);
+    transform: translateY(-4px);
+}
+
+.works-img-box img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.6s ease;
+}
+
+.works-img-box:hover img {
+    transform: scale(1.03);
+}
+
+/* ---------------------------------------------------------
+   News Section - Clean Timeline
+--------------------------------------------------------- */
+.news-section {
+    padding: 160px 0;
+    background: #ffffff;
+}
+
+.news-header {
+    text-align: center;
+    margin-bottom: 100px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.news-header h2 {
+    font-size: clamp(36px, 5vw, 48px);
+    font-weight: 600;
+    color: #1e88ff;
+    margin-bottom: 24px;
+    letter-spacing: 0.02em;
+}
+
+.news-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.news-item {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    padding: 32px 40px;
+    border-radius: 12px;
+    background: #fafbfc;
+    border: 1px solid #e2e8f0;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    color: inherit;
+}
+
+.news-item:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+    transform: translateX(6px);
+    border-color: #cbd5e0;
+    background: #ffffff;
+}
+
+.news-date {
+    font-family: 'Courier New', monospace;
+    color: #2d3748;
+    font-size: 15px;
+    font-weight: 700;
+    min-width: 130px;
+}
+
+.news-title {
+    font-weight: 600;
+    font-size: 17px;
+    flex: 1;
+    color: #1a202c;
+    line-height: 1.6;
+}
+
+.news-arrow {
+    color: #2d3748;
+    font-size: 20px;
+    transition: transform 0.3s ease;
+}
+
+.news-item:hover .news-arrow {
+    transform: translateX(5px);
+}
+
+/* ---------------------------------------------------------
+   Recruit Banner - Minimalist CTA
+--------------------------------------------------------- */
+/* ---------------------------------------------------------
+   Recruit Section (Company Page Style)
+--------------------------------------------------------- */
+.cta-band--company {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    gap: clamp(20px, 3vw, 32px);
+    align-items: center;
+    padding: clamp(24px, 3vw, 28px);
+    border-radius: 22px;
+    background: linear-gradient(135deg, #f0f5ff 0%, #f8fbff 100%);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.05);
+    position: relative;
+    overflow: hidden;
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
+
+@media (max-width: 900px) {
+    .cta-band--company {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* 斜めストライプ（背景） */
+.cta-band--company::before {
+    content: "";
+    position: absolute;
+    inset: -40px;
+    background-image:
+        repeating-linear-gradient(-45deg,
+            rgba(42, 157, 244, .12) 0,
+            rgba(42, 157, 244, .12) 8px,
+            transparent 8px,
+            transparent 18px);
+    opacity: .25;
+    pointer-events: none;
+}
+
+/* 「RECRUIT」バッジ */
+.cta-band--company::after {
+    content: "RECRUIT";
+    position: absolute;
+    right: -34px;
+    top: 26px;
+    transform: rotate(12deg);
+    padding: 6px 50px;
+    font-size: 11px;
+    letter-spacing: .18em;
+    text-align: center;
+    text-transform: uppercase;
+    color: #fff;
+    background: #1e88ff;
+    box-shadow: 0 12px 24px rgba(15, 31, 58, .4);
+}
+
+.cta-band__body {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    position: relative;
+    z-index: 1;
+}
+
+.cta-band__body .sec-head__label {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 3px 10px;
+    border-radius: 999px;
+    background: #fff;
+    border: 1px solid #dde4f5;
+    font-size: 11px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: #1e88ff;
+    align-self: flex-start;
+}
+
+.cta-band__body h2 {
+    margin: 8px 0 8px;
+    font-size: clamp(20px, 2.2vw, 24px);
+    font-weight: 900;
+    color: #003e8a;
+}
+
+.cta-band__body .note {
+    margin: 0 0 16px;
+    font-size: 14px;
+    color: #344056;
+    line-height: 1.8;
+}
+
+.cta-band__body .btn--primary {
+    align-self: flex-start;
+    background: linear-gradient(135deg, #2a9df4, #0f3fff);
+    color: #fff;
+    border: none;
+    padding: 14px 28px;
+    border-radius: 100px;
+    font-weight: 700;
+    font-size: 15px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    box-shadow: 0 8px 22px rgba(30, 136, 255, .18);
+    transition: all .25s ease;
+}
+
+.cta-band__body .btn--primary:hover {
+    opacity: .9;
+    box-shadow: 0 12px 34px rgba(30, 136, 255, .28);
+    transform: translateY(-1px);
+}
+
+/* モバイル時はバッジを少し小さく＆位置調整 */
+@media (max-width: 900px) {
+    .cta-band--company::after {
+        right: -28px;
+        top: 16px;
+        padding-inline: 40px;
+        font-size: 10px;
+    }
+}
+
+/* ---------------------------------------------------------
+   Responsive
+--------------------------------------------------------- */
+@media (max-width: 900px) {
+
+    /* モバイル時は白いオーバーレイを下側に変更 */
+    .fv-slide::after {
+        background: linear-gradient(to top,
+                rgba(255, 255, 255, 0.98) 0%,
+                rgba(255, 255, 255, 0.98) 20%,
+                rgba(255, 255, 255, 0.7) 35%,
+                transparent 50%,
+                transparent 100%);
+    }
+
+    /* Aboutセクションを1カラムに */
+    .about-layout {
+        grid-template-columns: 1fr;
+        gap: 60px;
+    }
+
+    /* モバイルでは縦書きを横書きに */
+    .about-text {
+        writing-mode: horizontal-tb;
+    }
+
+    .about-text h2 {
+        margin-bottom: 24px;
+    }
+
+    .about-images {
+        grid-template-columns: 1fr;
+    }
+
+    .works-showcase {
+        grid-template-columns: 1fr;
+        gap: 60px;
+    }
+
+    .works-stat {
+        gap: 40px;
+    }
+
+    .stat-item .num {
+        font-size: 40px;
+    }
+
+    .news-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+        padding: 28px 32px;
+    }
+
+    .news-date {
+        min-width: auto;
+    }
+
+    .fv__title {
+        font-size: clamp(28px, 8vw, 48px);
+        margin-bottom: 24px;
+    }
+
+    .fv__lead {
+        font-size: clamp(14px, 4vw, 16px);
+    }
+}

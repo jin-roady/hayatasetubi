@@ -1,115 +1,368 @@
 <!doctype html>
 <html lang="ja">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>施工実績｜早田設備株式会社</title>
-  <link rel="stylesheet" href="assets/style.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
-</head>
-<body>
-<header class="header">
-  <div class="container hdr-flex">
-    <a class="brand" href="index.html" aria-label="早田設備">
-      <span class="brand-badge">HS</span>
-      <span>早田設備株式会社</span>
-    </a>
-     <!-- ▼ レスポンシブ対応ナビ（PC=横並び / SP=パネル） -->
-     <nav class="nav" role="navigation" aria-label="グローバルナビ">
-      <details class="menu" id="site-menu">
-        <!-- トグル（モバイルのみ表示） -->
-        <summary class="nav__toggle" aria-label="メニューを開閉">
-          <span class="nav__label nav__label-open">☰ メニュー</span>
-          <span class="nav__label nav__label-close">✕ 閉じる</span>
-        </summary>
-          
 
-        <!-- オーバーレイ（モバイル時のみ表示） -->
-        <div class="nav__sheet" aria-hidden="true">
-          <div class="nav__backdrop"></div>
-          <div class="nav__panel" role="dialog" aria-modal="true" aria-label="メニュー">
-            <ul class="nav__list" role="list">
-              <li><a class="nav__link" href="services.html">事業内容</a></li>
-              <li><a class="nav__link" href="services.html#flow">施工の流れ</a></li>
-              <li><a class="nav__link" href="company.html">会社案内</a></li>
-              <li><a class="nav__link" href="portfolio.html">施工実績</a></li>
-              <li><a class="nav__link" href="recruit.html">採用情報</a></li>
-              <li><a class="nav__link" href="contact.html">お問い合わせ</a></li>
-            </ul>
+  <!-- 共通スタイル -->
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <!-- 施工実績ページ用スタイル -->
+  <link rel="stylesheet" href="assets/css/portfolio.css" />
+</head>
+
+<body class="page-sub">
+  <!-- 共通ヘッダーを差し込む -->
+  <script src="assets/js/common-header.js" defer></script>
+
+  <!-- ===================== main開始 ===================== -->
+  <main class="page-portfolio">
+
+    <!-- ===== キービジュアル ===== -->
+    <section class="kv kv--portfolio" style="--kv-img:url('../images/kv-portfolio.png')">
+      <div class="kv__inner container">
+        <div class="kv__body" aria-labelledby="page-title">
+
+          <h1 id="page-title" class="kv__title">
+            <span class="jp">施工実績</span>
+            <span class="en">Works</span>
+          </h1>
+
+          <div class="kv__lead">
+            <p class="kv__intro">
+              住宅から公共施設、工場・店舗まで。<br class="sp-br">
+              一件一件の現場に向き合い、<br class="sp-br">
+              「安心して任せられる設備工事」を<br class="sp-br">積み重ねてきました。
+            </p>
           </div>
         </div>
+      </div>
 
-        <!-- デスクトップ用 横並び -->
-        <ul class="nav__list" role="list">
-          <li><a class="nav__link" href="services.html">事業内容</a></li>
-          <li><a class="nav__link" href="services.html#flow">施工の流れ</a></li>
-          <li><a class="nav__link" href="company.html">会社案内</a></li>
-          <li><a class="nav__link" href="portfolio.html">施工実績</a></li>
-          <li><a class="nav__link" href="recruit.html">採用情報</a></li>
-          <li><a class="nav__link" href="contact.html">お問い合わせ</a></li>
-        </ul>
-      </details>
-    </nav>
-    <!-- ▲ レスポンシブ対応ナビ -->
-  </div>
-</header>
+      <div class="kv__media" aria-hidden="true"></div>
 
-<section class="kv">
-  <div class="container">
-    <div class="breadcrumbs"><a href="index.html">HOME</a> › 施工実績</div>
-    <h1 class="title">施工実績</h1>
-    <p class="note">住宅から公共施設まで、多様な施工事例をご紹介します。</p>
-  </div>
-</section>
+      <figure class="kv__mascot">
+        <figcaption class="sr-only">吹き出し: 一件一件、丁寧な施工を。</figcaption>
+        <div class="kv__balloon">
+          <p>一件一件、<br>丁寧な施工を。</p>
+        </div>
+        <img src="assets/images/mascot_portfolio.png" alt="ハヤタくん" width="220" height="160"
+          onerror="this.style.opacity='0.3'">
+      </figure>
+    </section>
 
-<section class="section" aria-labelledby="filter-heading">
-  <div class="container">
-    <h2 id="filter-heading" class="h2-slim">カテゴリ</h2>
-    <ul class="category-nav" role="list">
-      <li><button class="pill" type="button">すべて</button></li>
-      <li><button class="pill" type="button">住宅</button></li>
-      <li><button class="pill" type="button">店舗・オフィス</button></li>
-      <li><button class="pill" type="button">学校・公共</button></li>
-      <li><button class="pill" type="button">工場</button></li>
-    </ul>
-  </div>
-</section>
 
-<section class="section">
-  <div class="container card-grid">
-    <!-- サンプル事例6件（省略） -->
-    <article class="card"><a class="thumb" href="#"><span>戸建て給湯器更新</span></a><div class="stack-sm"><time class="meta">2025.06.12</time><h3>戸建て｜給湯器更新・配管更新</h3><p class="meta">所在地：○○市 / 工期：1日</p></div></article>
-    <article class="card"><a class="thumb" href="#"><span>学校トイレ改修</span></a><div class="stack-sm"><time class="meta">2025.05.28</time><h3>学校｜トイレ改修・衛生器具更新</h3><p class="meta">所在地：○○町 / 工期：3週間</p></div></article>
-    <article class="card"><a class="thumb" href="#"><span>店舗空調更新</span></a><div class="stack-sm"><time class="meta">2025.04.10</time><h3>店舗｜パッケージエアコン更新</h3><p class="meta">所在地：○○市 / 工期：2日</p></div></article>
-    <article class="card"><a class="thumb" href="#"><span>工場配管工事</span></a><div class="stack-sm"><time class="meta">2025.03.02</time><h3>工場｜給排水配管増設</h3><p class="meta">所在地：○○市 / 工期：5日</p></div></article>
-    <article class="card"><a class="thumb" href="#"><span>集合住宅リフォーム</span></a><div class="stack-sm"><time class="meta">2025.02.15</time><h3>集合住宅｜水回りリフォーム</h3><p class="meta">所在地：○○市 / 工期：7日</p></div></article>
-    <article class="card"><a class="thumb" href="#"><span>公共施設空調換気</span></a><div class="stack-sm"><time class="meta">2025.01.22</time><h3>公共施設｜空調・換気設備更新</h3><p class="meta">所在地：○○市 / 工期：4週間</p></div></article>
-  </div>
+    <section class="section" aria-labelledby="sec-works-list">
+      <div class="container">
+        <div class="sec-head sec-head--row">
+          <h2 id="sec-works-list" class="sec-head__title">主な施工事例</h2>
+        </div>
 
-  <div class="container btn-row" style="margin-top: 24px; justify-content:center">
-    <a class="btn ghost" href="contact.html">工事のご相談・お見積りはこちら</a>
-  </div>
-</section>
+        <div class="works-filter">
+          <button type="button" class="filter-btn is-active" data-filter="all">
+            <span class="text">すべて</span>
+          </button>
+          <button type="button" class="filter-btn" data-filter="housing">
+            <span class="text">住宅</span>
+          </button>
+          <button type="button" class="filter-btn" data-filter="store">
+            <span class="text">店舗・オフィス</span>
+          </button>
+          <button type="button" class="filter-btn" data-filter="public">
+            <span class="text">学校・公共</span>
+          </button>
+          <button type="button" class="filter-btn" data-filter="factory">
+            <span class="text">工場</span>
+          </button>
+        </div>
+        <div class="card-grid card-grid--works" id="works-grid">
+          <article class="card works-card js-modal-trigger" data-category="housing" data-title="戸建て｜給湯器更新・配管更新"
+            data-date="2025.06.12" data-place="所在地：○○市 / 工期：1日" data-image="assets/images/works/work1.jpg"
+            data-description="古くなった給湯器の交換に加え、劣化していた配管の一部更新を行いました。保温材もしっかり巻き直し、冬場の凍結対策も万全です。お客様からは「お湯張りが早くなった」とお喜びいただきました。">
+            <a class="thumb" href="#">
+              <img src="assets/images/works/work1.jpg" alt="戸建て給湯器更新の施工写真" loading="lazy">
+            </a>
+            <div class="card__body stack-sm">
+              <span class="work-category">住宅</span>
+              <time class="meta" datetime="2025-06-12">2025.06.12</time>
+              <h3>戸建て｜給湯器更新・配管更新</h3>
+              <p class="meta">所在地：○○市 / 工期：1日</p>
+            </div>
+          </article>
 
-<footer class="footer" role="contentinfo">
-  <div class="container foot-flex">
-    <div>
-      <div class="tel">📞 0858-22-7571</div>
-      <div class="note">9:00–17:00（第２、第４土、日祝・年末年始を除く）</div>
+          <article class="card works-card js-modal-trigger" data-category="public" data-title="学校｜トイレ改修・衛生器具更新"
+            data-date="2025.05.28" data-place="所在地：○○町 / 工期：3週間" data-image="assets/images/works/work2.jpg"
+            data-description="夏休み期間を利用して、小学校のトイレを和式から洋式へ改修しました。床の乾式化工事もあわせて行い、衛生的で掃除のしやすいトイレに生まれ変わりました。">
+            <a class="thumb" href="#">
+              <img src="assets/images/works/work2.jpg" alt="学校トイレ改修の施工写真" loading="lazy">
+            </a>
+            <div class="card__body stack-sm">
+              <span class="work-category">学校・公共</span>
+              <time class="meta" datetime="2025-05-28">2025.05.28</time>
+              <h3>学校｜トイレ改修・衛生器具更新</h3>
+              <p class="meta">所在地：○○町 / 工期：3週間</p>
+            </div>
+          </article>
+
+          <article class="card works-card js-modal-trigger" data-category="store" data-title="店舗｜パッケージエアコン更新"
+            data-date="2025.04.10" data-place="所在地：○○市 / 工期：2日" data-image="assets/images/works/work3.jpg"
+            data-description="老朽化した店舗用エアコンを入替。省エネ性能の高い最新機種を選定し、電気代の削減をご提案しました。営業への影響を最小限にするため、休業日を利用して2日間で完工しました。">
+            <a class="thumb" href="#"><img src="assets/images/works/work3.jpg" alt="" loading="lazy"></a>
+            <div class="card__body stack-sm">
+              <span class="work-category">店舗・オフィス</span>
+              <time class="meta">2025.04.10</time>
+              <h3>店舗｜パッケージエアコン更新</h3>
+              <p class="meta">所在地：○○市 / 工期：2日</p>
+            </div>
+          </article>
+
+          <article class="card works-card js-modal-trigger" data-category="factory" data-title="工場｜給排水配管増設"
+            data-date="2025.03.02" data-place="所在地：○○市 / 工期：5日" data-image="assets/images/works/work4.jpg"
+            data-description="生産ライン増設に伴う給排水配管の引き込み工事です。既存設備を止めずに施工するため、バイパス管を設置するなどの工夫を行いました。">
+            <a class="thumb" href="#"><img src="assets/images/works/work4.jpg" alt="" loading="lazy"></a>
+            <div class="card__body stack-sm">
+              <span class="work-category">工場</span>
+              <time class="meta">2025.03.02</time>
+              <h3>工場｜給排水配管増設</h3>
+              <p class="meta">所在地：○○市 / 工期：5日</p>
+            </div>
+          </article>
+
+          <article class="card works-card js-modal-trigger" data-category="housing" data-title="集合住宅｜水回りリフォーム"
+            data-date="2025.02.15" data-place="所在地：○○市 / 工期：7日" data-image="assets/images/works/work5.jpg"
+            data-description="築20年のマンションの水回り（キッチン・浴室）を全面リフォーム。使い勝手の良いシステムキッチンと、断熱性の高いユニットバスに入れ替えました。">
+            <a class="thumb" href="#"><img src="assets/images/works/work5.jpg" alt="" loading="lazy"></a>
+            <div class="card__body stack-sm">
+              <span class="work-category">住宅</span>
+              <time class="meta">2025.02.15</time>
+              <h3>集合住宅｜水回りリフォーム</h3>
+              <p class="meta">所在地：○○市 / 工期：7日</p>
+            </div>
+          </article>
+
+          <article class="card works-card js-modal-trigger" data-category="public" data-title="公共施設｜空調・換気設備更新"
+            data-date="2025.01.22" data-place="所在地：○○市 / 工期：4週間" data-image="assets/images/works/work6.jpg"
+            data-description="公民館の空調換気設備を更新。高機能換気設備（全熱交換器）を導入し、換気をしながら室温を保てるようにしました。ダクト工事も含めた大規模改修です。">
+            <a class="thumb" href="#"><img src="assets/images/works/work6.jpg" alt="" loading="lazy"></a>
+            <div class="card__body stack-sm">
+              <span class="work-category">学校・公共</span>
+              <time class="meta">2025.01.22</time>
+              <h3>公共施設｜空調・換気設備更新</h3>
+              <p class="meta">所在地：○○市 / 工期：4週間</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="btn-row btn-row--center">
+          <a class="btn ghost" href="contact.html">工事のご相談・お見積りはこちら</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--cta">
+      <div class="container">
+        <div class="cta-band cta-band--works">
+          <div class="cta-band__body">
+            <h2>設備工事のご相談・ご依頼</h2>
+            <p class="note">
+              図面や既存設備の状況がわからない場合でも大丈夫です。<br>
+              現地調査から最適な工事プランのご提案まで、一貫してサポートいたします。
+            </p>
+            <div class="cta-band__actions">
+              <a class="btn btn--primary" href="contact.html">お問い合わせフォームへ</a>
+              <a class="btn ghost" href="tel:0858227571">お電話で相談する</a>
+            </div>
+          </div>
+          <div class="ph is-4x3">
+            <span>現場・図面のイメージ（4:3）</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <!-- ===================== main終了 ===================== -->
+
+  <!-- ===== Footer ===== -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <nav class="footer-nav" aria-label="フッターナビゲーション">
+        <a href="/company.html">会社概要</a>
+        <a href="/services.html">事業内容</a>
+        <a href="/portfolio.html">施工実績</a>
+        <a href="/recruit.html">採用情報</a>
+        <a href="/news.html">お知らせ</a>
+        <a href="/contact.html">お問い合わせ</a>
+      </nav>
+      <div class="foot-flex">
+        <div>
+          <div class="tel">📞 0858-22-7571</div>
+          <div class="note">9:00–17:00（第２、第４土、日祝・年末年始を除く）</div>
+        </div>
+        <div class="foot-flex__action">
+          <a class="btn" href="/contact.html">お問い合わせ</a>
+        </div>
+      </div>
     </div>
-    <div>
-      <a class="btn ghost" href="contact.html">お問い合わせ</a>
+    <div class="container footer-meta">
+      <small>© Hayata Setsubi Co., Ltd.</small>
+    </div>
+  </footer>
+
+  <!-- ===== ナビ等の補助JS ===== -->
+  <script>
+    (function () {
+      const menu = document.getElementById('site-menu');
+      if (!menu) return;
+      menu.querySelectorAll('.nav__panel .nav__link').forEach(a => {
+        a.addEventListener('click', () => { menu.open = false; });
+      });
+      menu.querySelector('.nav__backdrop')?.addEventListener('click', () => { menu.open = false; });
+      const closeBtn = menu.querySelector('.nav__close');
+      closeBtn?.addEventListener('click', () => { menu.open = false; });
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && menu.open) { menu.open = false; }
+      });
+    })();
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const filterButtons = document.querySelectorAll('.filter-btn');
+      const workCards = document.querySelectorAll('.works-card');
+
+      filterButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          // ボタンのアクティブ状態切り替え
+          filterButtons.forEach(b => b.classList.remove('is-active'));
+          btn.classList.add('is-active');
+
+          const filterValue = btn.getAttribute('data-filter');
+
+          // カードの表示/非表示切り替え
+          workCards.forEach(card => {
+            const category = card.getAttribute('data-category');
+            if (filterValue === 'all' || filterValue === category) {
+              card.classList.remove('is-hidden');
+            } else {
+              card.classList.add('is-hidden');
+            }
+          });
+        });
+      });
+    });
+  </script>
+  <div id="work-modal" class="work-modal" aria-hidden="true">
+    <div class="work-modal__overlay" data-close></div>
+    <div class="work-modal__content">
+      <button class="work-modal__close" data-close aria-label="閉じる"></button>
+
+      <div class="work-modal__body">
+        <figure class="work-modal__figure">
+          <img src="" alt="" id="modal-img">
+        </figure>
+
+        <div class="work-modal__info">
+          <article id="modal-article-dummy">
+            <span class="work-category" id="modal-cat"></span>
+          </article>
+
+          <time class="meta" id="modal-date"></time>
+          <h3 class="work-modal__title" id="modal-title"></h3>
+          <p class="meta" id="modal-place"></p>
+
+          <div class="work-modal__desc">
+            <p id="modal-desc"></p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-  <div class="container" style="margin-top:28px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap">
-    <div class="brand">
-      <span class="brand-badge">HS</span>
-      <span>早田設備株式会社</span>
-    </div>
-    <small>© Hayata Setsubi Co., Ltd.</small>
-  </div>
-</footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+      /* --- 既存のフィルタリング処理 --- */
+      const filterButtons = document.querySelectorAll('.filter-btn');
+      const workCards = document.querySelectorAll('.works-card');
+
+      filterButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterButtons.forEach(b => b.classList.remove('is-active'));
+          btn.classList.add('is-active');
+          const filterValue = btn.getAttribute('data-filter');
+          workCards.forEach(card => {
+            const category = card.getAttribute('data-category');
+            if (filterValue === 'all' || filterValue === category) {
+              card.classList.remove('is-hidden');
+            } else {
+              card.classList.add('is-hidden');
+            }
+          });
+        });
+      });
+
+      /* --- ▼ 新規追加: モーダル制御処理 --- */
+      const modal = document.getElementById('work-modal');
+      const modalImg = document.getElementById('modal-img');
+      const modalCat = document.getElementById('modal-cat');
+      const modalDate = document.getElementById('modal-date');
+      const modalTitle = document.getElementById('modal-title');
+      const modalPlace = document.getElementById('modal-place');
+      const modalDesc = document.getElementById('modal-desc');
+      const modalDummyArticle = document.getElementById('modal-article-dummy'); // 色用ダミー
+
+      const triggers = document.querySelectorAll('.js-modal-trigger');
+      const closeElements = document.querySelectorAll('[data-close]');
+
+      // カードクリックでモーダルを開く
+      triggers.forEach(trigger => {
+        trigger.addEventListener('click', (e) => {
+          e.preventDefault(); // リンク遷移を防止
+
+          // データ取得
+          const cat = trigger.querySelector('.work-category').textContent; // 表示テキスト
+          const catSlug = trigger.getAttribute('data-category'); // 色判定用slug
+          const title = trigger.getAttribute('data-title');
+          const date = trigger.getAttribute('data-date');
+          const place = trigger.getAttribute('data-place');
+          const imgSrc = trigger.getAttribute('data-image');
+          const desc = trigger.getAttribute('data-description');
+
+          // データセット
+          modalImg.src = imgSrc;
+          modalCat.textContent = cat;
+          modalDummyArticle.setAttribute('data-category', catSlug); // 色を変えるため属性セット
+          modalDate.textContent = date;
+          modalTitle.textContent = title;
+          modalPlace.textContent = place;
+          modalDesc.textContent = desc || '詳細情報は準備中です。';
+
+          // 表示
+          modal.setAttribute('aria-hidden', 'false');
+          modal.classList.add('is-open');
+          document.body.style.overflow = 'hidden'; // 背景スクロール固定
+        });
+      });
+
+      // 閉じる処理
+      const closeModal = () => {
+        modal.setAttribute('aria-hidden', 'true');
+        modal.classList.remove('is-open');
+        document.body.style.overflow = ''; // スクロール解除
+      };
+
+      closeElements.forEach(el => {
+        el.addEventListener('click', closeModal);
+      });
+
+      // ESCキーでも閉じる
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('is-open')) {
+          closeModal();
+        }
+      });
+    });
+  </script>
 </body>
+
 </html>

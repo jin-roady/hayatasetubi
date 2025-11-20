@@ -5,231 +5,240 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>お問い合わせ｜早田設備株式会社</title>
-  <link rel="stylesheet" href="assets/style.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <link rel="stylesheet" href="assets/css/contact.css" />
 </head>
 
-<body>
-  <header class="header">
-    <div class="container hdr-flex">
-      <a class="brand" href="index.html" aria-label="早田設備">
-        <span class="brand-badge">HS</span>
-        <span>早田設備株式会社</span>
-      </a>
-      <!-- ▼ レスポンシブ対応ナビ（PC=横並び / SP=パネル） -->
-      <nav class="nav" role="navigation" aria-label="グローバルナビ">
-        <details class="menu" id="site-menu">
-          <!-- トグル（モバイルのみ表示） -->
-          <summary class="nav__toggle" aria-label="メニューを開閉">
-            <span class="nav__label nav__label-open">☰ メニュー</span>
-            <span class="nav__label nav__label-close">✕ 閉じる</span>
-          </summary>
+<body class="page-sub">
+  <script src="assets/js/common-header.js" defer></script>
 
+  <main class="page-contact">
 
-          <!-- オーバーレイ（モバイル時のみ表示） -->
-          <div class="nav__sheet" aria-hidden="true">
-            <div class="nav__backdrop"></div>
-            <div class="nav__panel" role="dialog" aria-modal="true" aria-label="メニュー">
-              <ul class="nav__list" role="list">
-                <li><a class="nav__link" href="services.html">事業内容</a></li>
-                <li><a class="nav__link" href="services.html#flow">施工の流れ</a></li>
-                <li><a class="nav__link" href="company.html">会社案内</a></li>
-                <li><a class="nav__link" href="portfolio.html">施工実績</a></li>
-                <li><a class="nav__link" href="recruit.html">採用情報</a></li>
-                <li><a class="nav__link" href="contact.html">お問い合わせ</a></li>
-              </ul>
+    <section class="kv kv--contact" style="--kv-img:url('../images/kv-contact.png')">
+      <div class="kv__inner container">
+        <div class="kv__body" aria-labelledby="page-title">
+          <h1 id="page-title" class="kv__title">
+            <span class="jp">お問い合わせ</span>
+            <span class="en">Contact</span>
+          </h1>
+
+          <div class="kv__lead">
+            <p class="kv__intro">
+              お見積り・ご相談は無料です。<br class="sp-br">
+              お電話またはフォームより<br class="sp-br">
+              お気軽にお問い合わせください。
+            </p>
+            <div class="service-buttons" style="margin-top: 24px; justify-content: flex-start;">
+              <a href="#form" class="btn btn--primary">フォームへ進む</a>
+              <a href="tel:0858227571" class="btn btn--ghost" style="background:rgba(255,255,255,0.8)">お電話で相談</a>
             </div>
           </div>
-
-          <!-- デスクトップ用 横並び -->
-          <ul class="nav__list" role="list">
-            <li><a class="nav__link" href="services.html">事業内容</a></li>
-            <li><a class="nav__link" href="services.html#flow">施工の流れ</a></li>
-            <li><a class="nav__link" href="company.html">会社案内</a></li>
-            <li><a class="nav__link" href="portfolio.html">施工実績</a></li>
-            <li><a class="nav__link" href="recruit.html">採用情報</a></li>
-            <li><a class="nav__link" href="contact.html">お問い合わせ</a></li>
-          </ul>
-        </details>
-      </nav>
-      <!-- ▲ レスポンシブ対応ナビ -->
-    </div>
-  </header>
-
-  <!-- KVセクション -->
-  <section class="kv">
-    <div class="container">
-      <div class="breadcrumbs"><a href="index.html">HOME</a> › お問い合わせ</div>
-      <h1 class="title">お問い合わせ</h1>
-      <p class="note">お見積り・ご相談は無料です。電話またはフォームからお気軽にどうぞ。</p>
-      <div class="btn-row">
-        <a class="btn" href="tel:0237435303">今すぐ電話する</a>
-        <a class="btn ghost" href="#form">フォームへ進む</a>
+        </div>
       </div>
-    </div>
-  </section>
 
-  <!-- フォームセクション -->
-  <section class="section" id="form">
-    <div class="container contact-narrow">
-      <!-- フォームカード -->
-      <article class="panel contact-card" aria-labelledby="contact-form-title">
-        <header class="card-head">
-          <h2 class="section-title" id="contact-form-title">
-            お問い合わせフォーム
-          </h2>
-          <p class="section-sub">お見積り・ご相談は無料です。可能な範囲でご記入ください。</p>
-        </header>
+      <div class="kv__media" aria-hidden="true"></div>
 
-        <form class="form form--polished" action="#" method="post" enctype="multipart/form-data" novalidate>
-          <!-- 氏名／メール -->
-          <div class="form__row">
-            <div class="field">
-              <label class="label" for="name">お名前 <span class="req">*</span></label>
-              <input class="input" id="name" name="name" type="text" required placeholder="山田 太郎" autocomplete="name" />
-              <small class="hint">担当者の宛名に使用します</small>
-            </div>
-            <div class="field">
-              <label class="label" for="email">メールアドレス <span class="req">*</span></label>
-              <input class="input" id="email" name="email" type="email" required placeholder="taro@example.com"
-                autocomplete="email" />
-              <small class="hint">返信先に間違いがないかご確認ください</small>
-            </div>
+      <figure class="kv__mascot">
+        <figcaption class="sr-only">吹き出し: お気軽にどうぞ！</figcaption>
+        <div class="kv__balloon">
+          <p>お気軽に<br>どうぞ！</p>
+        </div>
+        <img src="assets/images/mascot_contact.png" alt="ハヤタくん" width="220" height="160"
+          onerror="this.style.opacity='0.3'">
+      </figure>
+    </section>
+
+    <section class="section section--panel" id="form" aria-labelledby="contact-form-title">
+      <div class="container container--narrow">
+
+        <div class="sec-head sec-head--center">
+          <p class="sec-head__label">Form</p>
+          <h2 id="contact-form-title" class="sec-head__title">お問い合わせフォーム</h2>
+        </div>
+
+        <p class="t-center note" style="margin-bottom: 32px;">
+          必須項目をご入力の上、送信ボタンを押してください。<br>
+          内容を確認後、担当者よりご連絡いたします。
+        </p>
+
+        <form class="contact-form" action="#" method="post" enctype="multipart/form-data">
+
+          <dl class="form-group">
+            <dt><label for="name">お名前<span class="req-tag">必須</span></label></dt>
+            <dd>
+              <input type="text" id="name" name="name" class="input-field" placeholder="例：早田 太郎" required
+                autocomplete="name">
+            </dd>
+          </dl>
+
+          <dl class="form-group">
+            <dt><label for="email">メールアドレス<span class="req-tag">必須</span></label></dt>
+            <dd>
+              <input type="email" id="email" name="email" class="input-field" placeholder="例：info@hayata-setsubi.co.jp"
+                required autocomplete="email">
+            </dd>
+          </dl>
+
+          <dl class="form-group">
+            <dt><label for="tel">電話番号<span class="any-tag">任意</span></label></dt>
+            <dd>
+              <input type="tel" id="tel" name="tel" class="input-field" placeholder="例：0858-22-7571" autocomplete="tel">
+              <p class="form-hint">お電話での連絡をご希望の場合はご入力ください。</p>
+            </dd>
+          </dl>
+
+          <dl class="form-group">
+            <dt><label for="type">お問い合わせ種別<span class="any-tag">任意</span></label></dt>
+            <dd>
+              <div class="select-wrap">
+                <select id="type" name="type" class="input-field">
+                  <option value="">選択してください</option>
+                  <option value="見積もり依頼">お見積りのご依頼</option>
+                  <option value="施工相談">工事のご相談</option>
+                  <option value="採用">採用について</option>
+                  <option value="その他">その他</option>
+                </select>
+              </div>
+            </dd>
+          </dl>
+
+          <dl class="form-group">
+            <dt><label for="msg">お問い合わせ内容<span class="req-tag">必須</span></label></dt>
+            <dd>
+              <textarea id="msg" name="message" class="input-field input-area"
+                placeholder="具体的なご相談内容や、ご希望の工事時期などをご記入ください。" required></textarea>
+            </dd>
+          </dl>
+
+          <dl class="form-group">
+            <dt><label for="files">写真・図面の添付<span class="any-tag">任意</span></label></dt>
+            <dd>
+              <input type="file" id="files" name="files" class="input-file" multiple accept="image/*,.pdf">
+              <p class="form-hint">現状の写真や図面があれば添付してください。（画像・PDF）</p>
+            </dd>
+          </dl>
+
+          <div class="form-privacy">
+            <label>
+              <input type="checkbox" name="privacy" required>
+              <span><a href="#" target="_blank">プライバシーポリシー</a>に同意する</span>
+            </label>
           </div>
 
-          <!-- 電話／種別 -->
-          <div class="form__row">
-            <div class="field">
-              <label class="label" for="tel">電話番号</label>
-              <input class="input" id="tel" name="tel" type="tel" inputmode="tel" placeholder="090-1234-5678"
-                autocomplete="tel" />
-              <small class="hint">お電話希望の方はご記入ください</small>
-            </div>
-            <div class="field">
-              <label class="label" for="type">お問い合わせ種別</label>
-              <select class="select" id="type" name="type">
-                <option>見積もり</option>
-                <option>施工のご相談</option>
-                <option>採用</option>
-                <option>その他</option>
-              </select>
-            </div>
+          <div class="form-submit">
+            <button type="submit" class="btn btn--primary btn--wide">送信する</button>
           </div>
 
-          <!-- 本文 -->
-          <div class="field">
-            <label class="label" for="msg">内容 <span class="required">（※必須）</span></label>
-            <textarea class="textarea" id="msg" name="message"
-              placeholder="内容はできるだけ具体的にご記載いただきますようお願いいたします。"></textarea>
-          </div>
-
-
-          <!-- ファイル添付 -->
-          <div class="field">
-            <label class="label" for="files">写真・図面の添付</label>
-            <input class="input" id="files" name="files" type="file" multiple accept="image/*,.pdf,.dwg" />
-            <small class="hint">写真・図面があれば添付してください（複数可、合計10MBまで）</small>
-          </div>
-
-          <!-- 希望連絡／連絡可能時間 -->
-          <div class="form__row">
-            <div class="field">
-              <label class="label" for="preferred">ご希望の連絡方法</label>
-              <select class="select" id="preferred" name="preferred">
-                <option>メール</option>
-                <option>電話</option>
-              </select>
-            </div>
-            <div class="field">
-              <label class="label" for="time">ご連絡可能時間</label>
-              <input class="input" id="time" name="time" type="text" placeholder="平日 13:00–16:00 など" />
-            </div>
-          </div>
-
-          <!-- 送信 -->
-          <div class="form__actions">
-            <button class="btn btn--lg" type="submit" aria-label="お問い合わせ内容を送信">送信する</button>
-            <span class="form__note">※ 送信前に入力内容をご確認ください</span>
-          </div>
-
-          <p class="form__note privacy">送信いただいた個人情報は、お問い合わせ対応以外の目的には使用しません。</p>
         </form>
-      </article>
-
-      <!-- クイック連絡（電話） -->
-      <article class="panel contact-quick mt-48" aria-labelledby="tel-contact-title">
-        <h2 class="section-title" id="tel-contact-title">お急ぎの方はお電話ください</h2>
-        <p class="tel-large">📞 0858-22-7571</p>
-        <p class="hours">受付時間：9:00–17:00（第２、第４土、日祝・年末年始を除く）</p>
-        <div class="btn-row">
-          <a class="btn" href="tel:0237435303">今すぐ電話する</a>
-        </div>
-      </article>
-
-      <!-- アクセス -->
-      <article class="panel mt-48" aria-labelledby="access-title">
-        <h2 class="section-title" id="access-title">アクセス</h2>
-        <div class="ph" style="aspect-ratio:16/9" role="img" aria-label="地図（16:9）"><span>地図（16:9）</span></div>
-        <table class="info-table mt-12">
-          <tr>
-            <th>所在地</th>
-            <td>〒XXXXX 鳥取県○○市○○町○○</td>
-          </tr>
-          <tr>
-            <th>最寄り</th>
-            <td>JR○○駅から車で○分</td>
-          </tr>
-          <tr>
-            <th>駐車場</th>
-            <td>あり（◯台）</td>
-          </tr>
-        </table>
-      </article>
-
-      <!-- FAQ -->
-      <article class="panel mt-48" aria-labelledby="faq-title">
-        <h2 class="section-title" id="faq-title">よくあるご質問</h2>
-        <div class="faq">
-          <details>
-            <summary>見積りは無料ですか？</summary>
-            <p>現地調査・お見積りは無料です。お気軽にご相談ください。</p>
-          </details>
-          <details>
-            <summary>急ぎの対応は可能ですか？</summary>
-            <p>状況により当日対応も可能です。まずはお電話で状況をご連絡ください。</p>
-          </details>
-          <details>
-            <summary>対応エリアは？</summary>
-            <p>鳥取県中部エリアを中心に対応しています。その他の地域もご相談ください。</p>
-          </details>
-        </div>
-      </article>
-    </div>
-  </section>
-
-
-  <!-- フッター -->
-  <footer class="footer" role="contentinfo">
-    <div class="container foot-flex">
-      <div>
-        <div class="tel">📞 0858-22-7571</div>
-        <div class="note">9:00–17:00（第２、第４土、日祝・年末年始を除く）</div>
       </div>
-      <div>
-        <a class="btn ghost" href="contact.html">お問い合わせ</a>
+    </section>
+
+    <section class="section section--soft" aria-labelledby="tel-title">
+      <div class="container container--narrow">
+        <div class="tel-box">
+          <h2 id="tel-title" class="tel-box__title">お急ぎの方はお電話ください</h2>
+          <p class="tel-box__desc">
+            水漏れや給湯器の故障など、緊急のトラブルは<br class="sp-br">お電話でのご連絡がスムーズです。
+          </p>
+          <a href="tel:0858227571" class="tel-box__number">
+            <span class="icon">📞</span> 0858-22-7571
+          </a>
+          <p class="tel-box__note">受付時間：9:00～17:00（第2・4土、日祝除く）</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt">
+      <div class="container">
+        <div class="grid-2">
+          <div class="faq-panel">
+            <div class="sec-head">
+              <p class="sec-head__label">Q&A</p>
+              <h2 class="sec-head__title">よくあるご質問</h2>
+            </div>
+            <div class="faq-list">
+              <details class="faq-item">
+                <summary class="faq-q">見積もりは無料ですか？</summary>
+                <div class="faq-a">
+                  <p>はい、現地調査およびお見積りは無料で行っております。お気軽にご相談ください。</p>
+                </div>
+              </details>
+              <details class="faq-item">
+                <summary class="faq-q">対応エリアはどこまでですか？</summary>
+                <div class="faq-a">
+                  <p>主に鳥取県中部エリア（倉吉市・三朝町・湯梨浜町・北栄町・琴浦町）に対応しております。その他の地域もご相談ください。</p>
+                </div>
+              </details>
+              <details class="faq-item">
+                <summary class="faq-q">小さな工事でも頼めますか？</summary>
+                <div class="faq-a">
+                  <p>もちろんです。蛇口のパッキン交換ひとつから喜んで承ります。</p>
+                </div>
+              </details>
+            </div>
+          </div>
+
+          <div class="access-panel">
+            <div class="sec-head">
+              <p class="sec-head__label">Access</p>
+              <h2 class="sec-head__title">アクセス</h2>
+            </div>
+            <div class="ph is-16x9" style="margin-bottom:16px;">
+              <span>地図（16:9）</span>
+            </div>
+            <p class="note">
+              〒682-0913 鳥取県倉吉市和田東町115-1<br>
+              駐車場あり
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <nav class="footer-nav" aria-label="フッターナビゲーション">
+        <a href="/company.html">会社概要</a>
+        <a href="/services.html">事業内容</a>
+        <a href="/portfolio.html">施工実績</a>
+        <a href="/recruit.html">採用情報</a>
+        <a href="/news.html">お知らせ</a>
+        <a href="/contact.html">お問い合わせ</a>
+      </nav>
+      <div class="foot-flex">
+        <div>
+          <div class="tel">📞 0858-22-7571</div>
+          <div class="note">9:00–17:00（第２、第４土、日祝・年末年始を除く）</div>
+        </div>
+        <div style="justify-self:end">
+          <a class="btn" href="/contact.html">お問い合わせ</a>
+        </div>
       </div>
     </div>
     <div class="container"
-      style="margin-top:28px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap">
-      <div class="brand">
-        <span class="brand-badge">HS</span>
-        <span>早田設備株式会社</span>
-      </div>
+      style="color:var(--muted);display:flex;align-items:center;gap:12px;justify-content:space-between;flex-wrap:wrap">
       <small>© Hayata Setsubi Co., Ltd.</small>
     </div>
   </footer>
+
+  <script>
+    (function () {
+      const menu = document.getElementById('site-menu');
+      if (!menu) return;
+      menu.querySelectorAll('.nav__panel .nav__link').forEach(a => {
+        a.addEventListener('click', () => { menu.open = false; });
+      });
+      menu.querySelector('.nav__backdrop')?.addEventListener('click', () => { menu.open = false; });
+      const closeBtn = menu.querySelector('.nav__close');
+      closeBtn?.addEventListener('click', () => { menu.open = false; });
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && menu.open) { menu.open = false; }
+      });
+    })();
+  </script>
 </body>
 
 </html>

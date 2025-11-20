@@ -5,257 +5,219 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>採用情報｜早田設備株式会社</title>
-  <link rel="stylesheet" href="assets/style.css" />
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <link rel="stylesheet" href="assets/css/recruit.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
 </head>
 
 <body>
-  <header class="header">
-    <div class="container" style="display:flex;align-items:center;justify-content:space-between;gap:16px">
-      <a class="brand" href="index.html" aria-label="早田設備">
-        <span class="brand-badge">HS</span>
-        <span>早田設備株式会社</span>
-      </a>
-      <nav class="nav" role="navigation" aria-label="グローバルナビ">
-        <details class="menu" id="site-menu">
-          <summary class="nav__toggle" aria-label="メニューを開閉">
-            <span class="nav__label nav__label-open">☰ メニュー</span>
-            <span class="nav__label nav__label-close">✕ 閉じる</span>
-          </summary>
-          <div class="nav__sheet" aria-hidden="true">
-            <div class="nav__backdrop" aria-hidden="true"></div>
-            <div class="nav__panel" role="dialog" aria-modal="true" aria-label="メニュー">
-              <ul class="nav__list" role="list">
-                <li><a class="nav__link" href="services.html">事業内容</a></li>
-                <li><a class="nav__link" href="services.html#flow">施工の流れ</a></li>
-                <li><a class="nav__link" href="company.html">会社案内</a></li>
-                <li><a class="nav__link" href="portfolio.html">施工実績</a></li>
-                <li><a class="nav__link" href="recruit.html" aria-current="page">採用情報</a></li>
-                <li><a class="nav__link" href="contact.html">お問い合わせ</a></li>
-              </ul>
-            </div>
-          </div>
-        </details>
-      </nav>
-    </div>
-  </header>
+  <!-- Header (Common) -->
+  <script src="assets/js/common-header.js" defer></script>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="container container--narrow t-center">
-      <p class="eyebrow">RECRUIT</p>
-      <h1 class="hero__title">まちの“当たり前”を、次の世代へ。</h1>
-      <p class="hero__lead">設備で暮らしを支える —— それは、未来を守る仕事。<br>さあ、私たちと一緒に、誇れる仕事を始めません？</p>
-    </div>
-  </section>
-
-  <!-- INTRO (image + copy) -->
-  <!-- INTRO (image + copy) -->
-<section class="section">
-  <div class="container container--narrow stack-xl intro-grid" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
-    <div class="hero-visual" aria-hidden="true" style="margin-bottom: 32px;">
-      <span>現場のワンシーン（16:9）</span>
-    </div>
-    <div class="text">
-      <h2 class="h2-slim">手を動かす喜びが、<br>誰かの「ありがとう」になる。</h2>
-      <p>私たちは、人々の暮らしに欠かせない水回りや空調設備を手がける専門家集団です。<br>
-        蛇口をひねれば水が出る、スイッチを押せば快適な温度になる。<br>
-        そんな「当たり前」を守ることが、私たちの誇りです。</p>
-    </div>
-  </div>
-</section>
-
-
-  <!-- BENEFITS (3 visual cards) -->
-  <section class="section">
-    <div class="container">
-      <div class="header t-center">
-        <h2>「できた！」の積み重ねが、嬉しい。</h2>
-        <p class="intro">はじめは道具の名前を覚えるところから。少しずつ作業ができるようになって、「自分でもできたかも」と思える瞬間が増えていきます。</p>
+  <main>
+    <!-- ===== HERO SECTION (Unique) ===== -->
+    <section class="rec-hero">
+      <div class="rec-hero__bg">
+        <!-- Using recruit.png as the hero background -->
+        <img src="assets/images/recruit.png" alt="Hero Background">
       </div>
-      <div class="benefits-grid" aria-label="仕事の魅力">
-        <div class="benefit-card">
-          <div class="card-bg">[写真プレースホルダー]<br>作業の工夫をしている様子（縦位置 / 3:4）</div>
-          <div class="card-overlay">
-            <h3>ちょっとした工夫</h3>
-            <p>どうしたらスムーズに進むかを考えるのも、この仕事の楽しい時間です。</p>
-          </div>
+      <div class="rec-hero__overlay"></div>
+      <div class="rec-hero__content">
+        <h1 class="rec-hero__title">Gentle<br>Future</h1>
+        <p class="rec-hero__lead">
+          やさしい未来を、ここから。<br>
+          あなたのペースで、技術を育む。
+        </p>
+        <a href="#jobs" class="rec-hero__btn">募集要項を見る</a>
+      </div>
+      <div class="rec-scroll">Scroll</div>
+    </section>
+
+    <!-- ===== MESSAGE SECTION ===== -->
+    <section class="rec-message">
+      <div class="rec-message__mascot">
+        <img src="assets/images/mascot_company.png" alt="ハヤタくん">
+      </div>
+      <div class="rec-message__inner" data-animate>
+        <div class="rec-head">
+          <span class="rec-head__en">MESSAGE</span>
+          <h2 class="rec-head__jp">手を動かす喜びが、<br>誰かの「ありがとう」になる。</h2>
         </div>
-        <div class="benefit-card">
-          <div class="card-bg">[写真プレースホルダー]<br>お客様と笑顔で会話（縦位置 / 3:4）</div>
-          <div class="card-overlay">
-            <h3>「ありがとう」の言葉</h3>
-            <p>作業後の「助かりました」という一言が、明日のやる気に繋がります。</p>
-          </div>
+        <p class="rec-message__text">
+          私たちは、人々の暮らしに欠かせない水回りや空調設備を手がける専門家集団です。<br>
+          蛇口をひねれば水が出る、スイッチを押せば快適な温度になる。<br>
+          そんな「当たり前」を守ることが、私たちの誇りです。
+        </p>
+        <p class="rec-message__text">
+          経験は問いません。大切なのは「やってみたい」という気持ち。<br>
+          私たちと一緒に、誇れる仕事を始めませんか？
+        </p>
+      </div>
+    </section>
+
+    <!-- ===== BENEFITS SECTION ===== -->
+    <section class="rec-section rec-benefits">
+      <div class="rec-container">
+        <div class="rec-head" data-animate>
+          <span class="rec-head__en">BENEFITS</span>
+          <h2 class="rec-head__jp">働くメリット</h2>
         </div>
-        <div class="benefit-card">
-          <div class="card-bg">[写真プレースホルダー]<br>成長を実感している表情（縦位置 / 3:4）</div>
-          <div class="card-overlay">
-            <h3>できることが増える喜び</h3>
-            <p>昨日より今日。着実に成長できるから、仕事がもっと面白くなります。</p>
+
+        <div class="rec-grid">
+          <div class="rec-card" data-animate>
+            <div class="rec-card__icon">💡</div>
+            <h3 class="rec-card__title">未経験からプロへ</h3>
+            <p class="rec-card__text">道具の名前から丁寧に教えます。資格取得支援制度も充実しており、働きながら一生モノの技術が身につきます。</p>
+          </div>
+          <div class="rec-card" data-animate style="transition-delay: 0.1s;">
+            <div class="rec-card__icon">🤝</div>
+            <h3 class="rec-card__title">温かいチームワーク</h3>
+            <p class="rec-card__text">ベテランも若手も関係なく、困ったときは助け合う社風。分からないことはすぐに聞ける環境です。</p>
+          </div>
+          <div class="rec-card" data-animate style="transition-delay: 0.2s;">
+            <div class="rec-card__icon">📈</div>
+            <h3 class="rec-card__title">安定した基盤</h3>
+            <p class="rec-card__text">地域に根ざした実績があり、仕事量は安定。腰を据えて長く働きたい方に最適な環境です。</p>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- JOBS -->
-  <section class="section" id="jobs" aria-labelledby="jobs-heading">
-    <div class="container container--narrow">
-      <h2 id="jobs-heading" class="h2-slim t-center">募集職種</h2>
+    <!-- ===== JOBS SECTION ===== -->
+    <section class="rec-section rec-jobs" id="jobs">
+      <div class="rec-container">
+        <div class="rec-head" data-animate>
+          <span class="rec-head__en">JOB DESCRIPTION</span>
+          <h2 class="rec-head__jp">募集職種</h2>
+        </div>
 
-      <details class="job-acc" open>
-        <summary class="job-acc__head">
-          <div class="job-acc__title-wrap">
-            <span class="job-acc__title">施工スタッフ（正社員）</span>
-            <span class="job-acc__summary-text">配管・機器取付／交換、トラブル対応 など</span>
+        <div class="rec-job-list">
+          <!-- Job 1 -->
+          <div class="rec-job-item" data-animate>
+            <details>
+              <summary class="rec-job-head">
+                <div class="rec-job-title">
+                  施工スタッフ <span class="rec-job-tag">正社員</span>
+                </div>
+                <div class="rec-job-arrow">→</div>
+              </summary>
+              <div class="rec-job-body" style="padding-top: 20px;">
+                <p>配管・機器取付／交換、トラブル対応など、現場での作業全般をお任せします。</p>
+                <table class="info-table" style="width:100%; margin-top:16px; border-collapse:collapse;">
+                  <tr>
+                    <th style="text-align:left; padding:10px; border-bottom:1px solid #eee;">給与</th>
+                    <td style="padding:10px; border-bottom:1px solid #eee;">月給○○万円〜</td>
+                  </tr>
+                  <tr>
+                    <th style="text-align:left; padding:10px; border-bottom:1px solid #eee;">勤務地</th>
+                    <td style="padding:10px; border-bottom:1px solid #eee;">本社および各現場</td>
+                  </tr>
+                  <tr>
+                    <th style="text-align:left; padding:10px; border-bottom:1px solid #eee;">勤務時間</th>
+                    <td style="padding:10px; border-bottom:1px solid #eee;">8:00–17:00</td>
+                  </tr>
+                </table>
+                <div style="margin-top:20px; text-align:center;">
+                  <a href="contact.html" class="btn btn--primary">応募する</a>
+                </div>
+              </div>
+            </details>
           </div>
-          <div class="job-acc__tags">
-            <span class="tag">未経験歓迎</span><span class="tag">要普免</span>
-          </div>
-        </summary>
-        <div class="job-acc__body">
-          <table class="info-table">
-            <tr><th>応募条件</th><td>要普免（AT可）／学歴・経験不問 ※経験者優遇</td></tr>
-            <tr><th>勤務時間</th><td>8:00–17:00（実働8h・休憩あり）</td></tr>
-            <tr><th>休日休暇</th><td>日曜・祝日、他（会社カレンダーによる）</td></tr>
-            <tr><th>給与</th><td>月給○○万円〜（経験・能力・資格を最大限考慮します）</td></tr>
-            <tr><th>待遇・福利厚生</th><td>社会保険完備／昇給年1回／賞与年2回／資格取得支援制度／作業服支給／退職金制度</td></tr>
-          </table>
-          <div class="btn-row t-center" style="margin-top:18px">
-            <a class="btn" href="contact.html">応募・問い合わせ</a>
-          </div>
-        </div>
-      </details>
 
-      <details class="job-acc">
-        <summary class="job-acc__head">
-          <div class="job-acc__title-wrap">
-            <span class="job-acc__title">施工管理補助（正社員）</span>
-            <span class="job-acc__summary-text">書類作成、工程調整、写真管理、発注補助</span>
-          </div>
-          <div class="job-acc__tags">
-            <span class="tag">PC基本操作</span><span class="tag">デスクワーク</span>
-          </div>
-        </summary>
-        <div class="job-acc__body">
-          <table class="info-table">
-            <tr><th>応募条件</th><td>基本的なPCスキル（Word/Excel）／学歴・経験不問</td></tr>
-            <tr><th>勤務時間</th><td>8:00–17:00（実働8h・休憩あり）</td></tr>
-            <tr><th>休日休暇</th><td>完全週休2日制（土日祝）、他（会社カレンダーによる）</td></tr>
-            <tr><th>給与</th><td>月給○○万円〜（経験・能力を最大限考慮します）</td></tr>
-            <tr><th>待遇・福利厚生</th><td>社会保険完備／昇給年1回／賞与年2回／資格取得支援制度／私服勤務OK／退職金制度</td></tr>
-          </table>
-          <div class="btn-row t-center" style="margin-top:18px">
-            <a class="btn" href="contact.html">応募・問い合わせ</a>
-          </div>
-        </div>
-      </details>
-    </div>
-  </section>
-
-  <!-- SUPPORTS -->
-  <section class="section section--soft">
-    <div class="container container--narrow">
-      <h2 class="h2-slim t-center">安心して成長できる、<br>充実のサポート体制。</h2>
-      <div class="benefits-grid">
-        <div class="benefit-card" style="aspect-ratio:auto;padding:24px">
-          <div class="benefit-card__icon">📘</div>
-          <h3 class="benefit-card__title">資格取得支援制度</h3>
-          <p class="benefit-card__text">業務に必要な資格の受験費用は会社が全額負担。スキルアップを積極的に応援します。</p>
-        </div>
-        <div class="benefit-card" style="aspect-ratio:auto;padding:24px">
-          <div class="benefit-card__icon">🤝</div>
-          <h3 class="benefit-card__title">OJT・研修</h3>
-          <p class="benefit-card__text">ベテランの先輩がマンツーマンで指導。見て覚えろではなく、分かるまで丁寧に教えます。</p>
-        </div>
-        <div class="benefit-card" style="aspect-ratio:auto;padding:24px">
-          <div class="benefit-card__icon">👕</div>
-          <h3 class="benefit-card__title">各種手当・支給</h3>
-          <p class="benefit-card__text">作業服や工具はすべて会社が支給。個人で準備する必要はありません。</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- VOICES -->
-  <section class="section">
-    <div class="container container--narrow">
-      <h2 class="h2-slim t-center">先輩の声</h2>
-      <div class="voice-grid">
-        <div class="voice-card">
-          <div class="voice-card__photo" aria-hidden="true"><span>Aさん</span></div>
-          <div class="voice-card__body">
-            <blockquote>「初めて給湯器が動いた瞬間、お客さまの“助かった”が忘れられない。」</blockquote>
-            <cite>現場担当 Aさん（入社3年目）</cite>
-          </div>
-        </div>
-        <div class="voice-card">
-          <div class="voice-card__photo" aria-hidden="true"><span>Bさん</span></div>
-          <div class="voice-card__body">
-            <blockquote>「図面が苦手でも、隣で教えてもらいながら少しずつ前へ進めています。」</blockquote>
-            <cite>施工管理 Bさん（入社5年目）</cite>
+          <!-- Job 2 -->
+          <div class="rec-job-item" data-animate>
+            <details>
+              <summary class="rec-job-head">
+                <div class="rec-job-title">
+                  施工管理補助 <span class="rec-job-tag">正社員</span>
+                </div>
+                <div class="rec-job-arrow">→</div>
+              </summary>
+              <div class="rec-job-body" style="padding-top: 20px;">
+                <p>書類作成、工程調整、写真管理など、現場監督のサポート業務です。</p>
+                <table class="info-table" style="width:100%; margin-top:16px; border-collapse:collapse;">
+                  <tr>
+                    <th style="text-align:left; padding:10px; border-bottom:1px solid #eee;">給与</th>
+                    <td style="padding:10px; border-bottom:1px solid #eee;">月給○○万円〜</td>
+                  </tr>
+                  <tr>
+                    <th style="text-align:left; padding:10px; border-bottom:1px solid #eee;">勤務地</th>
+                    <td style="padding:10px; border-bottom:1px solid #eee;">本社および各現場</td>
+                  </tr>
+                  <tr>
+                    <th style="text-align:left; padding:10px; border-bottom:1px solid #eee;">勤務時間</th>
+                    <td style="padding:10px; border-bottom:1px solid #eee;">8:00–17:00</td>
+                  </tr>
+                </table>
+                <div style="margin-top:20px; text-align:center;">
+                  <a href="contact.html" class="btn btn--primary">応募する</a>
+                </div>
+              </div>
+            </details>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- FLOW -->
-  <section class="section section--soft" id="flow">
-    <div class="container container--narrow">
-      <h2 class="h2-slim t-center">選考フロー</h2>
-      <ol class="flow-steps">
-        <li class="flow-step">
-          <div class="flow-step__number">1</div>
-          <h3 class="flow-step__title">応募・見学</h3>
-          <p class="flow-step__text">まずは見学だけでもOK。<br>お気軽にご連絡ください。</p>
-        </li>
-        <li class="flow-step">
-          <div class="flow-step__number">2</div>
-          <h3 class="flow-step__title">面接 (1回)</h3>
-          <p class="flow-step__text">履歴書をもとに、リラックスした雰囲気でお話しましょう。</p>
-        </li>
-        <li class="flow-step">
-          <div class="flow-step__number">3</div>
-          <h3 class="flow-step__title">内定</h3>
-          <p class="flow-step__text">条件などをご確認いただき、双方合意の上で入社となります。</p>
-        </li>
-      </ol>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section class="section">
-    <div class="container container--narrow">
-      <div class="cta-box">
-        <h2 class="cta-box__title">まずは、会社の雰囲気を<br>見に来ませんか？</h2>
-        <p class="cta-box__text">30分程度の簡単な職場見学が可能です。<br>履歴書は不要ですので、お気軽にお申し込みください。</p>
-        <a class="btn btn--large" href="contact.html">職場見学を申し込む</a>
+    <!-- ===== CTA SECTION ===== -->
+    <div class="rec-cta" data-animate>
+      <div class="rec-cta__mascot">
+        <img src="assets/images/mascot_contact.png" alt="ハヤタくん">
+      </div>
+      <div class="rec-cta__content">
+        <h2 class="rec-cta__title">JOIN OUR TEAM</h2>
+        <p>まずは会社見学からでもOKです。<br>お気軽にお問い合わせください。</p>
+        <a href="contact.html" class="rec-cta__btn">エントリー / お問い合わせ</a>
       </div>
     </div>
-  </section>
 
-  <!-- FOOTER -->
+  </main>
+
+  <!-- Footer (Common) -->
   <footer class="footer" role="contentinfo">
-    <div class="container foot-flex">
-      <div>
-        <div class="tel">📞 0858-22-7571</div>
-        <div class="note">9:00–17:00（第２、第４土、日祝・年末年始を除く）</div>
-      </div>
-      <div style="justify-self:end">
-        <a class="btn ghost" href="contact.html">お問い合わせ</a>
+    <div class="container">
+      <nav class="footer-nav" aria-label="フッターナビゲーション">
+        <a href="/company.html">会社概要</a>
+        <a href="/services.html">事業内容</a>
+        <a href="/portfolio.html">施工実績</a>
+        <a href="/recruit.html">採用情報</a>
+        <a href="/news.html">お知らせ</a>
+        <a href="/contact.html">お問い合わせ</a>
+      </nav>
+      <div class="foot-flex">
+        <div>
+          <div class="tel">📞 0858-22-7571</div>
+          <div class="note">9:00–17:00（第２、第４土、日祝・年末年始を除く）</div>
+        </div>
+        <div style="justify-self:end">
+          <a class="btn" href="/contact.html">お問い合わせ</a>
+        </div>
       </div>
     </div>
-    <div class="container" style="margin-top:28px; color:var(--muted); display:flex; align-items:center; gap:12px; justify-content:space-between; flex-wrap:wrap">
-      <div style="display:flex; align-items:center; gap:10px; color:var(--brand); font-weight:800">
-        <span style="width:28px;height:28px;border:2px solid var(--brand);border-radius:8px;display:grid;place-items:center">HS</span>
-        <span>早田設備株式会社</span>
-      </div>
-      <small>© Hayata Setsubi Co., Ltd. All Rights Reserved.</small>
+    <div class="container"
+      style="color:var(--muted);display:flex;align-items:center;gap:12px;justify-content:space-between;flex-wrap:wrap">
+      <small>© Hayata Setsubi Co., Ltd.</small>
     </div>
   </footer>
+
+  <!-- Scroll Animation Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+          }
+        });
+      }, { threshold: 0.1 });
+
+      document.querySelectorAll('[data-animate]').forEach(el => {
+        observer.observe(el);
+      });
+    });
+  </script>
 </body>
+
 </html>
