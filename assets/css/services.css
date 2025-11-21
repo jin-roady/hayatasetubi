@@ -401,10 +401,77 @@
 }
 
 .area__actions {
-  margin-top: 12px;
+  margin-top: 20px;
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
+}
+
+.area__actions .btn {
+  padding: 14px 28px 14px 48px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 15px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+  position: relative;
+  border: 2px solid transparent;
+}
+
+/* お問い合わせ（フォーム）ボタン */
+.area__actions .btn:not(.ghost) {
+  background: linear-gradient(135deg, #1e88ff 0%, #0f66d6 100%);
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(30, 136, 255, 0.3);
+}
+
+.area__actions .btn:not(.ghost)::before {
+  content: "✉";
+  position: absolute;
+  left: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 18px;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.area__actions .btn:not(.ghost):hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(30, 136, 255, 0.4);
+  background: linear-gradient(135deg, #0f66d6 0%, #0d52b0 100%);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* 今すぐ電話するボタン */
+.area__actions .btn.ghost {
+  background: #fff;
+  color: #1e88ff;
+  border: 2px solid #1e88ff;
+  box-shadow: 0 2px 12px rgba(30, 136, 255, 0.15);
+  padding: 14px 28px 14px 48px;
+}
+
+.area__actions .btn.ghost::before {
+  content: "📞";
+  position: absolute;
+  left: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 18px;
+}
+
+.area__actions .btn.ghost:hover {
+  background: #1e88ff;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(30, 136, 255, 0.3);
+}
+
+.area__actions .btn:active {
+  transform: translateY(0);
 }
 
 /* 地図カード */
@@ -789,11 +856,16 @@
   display: flex;
   align-items: center;
   gap: clamp(40px, 6vw, 80px);
-  margin-bottom: 80px;
+  margin-bottom: 50px;
   background: #f1f5f9;
   /* 淡いグレーでエリアを明確化 */
   padding: clamp(40px, 5vw, 60px);
   border-radius: 24px;
+  position: relative;
+}
+
+.section--panel .section__inner::after {
+  display: none;
 }
 
 /* Text Area */
@@ -898,45 +970,22 @@
   position: relative;
 }
 
-.h3-worry {
+.page-service .service-section-title,
+.service-section-title {
   display: inline-block;
-  font-size: clamp(20px, 3vw, 26px);
+  font-size: clamp(22px, 3vw, 26px);
   font-weight: 800;
-  color: #ffffff;
-  background: #1e88ff;
-  padding: 12px 32px;
-  border-radius: 999px;
+  color: #1e88ff !important;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  letter-spacing: 0.03em;
   position: relative;
-  margin-bottom: 24px;
-  box-shadow: 0 4px 12px rgba(30, 136, 255, 0.3);
+  border-bottom: 3px solid #1e88ff;
 }
 
-/* Speech Bubble Tail */
-.h3-worry::after {
-  content: "";
-  position: absolute;
-  bottom: -8px;
-  left: 50%;
-  transform: translateX(-50%);
-  border-width: 8px 8px 0;
-  border-style: solid;
-  border-color: #1e88ff transparent transparent transparent;
-}
-
-/* Question Mark Icon */
-.h3-worry::before {
-  content: "?";
-  display: inline-block;
-  margin-right: 8px;
-  font-weight: 900;
-  background: #fff;
-  color: #1e88ff;
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  text-align: center;
-  line-height: 24px;
-  font-size: 16px;
+.service-section-title::after {
+  display: none;
 }
 
 /* Description Text */
@@ -949,14 +998,7 @@
 
 /* Connect to Grid with a dotted line */
 .worry-header::after {
-  content: "";
-  display: block;
-  width: 2px;
-  height: 30px;
-  background-image: linear-gradient(to bottom, #cbd5e1 50%, transparent 50%);
-  background-size: 2px 8px;
-  background-repeat: repeat-y;
-  margin: 16px auto 0;
+  display: none;
 }
 
 /* ---------------------------------------------------------
@@ -1325,4 +1367,147 @@
   position: relative;
   z-index: 1;
   /* グリッドの上に置く */
+}
+
+/* ---------------------------------------------------------
+   Modern Scroll Animations
+--------------------------------------------------------- */
+.fade-up {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.fade-up.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Fade from left */
+.fade-left {
+  opacity: 0;
+  transform: translateX(-60px);
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.fade-left.in-view {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Fade from right */
+.fade-right {
+  opacity: 0;
+  transform: translateX(60px);
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.fade-right.in-view {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Scale animation */
+.fade-scale {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 0.8s cubic-bezier(0.34, 1.56, 0.64, 1),
+    transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.fade-scale.in-view {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Stagger animation for cards */
+.card-grid .card {
+  opacity: 0;
+  transform: translateY(40px) scale(0.95);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-grid.in-view .card:nth-child(1) {
+  transition-delay: 0.1s;
+}
+
+.card-grid.in-view .card:nth-child(2) {
+  transition-delay: 0.2s;
+}
+
+.card-grid.in-view .card:nth-child(3) {
+  transition-delay: 0.3s;
+}
+
+.card-grid.in-view .card:nth-child(4) {
+  transition-delay: 0.4s;
+}
+
+.card-grid.in-view .card:nth-child(5) {
+  transition-delay: 0.5s;
+}
+
+.card-grid.in-view .card:nth-child(6) {
+  transition-delay: 0.6s;
+}
+
+.card-grid.in-view .card {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Stagger animation for service list */
+.svc-list.in-view .svc {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.svc-list.in-view .svc:nth-child(1) {
+  transition-delay: 0.1s;
+}
+
+.svc-list.in-view .svc:nth-child(2) {
+  transition-delay: 0.2s;
+}
+
+.svc-list.in-view .svc:nth-child(3) {
+  transition-delay: 0.3s;
+}
+
+.svc-list.in-view .svc:nth-child(4) {
+  transition-delay: 0.4s;
+}
+
+.svc-list.in-view .svc:nth-child(5) {
+  transition-delay: 0.5s;
+}
+
+.svc-list.in-view .svc:nth-child(6) {
+  transition-delay: 0.6s;
+}
+
+.svc-list.in-view .svc {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+
+  .fade-up,
+  .fade-left,
+  .fade-right,
+  .fade-scale,
+  .card-grid .card,
+  .svc-list .svc {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }

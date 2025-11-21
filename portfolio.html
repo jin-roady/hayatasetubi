@@ -58,7 +58,7 @@
           <h2 id="sec-works-list" class="sec-head__title">主な施工事例</h2>
         </div>
 
-        <div class="works-filter">
+        <div class="works-filter fade-up">
           <button type="button" class="filter-btn is-active" data-filter="all">
             <span class="text">すべて</span>
           </button>
@@ -75,7 +75,7 @@
             <span class="text">工場</span>
           </button>
         </div>
-        <div class="card-grid card-grid--works" id="works-grid">
+        <div class="card-grid card-grid--works fade-up" id="works-grid" style="transition-delay: 0.2s;">
           <article class="card works-card js-modal-trigger" data-category="housing" data-title="戸建て｜給湯器更新・配管更新"
             data-date="2025.06.12" data-place="所在地：○○市 / 工期：1日" data-image="assets/images/works/work1.jpg"
             data-description="古くなった給湯器の交換に加え、劣化していた配管の一部更新を行いました。保温材もしっかり巻き直し、冬場の凍結対策も万全です。お客様からは「お湯張りが早くなった」とお喜びいただきました。">
@@ -161,7 +161,7 @@
 
     <section class="section section--cta">
       <div class="container">
-        <div class="cta-band cta-band--works">
+        <div class="cta-band cta-band--works fade-scale">
           <div class="cta-band__body">
             <h2>設備工事のご相談・ご依頼</h2>
             <p class="note">
@@ -360,6 +360,29 @@
         if (e.key === 'Escape' && modal.classList.contains('is-open')) {
           closeModal();
         }
+      });
+    });
+  </script>
+
+  <script>
+    // Modern Scroll Animation
+    document.addEventListener('DOMContentLoaded', () => {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+          }
+        });
+      }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      });
+
+      const animationClasses = ['.fade-up', '.fade-left', '.fade-right', '.fade-scale'];
+      animationClasses.forEach(className => {
+        document.querySelectorAll(className).forEach(el => {
+          observer.observe(el);
+        });
       });
     });
   </script>

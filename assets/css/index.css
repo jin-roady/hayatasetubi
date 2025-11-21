@@ -168,18 +168,6 @@
     background: rgba(30, 136, 255, 0.5);
 }
 
-/* マスコット吹き出しのスタイル調整 */
-.fv__balloon {
-    background: #ffffff;
-    border: 3px solid #1e88ff;
-    color: #1e88ff;
-    box-shadow: 0 4px 15px rgba(30, 136, 255, 0.2);
-}
-
-.fv__balloon::after {
-    border-color: #ffffff transparent transparent transparent;
-}
-
 .fv__balloon p {
     font-weight: 600;
 }
@@ -957,13 +945,46 @@
     }
 
     .works-showcase {
-        grid-template-columns: 1fr;
-        gap: 60px;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    .works-info {
+        display: contents;
+    }
+
+    .works-info>span {
+        order: 1;
+    }
+
+    .works-info h2 {
+        order: 2;
+    }
+
+    .works-info p {
+        order: 3;
+        margin-bottom: 20px;
+    }
+
+    .works-img-box {
+        order: 4;
+        margin-bottom: 10px;
     }
 
     .works-stat {
-        gap: 40px;
+        order: 5;
+        width: 100%;
+        gap: 20px;
+        margin: 20px 0 40px;
     }
+
+    .works-info .section-btn {
+        order: 6;
+        margin: 0 auto;
+    }
+
+
 
     .stat-item .num {
         font-size: 40px;

@@ -936,8 +936,8 @@ h2::before {
 /* 右側サイド装飾 */
 .fv__side {
   position: absolute;
-  right: clamp(12px, 2vw, 32px);
-  bottom: clamp(20px, 4vh, 40px);
+  right: clamp(20px, 8vw, 100px);
+  bottom: clamp(20px, 8vh, 80px);
   width: auto;
   display: flex;
   flex-direction: column;
@@ -948,44 +948,40 @@ h2::before {
 }
 
 .fv__dash {
-  position: absolute;
-  right: 50%;
-  top: -90px;
-  width: 2px;
-  height: 80px;
-  background: repeating-linear-gradient(to bottom, rgba(19, 73, 166, .95) 0 18px, transparent 18px 36px);
-  transform: translateX(50%);
-  opacity: .75;
+  display: none;
 }
 
 .fv__balloon {
   position: relative;
-  width: clamp(160px, 18vw, 220px);
+  width: auto;
+  min-width: 140px;
+  max-width: 220px;
   background: #fff;
   border: 3px solid rgba(19, 73, 166, .85);
   border-radius: 18px;
-  box-shadow: var(--shadow-1);
-  padding: 14px 16px;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, .10);
+  padding: 10px 14px;
+  transform: translateY(4px);
   pointer-events: auto;
   order: 1;
+  text-align: center;
 }
 
 .fv__balloon p {
   margin: 0;
-  text-align: center;
-  color: var(--ink-2);
-  font-weight: 800;
-  line-height: 1.4;
-  font-size: clamp(13px, 1.5vw, 16px);
+  font-weight: 900;
+  line-height: 1.25;
+  color: #1349a6;
+  font-size: clamp(11px, 1.4vw, 14px);
 }
 
 .fv__balloon::after {
   content: "";
   position: absolute;
   left: 50%;
-  bottom: -14px;
-  width: 22px;
-  height: 22px;
+  bottom: -12px;
+  width: 20px;
+  height: 20px;
   background: #fff;
   border-right: 3px solid rgba(19, 73, 166, .85);
   border-bottom: 3px solid rgba(19, 73, 166, .85);
@@ -1137,12 +1133,14 @@ h2::before {
   }
 
   .fv__balloon {
-    width: clamp(130px, 54vw, 180px);
-    padding: 9px 11px;
+    width: auto;
+    max-width: 200px;
+    padding: 7px 11px;
+    border-width: 2.5px;
   }
 
   .fv__balloon p {
-    font-size: clamp(12px, 3.6vw, 13px);
+    font-size: clamp(11px, 1.4vw, 14px);
   }
 
   .fv__mascot img {
@@ -1705,24 +1703,18 @@ h2::before {
 
   /* ▼▼▼ 変更箇所 ▼▼▼ */
   /* マスコット＋吹き出し：非表示にして視認性を優先 */
-  .fv__side {
-    display: none;
-    /*
-      right: clamp(10px, 5vw, 18px);
-      bottom: clamp(16px, 9vh, 22vh);
-      gap: 6px;
-      */
-  }
+
 
   /* 非表示にしたため、以下のルールは影響しませんが、そのままでOKです */
   .fv__balloon {
-    width: clamp(130px, 54vw, 180px);
-    padding: 8px 10px;
+    width: auto;
+    max-width: 200px;
+    padding: 7px 11px;
+    border-width: 2.5px;
   }
 
   .fv__balloon p {
-    font-size: clamp(12px, 3.8vw, 14px);
-    line-height: 1.35;
+    font-size: clamp(11px, 1.4vw, 14px);
   }
 
   .fv__mascot img {
@@ -1754,9 +1746,7 @@ h2::before {
 @media (max-width: 899px) {
 
   /* 既存の display:none を打ち消す */
-  .fv__side {
-    display: none;
-  }
+
 
   /* ←既存想定 */
   .fv__side.is-below {
@@ -1826,20 +1816,19 @@ h2::before {
 @media (max-width: 899px) {
 
   /* FV内で使う場合／.is-belowでFV直下へ出す場合の両対応 */
-  .fv__side,
   .fv__side.is-below {
-    position: static !important;
+    position: absolute !important;
+    right: clamp(10px, 4vw, 20px);
+    bottom: clamp(10px, 4vh, 20px);
     display: flex !important;
     flex-direction: column;
-    /* ← 縦並び */
     align-items: center;
-    /* ← 中央寄せ */
     justify-content: center;
     gap: 8px;
-    width: min(680px, 92vw);
-    margin: clamp(12px, 4vw, 20px) auto 0;
-    pointer-events: auto;
-    z-index: 1;
+    width: auto;
+    margin: 0;
+    pointer-events: none;
+    z-index: 50;
   }
 
   /* 並び順：1) 吹き出し 2) マスコット 3) 名称 */
@@ -1909,25 +1898,19 @@ h2::before {
 /* ===== Balloon text fix: 文字切れ防止（～899px） ===== */
 @media (max-width: 899px) {
   .fv__balloon {
-    /* 横幅を画面に合わせて安全に */
     width: auto;
-    max-width: min(90vw, 520px);
-    /* 下側に余白を多めに（尾との干渉を避ける） */
-    padding: 12px 14px 18px;
+    max-width: 200px;
+    padding: 7px 11px;
+    border-width: 2.5px;
   }
 
   .fv__balloon p {
     margin: 0;
-    /* 必ず折り返す（CJKでも安全） */
     white-space: normal;
     overflow-wrap: anywhere;
-    /* 最も強い折り返し */
     word-break: normal;
-    /* 日本語の自然な禁則処理 */
-    line-height: 1.45;
-    /* 行間を少しゆとり */
-    /* フォントが大きすぎる端末に備えてクランプ */
-    font-size: clamp(12px, 3.6vw, 15px);
+    line-height: 1.25;
+    font-size: clamp(11px, 1.4vw, 14px);
   }
 
   /* 尾（▼）が当たらないよう微調整 */
@@ -2183,7 +2166,7 @@ h2::before {
   --ink: #111;
   --muted: #6b7280;
   --line: #e5e7eb;
-  --bg-soft: #f8fafc;
+  --bg-soft: #f0f4f8;
   --shadow: 0 8px 24px rgba(0, 0, 0, .06);
   --radius: 16px;
 }
@@ -2799,16 +2782,20 @@ h2::before {
   background: transparent;
 }
 
-/* ふんわりホワイト系 */
+/* ふんわりホワイト系 - より明確に */
 .page-company .section--alt,
 .page-service .section--alt {
-  background: radial-gradient(circle at top, #ffffff 0%, #f4f7ff 80%);
+  background: linear-gradient(180deg, #f8fbff 0%, #e8f2ff 100%);
+  border-top: 1px solid rgba(30, 136, 255, 0.08);
+  border-bottom: 1px solid rgba(30, 136, 255, 0.08);
 }
 
-/* やさしい淡ブルー */
+/* やさしい淡ブルー - より濃く */
 .page-company .section--soft,
 .page-service .section--soft {
-  background: linear-gradient(180deg, #f7f9ff 0%, #edf3ff 100%);
+  background: linear-gradient(180deg, #e8f0ff 0%, #dce8ff 100%);
+  border-top: 1px solid rgba(30, 136, 255, 0.12);
+  border-bottom: 1px solid rgba(30, 136, 255, 0.12);
 }
 
 /* CTA用（少しタイトな余白） */
@@ -2841,7 +2828,8 @@ h2::before {
 .page-company,
 .page-service,
 .page-portfolio,
-.page-contact {
+.page-contact,
+.page-news {
   background: #ffffff;
 }
 
@@ -2851,7 +2839,8 @@ h2::before {
 .page-company .section,
 .page-service .section,
 .page-portfolio .section,
-.page-contact .section {
+.page-contact .section,
+.page-news .section {
   padding-block: clamp(56px, 7vw, 88px);
 }
 
@@ -2859,31 +2848,39 @@ h2::before {
 .page-company .section--panel,
 .page-service .section--panel,
 .page-portfolio .section--panel,
-.page-contact .section--panel {
+.page-contact .section--panel,
+.page-news .section--panel {
   background: transparent;
 }
 
-/* ふんわりホワイト系 */
+/* ふんわりホワイト系 - より明確に */
 .page-company .section--alt,
 .page-service .section--alt,
 .page-portfolio .section--alt,
-.page-contact .section--alt {
-  background: radial-gradient(circle at top, #ffffff 0%, #f4f7ff 80%);
+.page-contact .section--alt,
+.page-news .section--alt {
+  background: linear-gradient(180deg, #f8fbff 0%, #e8f2ff 100%);
+  border-top: 1px solid rgba(30, 136, 255, 0.08);
+  border-bottom: 1px solid rgba(30, 136, 255, 0.08);
 }
 
-/* やさしい淡ブルー */
+/* やさしい淡ブルー - より濃く */
 .page-company .section--soft,
 .page-service .section--soft,
 .page-portfolio .section--soft,
-.page-contact .section--soft {
-  background: linear-gradient(180deg, #f7f9ff 0%, #edf3ff 100%);
+.page-contact .section--soft,
+.page-news .section--soft {
+  background: linear-gradient(180deg, #e8f0ff 0%, #dce8ff 100%);
+  border-top: 1px solid rgba(30, 136, 255, 0.12);
+  border-bottom: 1px solid rgba(30, 136, 255, 0.12);
 }
 
 /* CTA用（少しタイトな余白） */
 .page-company .section--cta,
 .page-service .section--cta,
 .page-portfolio .section--cta,
-.page-contact .section--cta {
+.page-contact .section--cta,
+.page-news .section--cta {
   padding-block: clamp(48px, 6vw, 72px);
   background: transparent;
 }
@@ -2896,7 +2893,9 @@ h2::before {
 .page-company section .container,
 .page-service section .container,
 .page-portfolio section .container,
-.page-contact section .container {
+.page-contact section .container,
+.page-news .section .container,
+.page-news section .container {
   padding-inline: clamp(18px, 5vw, 60px);
   margin-inline: auto;
   max-width: 1200px;
@@ -2909,7 +2908,8 @@ h2::before {
 .kv--company,
 .kv--service,
 .kv--portfolio,
-.kv--contact {
+.kv--contact,
+.kv--news {
   --left-max: 560px;
   --gutter-x: clamp(20px, 4vw, 48px);
   --top-pad: clamp(72px, 9vw, 140px);
@@ -2923,7 +2923,8 @@ h2::before {
 .kv--company .kv__inner,
 .kv--service .kv__inner,
 .kv--portfolio .kv__inner,
-.kv--contact .kv__inner {
+.kv--contact .kv__inner,
+.kv--news .kv__inner {
   max-width: 1400px;
   margin: 0 auto;
   padding: var(--top-pad) var(--gutter-x) var(--bottom-pad);
@@ -2934,7 +2935,8 @@ h2::before {
 .kv--company .kv__body,
 .kv--service .kv__body,
 .kv--portfolio .kv__body,
-.kv--contact .kv__body {
+.kv--contact .kv__body,
+.kv--news .kv__body {
   width: min(var(--left-max), 52vw);
 }
 
@@ -2942,7 +2944,8 @@ h2::before {
 .kv--company .kv__title,
 .kv--service .kv__title,
 .kv--portfolio .kv__title,
-.kv--contact .kv__title {
+.kv--contact .kv__title,
+.kv--news .kv__title {
   margin: 0 0 clamp(18px, 2vw, 28px);
   line-height: 1.15;
 }
@@ -2950,7 +2953,8 @@ h2::before {
 .kv--company .kv__title .jp,
 .kv--service .kv__title .jp,
 .kv--portfolio .kv__title .jp,
-.kv--contact .kv__title .jp {
+.kv--contact .kv__title .jp,
+.kv--news .kv__title .jp {
   display: block;
   font-weight: 900;
   font-size: clamp(34px, 6vw, 56px);
@@ -2961,7 +2965,8 @@ h2::before {
 .kv--company .kv__title .en,
 .kv--service .kv__title .en,
 .kv--portfolio .kv__title .en,
-.kv--contact .kv__title .en {
+.kv--contact .kv__title .en,
+.kv--news .kv__title .en {
   display: block;
   margin-top: 6px;
   font-weight: 800;
@@ -2981,7 +2986,9 @@ h2::before {
 .kv--company .kv__intro,
 .kv--service .kv__intro,
 .kv--portfolio .kv__intro,
-.kv--contact .kv__intro {
+.kv--contact .kv__intro,
+.kv--news .kv__lead,
+.kv--news .kv__intro {
   margin: 0;
   color: #14286b;
   font-weight: 700;
@@ -2995,7 +3002,8 @@ h2::before {
 .kv--company .kv__media,
 .kv--service .kv__media,
 .kv--portfolio .kv__media,
-.kv--contact .kv__media {
+.kv--contact .kv__media,
+.kv--news .kv__media {
   position: absolute;
   top: 0;
   right: 0;
@@ -3010,7 +3018,8 @@ h2::before {
 .kv--company .kv__media::before,
 .kv--service .kv__media::before,
 .kv--portfolio .kv__media::before,
-.kv--contact .kv__media::before {
+.kv--contact .kv__media::before,
+.kv--news .kv__media::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -3022,7 +3031,8 @@ h2::before {
 .kv--company .kv__mascot,
 .kv--service .kv__mascot,
 .kv--portfolio .kv__mascot,
-.kv--contact .kv__mascot {
+.kv--contact .kv__mascot,
+.kv--news .kv__mascot {
   position: absolute;
   z-index: 3;
   right: clamp(26%, 30vw, 35%);
@@ -3039,7 +3049,8 @@ h2::before {
 .kv--company .kv__mascot img,
 .kv--service .kv__mascot img,
 .kv--portfolio .kv__mascot img,
-.kv--contact .kv__mascot img {
+.kv--contact .kv__mascot img,
+.kv--news .kv__mascot img {
   width: 100%;
   height: auto;
   display: block;
@@ -3048,7 +3059,8 @@ h2::before {
 .kv--company .kv__balloon,
 .kv--service .kv__balloon,
 .kv--portfolio .kv__balloon,
-.kv--contact .kv__balloon {
+.kv--contact .kv__balloon,
+.kv--news .kv__balloon {
   position: relative;
   pointer-events: auto;
   background: #fff;
@@ -3063,7 +3075,8 @@ h2::before {
 .kv--company .kv__balloon p,
 .kv--service .kv__balloon p,
 .kv--portfolio .kv__balloon p,
-.kv--contact .kv__balloon p {
+.kv--contact .kv__balloon p,
+.kv--news .kv__balloon p {
   margin: 0;
   font-weight: 900;
   line-height: 1.25;
@@ -3074,7 +3087,8 @@ h2::before {
 .kv--company .kv__balloon::after,
 .kv--service .kv__balloon::after,
 .kv--portfolio .kv__balloon::after,
-.kv--contact .kv__balloon::after {
+.kv--contact .kv__balloon::after,
+.kv--news .kv__balloon::after {
   content: "";
   position: absolute;
   left: 50%;
@@ -3104,7 +3118,8 @@ h2::before {
   .kv--company,
   .kv--service,
   .kv--portfolio,
-  .kv--contact {
+  .kv--contact,
+  .kv--news {
     --sp-safe: 58vw;
     min-height: min(88vh, 760px);
   }
@@ -3112,7 +3127,8 @@ h2::before {
   .kv--company .kv__inner,
   .kv--service .kv__inner,
   .kv--portfolio .kv__inner,
-  .kv--contact .kv__inner {
+  .kv--contact .kv__inner,
+  .kv--news .kv__inner {
     padding: clamp(56px, 10vw, 80px) clamp(7vw, 8vw, 28px) clamp(32px, 9vw, 56px);
     max-width: 100%;
   }
@@ -3120,7 +3136,8 @@ h2::before {
   .kv--company .kv__body,
   .kv--service .kv__body,
   .kv--portfolio .kv__body,
-  .kv--contact .kv__body {
+  .kv--contact .kv__body,
+  .kv--news .kv__body {
     width: 100%;
     max-width: var(--sp-safe);
   }
@@ -3128,7 +3145,8 @@ h2::before {
   .kv--company .kv__media,
   .kv--service .kv__media,
   .kv--portfolio .kv__media,
-  .kv--contact .kv__media {
+  .kv--contact .kv__media,
+  .kv--news .kv__media {
     top: 0;
     right: 0;
     bottom: 0;
@@ -3141,7 +3159,8 @@ h2::before {
   .kv--company .kv__media::before,
   .kv--service .kv__media::before,
   .kv--portfolio .kv__media::before,
-  .kv--contact .kv__media::before {
+  .kv--contact .kv__media::before,
+  .kv--news .kv__media::before {
     background: linear-gradient(90deg,
         rgba(255, 255, 255, 0.96) 0%,
         rgba(255, 255, 255, 0.88) 16%,
@@ -3152,7 +3171,8 @@ h2::before {
   .kv--company .kv__mascot,
   .kv--service .kv__mascot,
   .kv--portfolio .kv__mascot,
-  .kv--contact .kv__mascot {
+  .kv--contact .kv__mascot,
+  .kv--news .kv__mascot {
     position: relative;
     left: 0;
     margin-top: clamp(0px, 1.5vw, 6px);
@@ -3167,7 +3187,8 @@ h2::before {
   .kv--company .kv__balloon,
   .kv--service .kv__balloon,
   .kv--portfolio .kv__balloon,
-  .kv--contact .kv__balloon {
+  .kv--contact .kv__balloon,
+  .kv--news .kv__balloon {
     padding: 7px 11px;
     border-width: 2.5px;
   }
@@ -3175,7 +3196,8 @@ h2::before {
   .kv--company .kv__balloon::after,
   .kv--service .kv__balloon::after,
   .kv--portfolio .kv__balloon::after,
-  .kv--contact .kv__balloon::after {
+  .kv--contact .kv__balloon::after,
+  .kv--news .kv__balloon::after {
     left: 30%;
     bottom: -10px;
     width: 16px;
@@ -3188,7 +3210,8 @@ h2::before {
   .kv--company .kv__media,
   .kv--service .kv__media,
   .kv--portfolio .kv__media,
-  .kv--contact .kv__media {
+  .kv--contact .kv__media,
+  .kv--news .kv__media {
     clip-path: polygon(66% 0, 100% 0, 100% 100%, 34% 100%);
     background-position: 60% 42%;
   }
@@ -3264,6 +3287,16 @@ h2::before {
 
   .section__image {
     order: -1;
+  }
+
+  /* Companyページの代表挨拶セクション特有の調整 */
+  .page-company .section__inner--reverse .section__image {
+    order: 2;
+    /* 画像を下に */
+    width: 60%;
+    /* サイズを小さく */
+    margin: 32px auto 0;
+    /* 中央寄せと上マージン */
   }
 }
 
@@ -3502,7 +3535,9 @@ h2::before {
   .page-portfolio h2::after,
   .page-company .sec-head__title::after,
   .page-service .sec-head__title::after,
-  .page-portfolio .sec-head__title::after {
+  .page-portfolio .sec-head__title::after,
+  .page-news h2::after,
+  .page-news .sec-head__title::after {
     width: 48px;
     height: 2.5px;
     bottom: -6px;
@@ -3511,7 +3546,8 @@ h2::before {
   /* h3の左バーを細く */
   .page-company h3::before,
   .page-service h3::before,
-  .page-portfolio h3::before {
+  .page-portfolio h3::before,
+  .page-news h3::before {
     width: 3px;
     height: 1em;
   }

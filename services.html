@@ -40,7 +40,7 @@
             </p>
 
             <div class="service-buttons">
-              <a href="#" class="btn btn--solid">個人のお客さま向けサービス</a>
+              <a href="#sec-private" class="btn btn--solid">個人のお客さま向けサービス</a>
               <a href="#hojin" class="btn btn--outline">法人・公共向けサービス</a>
             </div>
           </div>
@@ -69,7 +69,7 @@
         <p class="sub">一般戸建住宅・集合住宅など</p>
 
         <!-- 説明 + 画像ブロック（2カラム） -->
-        <div class="section__inner">
+        <div class="section__inner fade-scale">
           <div>
             <h3>設備の取り付け・取り替え、トラブルもおまかせ</h3>
             <p>
@@ -83,8 +83,8 @@
           </div>
         </div>
 
-        <div class="worry-header">
-          <h3 class="h3-worry">こんなお悩み、ありませんか？</h3>
+        <div class="worry-header fade-up">
+          <h3 class="service-section-title">主なサービス内容</h3>
           <p class="t-center">
             水回りや設備のトラブル、リフォームなど<br>
             気になる項目があればお気軽にご相談ください
@@ -93,7 +93,7 @@
 
         <!-- 個人向けサービスカード一覧 -->
         <!-- 個人向けサービスカード一覧 -->
-        <div class="card-grid">
+        <div class="card-grid fade-up" style="transition-delay: 0.2s;">
           <div class="card">
             <div class="thumb"><img src="assets/images/private_renovation.png" alt="新築・改修工事"></div>
             <div class="card-content">
@@ -173,7 +173,7 @@
 
     <!-- ===== 対応エリア ===== -->
     <section class="section section--soft area" aria-labelledby="sec-area">
-      <div class="container area__wrap">
+      <div class="container area__wrap fade-left">
         <div class="area__text">
           <h2 id="sec-area" class="area__title">鳥取県 <b>中部地区</b> を中心に対応</h2>
           <p class="area__lead">
@@ -215,7 +215,7 @@
         <h2 id="sec-corporate">法人のお客さま・公共工事</h2>
         <p class="sub">工場・店舗・学校・医療施設・庁舎など</p>
 
-        <div class="grid-2">
+        <div class="grid-2 fade-right">
           <div>
             <h3>各種施設の設備工事も実績豊富</h3>
             <p>給排水衛生設備・空調換気・上下水道工事の設計・施工・更新・保守に対応。高所・広い空間での施工、夜間・短工期での切替作業などもご相談ください。</p>
@@ -226,7 +226,7 @@
         </div>
 
         <!-- 法人・公共：番号付きボックス -->
-        <ol class="svc-list grid" aria-label="提供メニュー">
+        <ol class="svc-list grid fade-up" aria-label="提供メニュー" style="transition-delay: 0.2s;">
           <li class="svc">
             <header class="svc__head">
               <div class="svc__num"></div>
@@ -315,7 +315,7 @@
           住宅・店舗から公共施設まで、主な施工事例の一部をご紹介します。
         </p>
 
-        <div class="works-slider swiper">
+        <div class="works-slider swiper fade-scale">
           <div class="swiper-wrapper">
             <div class="swiper-slide">
               <article class="card">
@@ -387,7 +387,7 @@
         <p class="sub">
           お問い合わせからお引き渡しまでの一般的な流れです。
         </p>
-        <ol class="flow-steps">
+        <ol class="flow-steps fade-up">
           <li class="flow-step">
             <div class="flow-step__number">1</div>
             <h3 class="flow-step__title">お問い合わせ・ご相談</h3>
@@ -493,6 +493,30 @@
         768: { slidesPerView: 2, spaceBetween: 20 },
         0: { slidesPerView: 1, spaceBetween: 16 },
       }
+    });
+  </script>
+
+  <script>
+    // Modern Scroll Animation
+    document.addEventListener('DOMContentLoaded', () => {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+          }
+        });
+      }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      });
+
+      // Observe all animation elements
+      const animationClasses = ['.fade-up', '.fade-left', '.fade-right', '.fade-scale'];
+      animationClasses.forEach(className => {
+        document.querySelectorAll(className).forEach(el => {
+          observer.observe(el);
+        });
+      });
     });
   </script>
 

@@ -52,7 +52,7 @@
 
     <!-- ===== 代表挨拶 ===== -->
     <section class="section section--panel" aria-labelledby="sec-greeting">
-      <div class="container section__inner section__inner--reverse">
+      <div class="container section__inner section__inner--reverse fade-scale">
         <div class="section__image ph is-4x3">
           <span>代表写真（4:3）</span>
         </div>
@@ -71,13 +71,6 @@
             <p>今後とも皆様の変わらぬご支援とご指導を、心よりお願い申し上げます。</p>
             <p class="note section__sign">代表取締役　早田 典道</p>
           </div>
-
-          <figure class="greeting-mascot">
-            <div class="balloon">
-              <p>誠実に対応します！</p>
-            </div>
-            <img src="assets/images/mascot_company2.png" alt="ハヤタくん" width="150" loading="lazy">
-          </figure>
         </div>
       </div>
     </section>
@@ -90,7 +83,7 @@
             <p class="sec-head__label">Profile</p>
             <h2 id="sec-profile" class="sec-head__title">会社概要</h2>
           </div>
-          <table class="info-table">
+          <table class="info-table fade-up">
             <tr>
               <th>法人名</th>
               <td>早田設備株式会社</td>
@@ -171,7 +164,7 @@
           <p class="sec-head__label">Policy</p>
           <h2 id="sec-policy" class="sec-head__title">経営方針</h2>
         </div>
-        <ul class="policy-list policy-list--grid">
+        <ul class="policy-list policy-list--grid fade-up">
           <li>
             <h3>1. 誠実な施工と確かな技術</h3>
             <p>安全・品質・信頼を最優先に、誠実な仕事で地域社会に貢献します。</p>
@@ -194,7 +187,7 @@
 
     <!-- ===== 沿革 ===== -->
     <section class="section section--panel" aria-labelledby="sec-history">
-      <div class="container section__inner">
+      <div class="container section__inner fade-left">
         <div class="section__image ph is-4x3">
           <!-- 古い写真 -->
           <span>古い写真（4:3）</span>
@@ -225,22 +218,11 @@
           <p class="sec-head__label">Access</p>
           <h2 id="sec-access" class="sec-head__title">アクセス</h2>
         </div>
-        <div class="access-grid">
-          <div class="ph is-16x9 access-map">
-            <span>地図（16:9）</span>
-            <!-- 実装時：<iframe src="..." title="アクセスマップ"></iframe> など -->
-          </div>
-          <div class="access-detail">
-            <p class="access-detail__addr">
-              〒XXXXX 鳥取県○○市○○町○○<br>
-              JR○○駅より車で○分
-            </p>
-            <ul class="access-detail__list">
-              <li>JR倉吉駅から車で約○分</li>
-              <li>最寄りバス停「○○」より徒歩○分</li>
-              <li>敷地内に駐車場あり</li>
-            </ul>
-          </div>
+        <div class="ph is-16x9 access-map fade-scale">
+          <iframe
+            src="https://maps.google.com/maps?q=%E9%B3%A5%E5%8F%96%E7%9C%8C%E5%80%89%E5%90%89%E5%B8%82%E5%92%8C%E7%94%B0%E6%9D%B1%E7%94%BA115-1&t=&z=15&ie=UTF8&iwloc=&output=embed"
+            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade" title="早田設備株式会社 アクセスマップ"></iframe>
         </div>
       </div>
     </section>
@@ -248,7 +230,7 @@
     <!-- ===== 採用CTA ===== -->
     <section class="section section--cta">
       <div class="container">
-        <div class="cta-band cta-band--company">
+        <div class="cta-band cta-band--company fade-up">
           <div class="cta-band__body">
             <p class="sec-head__label">Recruit</p>
             <h2>正社員 募集中</h2>
@@ -307,6 +289,30 @@
         if (e.key === 'Escape' && menu.open) { menu.open = false; }
       });
     })();
+  </script>
+
+  <script>
+    // Modern Scroll Animation
+    document.addEventListener('DOMContentLoaded', () => {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+          }
+        });
+      }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      });
+
+      // Observe all animation elements
+      const animationClasses = ['.fade-up', '.fade-left', '.fade-right', '.fade-scale'];
+      animationClasses.forEach(className => {
+        document.querySelectorAll(className).forEach(el => {
+          observer.observe(el);
+        });
+      });
+    });
   </script>
 </body>
 

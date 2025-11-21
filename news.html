@@ -50,7 +50,7 @@
     <!-- ===== お知らせ一覧 ===== -->
     <section class="section">
       <div class="container">
-        <div class="card-grid">
+        <div class="card-grid fade-up">
           <a class="card" href="news-detail.html">
             <div class="thumb"><span>サムネイル</span></div>
             <time class="meta" datetime="2025-08-21">2025.08.21</time>
@@ -107,6 +107,29 @@
         if (e.key === 'Escape' && menu.open) { menu.open = false; }
       });
     })();
+  </script>
+
+  <script>
+    // Modern Scroll Animation
+    document.addEventListener('DOMContentLoaded', () => {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+          }
+        });
+      }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      });
+
+      const animationClasses = ['.fade-up', '.fade-left', '.fade-right', '.fade-scale'];
+      animationClasses.forEach(className => {
+        document.querySelectorAll(className).forEach(el => {
+          observer.observe(el);
+        });
+      });
+    });
   </script>
 
 </body>

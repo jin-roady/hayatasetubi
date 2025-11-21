@@ -556,8 +556,10 @@ details[open] .rec-job-arrow {
     }
 
     .rec-cta__mascot {
-        left: -20px;
-        opacity: 0.3;
-        /* Fade out on mobile to not obstruct text */
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: -30px;
+        width: 150px;
+        /* Keep mascot visible but reposition for better mobile layout */
     }
 }
