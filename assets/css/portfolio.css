@@ -25,213 +25,216 @@
    ※ company.css / services.css と完全に数値を統一して位置合わせ
 --------------------------------------------------------- */
 .kv--portfolio {
-    /* 会社案内・事業内容と同じ変数定義 */
-    --left-max: 560px;
-    --gutter-x: clamp(20px, 4vw, 48px);
-    --top-pad: clamp(72px, 9vw, 140px);
-    --bottom-pad: clamp(48px, 7vw, 110px);
-  
-    position: relative;
-    min-height: 620px;
-    background: #fff;
-    isolation: isolate;
-  }
-  
-  /* インナーコンテナ：余白（padding）を統一 */
-  .kv--portfolio .kv__inner {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: var(--top-pad) var(--gutter-x) var(--bottom-pad);
-    position: relative;
-    z-index: 2;
-  }
-  
-  /* テキストエリア：幅制限を統一 */
-  .kv--portfolio .kv__body {
-    width: min(var(--left-max), 52vw);
-    /* 位置調整のためのリセット */
-    position: static; 
-    max-width: 100%;
-  }
-  
-  /* タイトル周りの余白統一 */
-  .kv--portfolio .kv__title {
-    margin: 0 0 clamp(18px, 2vw, 28px);
-    line-height: 1.15;
-  }
-  
-  .kv--portfolio .kv__title .jp {
-    display: block;
-    font-weight: 900;
-    font-size: clamp(34px, 6vw, 56px);
-    letter-spacing: .02em;
-    color: #14286b;
-    text-shadow: 0 2px 8px rgba(20, 40, 107, .08);
-  }
-  
-  .kv--portfolio .kv__title .en {
-    display: block;
-    margin-top: 6px;
-    font-weight: 800;
-    font-size: clamp(20px, 3.6vw, 36px);
-    letter-spacing: .06em;
-    text-transform: uppercase;
-    background: linear-gradient(90deg, #2a9df4 0%, #b43a9a 55%, #0f3fff 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-  }
-  
-  /* リード文のフォントサイズ・余白統一 */
-  .kv--portfolio .kv__intro {
-    margin: 0;
-    color: #14286b;
-    font-weight: 700;
-    font-size: clamp(15px, 1.6vw, 18px);
-    line-height: 2.2;
-    letter-spacing: .03em;
-    max-width: 640px;
-  }
-  
-  /* ---------------------------------------------------------
+  /* 会社案内・事業内容と同じ変数定義 */
+  --left-max: 560px;
+  --gutter-x: clamp(20px, 4vw, 48px);
+  --top-pad: clamp(72px, 9vw, 140px);
+  --bottom-pad: clamp(48px, 7vw, 110px);
+
+  position: relative;
+  min-height: 620px;
+  background: #fff;
+  isolation: isolate;
+}
+
+/* インナーコンテナ：余白（padding）を統一 */
+.kv--portfolio .kv__inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: var(--top-pad) var(--gutter-x) var(--bottom-pad);
+  position: relative;
+  z-index: 2;
+}
+
+/* テキストエリア：幅制限を統一 */
+.kv--portfolio .kv__body {
+  width: min(var(--left-max), 52vw);
+  /* 位置調整のためのリセット */
+  position: static;
+  max-width: 100%;
+}
+
+/* タイトル周りの余白統一 */
+.kv--portfolio .kv__title {
+  margin: 0 0 clamp(18px, 2vw, 28px);
+  line-height: 1.15;
+}
+
+.kv--portfolio .kv__title .jp {
+  display: block;
+  font-weight: 900;
+  font-size: clamp(34px, 6vw, 56px);
+  letter-spacing: .02em;
+  color: #14286b;
+  text-shadow: 0 2px 8px rgba(20, 40, 107, .08);
+}
+
+.kv--portfolio .kv__title .en {
+  display: block;
+  margin-top: 6px;
+  font-weight: 800;
+  font-size: clamp(20px, 3.6vw, 36px);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  background: linear-gradient(90deg, #2a9df4 0%, #b43a9a 55%, #0f3fff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* リード文のフォントサイズ・余白統一 */
+.kv--portfolio .kv__intro {
+  margin: 0;
+  color: #14286b;
+  font-weight: 700;
+  font-size: clamp(15px, 1.6vw, 18px);
+  line-height: 2.2;
+  letter-spacing: .03em;
+  max-width: 640px;
+}
+
+/* ---------------------------------------------------------
      画像・装飾エリア（位置合わせ用調整済み）
   --------------------------------------------------------- */
-  .kv--portfolio .kv__media {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 30%; /* 他ページと同じ開始位置 */
-    background: var(--kv-img) center/cover no-repeat;
-    z-index: 1;
-    clip-path: polygon(58% 0, 100% 0, 100% 100%, 42% 100%); /* カット角度統一 */
-  }
-  
-  .kv--portfolio .kv__media::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(90deg, rgba(255, 255, 255, .9) 0%, rgba(255, 255, 255, 0) 18%);
-    pointer-events: none;
-  }
-  
-  /* マスコット位置統一 */
-  .kv--portfolio .kv__mascot {
-    position: absolute;
-    z-index: 3;
-    right: clamp(26%, 30vw, 35%);
-    bottom: clamp(42px, 7vw, 84px);
-    transform: translateX(18%);
-    width: clamp(120px, 15vw, 200px);
-    aspect-ratio: 1/1;
-    display: grid;
-    justify-items: center;
-    gap: 10px;
-    pointer-events: none;
-  }
-  
-  .kv--portfolio .kv__mascot img {
-    width: 100%;
-    height: auto;
-    display: block;
-  }
-  
-  .kv--portfolio .kv__balloon {
-    position: relative;
-    pointer-events: auto;
-    background: #fff;
-    border: 3px solid rgba(19, 73, 166, .85);
-    border-radius: 18px;
-    box-shadow: 0 8px 22px rgba(0, 0, 0, .10);
-    padding: 10px 14px;
-    transform: translateY(4px);
-    text-align: center;
-    min-width: 140px;
-  }
-  
-  .kv--portfolio .kv__balloon p {
-    margin: 0;
-    font-weight: 900;
-    line-height: 1.25;
-    color: #1349a6;
-    font-size: clamp(11px, 1.4vw, 14px);
-  }
-  
-  .kv--portfolio .kv__balloon::after {
-    content: "";
-    position: absolute;
-    left: 50%;
-    bottom: -12px;
-    width: 20px;
-    height: 20px;
-    background: #fff;
-    border-right: 3px solid rgba(19, 73, 166, .85);
-    border-bottom: 3px solid rgba(19, 73, 166, .85);
-    transform: translateX(-50%) rotate(45deg);
-    border-radius: 4px;
-  }
-  
-  /* ---------------------------------------------------------
+.kv--portfolio .kv__media {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 30%;
+  /* 他ページと同じ開始位置 */
+  background: var(--kv-img) center/cover no-repeat;
+  z-index: 1;
+  clip-path: polygon(58% 0, 100% 0, 100% 100%, 42% 100%);
+  /* カット角度統一 */
+}
+
+.kv--portfolio .kv__media::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(255, 255, 255, .9) 0%, rgba(255, 255, 255, 0) 18%);
+  pointer-events: none;
+}
+
+/* マスコット位置統一 */
+.kv--portfolio .kv__mascot {
+  position: absolute;
+  z-index: 3;
+  right: clamp(26%, 30vw, 35%);
+  bottom: clamp(42px, 7vw, 84px);
+  transform: translateX(18%);
+  width: clamp(120px, 15vw, 200px);
+  aspect-ratio: 1/1;
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+  pointer-events: none;
+}
+
+.kv--portfolio .kv__mascot img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.kv--portfolio .kv__balloon {
+  position: relative;
+  pointer-events: auto;
+  background: #fff;
+  border: 3px solid rgba(19, 73, 166, .85);
+  border-radius: 18px;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, .10);
+  padding: 10px 14px;
+  transform: translateY(4px);
+  text-align: center;
+  min-width: 140px;
+}
+
+.kv--portfolio .kv__balloon p {
+  margin: 0;
+  font-weight: 900;
+  line-height: 1.25;
+  color: #1349a6;
+  font-size: clamp(11px, 1.4vw, 14px);
+}
+
+.kv--portfolio .kv__balloon::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -12px;
+  width: 20px;
+  height: 20px;
+  background: #fff;
+  border-right: 3px solid rgba(19, 73, 166, .85);
+  border-bottom: 3px solid rgba(19, 73, 166, .85);
+  transform: translateX(-50%) rotate(45deg);
+  border-radius: 4px;
+}
+
+/* ---------------------------------------------------------
      モバイル調整（ここも他ページと値を合わせる）
   --------------------------------------------------------- */
-  @media (max-width: 768px) {
-    .kv--portfolio {
-      --sp-safe: 58vw;
-      min-height: min(88vh, 760px);
-    }
-  
-    .kv--portfolio .kv__inner {
-      padding: clamp(56px, 10vw, 80px) clamp(7vw, 8vw, 28px) clamp(32px, 9vw, 56px);
-      display: block;
-    }
-  
-    .kv--portfolio .kv__body {
-      width: 100%;
-      max-width: var(--sp-safe);
-    }
-  
-    .kv--portfolio .kv__media {
-      left: 0;
-      clip-path: polygon(62% 0, 100% 0, 100% 100%, 38% 100%);
-      background-position: 62% 40%;
-      opacity: 1;
-    }
-    
-    .kv--portfolio .kv__media::before {
-      background: linear-gradient(90deg, rgba(255,255,255,0.96) 0%, rgba(255,255,255,0.88) 16%, rgba(255,255,255,0) 36%);
-    }
-  
-    .kv--portfolio .kv__mascot {
-      position: relative;
-      left: 0;
-      right: auto;
-      bottom: auto;
-      margin-top: clamp(0px, 1.5vw, 6px);
-      margin-left: clamp(10px, 6vw, 40px);
-      width: clamp(100px, 28vw, 155px);
-      transform: none;
-      display: flex;
-      flex-direction: column;
-    }
-    
-    .kv--portfolio .kv__balloon {
-      padding: 7px 11px;
-      border-width: 2.5px;
-    }
-    
-    .kv--portfolio .kv__balloon::after {
-      left: 30%;
-      bottom: -10px;
-      width: 16px;
-      height: 16px;
-    }
+@media (max-width: 768px) {
+  .kv--portfolio {
+    --sp-safe: 58vw;
+    min-height: min(88vh, 760px);
   }
-  
-  @media (max-width:375px) {
-    .kv--portfolio .kv__media {
-      clip-path: polygon(66% 0, 100% 0, 100% 100%, 34% 100%);
-    }
+
+  .kv--portfolio .kv__inner {
+    padding: clamp(56px, 10vw, 80px) clamp(7vw, 8vw, 28px) clamp(32px, 9vw, 56px);
+    display: block;
   }
+
+  .kv--portfolio .kv__body {
+    width: 100%;
+    max-width: var(--sp-safe);
+  }
+
+  .kv--portfolio .kv__media {
+    left: 0;
+    clip-path: polygon(62% 0, 100% 0, 100% 100%, 38% 100%);
+    background-position: 62% 40%;
+    opacity: 1;
+  }
+
+  .kv--portfolio .kv__media::before {
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.96) 0%, rgba(255, 255, 255, 0.88) 16%, rgba(255, 255, 255, 0) 36%);
+  }
+
+  .kv--portfolio .kv__mascot {
+    position: relative;
+    left: 0;
+    right: auto;
+    bottom: auto;
+    margin-top: clamp(0px, 1.5vw, 6px);
+    margin-left: clamp(10px, 6vw, 40px);
+    width: clamp(100px, 28vw, 155px);
+    transform: none;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .kv--portfolio .kv__balloon {
+    padding: 7px 11px;
+    border-width: 2.5px;
+  }
+
+  .kv--portfolio .kv__balloon::after {
+    left: 30%;
+    bottom: -10px;
+    width: 16px;
+    height: 16px;
+  }
+}
+
+@media (max-width:375px) {
+  .kv--portfolio .kv__media {
+    clip-path: polygon(66% 0, 100% 0, 100% 100%, 34% 100%);
+  }
+}
+
 /* ---------------------------------------------------------
    3. Category Filter (Pills)
 --------------------------------------------------------- */
@@ -242,7 +245,8 @@
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  justify-content: center; /* 中央寄せ */
+  justify-content: center;
+  /* 中央寄せ */
 }
 
 .category-nav .pill {
@@ -256,7 +260,7 @@
   font-weight: 700;
   cursor: pointer;
   transition: all .25s ease;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
   display: flex;
   align-items: center;
   gap: 8px;
@@ -368,7 +372,8 @@
 
 /* 補足情報 */
 .works-card p.meta {
-  margin-top: auto; /* 下に寄せる */
+  margin-top: auto;
+  /* 下に寄せる */
   padding-top: 12px;
   font-size: 12px;
   color: var(--muted);
@@ -389,7 +394,7 @@
   .card-grid--works {
     grid-template-columns: 1fr;
   }
-  
+
   .category-nav .pill {
     font-size: 13px;
     padding: 8px 16px;
@@ -400,89 +405,103 @@
    Works Filter Buttons
 --------------------------------------------------------- */
 .works-filter {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    justify-content: center; /* 中央寄せ */
-    margin-bottom: 32px;
-  }
-  
-  .filter-btn {
-    appearance: none;
-    border: 1px solid #e2e8f0;
-    background: #fff;
-    color: #14286b;
-    padding: 10px 20px;
-    border-radius: 12px;
-    font-size: 14px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: all 0.25s ease;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
-    display: inline-flex;
-    align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  /* 中央寄せ */
+  margin-bottom: 32px;
+}
+
+.filter-btn {
+  appearance: none;
+  border: 1px solid #e2e8f0;
+  background: #fff;
+  color: #14286b;
+  padding: 10px 20px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* アイコン部分 */
+.filter-btn .icon {
+  font-size: 18px;
+  line-height: 1;
+}
+
+/* ホバー時 */
+.filter-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  border-color: #b0c4de;
+}
+
+/* アクティブ（選択中）時 */
+.filter-btn.is-active {
+  background: linear-gradient(135deg, #1e88ff 0%, #0f3fff 100%);
+  color: #fff;
+  border-color: transparent;
+  box-shadow: 0 8px 20px rgba(30, 136, 255, 0.25);
+}
+
+/* モバイル調整 */
+@media (max-width: 600px) {
+  .works-filter {
     gap: 8px;
-  }
-  
-  /* アイコン部分 */
-  .filter-btn .icon {
-    font-size: 18px;
-    line-height: 1;
-  }
-  
-  /* ホバー時 */
-  .filter-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
-    border-color: #b0c4de;
-  }
-  
-  /* アクティブ（選択中）時 */
-  .filter-btn.is-active {
-    background: linear-gradient(135deg, #1e88ff 0%, #0f3fff 100%);
-    color: #fff;
-    border-color: transparent;
-    box-shadow: 0 8px 20px rgba(30, 136, 255, 0.25);
-  }
-  
-  /* モバイル調整 */
-  @media (max-width: 600px) {
-    .works-filter {
-      gap: 8px;
-      justify-content: flex-start; /* スマホは左から並べる */
-      overflow-x: auto; /* 横スクロール可能に */
-      padding-bottom: 8px; /* スクロールバー余白 */
-      margin-inline: -16px; /* コンテナ余白を相殺して画面端まで */
-      padding-inline: 16px;
-      white-space: nowrap; /* 折り返さない */
-    }
-    
-    .filter-btn {
-      flex: 0 0 auto; /* 縮まないように */
-      font-size: 13px;
-      padding: 8px 16px;
-    }
-  }
-  
-  /* ---------------------------------------------------------
-     Filtering State
-  --------------------------------------------------------- */
-  /* 非表示用クラス（JSで制御） */
-  .works-card.is-hidden {
-    display: none;
-  }
-  
-  /* フェードインアニメーション（オプション） */
-  .works-card:not(.is-hidden) {
-    animation: fadeIn 0.4s ease forwards;
-  }
-  
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+    justify-content: flex-start;
+    /* スマホは左から並べる */
+    overflow-x: auto;
+    /* 横スクロール可能に */
+    padding-bottom: 8px;
+    /* スクロールバー余白 */
+    margin-inline: -16px;
+    /* コンテナ余白を相殺して画面端まで */
+    padding-inline: 16px;
+    white-space: nowrap;
+    /* 折り返さない */
   }
 
-  /* ---------------------------------------------------------
+  .filter-btn {
+    flex: 0 0 auto;
+    /* 縮まないように */
+    font-size: 13px;
+    padding: 8px 16px;
+  }
+}
+
+/* ---------------------------------------------------------
+     Filtering State
+  --------------------------------------------------------- */
+/* 非表示用クラス（JSで制御） */
+.works-card.is-hidden {
+  display: none;
+}
+
+/* フェードインアニメーション（オプション） */
+.works-card:not(.is-hidden) {
+  animation: fadeIn 0.4s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---------------------------------------------------------
    Works Category Label (Color Only)
    親要素の data-category 属性に基づいて色のみ変化させる
    ※アイコン削除版
@@ -490,269 +509,276 @@
 
 /* ベーススタイル */
 .work-category {
-    display: inline-block;    /* アイコン削除に伴い block/inline-block に変更 */
-    font-size: 11px;
-    font-weight: 700;
-    line-height: 1;
-    padding: 6px 12px;        /* 上下左右の余白を微調整 */
-    border-radius: 99px;
-    border: 1px solid transparent;
-    margin-bottom: 10px;
-    align-self: flex-start;
-    transition: all 0.2s ease;
-  }
-  
-  /* カテゴリごとの色設定（アイコン指定 ::before は削除） */
-  
-  /* 🏠 住宅 (Housing) : 緑系 */
-  article[data-category="housing"] .work-category {
-    background: #e6f6ee;
-    color: #0d8a53;
-    border-color: #bcebd8;
-  }
-  
-  /* 🏢 店舗・オフィス (Store) : オレンジ系 */
-  article[data-category="store"] .work-category {
-    background: #fff4e5;
-    color: #b85c00;
-    border-color: #ffe0b2;
-  }
-  
-  /* 🏫 学校・公共 (Public) : 青系 */
-  article[data-category="public"] .work-category {
-    background: #eaf2ff;
-    color: #1f56b3;
-    border-color: #d6e3ff;
-  }
-  
-  /* 🏭 工場 (Factory) : 紫/グレー系 */
-  article[data-category="factory"] .work-category {
-    background: #f3e8ff;
-    color: #7e22ce;
-    border-color: #e9d5ff;
-  }
-  
-  /* 📂 その他・デフォルト */
-  article[data-category="other"] .work-category,
-  .work-category {
-    background: #f1f5f9;
-    color: #475569;
-    border-color: #e2e8f0;
-  }
+  display: inline-block;
+  /* アイコン削除に伴い block/inline-block に変更 */
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1;
+  padding: 6px 12px;
+  /* 上下左右の余白を微調整 */
+  border-radius: 99px;
+  border: 1px solid transparent;
+  margin-bottom: 10px;
+  align-self: flex-start;
+  transition: all 0.2s ease;
+}
 
-  /* ---------------------------------------------------------
+/* カテゴリごとの色設定（アイコン指定 ::before は削除） */
+
+/* 🏠 住宅 (Housing) : 緑系 */
+article[data-category="housing"] .work-category {
+  background: #e6f6ee;
+  color: #0d8a53;
+  border-color: #bcebd8;
+}
+
+/* 🏢 店舗・オフィス (Store) : オレンジ系 */
+article[data-category="store"] .work-category {
+  background: #fff4e5;
+  color: #b85c00;
+  border-color: #ffe0b2;
+}
+
+/* 🏫 学校・公共 (Public) : 青系 */
+article[data-category="public"] .work-category {
+  background: #eaf2ff;
+  color: #1f56b3;
+  border-color: #d6e3ff;
+}
+
+/* 🏭 工場 (Factory) : 紫/グレー系 */
+article[data-category="factory"] .work-category {
+  background: #f3e8ff;
+  color: #7e22ce;
+  border-color: #e9d5ff;
+}
+
+/* 📂 その他・デフォルト */
+article[data-category="other"] .work-category,
+.work-category {
+  background: #f1f5f9;
+  color: #475569;
+  border-color: #e2e8f0;
+}
+
+/* ---------------------------------------------------------
    Button Margins (Outer Spacing)
    ボタンの上下マージン（配置バランスの最適化）
 --------------------------------------------------------- */
 
 /* 1. 施工事例一覧の下のボタンエリア (.btn-row) */
 .btn-row {
-    /* カード一覧との距離 
+  /* カード一覧との距離 
       PC: 64px程度 / スマホ: 40px程度
       これくらい空けると「一覧」と「次のアクション」の区切りが明確になります
     */
-    margin-top: clamp(40px, 6vw, 64px);
-    
-    /* ボタンの下はセクションのpaddingがあるため基本0でOK */
-    margin-bottom: 0; 
-  }
-  
-  /* 2. CTAバンド内のアクションエリア (.cta-band__actions) */
-  .cta-band__actions {
-    /* 直前の説明文との距離
+  margin-top: clamp(40px, 6vw, 64px);
+
+  /* ボタンの下はセクションのpaddingがあるため基本0でOK */
+  margin-bottom: 0;
+}
+
+/* 2. CTAバンド内のアクションエリア (.cta-band__actions) */
+.cta-band__actions {
+  /* 直前の説明文との距離
       PC: 32px程度 / スマホ: 24px程度
       文章を読み終わってから自然に目がいく距離感です
     */
-    margin-top: clamp(24px, 3vw, 32px);
-  }
-  
-  /* 【スマホ調整】
+  margin-top: clamp(24px, 3vw, 32px);
+}
+
+/* 【スマホ調整】
     縦並びにした際、ボタン同士の間隔（上下）を確保
     ※ 前回のコードで .cta-band__actions に gap: 12px を指定済みなら不要ですが
        念のため個別に指定する場合の保険です。
   */
-  @media (max-width: 600px) {
-    .btn-row {
-      /* スマホでは少し詰め気味にしてスクロール量を減らす */
-      margin-top: 40px; 
-    }
-    
-    .cta-band__actions {
-      margin-top: 24px;
-    }
+@media (max-width: 600px) {
+  .btn-row {
+    /* スマホでは少し詰め気味にしてスクロール量を減らす */
+    margin-top: 40px;
   }
 
-  /* ---------------------------------------------------------
+  .cta-band__actions {
+    margin-top: 24px;
+  }
+}
+
+/* ---------------------------------------------------------
    Work Modal Styles
    施工実績詳細表示用モーダル
 --------------------------------------------------------- */
 
 /* モーダル全体（コンテナ） */
 .work-modal {
-    position: fixed;
-    inset: 0;
-    z-index: 9999;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    
-    /* 初期状態は非表示 */
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-  }
-  
-  /* 表示状態 */
-  .work-modal.is-open {
-    opacity: 1;
-    visibility: visible;
-  }
-  
-  /* 背景オーバーレイ */
-  .work-modal__overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(15, 23, 58, 0.8); /* 濃い紺色の半透明 */
-    backdrop-filter: blur(4px);
-  }
-  
-  /* モーダルウィンドウ本体 */
-  .work-modal__content {
-    position: relative;
-    background: #fff;
-    width: 100%;
-    max-width: 900px;
-    max-height: 90vh;
-    border-radius: 20px;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
-    overflow-y: auto; /* 縦長になればスクロール */
-    overscroll-behavior: contain;
-    transform: translateY(20px);
-    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-  }
-  
-  .work-modal.is-open .work-modal__content {
-    transform: translateY(0);
-  }
-  
-  /* 閉じるボタン */
-  .work-modal__close {
-    position: absolute;
-    top: 16px;
-    right: 16px;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: #f1f5f9;
-    border: none;
-    cursor: pointer;
-    z-index: 10;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background 0.2s;
-  }
-  
-  .work-modal__close:hover {
-    background: #e2e8f0;
-  }
-  
-  .work-modal__close::before,
-  .work-modal__close::after {
-    content: "";
-    position: absolute;
-    width: 18px;
-    height: 2px;
-    background: #64748b;
-    transform: rotate(45deg);
-  }
-  
-  .work-modal__close::after {
-    transform: rotate(-45deg);
-  }
-  
-  /* モーダルの中身レイアウト */
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+
+  /* 初期状態は非表示 */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* 表示状態 */
+.work-modal.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* 背景オーバーレイ */
+.work-modal__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 23, 58, 0.8);
+  /* 濃い紺色の半透明 */
+  backdrop-filter: blur(4px);
+}
+
+/* モーダルウィンドウ本体 */
+.work-modal__content {
+  position: relative;
+  background: #fff;
+  width: 100%;
+  max-width: 900px;
+  max-height: 90vh;
+  border-radius: 20px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+  overflow-y: auto;
+  /* 縦長になればスクロール */
+  overscroll-behavior: contain;
+  transform: translateY(20px);
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.work-modal.is-open .work-modal__content {
+  transform: translateY(0);
+}
+
+/* 閉じるボタン */
+.work-modal__close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #f1f5f9;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.work-modal__close:hover {
+  background: #e2e8f0;
+}
+
+.work-modal__close::before,
+.work-modal__close::after {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 2px;
+  background: #64748b;
+  transform: rotate(45deg);
+}
+
+.work-modal__close::after {
+  transform: rotate(-45deg);
+}
+
+/* モーダルの中身レイアウト */
+.work-modal__body {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  /* 画像:情報 = 1.2:1 */
+}
+
+/* 画像エリア */
+.work-modal__figure {
+  margin: 0;
+  background: #f8fafc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+}
+
+.work-modal__figure img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* 情報エリア */
+.work-modal__info {
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* タイトルまわり */
+.work-modal__title {
+  font-size: 22px;
+  font-weight: 800;
+  color: #14286b;
+  margin: 12px 0 8px;
+  line-height: 1.4;
+}
+
+/* 詳細テキスト */
+.work-modal__desc {
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid #e2e8f0;
+  font-size: 15px;
+  line-height: 1.8;
+  color: #334155;
+}
+
+/* カテゴリの色付け用ダミーコンテナ */
+#modal-article-dummy {
+  display: contents;
+  /* レイアウトに影響させない */
+}
+
+/* レスポンシブ対応 (スマホ) */
+@media (max-width: 768px) {
   .work-modal__body {
-    display: grid;
-    grid-template-columns: 1.2fr 1fr; /* 画像:情報 = 1.2:1 */
+    grid-template-columns: 1fr;
+    /* 縦並び */
   }
-  
-  /* 画像エリア */
+
   .work-modal__figure {
-    margin: 0;
-    background: #f8fafc;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 300px;
+    height: 240px;
+    min-height: auto;
   }
-  
-  .work-modal__figure img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-  
-  /* 情報エリア */
+
   .work-modal__info {
-    padding: 40px;
-    display: flex;
-    flex-direction: column;
+    padding: 24px;
   }
-  
-  /* タイトルまわり */
+
   .work-modal__title {
-    font-size: 22px;
-    font-weight: 800;
-    color: #14286b;
-    margin: 12px 0 8px;
-    line-height: 1.4;
+    font-size: 18px;
   }
-  
-  /* 詳細テキスト */
-  .work-modal__desc {
-    margin-top: 24px;
-    padding-top: 24px;
-    border-top: 1px solid #e2e8f0;
-    font-size: 15px;
-    line-height: 1.8;
-    color: #334155;
+
+  /* 閉じるボタンを少し見やすく */
+  .work-modal__close {
+    top: 12px;
+    right: 12px;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   }
-  
-  /* カテゴリの色付け用ダミーコンテナ */
-  #modal-article-dummy {
-    display: contents; /* レイアウトに影響させない */
-  }
-  
-  /* レスポンシブ対応 (スマホ) */
-  @media (max-width: 768px) {
-    .work-modal__body {
-      grid-template-columns: 1fr; /* 縦並び */
-    }
-  
-    .work-modal__figure {
-      height: 240px;
-      min-height: auto;
-    }
-  
-    .work-modal__info {
-      padding: 24px;
-    }
-  
-    .work-modal__title {
-      font-size: 18px;
-    }
-    
-    /* 閉じるボタンを少し見やすく */
-    .work-modal__close {
-      top: 12px;
-      right: 12px;
-      background: rgba(255,255,255,0.9);
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-  }
+}
 
 /* ---------------------------------------------------------
    Modern Scroll Animations
@@ -760,8 +786,8 @@
 .fade-up {
   opacity: 0;
   transform: translateY(60px);
-  transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), 
-              transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 1s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .fade-up.in-view {
@@ -772,8 +798,8 @@
 .fade-left {
   opacity: 0;
   transform: translateX(-60px);
-  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), 
-              transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .fade-left.in-view {
@@ -784,8 +810,8 @@
 .fade-right {
   opacity: 0;
   transform: translateX(60px);
-  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), 
-              transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .fade-right.in-view {
@@ -796,8 +822,8 @@
 .fade-scale {
   opacity: 0;
   transform: scale(0.9);
-  transition: opacity 0.8s cubic-bezier(0.34, 1.56, 0.64, 1), 
-              transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition: opacity 0.8s cubic-bezier(0.34, 1.56, 0.64, 1),
+    transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .fade-scale.in-view {
@@ -806,6 +832,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+
   .fade-up,
   .fade-left,
   .fade-right,
@@ -814,4 +841,314 @@
     transform: none;
     transition: none;
   }
+}
+
+/* =========================================================
+   Portfolio Page Refresh (Pop & Friendly Design)
+   統一デザイン（ポップ・ブライトブルー）の適用
+========================================================= */
+
+/* ---------------------------------------------------------
+   1. 共通設定・背景装飾
+--------------------------------------------------------- */
+.page-portfolio .section {
+  background-color: #fff;
+  /* ドットパターン */
+  background-image:
+    radial-gradient(#e0efff 20%, transparent 20%),
+    radial-gradient(#e0efff 20%, transparent 20%);
+  background-position: 0 0, 10px 10px;
+  background-size: 20px 20px;
+}
+
+/* 見出し：青い波線デザイン */
+.sec-head__title {
+  color: #1e88ff !important;
+  font-size: clamp(28px, 4vw, 36px) !important;
+  letter-spacing: 0.05em !important;
+  padding-bottom: 0 !important;
+  display: inline-block;
+  position: relative;
+  border: none !important;
+}
+
+.sec-head__title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  bottom: -10px;
+  background: url('data:image/svg+xml;charset=utf8,%3Csvg viewBox="0 0 20 4" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M0 4 C5 4 5 0 10 0 C15 0 15 4 20 4" stroke="%232a9df4" stroke-width="2" fill="none"/%3E%3C/svg%3E') repeat-x;
+  background-size: 20px 6px;
+  opacity: 0.6;
+}
+
+/* ---------------------------------------------------------
+   2. フィルターボタン（ポップなカプセル型）
+--------------------------------------------------------- */
+.works-filter {
+  gap: 16px;
+  /* 間隔を少し広げる */
+}
+
+.filter-btn {
+  border: 3px solid #1e88ff !important;
+  /* 青い太枠 */
+  background: #fff !important;
+  color: #1e88ff !important;
+  border-radius: 50px !important;
+  padding: 10px 24px !important;
+  font-size: 15px !important;
+  font-weight: 900 !important;
+
+  /* ポップな影 */
+  box-shadow: 4px 4px 0 #bce0fd !important;
+  transform: none !important;
+  transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+}
+
+/* ホバー時・アクティブ時 */
+.filter-btn:hover,
+.filter-btn.is-active {
+  background: #1e88ff !important;
+  color: #fff !important;
+  box-shadow: 0 0 0 #bce0fd !important;
+  /* 影を消して */
+  transform: translate(4px, 4px) !important;
+  /* 沈ませる */
+}
+
+/* スマホ表示時の調整 */
+@media (max-width: 600px) {
+  .works-filter {
+    padding-bottom: 12px;
+    /* 影が切れないように */
+  }
+}
+
+/* ---------------------------------------------------------
+   3. 施工事例カード（丸みと浮遊感）
+--------------------------------------------------------- */
+.works-card {
+  border: none !important;
+  border-radius: 24px !important;
+  background: #fff !important;
+  /* ふんわりした影 */
+  box-shadow: 0 10px 30px rgba(30, 136, 255, 0.1) !important;
+  overflow: hidden;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease !important;
+}
+
+/* ホバーアクション */
+.works-card:hover {
+  transform: translateY(-10px) !important;
+  box-shadow: 0 20px 40px rgba(30, 136, 255, 0.2) !important;
+  border-color: transparent !important;
+}
+
+.works-card h3 {
+  color: #0e255a;
+  font-size: 18px;
+}
+
+/* カテゴリラベル（少しポップに） */
+.work-category {
+  border-radius: 12px !important;
+  padding: 4px 10px !important;
+  font-weight: 900 !important;
+}
+
+/* ---------------------------------------------------------
+   4. ボタン（共通Plan Bスタイル）
+--------------------------------------------------------- */
+/* ページ下部の誘導ボタンなど */
+.btn-row .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 40px !important;
+
+  background: #fff !important;
+  color: #1e88ff !important;
+  border: 3px solid #1e88ff !important;
+  border-radius: 50px !important;
+
+  font-size: 16px !important;
+  font-weight: 900 !important;
+  text-decoration: none;
+  box-shadow: 4px 4px 0 #bce0fd !important;
+  transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+}
+
+.btn-row .btn:hover {
+  background: #1e88ff !important;
+  color: #fff !important;
+  box-shadow: 0 0 0 #bce0fd !important;
+  transform: translate(4px, 4px) !important;
+}
+
+/* ---------------------------------------------------------
+   5. CTA Banner（全画面・青グラデ・黄色ボタン）
+--------------------------------------------------------- */
+/* コンテナ設定（全画面背景の準備） */
+.cta-band--works {
+  width: 100%;
+  padding: 60px 0 !important;
+
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+
+  position: relative;
+  overflow: visible !important;
+
+  /* レイアウト */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+/* 全画面背景（疑似要素） */
+.cta-band--works::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 100vw;
+  transform: translateX(-50%);
+  z-index: -1;
+
+  /* 青グラデーション＋ストライプ */
+  background: linear-gradient(135deg, #1e88ff 0%, #40c9ff 100%);
+  background-image:
+    repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.1) 0, rgba(255, 255, 255, 0.1) 10px, transparent 10px, transparent 20px),
+    linear-gradient(135deg, #1e88ff 0%, #40c9ff 100%);
+  box-shadow: 0 10px 40px rgba(30, 136, 255, 0.2);
+}
+
+/* テキスト色調整 */
+.cta-band--works h2,
+.cta-band--works .note {
+  color: #fff !important;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.1);
+}
+
+.cta-band--works h2 {
+  font-size: clamp(28px, 4vw, 40px);
+  margin-bottom: 16px;
+}
+
+/* 画像（ポラロイド風） */
+.cta-band--works .ph {
+  flex: 0 0 45%;
+  max-width: 400px;
+  background: transparent;
+  border: 8px solid #fff;
+  border-radius: 4px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  transform: rotate(3deg);
+  overflow: visible;
+  aspect-ratio: auto;
+  /* 既存指定解除 */
+}
+
+/* 画像ホバー */
+.cta-band--works:hover .ph {
+  transform: rotate(0deg) scale(1.02);
+}
+
+/* --- アクションボタンエリア --- */
+.cta-band__actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* メインボタン（黄色） */
+.cta-band__actions .btn--primary {
+  background: #ffcc00 !important;
+  color: #0e255a !important;
+  border: 3px solid #fff !important;
+  box-shadow: 0 6px 0 #d4a000 !important;
+  border-radius: 50px !important;
+  padding: 16px 40px !important;
+  font-size: 18px !important;
+  font-weight: 900 !important;
+  animation: pulse-btn 2s infinite;
+}
+
+.cta-band__actions .btn--primary:hover {
+  background: #ffdb4d !important;
+  transform: translateY(4px) !important;
+  box-shadow: 0 2px 0 #d4a000 !important;
+  opacity: 1 !important;
+}
+
+/* サブボタン（白ゴースト・電話） */
+.cta-band__actions .btn.ghost {
+  background: transparent !important;
+  color: #fff !important;
+  border: 2px solid #fff !important;
+  box-shadow: none !important;
+  border-radius: 50px !important;
+  padding: 16px 32px !important;
+  font-weight: 700 !important;
+}
+
+.cta-band__actions .btn.ghost:hover {
+  background: #fff !important;
+  color: #1e88ff !important;
+  transform: translateY(-2px) !important;
+}
+
+/* CTAモバイル調整 */
+@media (max-width: 900px) {
+  .cta-band--works {
+    flex-direction: column-reverse;
+    text-align: center;
+    padding: 40px 0 !important;
+  }
+
+  .cta-band--works .ph {
+    width: 80%;
+    margin-bottom: 20px;
+    transform: rotate(-2deg);
+  }
+
+  .cta-band__actions {
+    justify-content: center;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .cta-band__actions .btn {
+    width: 100%;
+  }
+}
+
+/* 鼓動アニメーション定義（再掲） */
+@keyframes pulse-btn {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.05);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* =========================================================
+   Remove Dot Pattern Background
+   背景の水玉模様を削除
+========================================================= */
+.page-portfolio .section {
+  background-image: none !important;
 }

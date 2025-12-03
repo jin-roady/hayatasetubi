@@ -1668,20 +1668,6 @@ h2::before {
 
 /* ===== モバイル（～899px）===== */
 @media (max-width: 899px) {
-  /* ... (fv__copy, fv__title, fv__lead, .btn の既存ルールはそのまま) ... */
-
-  .masthead .fv .fv__copy {
-    left: clamp(14px, 5vw, 24px);
-    right: clamp(14px, 5vw, 24px);
-    bottom: clamp(7vh, 12vh, 16vh);
-    top: auto;
-    padding: clamp(14px, 3.8vw, 20px);
-    background: rgba(255, 255, 255, .14);
-    backdrop-filter: blur(4px);
-    border-radius: 16px;
-    box-shadow: 0 10px 32px rgba(15, 23, 85, .12);
-  }
-
   .masthead .fv .fv__title {
     font-size: clamp(26px, 7vw, 32px);
     line-height: 1.22;
@@ -3675,4 +3661,398 @@ body.page-sub {
 .page-sub .section h2 {
   position: relative;
   display: inline-block;
+}
+
+/* =========================================
+   FVテキスト背景完全削除（PC・レスポンシブ共通）
+   ※既存の設定を上書きして背景を消去します
+========================================= */
+
+/* 1. コンテナの背景・影・ガラス効果・枠線をすべて無効化 */
+.masthead .fv .fv__copy {
+  background: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  box-shadow: none !important;
+  border: none !important;
+  border-radius: 0 !important;
+
+  /* 背景がなくなるため、内側の余白も削除してスッキリさせる */
+  padding: 0 !important;
+
+  /* アニメーションや変形もリセット */
+  animation: none !important;
+  transform: none !important;
+}
+
+/* 2. 擬似要素（ボカシ演出用）を非表示 */
+.masthead .fv .fv__copy::before {
+  display: none !important;
+  content: none !important;
+}
+
+/* 3. タブレット・スマホ時も強制的に背景なし */
+@media (max-width: 1279px) {
+  .masthead .fv .fv__copy {
+    background: none !important;
+    backdrop-filter: none !important;
+    box-shadow: none !important;
+    border: none !important;
+    padding: 0 !important;
+
+    /* 位置調整（背景がないので少し画面端に寄せてもOK） */
+    width: auto !important;
+    max-width: none !important;
+    margin-left: clamp(16px, 5vw, 40px) !important;
+    margin-right: clamp(16px, 5vw, 40px) !important;
+  }
+}
+
+/* 4. 背景が消えるため、文字の視認性を確保（白フチ追加） */
+.masthead .fv .fv__title {
+  /* 濃い青色 */
+  color: #0e255a !important;
+
+  /* 強めの白い縁取り（影）をつけて写真の上でも読めるように */
+  text-shadow:
+    3px 3px 0 #fff, -3px -3px 0 #fff,
+    -3px 3px 0 #fff, 3px -3px 0 #fff,
+    0 4px 10px rgba(0, 0, 0, 0.2) !important;
+}
+
+.masthead .fv .fv__lead {
+  color: #0e255a !important;
+  font-weight: 700 !important;
+
+  /* リード文にも白フチを追加 */
+  text-shadow:
+    2px 2px 0 #fff, -2px -2px 0 #fff,
+    -2px 2px 0 #fff, 2px -2px 0 #fff !important;
+
+  /* 以前の最大幅制限などを解除 */
+  max-width: none !important;
+}
+
+/* =========================================================
+   Recruit Banner - Pop & Energetic Refresh
+   明るく元気で、応募したくなるデザイン
+========================================================= */
+
+/* --- コンテナ（背景・ベース） --- */
+.cta-band--company {
+  /* 鮮やかな青〜水色のグラデーションで「希望」や「青空」をイメージ */
+  background: linear-gradient(135deg, #1e88ff 0%, #40c9ff 100%);
+
+  /* 勢いを感じさせる斜めストライプのパターンを薄く重ねる */
+  background-image:
+    repeating-linear-gradient(45deg,
+      rgba(255, 255, 255, 0.1),
+      rgba(255, 255, 255, 0.1) 10px,
+      transparent 10px,
+      transparent 20px),
+    linear-gradient(135deg, #1e88ff 0%, #40c9ff 100%);
+
+  border-radius: 32px;
+  /* 丸みを強くして親しみやすく */
+  padding: 60px;
+  overflow: visible;
+  /* 装飾がはみ出しても良いように */
+  position: relative;
+  box-shadow: 0 20px 50px rgba(30, 136, 255, 0.25);
+  /* ふんわりした青い影 */
+  border: 4px solid #fff;
+  /* 白い縁取りでポップに */
+
+  /* フレックスボックスで横並び調整 */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+/* モバイル対応 */
+@media (max-width: 768px) {
+  .cta-band--company {
+    flex-direction: column-reverse;
+    /* 画像を上に、テキストを下に */
+    padding: 40px 24px;
+    text-align: center;
+  }
+}
+
+/* --- テキストエリア --- */
+.cta-band__body {
+  flex: 1;
+  z-index: 2;
+  position: relative;
+}
+
+/* 「Recruit」ラベル（ステッカー風） */
+.cta-band__body .sec-head__label {
+  display: inline-block;
+  background: #fff;
+  color: #1e88ff;
+  font-weight: 900;
+  font-size: 14px;
+  letter-spacing: 0.1em;
+  padding: 6px 16px;
+  border-radius: 4px 12px 4px 12px;
+  /* 変形角丸 */
+  transform: rotate(-3deg);
+  /* 少し傾ける */
+  box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  border: none;
+  /* 既存スタイル打消し */
+}
+
+/* メイン見出し「正社員募集中」 */
+.cta-band__body h2 {
+  font-size: clamp(32px, 5vw, 48px);
+  /* 大きく！ */
+  color: #fff;
+  font-weight: 900;
+  line-height: 1.2;
+  margin-bottom: 16px;
+  text-shadow: 2px 2px 0 #0e255a;
+  /* 濃い青の影で文字をくっきりさせる */
+  letter-spacing: 0.05em;
+}
+
+/* サブテキスト（リード文） */
+.cta-band__body .note {
+  font-size: 16px;
+  color: #e0f2ff;
+  /* 完全な白より少し青みがかった白 */
+  font-weight: 700;
+  margin-bottom: 32px;
+  line-height: 1.8;
+}
+
+/* --- 応募ボタン（ビタミンカラーで強調） --- */
+.cta-band__body .btn--primary {
+  /* 青の背景で目立つ「黄色〜オレンジ」を採用 */
+  background: #ffcc00;
+  color: #0e255a !important;
+  /* 文字色は濃紺で見やすく */
+  border: 3px solid #fff;
+  box-shadow: 0 6px 0 #d4a000;
+  /* 立体的な影 */
+
+  font-size: 20px;
+  padding: 18px 60px;
+  border-radius: 50px;
+  width: auto;
+
+  /* ワクワクするような動き */
+  animation: pulse-btn 2s infinite;
+}
+
+/* ボタンのホバー時 */
+.cta-band__body .btn--primary:hover {
+  background: #ffdb4d;
+  transform: translateY(4px);
+  /* 押した動き */
+  box-shadow: 0 2px 0 #d4a000;
+  color: #0e255a !important;
+  opacity: 1;
+}
+
+@keyframes pulse-btn {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.05);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* --- 画像エリア（ポラロイド写真風） --- */
+.cta-band--company .ph {
+  flex: 0 0 45%;
+  max-width: 400px;
+  border-radius: 0 !important;
+  /* HTMLのインラインスタイルを打ち消す場合 */
+  overflow: visible !important;
+  background: transparent;
+
+  /* 写真風の装飾 */
+  transform: rotate(3deg);
+  /* 右に傾ける */
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.cta-band--company .ph img {
+  border-radius: 12px;
+  border: 8px solid #fff;
+  /* 白い太枠 */
+  box-shadow:
+    0 10px 20px rgba(0, 0, 0, 0.15),
+    0 2px 6px rgba(0, 0, 0, 0.1);
+  background: #fff;
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* 画像ホバー時 */
+.cta-band--company:hover .ph {
+  transform: rotate(0deg) scale(1.02);
+  /* まっすぐに戻って少し拡大 */
+}
+
+/* --- 装飾パーツ（キラキラ） --- */
+.cta-band--company::after {
+  content: "✨";
+  position: absolute;
+  top: 30px;
+  right: 40%;
+  font-size: 40px;
+  color: #fff;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+  animation: sparkle 2s infinite alternate;
+  pointer-events: none;
+}
+
+@keyframes sparkle {
+  0% {
+    opacity: 0.4;
+    transform: scale(0.8) rotate(0deg);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1.2) rotate(20deg);
+  }
+}
+
+/* モバイル調整 */
+@media (max-width: 768px) {
+  .cta-band__body h2 {
+    font-size: 28px;
+  }
+
+  .cta-band--company .ph {
+    width: 100%;
+    max-width: 300px;
+    transform: rotate(-2deg);
+    margin-bottom: 20px;
+  }
+
+  .cta-band__body .btn--primary {
+    width: 100%;
+    /* スマホではボタンを幅いっぱいに */
+    padding: 16px;
+  }
+
+  .cta-band--company::after {
+    top: 10px;
+    right: 10px;
+  }
+}
+
+/* =========================================================
+   Recruit Section - Full Width Background / Center Content
+   背景だけ画面いっぱい、中身はコンテナ内（元の位置）
+========================================================= */
+
+.cta-band--company {
+  /* --- 1. 要素自体の配置設定（中身の位置） --- */
+  /* これで中身はコンテナ幅（元の位置）に収まります */
+  width: 100%;
+  margin: 0;
+
+  /* 上下の余白（セクションとしての高さ確保） */
+  padding: 60px 0;
+
+  /* --- 2. 背景・枠線のリセット --- */
+  /* 本体は透明にして、背景は疑似要素に任せる */
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+
+  /* --- 3. 背景を突き抜けさせるための準備 --- */
+  position: relative;
+  /* 重要：背景がコンテナからはみ出しても消えないようにする */
+  overflow: visible !important;
+
+  /* --- Flexboxレイアウトの維持 --- */
+  /* PCでは横並び、スマホでは縦並び */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+/* --- 4. 画面いっぱいの背景（ここが主役） --- */
+.cta-band--company::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+
+  /* 画面中央（要素の中央）を基準に、画面幅(100vw)で配置 */
+  left: 50%;
+  width: 100vw;
+  transform: translateX(-50%);
+
+  /* --- デザイン定義（青いグラデーション） --- */
+  background: linear-gradient(135deg, #1e88ff 0%, #40c9ff 100%);
+  background-image:
+    repeating-linear-gradient(45deg,
+      rgba(255, 255, 255, 0.1),
+      rgba(255, 255, 255, 0.1) 10px,
+      transparent 10px,
+      transparent 20px),
+    linear-gradient(135deg, #1e88ff 0%, #40c9ff 100%);
+
+  z-index: -1;
+  /* 文字の下に敷く */
+  box-shadow: 0 10px 40px rgba(30, 136, 255, 0.2);
+}
+
+/* --- モバイル対応 --- */
+@media (max-width: 768px) {
+  .cta-band--company {
+    flex-direction: column-reverse;
+    /* 画像を上に */
+    text-align: center;
+    padding: 40px 0;
+    /* 上下余白 */
+  }
+}
+
+/* --- 装飾パーツ（キラキラ）の位置微調整 --- */
+/* コンテナ（コンテンツエリア）を基準に配置されるようになります */
+.cta-band--company::after {
+  top: 10px;
+  right: -20px;
+  /* コンテナの少し外側 */
+}
+
+.cta-band--company::before {
+  /* 注：::beforeは背景に使ってしまったので、キラキラ用にもう一つ要素が必要ですが、
+       CSSの仕様上、::beforeと::afterの2つしか使えません。
+       今回は「背景」で1つ使うため、片方のキラキラ(黄色い方)は諦めるか、
+       HTML側に装飾用の空spanを追加する必要があります。
+       
+       ここでは、白いキラキラ(::after)だけを残します。
+    */
+}
+
+/* =========================================================
+   横スクロール防止（100vw使用時のズレ解消）
+   これをCSSの一番上に追加してください
+========================================================= */
+
+body {
+  overflow-x: hidden;
+  /* 横方向のはみ出しを隠す */
+  width: 100%;
 }

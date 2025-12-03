@@ -14,6 +14,13 @@
 
 <body class="is-index">
 
+  <div class="floating-bubbles" aria-hidden="true">
+    <span></span>
+    <span class="bubble-mascot"><img src="assets/images/mascot_company.png" alt=""></span>
+    <span></span>
+    <span></span>
+    <span class="bubble-mascot"><img src="assets/images/mascot_company.png" alt=""></span>
+  </div>
   <!-- 共通ヘッダー -->
   <script src="assets/js/common-header.js" defer></script>
 
@@ -92,15 +99,15 @@
     </div>
   </section>
 
-
-
   <!-- ===== ABOUT SECTION ===== -->
   <section class="about-section">
     <div class="container">
       <div class="about-layout">
 
-        <div class="about-main-image fade-up">
-          <img src="assets/images/about-1.jpg" alt="作業風景" class="about-img">
+        <div class="about-collage">
+          <img src="assets/images/about-1.jpg" alt="作業風景" class="collage-main">
+          <img src="assets/images/about-2.jpg" alt="笑顔のスタッフ" class="collage-sub">
+          <div class="collage-deco"></div>
         </div>
 
         <div class="about-text fade-up" style="transition-delay: 0.2s;">
@@ -108,13 +115,13 @@
           <p class="about-description">
             ご家庭の水回りから大規模な施設、公共事業まで、規模の大小を問わず、私たちは常に誠実かつ丁寧な施工を心がけています。
           </p>
+
+          <div class="about-btn-wrapper">
+            <a href="/company.html" class="about-link">私たちについて →</a>
+          </div>
         </div>
-      </div>
 
-      <div class="about-btn-wrapper fade-up" style="transition-delay: 0.4s;">
-        <a href="/company.html" class="about-link">私たちについて →</a>
       </div>
-
     </div>
   </section>
 
@@ -163,6 +170,14 @@
     </div>
   </section>
 
+  <div class="wave-separator">
+    <svg viewBox="0 0 1440 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <path fill="#f8fbff"
+        d="M0,64L48,80C96,96,192,128,288,128C384,128,480,96,576,85.3C672,75,768,85,864,96C960,107,1056,117,1152,112C1248,107,1344,85,1392,74.7L1440,64V320H0Z">
+      </path>
+    </svg>
+  </div>
+
   <!-- ===== WORKS SECTION ===== -->
   <section class="works-section">
     <div class="container works-showcase">
@@ -190,7 +205,6 @@
     </div>
   </section>
 
-  <!-- ===== RECRUIT BANNER ===== -->
   <!-- ===== RECRUIT BANNER ===== -->
   <section class="section section--cta fade-up">
     <div class="container">
@@ -332,7 +346,28 @@
         paused ? play() : pause();
       });
     })();
+    // マスコットの出現制御
+    document.addEventListener('DOMContentLoaded', () => {
+      const mascot = document.getElementById('fixedMascot');
+
+      if (!mascot) return; // マスコットがいなければ何もしない
+
+      const toggleMascot = () => {
+        // 300px以上スクロールしたら表示
+        if (window.scrollY > 300) {
+          mascot.classList.add('is-visible');
+        } else {
+          mascot.classList.remove('is-visible');
+        }
+      };
+
+      window.addEventListener('scroll', toggleMascot, { passive: true });
+    });
   </script>
+  <a href="/contact.html" class="fixed-mascot" id="fixedMascot" aria-label="お問い合わせはこちら">
+    <div class="fixed-mascot__balloon">相談してね！</div>
+    <img src="assets/images/mascot_company.png" alt="ハヤタくん">
+  </a>
 </body>
 
 </html>

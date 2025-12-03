@@ -14,6 +14,7 @@
   border-radius: 18px;
   overflow: hidden;
   box-shadow: 0 10px 26px rgba(0, 0, 0, 0.05);
+  /* 後述の統一デザインで上書きされる枠線設定はここで削除 */
 }
 
 .info-table tr+tr {
@@ -283,59 +284,6 @@
 }
 
 /* ---------------------------------------------------------
-   採用CTAバンド
---------------------------------------------------------- */
-.cta-band--company {
-  display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
-  gap: clamp(20px, 3vw, 32px);
-  align-items: center;
-  padding: clamp(24px, 3vw, 28px);
-  border-radius: 22px;
-  background: linear-gradient(135deg, #f0f5ff 0%, #f8fbff 100%);
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.05);
-}
-
-@media (max-width: 900px) {
-  .cta-band--company {
-    grid-template-columns: 1fr;
-  }
-}
-
-.cta-band__body {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.cta-band__body .sec-head__label {
-  align-self: flex-start;
-}
-
-.cta-band__body h2 {
-  margin: 8px 0 8px;
-  font-size: clamp(20px, 2.2vw, 24px);
-  font-weight: 900;
-  color: #14286b;
-}
-
-.cta-band__body .note {
-  margin: 0 0 16px;
-  font-size: 14px;
-  color: #344056;
-  line-height: 1.8;
-}
-
-.cta-band__body .btn--primary {
-  align-self: flex-start;
-}
-
-/* プレースホルダー画像枠 */
-.cta-band--company .ph {
-  aspect-ratio: 4 / 3;
-}
-
-/* ---------------------------------------------------------
    ボタンスタイル（会社案内ページ用）
 --------------------------------------------------------- */
 .btn--primary {
@@ -413,9 +361,7 @@
 
 /* ---------------------------------------------------------
    2カラムレイアウト用の補助クラス
-   （main.cssで定義済みだが、ページ固有の調整が必要な場合用）
 --------------------------------------------------------- */
-
 /* 画像を先に表示したい場合 */
 .section__inner--image-first .section__image {
   order: -1;
@@ -550,69 +496,6 @@
   .page-company .timeline li:nth-child(odd),
   .page-company .timeline li:nth-child(even) {
     padding-left: 18px;
-  }
-}
-
-.page-company .cta-band--company {
-  position: relative;
-  overflow: hidden;
-}
-
-/* 斜めストライプ（背景） */
-.page-company .cta-band--company::before {
-  content: "";
-  position: absolute;
-  inset: -40px;
-  background-image:
-    repeating-linear-gradient(-45deg,
-      rgba(42, 157, 244, .12) 0,
-      rgba(42, 157, 244, .12) 8px,
-      transparent 8px,
-      transparent 18px);
-  opacity: .25;
-  pointer-events: none;
-}
-
-/* 「RECRUIT」バッジ */
-.page-company .cta-band--company::after {
-  content: "RECRUIT";
-  position: absolute;
-  right: -34px;
-  top: 26px;
-  transform: rotate(12deg);
-  padding: 6px 50px;
-  font-size: 11px;
-  letter-spacing: .18em;
-  text-align: center;
-  text-transform: uppercase;
-  color: #fff;
-  background: #1f56b3;
-  box-shadow: 0 12px 24px rgba(15, 31, 58, .4);
-}
-
-/* CTAのラベルをタグ風に */
-.page-company .cta-band__body .sec-head__label {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 3px 10px;
-  border-radius: 999px;
-  background: #fff;
-  border: 1px solid #dde4f5;
-  font-size: 11px;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  color: #1f56b3;
-}
-
-
-/* モバイル時はバッジを少し小さく＆位置調整 */
-@media (max-width: 900px) {
-  .page-company .cta-band--company::after {
-    right: -28px;
-    top: 16px;
-    padding-inline: 40px;
-    font-size: 10px;
   }
 }
 
@@ -882,8 +765,8 @@
 .fade-up {
   opacity: 0;
   transform: translateY(60px);
-  transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), 
-              transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 1s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .fade-up.in-view {
@@ -895,8 +778,8 @@
 .fade-left {
   opacity: 0;
   transform: translateX(-60px);
-  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), 
-              transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .fade-left.in-view {
@@ -908,8 +791,8 @@
 .fade-right {
   opacity: 0;
   transform: translateX(60px);
-  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), 
-              transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .fade-right.in-view {
@@ -921,8 +804,8 @@
 .fade-scale {
   opacity: 0;
   transform: scale(0.9);
-  transition: opacity 0.8s cubic-bezier(0.34, 1.56, 0.64, 1), 
-              transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition: opacity 0.8s cubic-bezier(0.34, 1.56, 0.64, 1),
+    transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .fade-scale.in-view {
@@ -934,14 +817,25 @@
 .policy-list.in-view li {
   opacity: 0;
   transform: translateY(30px);
-  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), 
-              transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.policy-list.in-view li:nth-child(1) { transition-delay: 0.1s; }
-.policy-list.in-view li:nth-child(2) { transition-delay: 0.2s; }
-.policy-list.in-view li:nth-child(3) { transition-delay: 0.3s; }
-.policy-list.in-view li:nth-child(4) { transition-delay: 0.4s; }
+.policy-list.in-view li:nth-child(1) {
+  transition-delay: 0.1s;
+}
+
+.policy-list.in-view li:nth-child(2) {
+  transition-delay: 0.2s;
+}
+
+.policy-list.in-view li:nth-child(3) {
+  transition-delay: 0.3s;
+}
+
+.policy-list.in-view li:nth-child(4) {
+  transition-delay: 0.4s;
+}
 
 .policy-list.in-view li {
   opacity: 1;
@@ -950,6 +844,7 @@
 
 /* Reduce motion for accessibility */
 @media (prefers-reduced-motion: reduce) {
+
   .fade-up,
   .fade-left,
   .fade-right,
@@ -958,5 +853,529 @@
     opacity: 1;
     transform: none;
     transition: none;
+  }
+}
+
+/* =========================================================
+   Company Page Refresh (Pop & Friendly Design)
+   他ページとデザインを統一（ポップ・ブライトブルー）
+========================================================= */
+
+/* ---------------------------------------------------------
+   1. 共通設定・背景装飾
+--------------------------------------------------------- */
+/* 背景に楽しいドットパターンを追加 */
+.section--panel,
+.section--soft,
+.section--alt {
+  background-color: #fff;
+  background-image:
+    radial-gradient(#e0efff 20%, transparent 20%),
+    radial-gradient(#e0efff 20%, transparent 20%);
+  background-position: 0 0, 10px 10px;
+  background-size: 20px 20px;
+}
+
+/* セクション見出し：黄色いマーカー風（Servicesページと統一） */
+h2[id^="sec-"] {
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  color: #1e88ff !important;
+  /* 明るい青 */
+  font-size: clamp(28px, 4vw, 36px);
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  margin-bottom: 24px;
+  padding-bottom: 4px;
+  background: none !important;
+  border-bottom: none !important;
+}
+
+h2[id^="sec-"]::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 12px;
+  bottom: 8px;
+  /* 文字の下半分に重なる位置 */
+  background: rgba(255, 240, 70, 0.7);
+  /* 蛍光イエロー */
+  border-radius: 3px;
+  z-index: -1;
+}
+
+/* サブテキスト（ラベル） */
+.sec-head__label {
+  background: #fff;
+  color: #1e88ff;
+  border: 2px solid #1e88ff;
+  padding: 4px 12px;
+  border-radius: 20px;
+  display: inline-block;
+  font-weight: 800;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  margin-bottom: 12px;
+  box-shadow: 2px 2px 0 #bce0fd;
+}
+
+/* ---------------------------------------------------------
+   2. ボタンの統一（白カプセル＋青枠＋ポップ影）
+--------------------------------------------------------- */
+/* ページ内のボタン（KVとRecruit以外） */
+.foot-flex .btn,
+.area__actions .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 40px !important;
+
+  background: #fff !important;
+  color: #1e88ff !important;
+  border: 3px solid #1e88ff !important;
+  border-radius: 50px !important;
+
+  font-size: 16px !important;
+  font-weight: 900 !important;
+  text-decoration: none;
+  box-shadow: 4px 4px 0 #bce0fd !important;
+  transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+  transform: none;
+}
+
+.foot-flex .btn:hover,
+.area__actions .btn:hover {
+  background: #1e88ff !important;
+  color: #fff !important;
+  box-shadow: 0 0 0 #bce0fd !important;
+  transform: translate(4px, 4px) !important;
+}
+
+/* ---------------------------------------------------------
+   3. 代表挨拶・沿革（パネルセクション）
+--------------------------------------------------------- */
+.section--panel .section__inner {
+  background: #fff;
+  border: 4px solid #f0f7ff;
+  border-radius: 32px;
+  box-shadow: 0 20px 50px rgba(30, 136, 255, 0.1);
+  padding: clamp(30px, 5vw, 50px);
+}
+
+/* 写真をポラロイド風に */
+.section__image.ph {
+  border: 8px solid #fff;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  /* 写真自体の角は少しだけ */
+  transform: rotate(-3deg);
+  /* 左に傾ける */
+  transition: transform 0.4s ease;
+  overflow: visible;
+  /* 枠を見せる */
+}
+
+.section__inner:hover .section__image.ph {
+  transform: rotate(0deg) scale(1.02);
+}
+
+/* 代表サイン */
+.section__sign {
+  font-family: 'Kaisei Decol', serif;
+  /* もしあれば明朝系 */
+  font-size: 18px;
+  color: #0e255a;
+  background: linear-gradient(transparent 60%, #fff046 60%);
+  display: inline-block;
+  padding: 0 10px;
+}
+
+/* ---------------------------------------------------------
+   4. 会社概要（テーブル）
+--------------------------------------------------------- */
+.info-table {
+  border-radius: 24px;
+  border: 4px solid #fff;
+  box-shadow: 0 10px 30px rgba(30, 136, 255, 0.1);
+  overflow: hidden;
+}
+
+.info-table th {
+  background: #f0f7ff;
+  color: #1e88ff;
+  border-bottom: 2px solid #fff;
+  border-right: 2px solid #fff;
+  font-size: 15px;
+}
+
+.info-table td {
+  border-bottom: 2px solid #f0f7ff;
+  color: #0e255a;
+}
+
+.info-table tr:last-child td,
+.info-table tr:last-child th {
+  border-bottom: none;
+}
+
+/* ---------------------------------------------------------
+   5. 経営方針（カードリスト）
+--------------------------------------------------------- */
+.policy-list--grid {
+  gap: 30px;
+}
+
+.policy-list li {
+  border: none;
+  border-radius: 24px;
+  background: #fff;
+  /* ポップな影 */
+  box-shadow: 0 8px 0 #e0efff, 0 8px 20px rgba(0, 0, 0, 0.05);
+  padding: 30px;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+}
+
+/* ホバーでバウンド */
+.policy-list li:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 0 #bce0fd, 0 20px 30px rgba(30, 136, 255, 0.15);
+}
+
+/* 見出し */
+.policy-list h3 {
+  color: #1e88ff;
+  font-size: 20px;
+}
+
+/* 背景の数字装飾（淡く） */
+.policy-list li::before {
+  color: #f0f7ff;
+  font-family: sans-serif;
+  z-index: 0;
+  transform: rotate(-10deg);
+  right: -10px;
+  bottom: -30px;
+}
+
+/* 左端のカラーラインを少し太く */
+.page-company .policy-list--grid li {
+  border-left-width: 8px;
+}
+
+/* ---------------------------------------------------------
+   6. 沿革（タイムライン）
+--------------------------------------------------------- */
+/* 軸線 */
+.timeline::before {
+  background: #bce0fd;
+  /* 水色 */
+  width: 4px;
+  left: 5px;
+  border-radius: 4px;
+}
+
+/* ドット */
+.timeline li::before {
+  border: 3px solid #fff;
+  background: #1e88ff;
+  width: 16px;
+  height: 16px;
+  left: -32px;
+  /* 位置調整 */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.timeline li:hover::before {
+  background: #ffcc00;
+  /* ホバーで黄色に */
+  transform: scale(1.3);
+}
+
+/* カード */
+.timeline li {
+  border: none;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(30, 136, 255, 0.1);
+}
+
+/* 年号 */
+.timeline .year {
+  color: #1e88ff;
+  background: #f0f7ff;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+/* ---------------------------------------------------------
+   7. アクセスマップ
+--------------------------------------------------------- */
+.access-map {
+  border: 6px solid #fff;
+  border-radius: 24px;
+  box-shadow: 0 10px 30px rgba(30, 136, 255, 0.15);
+}
+
+/* =========================================================
+   Design Update: Heading Decoration
+   見出しを「黄色マーカー」から「青い波線」に変更
+========================================================= */
+
+/* 見出し本体の調整 */
+h2[id^="sec-"] {
+  padding-bottom: 0 !important;
+  /* マーカー用の余白をリセット */
+  display: inline-block;
+  position: relative;
+}
+
+/* 波線の設定（疑似要素） */
+h2[id^="sec-"]::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+
+  /* --- 波線の配置 --- */
+  height: 6px !important;
+  /* 高さを細く */
+  bottom: -10px !important;
+  /* 文字の下に配置 */
+
+  /* --- 波線の画像（SVG） --- */
+  background: url('data:image/svg+xml;charset=utf8,%3Csvg viewBox="0 0 20 4" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M0 4 C5 4 5 0 10 0 C15 0 15 4 20 4" stroke="%232a9df4" stroke-width="2" fill="none"/%3E%3C/svg%3E') repeat-x !important;
+  background-size: 20px 6px !important;
+
+  /* --- マーカー設定のリセット --- */
+  background-color: transparent !important;
+  /* 黄色を消す */
+  border-radius: 0 !important;
+  opacity: 0.6 !important;
+  /* 少し透けさせる */
+  z-index: auto !important;
+}
+
+/* =========================================================
+   Recruit Banner - Match Top Page Design
+   トップページと同じ「全画面背景」デザインを適用
+========================================================= */
+
+/* --- 1. コンテナ設定（背景を透明にして疑似要素に任せる） --- */
+.cta-band--company {
+  width: 100%;
+  padding: 60px 0 !important;
+
+  /* 既存の枠線や背景をリセット */
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+
+  position: relative;
+  overflow: visible !important;
+  /* 画面外へ背景を伸ばすため */
+
+  /* レイアウト調整 */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+/* --- 2. 全画面背景（Topページと同じ仕様） --- */
+.cta-band--company::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+
+  /* 画面中央を基準に左右いっぱいに広げる */
+  left: 50%;
+  width: 100vw;
+  transform: translateX(-50%);
+
+  z-index: -1;
+
+  /* 鮮やかな青＋ストライプ */
+  background: linear-gradient(135deg, #1e88ff 0%, #40c9ff 100%);
+  background-image:
+    repeating-linear-gradient(45deg,
+      rgba(255, 255, 255, 0.1),
+      rgba(255, 255, 255, 0.1) 10px,
+      transparent 10px,
+      transparent 20px),
+    linear-gradient(135deg, #1e88ff 0%, #40c9ff 100%);
+
+  box-shadow: 0 10px 40px rgba(30, 136, 255, 0.2);
+}
+
+/* --- 3. テキストカラー（白抜き） --- */
+.cta-band__body h2 {
+  color: #fff !important;
+  font-size: clamp(32px, 5vw, 48px);
+  text-shadow: 2px 2px 0 #0e255a;
+  /* 文字をくっきりさせる影 */
+  margin-bottom: 16px;
+}
+
+.cta-band__body .note {
+  color: #e0f2ff !important;
+  font-weight: 700;
+  margin-bottom: 32px;
+}
+
+/* ラベル（ステッカー風） */
+.cta-band__body .sec-head__label {
+  background: #fff;
+  color: #1e88ff;
+  border: none;
+  border-radius: 4px 12px 4px 12px;
+  transform: rotate(-3deg);
+  box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+/* --- 4. 黄色いボタン（ビタミンカラー） --- */
+.cta-band__body .btn--primary {
+  background: #ffcc00 !important;
+  color: #0e255a !important;
+  border: 3px solid #fff !important;
+  box-shadow: 0 6px 0 #d4a000 !important;
+
+  padding: 18px 60px !important;
+  border-radius: 50px !important;
+  font-size: 20px !important;
+  width: auto !important;
+
+  /* 鼓動アニメーション */
+  animation: pulse-btn 2s infinite;
+}
+
+.cta-band__body .btn--primary:hover {
+  background: #ffdb4d !important;
+  transform: translateY(4px) !important;
+  box-shadow: 0 2px 0 #d4a000 !important;
+  color: #0e255a !important;
+  opacity: 1;
+}
+
+@keyframes pulse-btn {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.05);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* --- 5. 画像（ポラロイド風） --- */
+.cta-band--company .ph {
+  transform: rotate(3deg);
+  border: 8px solid #fff;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  border-radius: 2px !important;
+  /* 角を少し鋭く */
+  background: #fff;
+  overflow: visible;
+}
+
+/* モバイル対応 */
+@media (max-width: 900px) {
+  .cta-band--company {
+    flex-direction: column-reverse;
+    text-align: center;
+    padding: 40px 0 !important;
+  }
+
+  .cta-band__body .btn--primary {
+    width: 100% !important;
+    padding: 16px !important;
+  }
+
+  .cta-band--company .ph {
+    width: 80%;
+    margin-bottom: 20px;
+    transform: rotate(-2deg);
+  }
+}
+
+/* =========================================================
+   Mobile Fix: Wavy Line Width
+   スマホ表示時の波線の幅と高さを修正
+========================================================= */
+
+@media (max-width: 768px) {
+
+  /* 既存の「線を短くする設定」を上書きしてリセット */
+  .page-company h2::after,
+  .page-company .sec-head__title::after,
+  h2[id^="sec-"]::after {
+    width: 100% !important;
+    /* 幅を文字幅いっぱいに */
+    height: 6px !important;
+    /* 波線の高さをPCと同じに確保 */
+    bottom: -10px !important;
+    /* 位置をPCと同じに */
+    background-size: 20px 6px !important;
+    /* 波の柄サイズも維持 */
+  }
+}
+
+/* =========================================================
+   Mobile Fix: Timeline Alignment
+   スマホ表示時の沿革（縦線・ドット・矢印）の位置ズレ修正
+========================================================= */
+
+@media (max-width: 768px) {
+
+  /* 1. タイムライン全体の余白（左側に線用のスペースを確保） */
+  .timeline {
+    padding-left: 36px !important;
+    /* 少し広めに確保 */
+    margin-top: 30px !important;
+  }
+
+  /* 2. 縦線（軸）の位置 */
+  .timeline::before {
+    left: 16px !important;
+    /* パディングの中央付近に配置 */
+    width: 3px !important;
+    /* スマホで見やすい太さに */
+    border-radius: 3px !important;
+  }
+
+  /* 3. カード（各項目） */
+  .timeline li {
+    margin-bottom: 20px !important;
+    width: 100% !important;
+    /* 幅を確保 */
+  }
+
+  /* 4. ドット（丸）の位置合わせ */
+  .timeline li::before {
+    /* カードの左端から、縦線の位置(16px)まで戻す計算 */
+    /* padding-left(36px) - 線位置(16px) = 20px + 微調整 */
+    left: -34px !important;
+
+    top: 24px !important;
+    width: 14px !important;
+    height: 14px !important;
+    border-width: 3px !important;
+  }
+
+  /* 5. 吹き出しの矢印（三角）の位置 */
+  .timeline li::after {
+    left: -8px !important;
+    /* カードの左端にくっつける */
+    top: 28px !important;
+    border-width: 6px 8px 6px 0 !important;
   }
 }

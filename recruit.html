@@ -11,17 +11,16 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
 </head>
+</head>
 
 <body>
   <!-- Header (Common) -->
   <script src="assets/js/common-header.js" defer></script>
 
   <main>
-    <!-- ===== HERO SECTION (Unique) ===== -->
     <section class="rec-hero">
       <div class="rec-hero__bg">
-        <!-- Using recruit.png as the hero background -->
-        <img src="assets/images/recruit.png" alt="Hero Background">
+        <img src="assets/images/recruit_fv.png" alt="Hero Background">
       </div>
       <div class="rec-hero__overlay"></div>
       <div class="rec-hero__content">
@@ -35,57 +34,154 @@
       <div class="rec-scroll">Scroll</div>
     </section>
 
-    <!-- ===== MESSAGE SECTION ===== -->
-    <section class="rec-message">
-      <div class="rec-message__mascot">
-        <img src="assets/images/mascot_company.png" alt="ハヤタくん">
-      </div>
-      <div class="rec-message__inner" data-animate>
-        <div class="rec-head">
-          <span class="rec-head__en">MESSAGE</span>
-          <h2 class="rec-head__jp">手を動かす喜びが、<br>誰かの「ありがとう」になる。</h2>
+    <section class="rec-section rec-message">
+      <div class="rec-container">
+        <div class="rec-message__inner" data-animate>
+          <div class="rec-message__image">
+            <img src="assets/images/recruit_message.png" alt="働く風景" loading="lazy">
+          </div>
+          <div class="rec-message__body">
+            <div class="rec-head rec-head--left">
+              <span class="rec-head__en">OUR MISSION</span>
+              <h2 class="rec-head__jp">
+                見えない場所から、<br>
+                <span class="highlight">「あたりまえ」</span>を支え続ける。
+              </h2>
+            </div>
+            <p class="rec-message__text">
+              蛇口をひねれば水が出る。<br>
+              スイッチひとつで部屋が暖まる。<br>
+              そんな毎日の「快適」は、壁の中や床の下、<br>
+              普段は目に見えない場所にある設備が支えています。
+            </p>
+            <p class="rec-message__text">
+              私たちは、その見えない安心をつくるプロフェッショナル。<br>
+              派手さはないかもしれません。<br>
+              けれど、地域の人々の暮らしに一番近い場所で、<br>
+              確かな技術を繋いでいく誇りがあります。
+            </p>
+          </div>
         </div>
-        <p class="rec-message__text">
-          私たちは、人々の暮らしに欠かせない水回りや空調設備を手がける専門家集団です。<br>
-          蛇口をひねれば水が出る、スイッチを押せば快適な温度になる。<br>
-          そんな「当たり前」を守ることが、私たちの誇りです。
-        </p>
-        <p class="rec-message__text">
-          経験は問いません。大切なのは「やってみたい」という気持ち。<br>
-          私たちと一緒に、誇れる仕事を始めませんか？
-        </p>
       </div>
     </section>
 
-    <!-- ===== BENEFITS SECTION ===== -->
+    <div class="rec-gallery" data-animate>
+      <div class="rec-gallery__track">
+        <div class="rec-gallery__item"><img src="assets/images/recruit_slider1.png" alt="作業風景" loading="lazy"></div>
+        <div class="rec-gallery__item"><img src="assets/images/recruit_slider2.png" alt="社内の様子" loading="lazy"></div>
+        <div class="rec-gallery__item"><img src="assets/images/recruit_slider3.png" alt="現場での打ち合わせ" loading="lazy">
+        </div>
+        <div class="rec-gallery__item"><img src="assets/images/recruit_slider4.png" alt="笑顔のスタッフ" loading="lazy"></div>
+        <div class="rec-gallery__item"><img src="assets/images/recruit_slider5.png" alt="施工事例" loading="lazy"></div>
+
+        <div class="rec-gallery__item"><img src="assets/images/recruit_slider1.png" alt="作業風景" loading="lazy"></div>
+        <div class="rec-gallery__item"><img src="assets/images/recruit_slider2.png" alt="社内の様子" loading="lazy"></div>
+        <div class="rec-gallery__item"><img src="assets/images/recruit_slider3.png" alt="現場での打ち合わせ" loading="lazy">
+        </div>
+        <div class="rec-gallery__item"><img src="assets/images/recruit_slider4.png" alt="笑顔のスタッフ" loading="lazy"></div>
+        <div class="rec-gallery__item"><img src="assets/images/recruit_slider5.png" alt="施工事例" loading="lazy"></div>
+      </div>
+    </div>
+
     <section class="rec-section rec-benefits">
       <div class="rec-container">
         <div class="rec-head" data-animate>
-          <span class="rec-head__en">BENEFITS</span>
-          <h2 class="rec-head__jp">当社で働く魅力</h2>
+          <span class="rec-head__en">OUR ENVIRONMENT</span>
+          <h2 class="rec-head__jp">
+            確かな技術を、<br>
+            安心の環境で育む。
+          </h2>
         </div>
 
         <div class="rec-grid">
           <div class="rec-card" data-animate>
-            <div class="rec-card__icon">💡</div>
-            <h3 class="rec-card__title">未経験からプロへ</h3>
-            <p class="rec-card__text">道具の名前から丁寧に教えます。資格取得支援制度も充実しており、働きながら一生モノの技術が身につきます。</p>
+            <div class="rec-card__img">
+              <img src="/assets/images/recruit.png" alt="教育体制" loading="lazy">
+            </div>
+            <h3 class="rec-card__title">未経験から、<br>プロフェッショナルへ。</h3>
+            <p class="rec-card__text">
+              入社後は道具の名前や安全な作業方法から丁寧に指導します。資格取得費用は会社が全額支援。焦らず着実にスキルを身につけ、自信を持って現場に立てるようバックアップします。
+            </p>
           </div>
+
           <div class="rec-card" data-animate style="transition-delay: 0.1s;">
-            <div class="rec-card__icon">🤝</div>
-            <h3 class="rec-card__title">温かいチームワーク</h3>
-            <p class="rec-card__text">ベテランも若手も関係なく、困ったときは助け合う社風。分からないことはすぐに聞ける環境です。</p>
+            <div class="rec-card__img">
+              <img src="/assets/images/recruit_2.png" alt="チームワーク" loading="lazy">
+            </div>
+            <h3 class="rec-card__title">一人じゃない。<br>チームで成し遂げる仕事。</h3>
+            <p class="rec-card__text">
+              現場は連携が命です。困った時はすぐに相談でき、互いに助け合う風土が根付いています。ベテランも若手も関係なく意見を交わせる、風通しの良い信頼関係があります。
+            </p>
           </div>
+
           <div class="rec-card" data-animate style="transition-delay: 0.2s;">
-            <div class="rec-card__icon">📈</div>
-            <h3 class="rec-card__title">安定した基盤</h3>
-            <p class="rec-card__text">地域に根ざした実績があり、仕事量は安定。腰を据えて長く働きたい方に最適な環境です。</p>
+            <div class="rec-card__img">
+              <img src="/assets/images/recruit_3.png" alt="安定基盤" loading="lazy">
+            </div>
+            <h3 class="rec-card__title">地域に根ざした、<br>盤石な経営基盤。</h3>
+            <p class="rec-card__text">
+              生活に欠かせないインフラを守る仕事ゆえに、景気に左右されにくく仕事量は安定しています。転勤もなく、愛着のある地域で腰を据えてキャリアを築けます。
+            </p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ===== JOBS SECTION ===== -->
+    <section class="rec-section rec-ideal">
+      <div class="rec-container">
+        <div class="rec-head" data-animate>
+          <span class="rec-head__en">IDEAL CANDIDATE</span>
+          <h2 class="rec-head__jp">
+            「好き」や「想い」が、<br>
+            最強の資格です。
+          </h2>
+        </div>
+
+        <div class="rec-ideal__intro" data-animate>
+          <p>
+            経験や専門知識は、入社してからいくらでも身につきます。<br>
+            私たちが大切にしたいのは、技術への興味や、仕事に対する姿勢です。<br>
+            もし一つでも当てはまるなら、あなたは早田設備にぴったりの人材です。
+          </p>
+        </div>
+
+        <div class="rec-grid">
+          <div class="rec-ideal-card" data-animate>
+            <div class="rec-ideal-card__num">01</div>
+            <div class="rec-ideal-card__head">
+              <span class="check-icon">✔</span>
+              <h3>モノづくりや、<br>機械いじりが好きな方</h3>
+            </div>
+            <p class="rec-ideal-card__text">
+              子供の頃、プラモデルや工作に夢中になったことはありませんか？図面が形になり、実際に動く設備として完成する面白さは、モノづくりの原点そのものです。
+            </p>
+          </div>
+
+          <div class="rec-ideal-card" data-animate style="transition-delay: 0.1s;">
+            <div class="rec-ideal-card__num">02</div>
+            <div class="rec-ideal-card__head">
+              <span class="check-icon">✔</span>
+              <h3>地域に根ざし、<br>安定して働きたい方</h3>
+            </div>
+            <p class="rec-ideal-card__text">
+              転勤はありません。「生まれ育った街に貢献したい」「家族との時間を大切にしたい」。そんな想いを持ちながら、腰を据えてキャリアを築ける環境です。
+            </p>
+          </div>
+
+          <div class="rec-ideal-card" data-animate style="transition-delay: 0.2s;">
+            <div class="rec-ideal-card__num">03</div>
+            <div class="rec-ideal-card__head">
+              <span class="check-icon">✔</span>
+              <h3>嘘をつかず、<br>誠実に向き合える方</h3>
+            </div>
+            <p class="rec-ideal-card__text">
+              見えない場所だからこそ、手を抜かない。チームの仲間に正直であること。特別な才能よりも、そんな「誠実さ」を持った人を、私たちは全力で歓迎し、育てます。
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="rec-section rec-jobs" id="jobs">
       <div class="rec-container">
         <div class="rec-head" data-animate>
@@ -94,65 +190,89 @@
         </div>
 
         <div class="rec-job-list">
-          <!-- Job 1 -->
           <div class="rec-job-item" data-animate>
             <details>
               <summary class="rec-job-head">
                 <div class="rec-job-title">
                   施工スタッフ <span class="rec-job-tag">正社員</span>
                 </div>
-                <div class="rec-job-arrow">→</div>
+                <div class="rec-job-toggle">
+                  <span class="open">開く</span><span class="close">閉じる</span>
+                </div>
               </summary>
-              <div class="rec-job-body" style="padding-top: 20px;">
-                <p>配管・機器取付／交換、トラブル対応など、現場での作業全般をお任せします。</p>
-                <table class="info-table" style="width:100%; margin-top:16px; border-collapse:collapse;">
-                  <tr>
-                    <th style="text-align:left; padding:10px; border-bottom:1px solid #eee;">給与</th>
-                    <td style="padding:10px; border-bottom:1px solid #eee;">月給○○万円〜</td>
-                  </tr>
-                  <tr>
-                    <th style="text-align:left; padding:10px; border-bottom:1px solid #eee;">勤務地</th>
-                    <td style="padding:10px; border-bottom:1px solid #eee;">本社および各現場</td>
-                  </tr>
-                  <tr>
-                    <th style="text-align:left; padding:10px; border-bottom:1px solid #eee;">勤務時間</th>
-                    <td style="padding:10px; border-bottom:1px solid #eee;">8:00–17:00</td>
-                  </tr>
-                </table>
-                <div style="margin-top:20px; text-align:center;">
-                  <a href="contact.html" class="btn btn--primary">応募する</a>
+              <div class="rec-job-body">
+                <div class="rec-job__content">
+                  <div class="rec-job__img">
+                    <img src="assets/images/work_sekou.png" alt="施工スタッフの仕事イメージ" loading="lazy">
+                  </div>
+                  <div class="rec-job__desc">
+                    <p>一般住宅や公共施設の給排水設備、空調設備の配管工事、機器取付など、現場での作業全般をお任せします。チームで協力して作業を進めます。</p>
+                    <table class="info-table">
+                      <tr>
+                        <th>給与</th>
+                        <td>月給 20万円〜35万円 ※経験・能力を考慮</td>
+                      </tr>
+                      <tr>
+                        <th>勤務地</th>
+                        <td>本社（○○市）および県内の各現場 ※転勤なし</td>
+                      </tr>
+                      <tr>
+                        <th>勤務時間</th>
+                        <td>8:00–17:00（休憩90分）</td>
+                      </tr>
+                      <tr>
+                        <th>休日休暇</th>
+                        <td>日曜、祝日、第2・4土曜、GW、夏季、年末年始</td>
+                      </tr>
+                    </table>
+                  </div>
+                </div>
+                <div class="rec-job__btn-area">
+                  <a href="contact.html" class="btn btn--primary">この職種に応募する</a>
                 </div>
               </div>
             </details>
           </div>
 
-          <!-- Job 2 -->
           <div class="rec-job-item" data-animate>
             <details>
               <summary class="rec-job-head">
                 <div class="rec-job-title">
-                  施工管理補助 <span class="rec-job-tag">正社員</span>
+                  施工管理（見習い可） <span class="rec-job-tag">正社員</span>
                 </div>
-                <div class="rec-job-arrow">→</div>
+                <div class="rec-job-toggle">
+                  <span class="open">開く</span><span class="close">閉じる</span>
+                </div>
               </summary>
-              <div class="rec-job-body" style="padding-top: 20px;">
-                <p>書類作成、工程調整、写真管理など、現場監督のサポート業務です。</p>
-                <table class="info-table" style="width:100%; margin-top:16px; border-collapse:collapse;">
-                  <tr>
-                    <th style="text-align:left; padding:10px; border-bottom:1px solid #eee;">給与</th>
-                    <td style="padding:10px; border-bottom:1px solid #eee;">月給○○万円〜</td>
-                  </tr>
-                  <tr>
-                    <th style="text-align:left; padding:10px; border-bottom:1px solid #eee;">勤務地</th>
-                    <td style="padding:10px; border-bottom:1px solid #eee;">本社および各現場</td>
-                  </tr>
-                  <tr>
-                    <th style="text-align:left; padding:10px; border-bottom:1px solid #eee;">勤務時間</th>
-                    <td style="padding:10px; border-bottom:1px solid #eee;">8:00–17:00</td>
-                  </tr>
-                </table>
-                <div style="margin-top:20px; text-align:center;">
-                  <a href="contact.html" class="btn btn--primary">応募する</a>
+              <div class="rec-job-body">
+                <div class="rec-job__content">
+                  <div class="rec-job__img">
+                    <img src="assets/images/drawing_site_01.png" alt="施工管理の仕事イメージ" loading="lazy">
+                  </div>
+                  <div class="rec-job__desc">
+                    <p>工事のスケジュール管理、品質管理、安全管理、書類作成など、現場全体の指揮をとる仕事です。未経験の方はアシスタントからスタートできます。</p>
+                    <table class="info-table">
+                      <tr>
+                        <th>給与</th>
+                        <td>月給 22万円〜40万円 ※経験・能力を考慮</td>
+                      </tr>
+                      <tr>
+                        <th>勤務地</th>
+                        <td>本社（○○市）および県内の各現場 ※転勤なし</td>
+                      </tr>
+                      <tr>
+                        <th>勤務時間</th>
+                        <td>8:00–17:00（休憩90分）</td>
+                      </tr>
+                      <tr>
+                        <th>休日休暇</th>
+                        <td>日曜、祝日、第2・4土曜、GW、夏季、年末年始</td>
+                      </tr>
+                    </table>
+                  </div>
+                </div>
+                <div class="rec-job__btn-area">
+                  <a href="contact.html" class="btn btn--primary">この職種に応募する</a>
                 </div>
               </div>
             </details>
@@ -161,17 +281,41 @@
       </div>
     </section>
 
-    <!-- ===== CTA SECTION ===== -->
-    <div class="rec-cta" data-animate>
-      <div class="rec-cta__mascot">
-        <img src="assets/images/mascot_contact.png" alt="ハヤタくん">
+    <section class="rec-section rec-cta-section" data-animate>
+      <div class="rec-cta__bg">
+        <img src="https://placehold.jp/1600x900.png?text=Future+Construction" alt="背景イメージ" loading="lazy">
       </div>
-      <div class="rec-cta__content">
-        <h2 class="rec-cta__title">JOIN OUR TEAM</h2>
-        <p>まずは会社見学からでもOKです。<br>お気軽にお問い合わせください。</p>
-        <a href="contact.html" class="rec-cta__btn">エントリー / お問い合わせ</a>
+      <div class="rec-cta__lines"><span></span><span></span><span></span></div>
+
+      <div class="rec-container">
+        <div class="rec-cta__inner">
+          <div class="rec-cta__head">
+            <p class="rec-cta__sub">RECRUITMENT</p>
+            <h2 class="rec-cta__title">
+              <span class="en">JOIN OUR TEAM</span>
+              <span class="jp">その情熱が、<br>街の未来を灯す。</span>
+            </h2>
+            <p class="rec-cta__text">
+              私たちは、見えない場所から人々の暮らしを支えています。<br>
+              あなたの技術と熱意を、ここ早田設備で発揮しませんか。<br>
+              まずは会社見学から、お気軽にお越しください。
+            </p>
+          </div>
+
+          <div class="rec-cta__action">
+            <a href="contact.html" class="rec-cta__btn">
+              <span class="btn-text">ENTRY / CONTACT</span>
+              <span class="btn-sub">エントリー・お問い合わせ</span>
+              <span class="btn-icon">→</span>
+            </a>
+            <div class="rec-cta__info">
+              <p>お電話でのお問い合わせ</p>
+              <a href="tel:0858227571" class="tel-link">0858-22-7571</a>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
 
   </main>
 

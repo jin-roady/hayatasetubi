@@ -1,50 +1,126 @@
 @charset "UTF-8";
 
 /* =========================================================
-   Recruit Page Unique Design
-   Concept: Soft, Welcoming, Growth
-   "Gentle Future" and "Comfortable Workplace"
+   Recruit Page Design - Professional & Solid
+   Concept: Integrity, Technology, Connection
+   Ref: WJ-ETEC style (Sharp lines, Bold typography, Clean layout)
 ========================================================= */
 
 :root {
-    /* Palette: Soft Pastels & Gentle Blues */
-    --rec-primary: #7fbfff;
-    /* Soft Sky Blue */
-    --rec-accent: #b2ebf2;
-    /* Pale Cyan/Mint */
-    --rec-text-main: #4a5568;
-    /* Softer Dark Gray */
-    --rec-text-light: #718096;
-    /* Muted Gray */
-    --rec-bg-body: #f0f7ff;
-    /* Clean White -> Soft Blueish White */
-    --rec-bg-soft: #e6f2ff;
-    /* Alice Blue -> Stronger Pale Blue */
-    --rec-gradient: linear-gradient(120deg, #8ec5fc 0%, #b0e0f8 100%);
-    /* Soft Cloud Gradient -> Slightly more vibrant */
+    /* 信頼と先進性を表すブルーパレット */
+    --rec-blue-primary: #0056b3;
+    /* メイン：深みのある青 */
+    --rec-blue-dark: #002a5c;
+    /* ベース：濃紺 */
+    --rec-blue-bright: #2a9df4;
+    /* アクセント：鮮やかな空色 */
+    --rec-gray-bg: #f4f6f8;
+    /* 背景：無機質なライトグレー */
+    --rec-text-main: #1a202c;
+    /* テキスト：黒に近いグレー */
+    --rec-text-sub: #718096;
+    /* サブテキスト */
+    --rec-white: #ffffff;
+
+    /* フォント設定 */
+    --font-base: "Noto Sans JP", sans-serif;
+    --font-en: "Helvetica Neue", Arial, sans-serif;
 }
 
 body {
-    background: var(--rec-bg-body);
+    background-color: var(--rec-white);
     color: var(--rec-text-main);
-    font-family: "Noto Sans JP", sans-serif;
+    font-family: var(--font-base);
+    line-height: 1.8;
+    overflow-x: hidden;
+}
+
+/* 画像の共通スタイル */
+img {
+    max-width: 100%;
+    height: auto;
+    vertical-align: bottom;
 }
 
 /* ---------------------------------------------------------
-   HERO SECTION (Soft & Light)
+   COMMON LAYOUT & TYPOGRAPHY
+--------------------------------------------------------- */
+.rec-section {
+    padding: 100px 0;
+    position: relative;
+}
+
+.rec-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* セクション見出し（英語を大きく配置） */
+.rec-head {
+    margin-bottom: 60px;
+    position: relative;
+    padding-left: 20px;
+}
+
+/* 左側の青いライン */
+.rec-head::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 6px;
+    background: var(--rec-blue-primary);
+}
+
+.rec-head__en {
+    display: block;
+    font-family: var(--font-en);
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--rec-blue-bright);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+.rec-head__jp {
+    font-size: clamp(28px, 4vw, 36px);
+    font-weight: 700;
+    color: var(--rec-text-main);
+    line-height: 1.2;
+}
+
+/* 背景に薄く巨大な文字を配置する装飾（擬似要素で表現） */
+.rec-section::before {
+    content: attr(data-label);
+    position: absolute;
+    top: 40px;
+    right: -20px;
+    font-size: 120px;
+    font-weight: 900;
+    color: rgba(0, 86, 179, 0.03);
+    /* 極薄い青 */
+    font-family: var(--font-en);
+    line-height: 1;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* ---------------------------------------------------------
+   HERO SECTION (Sharp & Impactful)
 --------------------------------------------------------- */
 .rec-hero {
     position: relative;
-    height: 85vh;
+    height: 90vh;
     min-height: 600px;
     width: 100%;
+    overflow: hidden;
     display: flex;
     align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    background: #fff;
-    color: var(--rec-text-main);
-    /* Dark text for light bg */
+    /* 写真を少し暗くして文字を際立たせる */
+    background-color: var(--rec-blue-dark);
 }
 
 .rec-hero__bg {
@@ -57,108 +133,116 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    opacity: 0.8;
-    /* Lighter image */
+    opacity: 0.6;
+    /* 写真の明るさを落とす */
     transform: scale(1.05);
-    animation: heroFloat 20s infinite alternate ease-in-out;
-    filter: brightness(1.1) contrast(0.9);
-    /* Soften image look */
+    /* 少し拡大 */
 }
 
-@keyframes heroFloat {
-    from {
-        transform: scale(1.05);
-    }
-
-    to {
-        transform: scale(1.15);
-    }
-}
-
-/* White/Light Overlay for readability */
+/* グリッド線のあしらい（インフラっぽさ） */
 .rec-hero__overlay {
     position: absolute;
     inset: 0;
     z-index: 2;
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.8));
-    backdrop-filter: blur(2px);
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+    background-size: 100px 100px;
 }
 
 .rec-hero__content {
     position: relative;
     z-index: 3;
-    text-align: center;
-    padding: 20px;
-    max-width: 800px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 5%;
+    color: #fff;
 }
 
 .rec-hero__title {
-    font-size: clamp(32px, 6vw, 64px);
+    font-family: var(--font-en);
+    font-size: clamp(60px, 10vw, 120px);
     font-weight: 900;
-    line-height: 1.2;
+    line-height: 0.9;
     margin-bottom: 24px;
-    letter-spacing: 0.05em;
-    color: #5a9bd5;
-    /* Soft Blue Title */
-    opacity: 0;
-    animation: fadeInUp 1.2s ease-out forwards 0.3s;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
 }
 
 .rec-hero__lead {
-    font-size: clamp(15px, 2.5vw, 20px);
-    font-weight: 700;
-    margin-bottom: 40px;
-    line-height: 2;
-    color: var(--rec-text-main);
-    opacity: 0;
-    animation: fadeInUp 1.2s ease-out forwards 0.6s;
+    font-size: clamp(16px, 2vw, 20px);
+    font-weight: 500;
+    line-height: 1.8;
+    margin-bottom: 48px;
+    padding-left: 20px;
+    border-left: 4px solid var(--rec-blue-bright);
+    /* アクセントライン */
+    max-width: 600px;
 }
 
 .rec-hero__btn {
-    display: inline-block;
-    padding: 14px 40px;
-    background: var(--rec-gradient);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 18px 50px;
+    background: transparent;
     color: #fff;
     font-size: 16px;
     font-weight: 700;
-    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.6);
     text-decoration: none;
     transition: all 0.3s ease;
-    opacity: 0;
-    animation: fadeInUp 1.2s ease-out forwards 0.9s;
-    box-shadow: 0 8px 20px rgba(161, 196, 253, 0.4);
-    letter-spacing: 0.05em;
+    position: relative;
+    overflow: hidden;
+}
+
+/* ホバー時に背景が白く埋まるアニメーション */
+.rec-hero__btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: #fff;
+    transition: width 0.3s ease;
+    z-index: -1;
 }
 
 .rec-hero__btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 12px 25px rgba(161, 196, 253, 0.6);
-    filter: brightness(1.05);
+    color: var(--rec-blue-dark);
+    border-color: #fff;
 }
 
+.rec-hero__btn:hover::before {
+    width: 100%;
+}
+
+/* スクロールダウン */
 .rec-scroll {
     position: absolute;
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%);
+    bottom: 40px;
+    right: 60px;
+    /* 右下に配置 */
     z-index: 3;
-    color: var(--rec-text-light);
+    color: #fff;
     font-size: 12px;
     letter-spacing: 0.2em;
-    text-transform: uppercase;
+    writing-mode: vertical-rl;
+    /* 縦書き */
     display: flex;
-    flex-direction: column;
     align-items: center;
-    gap: 10px;
-    opacity: 0.7;
+    gap: 16px;
 }
 
 .rec-scroll::after {
     content: "";
+    display: block;
     width: 1px;
-    height: 50px;
-    background: var(--rec-text-light);
-    animation: scrollLine 2s infinite;
+    height: 80px;
+    background: rgba(255, 255, 255, 0.5);
+    animation: scrollLine 1.5s infinite;
 }
 
 @keyframes scrollLine {
@@ -183,159 +267,270 @@ body {
     }
 }
 
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
 /* ---------------------------------------------------------
-   SECTIONS COMMON
---------------------------------------------------------- */
-.rec-section {
-    padding: 80px 0;
-    position: relative;
-}
-
-.rec-container {
-    width: 90%;
-    max-width: 1100px;
-    margin: 0 auto;
-}
-
-.rec-head {
-    text-align: center;
-    margin-bottom: 50px;
-}
-
-.rec-head__en {
-    display: block;
-    font-size: 13px;
-    font-weight: 700;
-    color: #8ab4f8;
-    /* Soft Blue */
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    margin-bottom: 8px;
-}
-
-.rec-head__jp {
-    font-size: clamp(24px, 3.5vw, 32px);
-    font-weight: 700;
-    color: var(--rec-text-main);
-    letter-spacing: 0.05em;
-}
-
-/* ---------------------------------------------------------
-   MESSAGE SECTION (Rounded & Soft)
+   MESSAGE SECTION
 --------------------------------------------------------- */
 .rec-message {
-    background: #fff;
-    border-radius: 50px;
-    padding: 80px 40px;
-    margin: -60px auto 0;
-    width: 90%;
-    max-width: 1000px;
-    position: relative;
-    z-index: 10;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.03);
-    border: 1px solid #f0f4f8;
+    background-color: var(--rec-white);
+}
+
+/* ラベル装飾（擬似要素で配置） */
+.rec-message::after {
+    content: "MESSAGE";
+    position: absolute;
+    top: 100px;
+    left: 5%;
+    font-size: 100px;
+    font-weight: 900;
+    color: rgba(0, 0, 0, 0.02);
+    font-family: var(--font-en);
+    z-index: 0;
 }
 
 .rec-message__inner {
-    max-width: 700px;
-    margin: 0 auto;
-    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    /* スマホ対応 */
+    align-items: center;
+    gap: 60px;
+    position: relative;
+    z-index: 1;
+}
+
+.rec-message__image {
+    flex: 1;
+    min-width: 300px;
+    position: relative;
+}
+
+/* 写真をシャープに切り取る */
+.rec-message__image img {
+    width: 100%;
+    height: auto;
+    filter: grayscale(20%);
+    /* 少し彩度を落として落ち着かせる */
+    box-shadow: 20px 20px 0 var(--rec-gray-bg);
+    /* 背景色と同じ影でズラす */
+}
+
+.rec-message__body {
+    flex: 1;
+    min-width: 300px;
 }
 
 .rec-message__text {
     font-size: 16px;
-    line-height: 2.2;
+    line-height: 2;
     color: var(--rec-text-main);
-    margin-bottom: 24px;
+    margin-bottom: 30px;
+    text-align: justify;
 }
 
 /* ---------------------------------------------------------
-   BENEFITS (Soft Cards)
+   PHOTO GALLERY (Infinite Loop Slider)
+--------------------------------------------------------- */
+.rec-gallery {
+    width: 100%;
+    overflow: hidden;
+    /* はみ出し部分を隠す */
+    background-color: var(--rec-white);
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 0;
+    /* 余白なし */
+}
+
+/* スライドするトラック */
+.rec-gallery__track {
+    display: flex;
+    width: max-content;
+    /* 中身に合わせて幅を確保 */
+    /* 左へ流れ続けるアニメーション */
+    animation: loopSlide 40s linear infinite;
+}
+
+/* ホバー時に一時停止させたい場合は以下を追加 */
+.rec-gallery__track:hover {
+    animation-play-state: paused;
+}
+
+@keyframes loopSlide {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+
+    /* 2セットあるうちの1セット分移動したら戻る */
+}
+
+/* 個々の画像アイテム */
+.rec-gallery__item {
+    width: 25vw;
+    /* 画面幅の1/4サイズ */
+    min-width: 300px;
+    /* スマホでも小さくなりすぎないように */
+    height: 250px;
+    /* 高さを固定 */
+    flex-shrink: 0;
+    position: relative;
+    overflow: hidden;
+    border-right: 1px solid rgba(255, 255, 255, 0.5);
+    /* 画像同士の境界線 */
+}
+
+.rec-gallery__item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease, filter 0.5s ease;
+    filter: grayscale(100%);
+    /* デフォルトはモノクロ（プロ感） */
+}
+
+/* ホバー時のエフェクト */
+.rec-gallery__item:hover img {
+    transform: scale(1.1);
+    /* 拡大 */
+    filter: grayscale(0%);
+    /* カラーに戻す */
+}
+
+/* 青いフィルター（オーバーレイ） */
+.rec-gallery__item::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 91, 172, 0.3);
+    /* 薄い青 */
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+}
+
+.rec-gallery__item:hover::after {
+    opacity: 1;
+}
+
+/* モバイル調整 */
+@media (max-width: 768px) {
+    .rec-gallery__track {
+        animation-duration: 20s;
+        /* スマホでは少し速く感じるので調整 */
+    }
+
+    .rec-gallery__item {
+        width: 60vw;
+        /* スマホでは少し大きく見せる */
+        height: 200px;
+    }
+}
+
+/* ---------------------------------------------------------
+   BENEFITS SECTION (Box Layout)
 --------------------------------------------------------- */
 .rec-benefits {
-    background: var(--rec-bg-soft);
+    background-color: var(--rec-gray-bg);
 }
 
 .rec-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px;
 }
 
 .rec-card {
     background: #fff;
-    border-radius: 30px;
-    padding: 36px;
-    box-shadow: 0 8px 24px rgba(149, 157, 165, 0.05);
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-    border: 1px solid #fff;
+    padding: 0;
+    /* 影をなくしてフラットに */
+    box-shadow: none;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease;
 }
 
 .rec-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 16px 32px rgba(149, 157, 165, 0.1);
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
 }
 
-.rec-card__icon {
-    font-size: 40px;
-    margin-bottom: 20px;
-    background: #f0f9ff;
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    display: grid;
-    place-items: center;
-    color: #5a9bd5;
+.rec-card__img {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.rec-card__img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.rec-card:hover .rec-card__img img {
+    transform: scale(1.05);
 }
 
 .rec-card__title {
     font-size: 18px;
     font-weight: 700;
-    margin-bottom: 12px;
-    color: var(--rec-text-main);
+    color: var(--rec-blue-dark);
+    padding: 30px 30px 15px;
+    margin: 0;
+    position: relative;
+}
+
+/* タイトル下に短い線 */
+.rec-card__title::after {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 2px;
+    background: var(--rec-blue-bright);
+    margin-top: 10px;
 }
 
 .rec-card__text {
     font-size: 14px;
     line-height: 1.8;
-    color: var(--rec-text-light);
+    color: var(--rec-text-sub);
+    padding: 0 30px 40px;
+    margin: 0;
 }
 
 /* ---------------------------------------------------------
-   JOBS (Clean & Simple)
+   JOBS SECTION (Solid Accordion)
 --------------------------------------------------------- */
 .rec-jobs {
-    background: #fff;
+    background: var(--rec-white);
+}
+
+.rec-job-list {
+    border-top: 2px solid var(--rec-text-main);
+    /* 太い線で開始 */
 }
 
 .rec-job-item {
-    border-bottom: 1px solid #f0f0f0;
-    padding: 32px 0;
-    transition: background 0.3s;
-}
-
-.rec-job-item:hover {
-    background: #fafbfc;
+    border-bottom: 1px solid #e0e0e0;
 }
 
 .rec-job-head {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 30px 0;
     cursor: pointer;
-    gap: 16px;
+    list-style: none;
+    transition: background 0.3s;
+}
+
+.rec-job-head:hover .rec-job-title {
+    color: var(--rec-blue-primary);
+}
+
+.rec-job-head::-webkit-details-marker {
+    display: none;
 }
 
 .rec-job-title {
@@ -344,116 +539,231 @@ body {
     color: var(--rec-text-main);
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 20px;
+    transition: color 0.3s;
 }
 
 .rec-job-tag {
     font-size: 11px;
-    background: #e2e8f0;
-    color: #4a5568;
-    padding: 4px 10px;
-    border-radius: 20px;
+    color: var(--rec-blue-primary);
+    border: 1px solid var(--rec-blue-primary);
+    padding: 4px 12px;
     font-weight: 500;
+    letter-spacing: 0.05em;
 }
 
-.rec-job-arrow {
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    background: #f7fafc;
-    color: #a0aec0;
-    display: grid;
-    place-items: center;
-    font-size: 12px;
-    transition: all 0.3s;
+/* プラス・マイナスアイコン */
+.rec-job-toggle {
+    position: relative;
+    width: 24px;
+    height: 24px;
 }
 
-.rec-job-item:hover .rec-job-arrow {
-    background: #ebf8ff;
-    color: #4299e1;
+.rec-job-toggle::before,
+.rec-job-toggle::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--rec-text-main);
+    transition: transform 0.3s;
 }
 
-details[open] .rec-job-arrow {
+.rec-job-toggle::after {
     transform: rotate(90deg);
 }
 
-/* ---------------------------------------------------------
-   CTA (Soft Gradient)
---------------------------------------------------------- */
-.rec-cta {
-    background: var(--rec-gradient);
+details[open] .rec-job-toggle::after {
+    transform: rotate(0deg);
+    /* 開くとマイナスに */
+}
+
+/* アコーディオンの中身 */
+.rec-job-body {
+    padding-bottom: 40px;
+    animation: fadeIn 0.5s ease;
+}
+
+.rec-job__content {
+    display: grid;
+    grid-template-columns: 350px 1fr;
+    gap: 40px;
+    background: var(--rec-gray-bg);
+    /* 背景色をつけて区別 */
+    padding: 40px;
+}
+
+.rec-job__img img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.rec-job__desc p {
+    margin-bottom: 24px;
+}
+
+/* テーブル（ボーダーラインデザイン） */
+.info-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.info-table th {
+    width: 25%;
+    text-align: left;
+    font-weight: 700;
+    color: var(--rec-text-main);
+    padding: 12px 0;
+    border-bottom: 1px solid #dcdcdc;
+}
+
+.info-table td {
+    text-align: left;
+    color: var(--rec-text-sub);
+    padding: 12px 0;
+    border-bottom: 1px solid #dcdcdc;
+}
+
+.rec-job__btn-area {
+    margin-top: 30px;
+}
+
+/* 職種別応募ボタン */
+.btn--primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--rec-blue-primary);
     color: #fff;
-    text-align: center;
-    border-radius: 40px;
-    margin: 60px 20px;
-    padding: 80px 20px;
+    padding: 14px 40px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s;
+    border: 1px solid var(--rec-blue-primary);
+}
+
+.btn--primary:hover {
+    background: #fff;
+    color: var(--rec-blue-primary);
+}
+
+@media (max-width: 768px) {
+    .rec-job__content {
+        grid-template-columns: 1fr;
+        padding: 20px;
+    }
+
+    .rec-job-head {
+        padding: 20px 0;
+    }
+
+    .rec-job-title {
+        font-size: 16px;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+}
+
+/* ---------------------------------------------------------
+   CTA SECTION (Dark Blue)
+--------------------------------------------------------- */
+.rec-cta-section {
     position: relative;
-    overflow: hidden;
-    box-shadow: 0 20px 40px rgba(161, 196, 253, 0.2);
+    padding: 120px 0;
+    color: #fff;
+    background-color: var(--rec-blue-dark);
 }
 
-/* Soft gentle bubbles instead of rotating lines */
-.rec-cta::before,
-.rec-cta::after {
-    content: "";
+.rec-cta__bg {
     position: absolute;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.15);
+    inset: 0;
+    opacity: 0.2;
+    /* 背景画像を薄く */
 }
 
-.rec-cta::before {
-    width: 300px;
-    height: 300px;
-    top: -50px;
-    left: -50px;
+.rec-cta__bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%);
 }
 
-.rec-cta::after {
-    width: 200px;
-    height: 200px;
-    bottom: -20px;
-    right: -20px;
-}
-
-.rec-cta__content {
+.rec-cta {
     position: relative;
     z-index: 2;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .rec-cta__title {
-    font-size: clamp(28px, 4vw, 40px);
-    font-weight: 700;
-    margin-bottom: 20px;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    font-family: var(--font-en);
+    font-size: clamp(40px, 8vw, 64px);
+    font-weight: 900;
+    margin-bottom: 24px;
+    letter-spacing: 0.05em;
 }
 
-.rec-cta__btn {
-    display: inline-block;
+.rec-cta__text {
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 40px;
+    opacity: 0.8;
+}
+
+.rec-cta__actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+/* CTAボタン（白抜き） */
+.rec-cta__actions .rec-hero__btn {
+    border-color: #fff;
     background: #fff;
-    color: #5a9bd5;
-    padding: 18px 50px;
-    border-radius: 50px;
+    color: var(--rec-blue-dark);
+    min-width: 300px;
+}
+
+.rec-cta__actions .rec-hero__btn:hover {
+    background: transparent;
+    color: #fff;
+}
+
+.rec-cta__note {
+    font-size: 14px;
+    opacity: 0.7;
+}
+
+.rec-cta__note a {
+    color: #fff;
     font-size: 18px;
     font-weight: 700;
+    margin-left: 10px;
     text-decoration: none;
-    transition: transform 0.3s, box-shadow 0.3s;
-    margin-top: 24px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
 }
 
-.rec-cta__btn:hover {
-    transform: scale(1.05);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
-    color: #4a8bc5;
+/* マスコット（控えめに配置） */
+.rec-cta__mascot {
+    margin-top: 60px;
+    width: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0.8;
 }
 
 /* ---------------------------------------------------------
-   ANIMATION UTILS
+   ANIMATION
 --------------------------------------------------------- */
 [data-animate] {
     opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 1s ease, transform 1s ease;
+    transform: translateY(40px);
+    transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 [data-animate].in-view {
@@ -461,105 +771,499 @@ details[open] .rec-job-arrow {
     transform: translateY(0);
 }
 
+/* =========================================================
+   Fix: Heading & Job Toggle
+   見出しのアイコン削除とトグルの文字削除
+========================================================= */
+
 /* ---------------------------------------------------------
-   MASCOT CHARACTERS
+   Headings: Reset Common Decoration
+   main.cssで指定されているh2::before（旗アイコン）を消す
 --------------------------------------------------------- */
+.rec-head h2::before,
+.rec-head .rec-head__jp::before {
+    content: none !important;
+    display: none !important;
+}
 
-/* Hero Mascot */
-.rec-hero__mascot {
+/* ついでにh2自体の余白もリセットして、左ボーダーとの間隔を調整 */
+.rec-head h2,
+.rec-head .rec-head__jp {
+    margin-top: 0;
+    padding-left: 0;
+}
+
+/* ---------------------------------------------------------
+   Job Toggle: Remove Text
+   「開く」「閉じる」の文字を非表示にし、アイコンのみにする
+--------------------------------------------------------- */
+.rec-job-toggle .open,
+.rec-job-toggle .close {
+    display: none !important;
+}
+
+/* アイコン（＋／－）の位置微調整（必要であれば） */
+.rec-job-toggle {
+    /* アイコンが中央に来るように */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* =========================================================
+   CTA Section - "Dramatic Impact"
+   Concept: Deep Navy, Light Lines, Strong Message
+========================================================= */
+
+.rec-cta-section {
+    position: relative;
+    padding: 160px 0;
+    background-color: #00152e;
+    /* 非常に暗い紺色 */
+    overflow: hidden;
+    color: #fff;
+}
+
+/* 背景画像（暗く沈めて雰囲気を出す） */
+.rec-cta__bg {
     position: absolute;
-    bottom: 10%;
-    right: 10%;
-    width: clamp(150px, 20vw, 300px);
-    z-index: 4;
+    inset: 0;
+    z-index: 0;
+}
+
+.rec-cta__bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.3;
+    filter: grayscale(100%) contrast(1.2);
+    transform: scale(1.05);
+    transition: transform 10s ease;
+}
+
+/* ホバー時に背景がゆっくり動く */
+.rec-cta-section:hover .rec-cta__bg img {
+    transform: scale(1.0);
+}
+
+/* 背景の装飾（光のライン） */
+.rec-cta__lines {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
     pointer-events: none;
-    animation: mascotFloat 6s ease-in-out infinite;
-    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.1));
+    overflow: hidden;
 }
 
-.rec-hero__mascot img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-@keyframes mascotFloat {
-
-    0%,
-    100% {
-        transform: translateY(0) rotate(0deg);
-    }
-
-    50% {
-        transform: translateY(-20px) rotate(2deg);
-    }
-}
-
-/* Message Mascot (Peeking) */
-.rec-message__mascot {
+.rec-cta__lines span {
     position: absolute;
-    top: -60px;
-    right: 40px;
-    width: clamp(100px, 15vw, 180px);
-    z-index: 11;
-    transform: rotate(10deg);
-    filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.1));
+    background: linear-gradient(to bottom, transparent, rgba(42, 157, 244, 0.5), transparent);
+    width: 1px;
+    height: 100%;
+    top: 0;
+    opacity: 0.3;
 }
 
-.rec-message__mascot img {
-    width: 100%;
-    height: auto;
-    display: block;
+.rec-cta__lines span:nth-child(1) {
+    left: 20%;
+    animation: dropLine 7s infinite;
 }
 
-/* CTA Mascot */
-.rec-cta__mascot {
-    position: absolute;
-    bottom: 0;
-    left: 5%;
-    width: clamp(120px, 18vw, 220px);
-    z-index: 3;
-    transform-origin: bottom center;
-    animation: mascotWave 3s ease-in-out infinite;
+.rec-cta__lines span:nth-child(2) {
+    left: 50%;
+    animation: dropLine 10s infinite 2s;
 }
 
-.rec-cta__mascot img {
-    width: 100%;
-    height: auto;
-    display: block;
+.rec-cta__lines span:nth-child(3) {
+    left: 80%;
+    animation: dropLine 5s infinite 1s;
 }
 
-@keyframes mascotWave {
+@keyframes dropLine {
+    0% {
+        transform: translateY(-100%);
+    }
 
-    0%,
     100% {
-        transform: rotate(-5deg);
-    }
-
-    50% {
-        transform: rotate(5deg);
+        transform: translateY(100%);
     }
 }
 
-/* Responsive Adjustments for Mascots */
+/* コンテンツレイアウト */
+.rec-cta__inner {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 80px;
+    align-items: center;
+}
+
+/* --- 左側：メッセージエリア --- */
+.rec-cta__sub {
+    color: var(--rec-cyan);
+    font-family: var(--font-en);
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    margin-bottom: 20px;
+    align-items: center;
+    gap: 10px;
+}
+
+.rec-cta__sub::before {
+    content: "";
+    width: 40px;
+    height: 2px;
+    background: var(--rec-cyan);
+}
+
+.rec-cta__title {
+    margin-bottom: 30px;
+}
+
+.rec-cta__title .en {
+    display: block;
+    font-family: var(--font-en);
+    font-size: clamp(50px, 8vw, 80px);
+    font-weight: 900;
+    line-height: 0.9;
+    letter-spacing: 0.02em;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
+    /* 白抜き文字 */
+    margin-bottom: 10px;
+}
+
+.rec-cta__title .jp {
+    display: block;
+    font-size: clamp(24px, 4vw, 36px);
+    font-weight: 700;
+    line-height: 1.4;
+    background: linear-gradient(90deg, #fff, #bde0ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.rec-cta__text {
+    font-size: 16px;
+    line-height: 2;
+    color: rgba(255, 255, 255, 0.8);
+    border-left: 1px solid rgba(255, 255, 255, 0.3);
+    padding-left: 20px;
+}
+
+/* --- 右側：アクションエリア --- */
+.rec-cta__action {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    align-items: flex-start;
+    /* 左揃え */
+}
+
+/* 巨大なエントリーボタン */
+.rec-cta__btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    background: var(--rec-blue-primary);
+    /* ブランドカラー */
+    color: #fff;
+    padding: 30px 40px;
+    text-decoration: none;
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* ボタン背景のエフェクト */
+.rec-cta__btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: #fff;
+    /* ホバーで白く */
+    transition: width 0.4s ease;
+    z-index: 0;
+}
+
+.rec-cta__btn:hover {
+    transform: translateX(10px);
+    box-shadow: -10px 10px 30px rgba(0, 0, 0, 0.5);
+    border-color: #fff;
+}
+
+.rec-cta__btn:hover::before {
+    width: 100%;
+}
+
+/* ボタン内テキスト */
+.rec-cta__btn .btn-text {
+    font-family: var(--font-en);
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1;
+    position: relative;
+    z-index: 1;
+    transition: color 0.3s;
+}
+
+.rec-cta__btn .btn-sub {
+    font-size: 13px;
+    font-weight: 700;
+    margin-top: 5px;
+    opacity: 0.8;
+    position: relative;
+    z-index: 1;
+    transition: color 0.3s;
+}
+
+.rec-cta__btn .btn-icon {
+    position: absolute;
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px;
+    z-index: 1;
+    transition: all 0.3s;
+}
+
+/* ホバー時のテキスト色反転 */
+.rec-cta__btn:hover .btn-text,
+.rec-cta__btn:hover .btn-sub,
+.rec-cta__btn:hover .btn-icon {
+    color: var(--rec-blue-primary);
+}
+
+.rec-cta__btn:hover .btn-icon {
+    transform: translate(5px, -50%);
+}
+
+/* 電話番号情報 */
+.rec-cta__info {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.rec-cta__info .tel-link {
+    display: block;
+    font-family: var(--font-en);
+    font-size: 32px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.2;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.rec-cta__info .tel-link:hover {
+    color: var(--rec-cyan);
+}
+
+/* --- レスポンシブ調整 --- */
+@media (max-width: 900px) {
+    .rec-cta-section {
+        padding: 100px 0;
+    }
+
+    .rec-cta__inner {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+
+    .rec-cta__title .en {
+        font-size: 40px;
+    }
+
+    .rec-cta__action {
+        width: 100%;
+        align-items: stretch;
+        /* 横幅いっぱい */
+    }
+
+    .rec-cta__info {
+        text-align: center;
+    }
+}
+
+/* =========================================================
+   Fix: Remove H2 Flag Decoration
+   共通スタイルのH2フラグ（旗アイコン）を強制削除
+========================================================= */
+
+/* H2の擬似要素（::before）を非表示にする */
+.rec-section h2::before,
+.rec-head h2::before,
+.rec-head .rec-head__jp::before {
+    content: none !important;
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    background: none !important;
+}
+
+/* アイコン用に空いていた左側の余白を詰める */
+.rec-section h2,
+.rec-head h2,
+.rec-head .rec-head__jp {
+    padding-left: 0 !important;
+    margin-left: 0 !important;
+}
+
+/* =========================================================
+   IDEAL CANDIDATE SECTION
+   Design: Checklist Style, Numbered, Professional
+========================================================= */
+
+.rec-ideal {
+    background-color: var(--rec-gray-bg);
+}
+
+/* 導入文 */
+.rec-ideal__intro {
+    margin-bottom: 60px;
+    font-size: 16px;
+    line-height: 2;
+    color: var(--rec-text-main);
+    max-width: 800px;
+}
+
+/* グリッドレイアウト（既存のrec-gridを活用しつつ調整） */
+.rec-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+/* 求める人物像カード */
+.rec-ideal-card {
+    background: #fff;
+    padding: 40px 30px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.3s ease;
+    height: 100%;
+    /* 高さを揃える */
+}
+
+/* ホバーエフェクト */
+.rec-ideal-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 42, 92, 0.1);
+    border-color: var(--rec-blue-bright);
+}
+
+/* 背景の数字（装飾） */
+.rec-ideal-card__num {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    font-family: var(--font-en);
+    font-size: 100px;
+    font-weight: 900;
+    line-height: 1;
+    color: #f0f4f8;
+    /* 背景に馴染む薄い色 */
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* カードヘッダーエリア */
+.rec-ideal-card__head {
+    position: relative;
+    z-index: 1;
+    margin-bottom: 24px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid var(--rec-blue-primary);
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+/* チェックアイコン */
+.rec-ideal-card__head .check-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background: var(--rec-blue-bright);
+    color: #fff;
+    border-radius: 50%;
+    font-size: 18px;
+    flex-shrink: 0;
+    margin-top: 4px;
+    /* テキストとの位置合わせ */
+}
+
+/* 見出し */
+.rec-ideal-card__head h3 {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.5;
+    color: var(--rec-blue-dark);
+    margin: 0;
+}
+
+/* 本文 */
+.rec-ideal-card__text {
+    position: relative;
+    z-index: 1;
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--rec-text-sub);
+    margin: 0;
+}
+
+/* レスポンシブ調整 */
 @media (max-width: 768px) {
-    .rec-hero__mascot {
-        right: 5%;
-        bottom: 15%;
-        opacity: 0.8;
+    .rec-grid {
+        grid-template-columns: 1fr;
+        /* スマホは1列 */
+        gap: 20px;
     }
 
-    .rec-message__mascot {
-        top: -50px;
-        right: 20px;
-        width: 100px;
+    .rec-ideal-card {
+        padding: 30px 20px;
     }
 
-    .rec-cta__mascot {
-        left: 50%;
-        transform: translateX(-50%);
-        bottom: -30px;
-        width: 150px;
-        /* Keep mascot visible but reposition for better mobile layout */
+    .rec-ideal-card__num {
+        font-size: 80px;
     }
+}
+
+/* =========================================================
+   Fix: Remove Grayscale Filter
+   画像のモノクロ化を解除
+========================================================= */
+
+/* HEROセクションの背景画像 */
+.rec-hero__bg img {
+    filter: none !important;
+    /* grayscale(100%) を打ち消す */
+    opacity: 0.8;
+    /* 少し明るく調整（任意） */
+}
+
+/* MESSAGEセクションの画像 */
+.rec-message__image img {
+    filter: none !important;
+}
+
+/* PHOTO GALLERY（スライダー）の画像 */
+.rec-gallery__item img {
+    filter: none !important;
+}
+
+/* CTAセクションの背景画像 */
+.rec-cta__bg img {
+    filter: none !important;
+    opacity: 0.4;
+    /* 背景として適切な明るさに調整 */
 }
