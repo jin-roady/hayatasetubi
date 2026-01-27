@@ -1159,155 +1159,6 @@ h2[id^="sec-"]::after {
 }
 
 /* =========================================================
-   Recruit Banner - Match Top Page Design
-   トップページと同じ「全画面背景」デザインを適用
-========================================================= */
-
-/* --- 1. コンテナ設定（背景を透明にして疑似要素に任せる） --- */
-.cta-band--company {
-  width: 100%;
-  padding: 60px 0 !important;
-
-  /* 既存の枠線や背景をリセット */
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
-  border-radius: 0 !important;
-
-  position: relative;
-  overflow: visible !important;
-  /* 画面外へ背景を伸ばすため */
-
-  /* レイアウト調整 */
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 40px;
-}
-
-/* --- 2. 全画面背景（Topページと同じ仕様） --- */
-.cta-band--company::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-
-  /* 画面中央を基準に左右いっぱいに広げる */
-  left: 50%;
-  width: 100vw;
-  transform: translateX(-50%);
-
-  z-index: -1;
-
-  /* 鮮やかな青＋ストライプ */
-  background: linear-gradient(135deg, #1e88ff 0%, #40c9ff 100%);
-  background-image:
-    repeating-linear-gradient(45deg,
-      rgba(255, 255, 255, 0.1),
-      rgba(255, 255, 255, 0.1) 10px,
-      transparent 10px,
-      transparent 20px),
-    linear-gradient(135deg, #1e88ff 0%, #40c9ff 100%);
-
-  box-shadow: 0 10px 40px rgba(30, 136, 255, 0.2);
-}
-
-/* --- 3. テキストカラー（白抜き） --- */
-.cta-band__body h2 {
-  color: #fff !important;
-  font-size: clamp(32px, 5vw, 48px);
-  text-shadow: 2px 2px 0 #0e255a;
-  /* 文字をくっきりさせる影 */
-  margin-bottom: 16px;
-}
-
-.cta-band__body .note {
-  color: #e0f2ff !important;
-  font-weight: 700;
-  margin-bottom: 32px;
-}
-
-/* ラベル（ステッカー風） */
-.cta-band__body .sec-head__label {
-  background: #fff;
-  color: #1e88ff;
-  border: none;
-  border-radius: 4px 12px 4px 12px;
-  transform: rotate(-3deg);
-  box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px;
-}
-
-/* --- 4. 黄色いボタン（ビタミンカラー） --- */
-.cta-band__body .btn--primary {
-  background: #ffcc00 !important;
-  color: #0e255a !important;
-  border: 3px solid #fff !important;
-  box-shadow: 0 6px 0 #d4a000 !important;
-
-  padding: 18px 60px !important;
-  border-radius: 50px !important;
-  font-size: 20px !important;
-  width: auto !important;
-
-  /* 鼓動アニメーション */
-  animation: pulse-btn 2s infinite;
-}
-
-.cta-band__body .btn--primary:hover {
-  background: #ffdb4d !important;
-  transform: translateY(4px) !important;
-  box-shadow: 0 2px 0 #d4a000 !important;
-  color: #0e255a !important;
-  opacity: 1;
-}
-
-@keyframes pulse-btn {
-  0% {
-    transform: scale(1);
-  }
-
-  50% {
-    transform: scale(1.05);
-  }
-
-  100% {
-    transform: scale(1);
-  }
-}
-
-/* --- 5. 画像（ポラロイド風） --- */
-.cta-band--company .ph {
-  transform: rotate(3deg);
-  border: 8px solid #fff;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-  border-radius: 2px !important;
-  /* 角を少し鋭く */
-  background: #fff;
-  overflow: visible;
-}
-
-/* モバイル対応 */
-@media (max-width: 900px) {
-  .cta-band--company {
-    flex-direction: column-reverse;
-    text-align: center;
-    padding: 40px 0 !important;
-  }
-
-  .cta-band__body .btn--primary {
-    width: 100% !important;
-    padding: 16px !important;
-  }
-
-  .cta-band--company .ph {
-    width: 80%;
-    margin-bottom: 20px;
-    transform: rotate(-2deg);
-  }
-}
-
-/* =========================================================
    Mobile Fix: Wavy Line Width
    スマホ表示時の波線の幅と高さを修正
 ========================================================= */
@@ -1378,4 +1229,250 @@ h2[id^="sec-"]::after {
     top: 28px !important;
     border-width: 6px 8px 6px 0 !important;
   }
+}
+
+/* =========================================================
+   Greeting Panel Fix (代表画像削除対応)
+   画像前提のスタイルを無効化し、本文1カラムに最適化
+========================================================= */
+
+/* 代表挨拶セクションは画像が無い前提なので、レイアウトを1カラムに */
+.page-company #sec-greeting,
+.page-company [aria-labelledby="sec-greeting"] {
+  /* 必要ならここでセクション単位の微調整も可能 */
+}
+
+/* 画像枠のポラロイド装飾は不要（画像が無いので） */
+.page-company [aria-labelledby="sec-greeting"] .section__image,
+.page-company [aria-labelledby="sec-greeting"] .section__image.ph {
+  display: none !important;
+}
+
+/* 画像がなくなったので hover 時の画像変形も不要 */
+.page-company [aria-labelledby="sec-greeting"] .section__inner:hover .section__image.ph {
+  transform: none !important;
+}
+
+/* 画像がある前提の並び替え・reverse を無効化して自然な1カラムへ */
+.page-company [aria-labelledby="sec-greeting"] .section__inner,
+.page-company [aria-labelledby="sec-greeting"] .section__inner--reverse {
+  grid-template-columns: 1fr !important;
+  /* grid想定でも1カラム化 */
+  display: block;
+  /* flex/gridどちらでも崩れないよう保険 */
+}
+
+/* 本文ブロックの幅を読みやすく（広がりすぎ防止） */
+.page-company [aria-labelledby="sec-greeting"] .section__body {
+  max-width: 880px;
+  margin-inline: auto;
+}
+
+/* 代表挨拶のテキスト余白を少し整える */
+.page-company [aria-labelledby="sec-greeting"] .section__text {
+  margin-top: 6px;
+}
+
+/* 署名（代表取締役〜）はそのまま右寄せでOK、少しだけ整える */
+.page-company [aria-labelledby="sec-greeting"] .section__sign {
+  display: block;
+  margin-top: 1.6em;
+}
+
+/* 既存CSSに「.section__image { order:-1 }」があるので、代表挨拶では無効化 */
+@media (max-width: 900px) {
+  .page-company [aria-labelledby="sec-greeting"] .section__image {
+    order: initial !important;
+  }
+}
+
+/* ※もし .section__inner--reverse が他セクションでも使われていて影響が出る場合、
+   代表挨拶HTMLから section__inner--reverse を外すのが最も確実です。 */
+
+/* =========================================================
+   Greeting Section Balance Fix（代表画像削除後の最適化）
+   対象：aria-labelledby="sec-greeting" のセクションのみ
+========================================================= */
+.page-company [aria-labelledby="sec-greeting"] .section__inner {
+  /* 余白のバランスを整える */
+  padding: clamp(26px, 4vw, 44px);
+}
+
+/* 本文幅：広がりすぎると読みにくいので“文章の幅”を制御 */
+.page-company [aria-labelledby="sec-greeting"] .section__body {
+  max-width: 920px;
+  margin-inline: auto;
+}
+
+.page-company [aria-labelledby="sec-greeting"] .section__text {
+  max-width: 72ch;
+  /* 読みやすい文字幅 */
+  font-size: 15px;
+  /* 14pxより少し上げて読みやすく */
+  line-height: 2.0;
+}
+
+/* ---------------------------
+   見出しブロックの整形
+--------------------------- */
+.page-company [aria-labelledby="sec-greeting"] .sec-head {
+  display: grid;
+  gap: 14px;
+  margin-bottom: 22px;
+}
+
+/* MESSAGEラベル：横長すぎるのを解消して“タグ感”に */
+.page-company [aria-labelledby="sec-greeting"] .sec-head__label {
+  width: fit-content;
+  max-width: 100%;
+  padding: 6px 16px;
+  border-radius: 999px;
+  letter-spacing: .14em;
+  box-shadow: 3px 3px 0 #bce0fd;
+}
+
+/* タイトル：余計な“長い波線”にならないよう幅を制御 */
+.page-company [aria-labelledby="sec-greeting"] .sec-head__title {
+  display: inline-block;
+  margin: 0;
+  padding-bottom: 10px;
+  /* 波線との距離 */
+}
+
+/* 波線：文字幅に対して長すぎるので上限を設ける */
+.page-company [aria-labelledby="sec-greeting"] .sec-head__title::after {
+  width: min(680px, 100%) !important;
+  /* ← ここが効きます */
+  height: 6px !important;
+  bottom: -10px !important;
+  opacity: .55 !important;
+}
+
+/* ---------------------------
+   段落の余白：詰まりすぎ/空きすぎを均一に
+--------------------------- */
+.page-company [aria-labelledby="sec-greeting"] .section__text p {
+  margin: 0;
+}
+
+.page-company [aria-labelledby="sec-greeting"] .section__text p+p {
+  margin-top: 1.1em;
+}
+
+/* ---------------------------
+   署名：黄色の帯が太すぎるので“細い下線ハイライト”に変更
+--------------------------- */
+.page-company [aria-labelledby="sec-greeting"] .section__sign {
+  margin-top: 1.8em;
+  text-align: right;
+  font-weight: 800;
+  font-size: 16px;
+
+  /* 既存の太い黄色帯を無効化（強制） */
+  background: none !important;
+  padding: 0 !important;
+  display: inline-block;
+  /* 署名文字の幅だけにする */
+  position: relative;
+}
+
+/* 署名の下に“細い黄色のマーカー”を入れる（上品） */
+.page-company [aria-labelledby="sec-greeting"] .section__sign::after {
+  content: "";
+  position: absolute;
+  left: -10px;
+  right: -10px;
+  bottom: -6px;
+  height: 10px;
+  background: rgba(255, 240, 70, 0.7);
+  border-radius: 6px;
+  z-index: -1;
+}
+
+/* モバイル時：横幅が狭いので本文幅制御を解除気味に */
+@media (max-width: 768px) {
+  .page-company [aria-labelledby="sec-greeting"] .section__text {
+    max-width: 100%;
+    font-size: 14px;
+  }
+
+  .page-company [aria-labelledby="sec-greeting"] .sec-head__title::after {
+    width: 100% !important;
+  }
+}
+
+/* =========================================================
+   Global Tag Style (sec-head__label)
+   全ページ共通の「タグ（MESSAGE / ABOUT / HISTORY…）」統一仕様
+========================================================= */
+
+.sec-head__label {
+  /* タグとしての最適サイズ */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  max-width: 100%;
+
+  padding: 6px 16px;
+  border-radius: 999px;
+
+  /* 見た目（ポップだけど品良く） */
+  background: #fff;
+  color: #1e88ff;
+  border: 2px solid #1e88ff;
+
+  font-weight: 900;
+  font-size: 12px;
+  letter-spacing: .14em;
+
+  /* “ステッカー感”の影（強すぎない） */
+  box-shadow: 3px 3px 0 #bce0fd;
+
+  /* 余白の統一 */
+  margin: 0 0 12px 0;
+
+  /* 行が折り返されても形が崩れにくい */
+  line-height: 1.1;
+  white-space: nowrap;
+}
+
+/* タグが長い文言になるケースの保険（折り返し許可版）
+   ※必要なら class="sec-head__label is-wrap" を付けて使う */
+.sec-head__label.is-wrap {
+  white-space: normal;
+  text-align: center;
+}
+
+/* モバイル：少しだけ詰めて見やすく */
+@media (max-width: 768px) {
+  .sec-head__label {
+    padding: 6px 14px;
+    font-size: 11px;
+    letter-spacing: .12em;
+    box-shadow: 2px 2px 0 #bce0fd;
+  }
+}
+
+/* =========================================================
+   Remove Wavy Line Decoration from All Headings
+   すべての見出しから波線装飾を削除
+========================================================= */
+
+/* すべてのh2見出しの波線を無効化 */
+h2::after,
+h2[id^="sec-"]::after,
+.sec-head__title::after,
+.page-company h2::after,
+.page-company .sec-head__title::after {
+  display: none !important;
+}
+
+/* 波線用の余白をリセット */
+h2,
+h2[id^="sec-"],
+.sec-head__title,
+.page-company h2,
+.page-company .sec-head__title {
+  padding-bottom: 0 !important;
 }

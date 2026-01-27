@@ -494,62 +494,6 @@
     }
 }
 
-/* ---------------------------------------------------------
-   Recruit Banner - Vibrant Gradient
---------------------------------------------------------- */
-.cta-band--company {
-    background: linear-gradient(120deg, #1e88ff 0%, #60aeff 50%, #2a9df4 100%);
-    border: none;
-    color: #fff;
-    position: relative;
-    overflow: hidden;
-    padding: 40px;
-}
-
-/* 光の反射エフェクト */
-.cta-band--company::after {
-    content: "";
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 60%);
-    animation: float 10s infinite alternate;
-}
-
-.cta-band__body {
-    position: relative;
-    z-index: 2;
-}
-
-.cta-band__body h2,
-.cta-band__body .note {
-    color: #fff;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.cta-band__body h2 {
-    font-size: 28px;
-}
-
-.cta-band__body .sec-head__label {
-    background: #fff;
-    color: #1e88ff;
-    border: none;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-.cta-band__body .btn--primary {
-    background: #fff;
-    color: #1e88ff;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-}
-
-.cta-band__body .btn--primary:hover {
-    background: #f0f7ff;
-    transform: translateY(-2px);
-}
 
 /* ---------------------------------------------------------
    News Section - Card Style
@@ -735,26 +679,7 @@
     }
 }
 
-/* --- Wave Separator --- */
-.wave-separator {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    overflow: hidden;
-    line-height: 0;
-    z-index: 2;
-}
 
-.wave-separator svg {
-    position: relative;
-    display: block;
-    width: calc(100% + 1.3px);
-    height: 60px;
-    /* 波の高さ調整 */
-}
-
-/* Servicesセクションの上部などに適用する場合、transform: rotate(180deg) で反転させる */
 
 /* --- 3D Hover Effect --- */
 .svc-horizontal-card {
@@ -1279,53 +1204,4 @@
         /* 全体のぼんやりした光 */
         0 0 60px rgba(255, 255, 255, 0.5) !important;
     /* 背景に馴染ませる光 */
-}
-
-/* =========================================================
-   Recruit Button - Unification
-   採用ボタンを全体の「ポップスタイル」に統一
-========================================================= */
-
-.cta-band__body .btn--primary {
-    /* 他のボタン(Aboutなど)と全く同じスタイル定義 */
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 16px;
-    padding: 16px 48px;
-    /* 大きめのパディング */
-
-    background: #fff !important;
-    /* 白背景 */
-    color: #1e88ff !important;
-    /* 青文字 */
-    border: 3px solid #1e88ff !important;
-    /* 青い太枠 */
-    border-radius: 50px;
-    /* 丸いカプセル型 */
-
-    /* 共通のポップな影（水色） */
-    box-shadow: 4px 4px 0 #bce0fd !important;
-
-    /* 以前の黄色ボタンなどの設定をリセット */
-    animation: none !important;
-    width: auto !important;
-    font-size: 18px !important;
-    font-weight: 900 !important;
-
-    transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-/* ホバー時の挙動：青く反転して沈む（共通の動き） */
-.cta-band__body .btn--primary:hover {
-    background: #1e88ff !important;
-    /* 青背景 */
-    color: #fff !important;
-    /* 白文字 */
-    box-shadow: 0 0 0 #bce0fd !important;
-    /* 影を消す */
-    transform: translate(4px, 4px) !important;
-    /* その分沈む */
-    opacity: 1;
-    text-decoration: none;
 }

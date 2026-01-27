@@ -65,8 +65,12 @@
     <section class="section section--panel" aria-labelledby="sec-private">
       <div class="container">
 
-        <h2 id="sec-private">個人のお客さま</h2>
-        <p class="sub">一般戸建住宅・集合住宅など</p>
+        <div class="sec-head sec-head--row">
+          <div>
+            <h2 id="sec-private" class="sec-head__title">個人のお客さま</h2>
+            <p class="sub">一般戸建住宅・集合住宅など</p>
+          </div>
+        </div>
 
         <!-- 説明 + 画像ブロック（2カラム） -->
         <div class="section__inner fade-scale">
@@ -212,13 +216,25 @@
     <!-- ===== 法人・公共 ===== -->
     <section class="section section--alt" aria-labelledby="sec-corporate" id="hojin">
       <div class="container">
-        <h2 id="sec-corporate">法人のお客さま・公共工事</h2>
-        <p class="sub">工場・店舗・学校・医療施設・庁舎など</p>
+        <div class="sec-head sec-head--row">
+          <div>
+            <h2 id="sec-corporate" class="sec-head__title">法人のお客さま・公共工事</h2>
+            <p class="sub">工場・店舗・学校・医療施設・庁舎など</p>
+          </div>
+        </div>
 
         <div class="grid-2 fade-right">
           <div>
-            <h3>各種施設の設備工事も実績豊富</h3>
-            <p>給排水衛生設備・空調換気・上下水道工事の設計・施工・更新・保守に対応。高所・広い空間での施工、夜間・短工期での切替作業などもご相談ください。</p>
+            <h3>各種施設の設備工事も、豊富な実績と確かな対応力でサポートします。</h3>
+            <p>給排水衛生設備・空調換気設備・上下水道工事について、設計・施工から更新・保守まで一貫対応。<br>
+              学校・病院・福祉施設・商業施設・工場など、用途や規模を問わず幅広い施設での施工実績があります。<br>
+              <br>
+              高所作業や天井高のある大空間、既存設備を稼働させたままの更新工事、<br>
+              短工期での切替作業など、制約の多い工事にも柔軟に対応可能です。<br>
+              <br>
+              「この条件でもできるだろうか?」といった段階でも構いません。<br>
+              現地状況を踏まえた最適な工法・工程をご提案いたしますので、まずはお気軽にご相談ください。
+            </p>
           </div>
           <div class="ph">
             <img src="assets/images/facility_01.png" alt="施設の空調・衛生設備工事の様子" loading="lazy">
@@ -293,15 +309,26 @@
             </div>
           </li>
         </ol>
+      </div>
+    </section>
 
-        <div class="cta-band">
-          <div>
-            <h3>設備工事のご相談・お見積り</h3>
-            <p class="note">要件や図面・仕様があれば、スムーズにご提案可能です。</p>
-            <a class="btn" href="contact.html">お問い合わせ</a>
+    <!-- ===== 設備工事のご相談・ご依頼 ===== -->
+    <section class="section section--cta fade-up">
+      <div class="container">
+        <div class="cta-band cta-band--works">
+          <div class="cta-band__body">
+            <h2>設備工事のご相談・ご依頼</h2>
+            <p class="note">
+              図面や既存設備の状況がわからない場合でも大丈夫です。<br>
+              現地調査から最適な工事プランのご提案まで、一貫してサポートいたします。
+            </p>
+            <div class="cta-band__actions">
+              <a class="btn btn--primary" href="contact.html">お問い合わせフォームへ</a>
+              <a class="btn ghost" href="tel:0858227571">お電話で相談する</a>
+            </div>
           </div>
-          <div class="ph is-16x9">
-            <img src="assets/images/drawing_site_01.png" alt="図面と現場のイメージ" loading="lazy">
+          <div class="ph is-4x3">
+            <img src="assets/images/drawing_site_01.png" alt="現場・図面のイメージ" loading="lazy">
           </div>
         </div>
       </div>
@@ -310,10 +337,14 @@
     <!-- ===== 施工実績 ===== -->
     <section id="works" class="section section--soft">
       <div class="container">
-        <h2 id="sec-works">施工実績</h2>
-        <p class="sub">
-          住宅・店舗から公共施設まで、主な施工事例の一部をご紹介します。
-        </p>
+        <div class="sec-head sec-head--row">
+          <div>
+            <h2 id="sec-works" class="sec-head__title">施工実績</h2>
+            <p class="sub">
+              住宅・店舗から公共施設まで、主な施工事例の一部をご紹介します。
+            </p>
+          </div>
+        </div>
 
         <div class="works-slider swiper fade-scale">
           <div class="swiper-wrapper">
@@ -341,15 +372,15 @@
                 <p class="meta">所在地：倉吉市</p>
               </article>
             </div>
-            <div class="swiper-slide">
+            <!-- <div class="swiper-slide">
               <article class="card">
                 <div class="thumb"><img src="assets/images/works/work4.jpg" alt="工場配管工事"></div>
                 <time class="meta" datetime="2025-03-02">2025.03.02</time>
                 <h3>工場｜給排水配管増設</h3>
                 <p class="meta">所在地：○○市 / 工期：5日 / 夜間切替</p>
               </article>
-            </div>
-            <div class="swiper-slide">
+            </div> -->
+            <!-- <div class="swiper-slide">
               <article class="card">
                 <div class="thumb"><img src="assets/images/works/work5.jpg" alt="集合住宅リフォーム"></div>
                 <time class="meta" datetime="2025-02-15">2025.02.15</time>
@@ -357,7 +388,7 @@
                 <p class="meta">所在地：○○市 / 工期：7日 / 住みながら工事</p>
               </article>
             </div>
-            <div class="swiper-slide">
+            <!-- <div class="swiper-slide">
               <article class="card">
                 <div class="thumb"><img src="assets/images/works/work6.jpg" alt="公共施設空調換気"></div>
                 <time class="meta" datetime="2025-01-22">2025.01.22</time>
@@ -368,25 +399,29 @@
           </div>
 
           <!-- 矢印 -->
-          <div class="swiper-button-prev"></div>
-          <div class="swiper-button-next"></div>
-          <!-- ドット -->
-          <div class="swiper-pagination"></div>
-        </div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+            <!-- ドット -->
+            <div class="swiper-pagination"></div>
+          </div>
 
-        <div class="btn-row">
-          <a class="btn ghost" href="portfolio.html">施工実績一覧を見る</a>
+          <div class="btn-row">
+            <a class="btn ghost" href="portfolio.html">施工実績一覧を見る</a>
+          </div>
         </div>
-      </div>
     </section>
 
     <!-- ===== 施工の流れ ===== -->
     <section id="flow" class="section section--panel">
       <div class="container container--narrow">
-        <h2 id="sec-flow">施工の流れ</h2>
-        <p class="sub">
-          お問い合わせからお引き渡しまでの一般的な流れです。
-        </p>
+        <div class="sec-head sec-head--row">
+          <div>
+            <h2 id="sec-flow" class="sec-head__title">施工の流れ</h2>
+            <p class="sub">
+              お問い合わせからお引き渡しまでの一般的な流れです。
+            </p>
+          </div>
+        </div>
         <ol class="flow-steps fade-up">
           <li class="flow-step">
             <div class="flow-step__number">1</div>

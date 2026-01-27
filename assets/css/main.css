@@ -4056,3 +4056,1646 @@ body {
   /* 横方向のはみ出しを隠す */
   width: 100%;
 }
+
+/* =========================================================
+   Recruit CTA (統一デザイン版)
+   対象: .section--cta 内の .cta-band--company のみ
+   ※このブロックはCSSの最下部に置く
+========================================================= */
+
+/* セクション全体：余白と区切りを他セクションに合わせる */
+.page-company .section--cta,
+.page-service .section--cta,
+.page-portfolio .section--cta,
+.page-sub .section--cta {
+  padding-block: clamp(56px, 7vw, 88px);
+}
+
+/* CTA本体：レイアウトはそのまま、背景は全幅に */
+.section--cta .cta-band--company {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: clamp(18px, 3vw, 34px);
+  align-items: center;
+
+  /* 他と同じ“カード感” */
+  padding: clamp(22px, 3.6vw, 34px);
+  border-radius: 22px;
+  box-shadow: var(--shadow-2);
+  border: 1px solid rgba(30, 136, 255, .14);
+
+  /* 本体は透明（背景は::beforeで全幅） */
+  background: transparent !important;
+  overflow: visible !important;
+}
+
+/* 全幅背景：派手すぎない統一グラデ（青系） */
+.section--cta .cta-band--company::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  /* 画面いっぱいに伸ばす */
+  left: 50%;
+  width: 100vw;
+  transform: translateX(-50%);
+
+  /* “他要素と同じ青トーン”に寄せる */
+  background:
+    radial-gradient(900px 380px at 10% 20%, rgba(255, 255, 255, .35), transparent 60%),
+    radial-gradient(700px 320px at 80% 70%, rgba(255, 255, 255, .18), transparent 60%),
+    linear-gradient(135deg, rgba(42, 157, 244, .92) 0%, rgba(15, 63, 255, .92) 100%);
+  z-index: -1;
+
+  /* 少しだけ立体感 */
+  box-shadow: 0 16px 50px rgba(30, 136, 255, .18);
+}
+
+/* ラベル：他セクションのタグと同じ仕様（白ラベルに統一） */
+.section--cta .cta-band__body .sec-head__label {
+  display: inline-flex;
+  width: fit-content;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .95);
+  border: 2px solid rgba(255, 255, 255, .9);
+  color: #1349a6;
+  font-weight: 900;
+  letter-spacing: .14em;
+  box-shadow: 3px 3px 0 rgba(0, 0, 0, .10);
+  margin-bottom: 14px;
+}
+
+/* 見出し：他ページのh2設計に寄せる（白 + 影控えめ） */
+.section--cta .cta-band__body h2 {
+  margin: 0 0 10px;
+  color: #fff;
+  font-weight: 900;
+  font-size: clamp(28px, 4vw, 40px);
+  letter-spacing: .04em;
+  line-height: 1.2;
+  text-shadow: 0 10px 28px rgba(0, 0, 0, .18);
+}
+
+/* 説明文：白に寄せつつ可読性 */
+.section--cta .cta-band__body .note {
+  margin: 0 0 18px;
+  color: rgba(255, 255, 255, .92);
+  font-weight: 700;
+  line-height: 1.85;
+  max-width: 54ch;
+}
+
+/* ボタン：サイト共通の btn--primary に合わせる（黄色は撤退） */
+.section--cta .cta-band__body .btn--primary {
+  background: linear-gradient(135deg, #ffffff 0%, #f2f7ff 100%) !important;
+  color: #1349a6 !important;
+  border: 2px solid rgba(255, 255, 255, .9) !important;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, .14) !important;
+  animation: none !important;
+}
+
+.section--cta .cta-band__body .btn--primary:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.02);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, .18) !important;
+}
+
+/* 画像：統一の .ph 枠に合わせる（回転・ポラロイド・インラインを無効） */
+.section--cta .cta-band--company .ph {
+  transform: none !important;
+  border-radius: 18px !important;
+  overflow: hidden !important;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, .16);
+  border: 1px solid rgba(255, 255, 255, .35);
+  background: rgba(255, 255, 255, .15);
+}
+
+.section--cta .cta-band--company .ph img {
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* レスポンシブ：他セクションと同じ積み方 */
+@media (max-width: 900px) {
+  .section--cta .cta-band--company {
+    grid-template-columns: 1fr;
+    text-align: left;
+  }
+
+  .section--cta .cta-band--company .ph {
+    order: -1;
+    max-width: 520px;
+    margin-inline: auto;
+  }
+
+  .section--cta .cta-band__body .btn--primary {
+    width: 100%;
+  }
+}
+
+/* 横スクロール保険（100vw背景用） */
+html,
+body {
+  overflow-x: hidden;
+}
+
+/* =========================================================
+   Recruit Button - Unification
+   採用ボタンを全体の「ポップスタイル」に統一
+========================================================= */
+
+.cta-band__body .btn--primary {
+  /* 他のボタン(Aboutなど)と全く同じスタイル定義 */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 16px 48px;
+  /* 大きめのパディング */
+
+  background: #fff !important;
+  /* 白背景 */
+  color: #1e88ff !important;
+  /* 青文字 */
+  border: 3px solid #1e88ff !important;
+  /* 青い太枠 */
+  border-radius: 50px;
+  /* 丸いカプセル型 */
+
+  /* 共通のポップな影（水色） */
+  box-shadow: 4px 4px 0 #bce0fd !important;
+
+  /* 以前の黄色ボタンなどの設定をリセット */
+  animation: none !important;
+  width: auto !important;
+  font-size: 18px !important;
+  font-weight: 900 !important;
+
+  transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* ホバー時の挙動：青く反転して沈む（共通の動き） */
+.cta-band__body .btn--primary:hover {
+  background: #1e88ff !important;
+  /* 青背景 */
+  color: #fff !important;
+  /* 白文字 */
+  box-shadow: 0 0 0 #bce0fd !important;
+  /* 影を消す */
+  transform: translate(4px, 4px) !important;
+  /* その分沈む */
+  opacity: 1;
+  text-decoration: none;
+}
+
+/* =========================================================
+   Recruit Banner Layout (match screenshot)
+   対象：.section--cta 内の .cta-band--company
+========================================================= */
+
+/* セクション自体は背景を持たせない（中のctaで全幅背景を作る） */
+.page-company .section--cta {
+  padding-block: clamp(56px, 7vw, 92px);
+}
+
+/* 2カラム本体 */
+.page-company .section--cta .cta-band--company {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  align-items: center;
+  gap: clamp(28px, 4vw, 56px);
+
+  /* 中身の余白（コンテナ内で整える） */
+  padding: clamp(34px, 5vw, 56px);
+  border-radius: 28px;
+
+  /* 文字が載るので前面にする */
+  z-index: 1;
+  overflow: hidden;
+}
+
+/* 全幅グラデ背景（スクショの雰囲気） */
+.page-company .section--cta .cta-band--company::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  left: 50%;
+  width: 100vw;
+  transform: translateX(-50%);
+  z-index: -1;
+
+  background: linear-gradient(135deg, #8cc6ff 0%, #2f66ff 55%, #1140ff 100%);
+}
+
+/* 左カラム：文字色を白に */
+.page-company .section--cta .cta-band__body {
+  color: #fff;
+  max-width: 520px;
+}
+
+/* RECRUITピル（小ラベル） */
+.page-company .section--cta .cta-band__body .sec-head__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 10px 18px;
+  border-radius: 999px;
+
+  background: rgba(255, 255, 255, 0.92);
+  color: #1140ff;
+  border: 1px solid rgba(255, 255, 255, 0.85);
+
+  font-weight: 900;
+  letter-spacing: .14em;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.14);
+  margin: 0 0 18px;
+}
+
+/* 左の小ドット */
+.page-company .section--cta .cta-band__body .sec-head__label::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: radial-gradient(circle at 30% 30%, #fff 0%, #6aa6ff 35%, #1140ff 100%);
+  box-shadow: 0 4px 14px rgba(17, 64, 255, .35);
+}
+
+/* 見出し（大きく・太く） */
+.page-company .section--cta .cta-band__body h2 {
+  margin: 0 0 14px;
+  font-size: clamp(36px, 5vw, 56px);
+  font-weight: 900;
+  letter-spacing: .06em;
+  line-height: 1.15;
+  text-shadow: 0 18px 40px rgba(0, 0, 0, .18);
+}
+
+/* 説明文（白寄り） */
+.page-company .section--cta .cta-band__body .note {
+  margin: 0 0 26px;
+  color: rgba(255, 255, 255, 0.92);
+  font-weight: 700;
+  line-height: 1.9;
+  font-size: 16px;
+  max-width: 46ch;
+}
+
+/* CTAボタン（白カプセル） */
+.page-company .section--cta .cta-band__body .btn--primary {
+  background: #fff !important;
+  color: #1140ff !important;
+  border: 0 !important;
+  box-shadow: 0 18px 44px rgba(0, 0, 0, .18) !important;
+
+  height: 64px;
+  padding: 0 42px;
+  border-radius: 999px;
+  font-size: 18px;
+  font-weight: 900;
+  animation: none !important;
+}
+
+.page-company .section--cta .cta-band__body .btn--primary:hover {
+  transform: translateY(-1px);
+  filter: brightness(0.98);
+}
+
+/* 右の写真カード（角丸＋影） */
+.page-company .section--cta .cta-band--company .ph {
+  border-radius: 26px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, .18);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.22);
+  border: 1px solid rgba(255, 255, 255, .28);
+
+  /* スクショのサイズ感に寄せる */
+  max-width: 720px;
+  justify-self: end;
+}
+
+.page-company .section--cta .cta-band--company .ph img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* モバイル：縦積み（画像→テキストの順にしたいなら order を入れ替え） */
+@media (max-width: 900px) {
+  .page-company .section--cta .cta-band--company {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    padding: 28px 20px;
+  }
+
+  .page-company .section--cta .cta-band--company .ph {
+    justify-self: center;
+    width: 100%;
+    max-width: 520px;
+  }
+
+  .page-company .section--cta .cta-band__body {
+    max-width: none;
+  }
+
+  .page-company .section--cta .cta-band__body .btn--primary {
+    width: 100%;
+  }
+}
+
+/* 100vw背景使用時の横スクロール保険 */
+html,
+body {
+  overflow-x: hidden;
+}
+
+/* =========================================================
+   Recruit Teaser (Unified with site sections)
+========================================================= */
+.recruit-teaser__lead {
+  margin: 10px 0 12px;
+  font-weight: 900;
+  font-size: clamp(18px, 2.2vw, 22px);
+  color: var(--ink);
+  line-height: 1.4;
+}
+
+.recruit-teaser__actions {
+  margin-top: 18px;
+}
+
+/* モバイルで画像を上に（他セクションと同じ積み方） */
+@media (max-width: 900px) {
+  .recruit-teaser .recruit-teaser__media {
+    order: -1;
+  }
+
+  .recruit-teaser .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* =========================================================
+   Recruit Teaser (main.css only / unified)
+========================================================= */
+.recruit-teaser .sec-head__label {
+  /* company.css の上書きを受けても統一されるように“採用だけ”固定 */
+  display: inline-flex;
+  width: fit-content;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .95);
+  border: 2px solid rgba(30, 136, 255, .28);
+  color: var(--ink-2);
+  font-weight: 900;
+  letter-spacing: .14em;
+  box-shadow: var(--shadow-1);
+  margin-bottom: 14px;
+}
+
+.recruit-teaser .sec-head__title {
+  margin: 0 0 10px;
+  font-weight: 900;
+  letter-spacing: .06em;
+  color: var(--ink);
+}
+
+.recruit-teaser__lead {
+  margin: 6px 0 10px;
+  font-weight: 900;
+  font-size: clamp(18px, 2.2vw, 22px);
+  color: var(--ink);
+  line-height: 1.45;
+}
+
+.recruit-teaser__note {
+  max-width: 56ch;
+  line-height: 1.9;
+}
+
+.recruit-teaser__actions {
+  margin-top: 18px;
+}
+
+.recruit-teaser__media {
+  /* 画像を少しだけ“採用らしく”立たせる（他セクションと同トーン） */
+  box-shadow: 0 18px 46px rgba(15, 35, 80, .10);
+}
+
+@media (max-width: 900px) {
+  .recruit-teaser .recruit-teaser__media {
+    order: -1;
+  }
+
+  .recruit-teaser .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* =========================================================
+   Recruit Teaser – main.css 完結仕様
+========================================================= */
+.recruit-teaser {
+  background: linear-gradient(180deg,
+      #ffffff 0%,
+      #f4f8ff 100%);
+}
+
+.recruit-teaser .section__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(32px, 5vw, 72px);
+  align-items: center;
+
+  background: #ffffff;
+  border-radius: 40px;
+  padding: clamp(32px, 6vw, 72px);
+
+  box-shadow:
+    0 30px 80px rgba(30, 136, 255, .08),
+    inset 0 0 0 3px #eaf2ff;
+}
+
+/* ---------- 左側 ---------- */
+.recruit-teaser .sec-head__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 6px 16px;
+  border-radius: 999px;
+
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: .18em;
+
+  color: #1e88ff;
+  background: #ffffff;
+  border: 2px solid #cfe2ff;
+}
+
+.recruit-teaser .sec-head__title {
+  margin: 14px 0 22px;
+  font-size: clamp(26px, 3vw, 34px);
+  font-weight: 900;
+  letter-spacing: .08em;
+  color: #0e255a;
+}
+
+.recruit-teaser__lead {
+  font-size: clamp(18px, 2vw, 22px);
+  font-weight: 800;
+  line-height: 1.6;
+  margin-bottom: 16px;
+  color: #0e255a;
+}
+
+.recruit-teaser__text {
+  font-size: 15px;
+  line-height: 1.9;
+  color: #6c7aa3;
+  max-width: 42em;
+}
+
+/* ---------- ボタン ---------- */
+.recruit-teaser__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-top: 32px;
+  padding: 18px 48px;
+
+  font-size: 16px;
+  font-weight: 800;
+  color: #ffffff;
+  text-decoration: none;
+
+  border-radius: 999px;
+  background: linear-gradient(135deg, #2a9df4, #0f3fff);
+
+  box-shadow:
+    0 18px 40px rgba(30, 136, 255, .35);
+  transition: transform .25s, box-shadow .25s;
+}
+
+.recruit-teaser__btn:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 26px 60px rgba(30, 136, 255, .45);
+}
+
+/* ---------- 右側画像 ---------- */
+.recruit-teaser__image img {
+  width: 100%;
+  height: auto;
+  display: block;
+
+  border-radius: 28px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, .18);
+}
+
+/* ---------- モバイル ---------- */
+@media (max-width: 900px) {
+  .recruit-teaser .section__inner {
+    grid-template-columns: 1fr;
+  }
+
+  .recruit-teaser__image {
+    order: -1;
+  }
+
+  .recruit-teaser__btn {
+    width: 100%;
+  }
+}
+
+/* =========================================================
+   Recruit Section Design Unification (Final)
+   採用セクションを他のセクション（代表挨拶・沿革など）と完全統一
+========================================================= */
+
+/* 採用セクション全体：背景を無し（他セクションと同じ） */
+.recruit-teaser {
+  background: none !important;
+}
+
+/* 内側のパネル：他セクションと同じ白いカードデザイン */
+.recruit-teaser .section__inner {
+  background: #ffffff;
+  border-radius: 22px;
+  box-shadow: 0 18px 50px rgba(15, 35, 80, 0.08);
+  padding: clamp(24px, 4vw, 32px);
+
+  /* レイアウト：2カラム（他のsection--panelと同じ） */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(32px, 5vw, 48px);
+  align-items: center;
+}
+
+/* 見出しブロック：他セクションと統一 */
+.recruit-teaser .sec-head {
+  margin-bottom: 18px;
+}
+
+/* RECRUITラベル：他セクションと同じタグスタイル */
+.recruit-teaser .sec-head__label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+
+  padding: 6px 16px;
+  border-radius: 999px;
+
+  background: #fff;
+  color: #1e88ff;
+  border: 2px solid #1e88ff;
+
+  font-weight: 900;
+  font-size: 12px;
+  letter-spacing: .14em;
+
+  box-shadow: 3px 3px 0 #bce0fd;
+  margin: 0 0 12px 0;
+  line-height: 1.1;
+  white-space: nowrap;
+}
+
+/* タイトル：他セクションと統一 */
+.recruit-teaser .sec-head__title {
+  margin: 0 0 10px;
+  font-size: clamp(24px, 3vw, 32px);
+  font-weight: 900;
+  letter-spacing: .06em;
+  color: #14286b;
+  line-height: 1.3;
+
+  /* 波線装飾：他の見出しと同じ */
+  display: inline-block;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.recruit-teaser .sec-head__title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  bottom: -10px;
+  background: url('data:image/svg+xml;charset=utf8,%3Csvg viewBox="0 0 20 4" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M0 4 C5 4 5 0 10 0 C15 0 15 4 20 4" stroke="%232a9df4" stroke-width="2" fill="none"/%3E%3C/svg%3E') repeat-x;
+  background-size: 20px 6px;
+  opacity: 0.6;
+}
+
+/* リードテキスト：他セクションと統一 */
+.recruit-teaser__lead {
+  margin: 10px 0 12px;
+  font-weight: 900;
+  font-size: clamp(18px, 2.2vw, 22px);
+  color: #14286b;
+  line-height: 1.5;
+}
+
+/* 説明文：他セクションと統一 */
+.recruit-teaser__note {
+  color: #344056;
+  font-size: 14px;
+  line-height: 1.9;
+  max-width: 56ch;
+}
+
+/* ボタンエリア */
+.recruit-teaser__actions {
+  margin-top: 20px;
+}
+
+/* ボタン：他セクションと統一 */
+.recruit-teaser .btn--primary {
+  background: linear-gradient(135deg, #2a9df4, #0f3fff);
+  color: #fff;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 100px;
+  font-weight: 700;
+  font-size: 15px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 8px 22px rgba(30, 136, 255, .18);
+  transition: all .25s ease;
+}
+
+.recruit-teaser .btn--primary:hover {
+  opacity: .9;
+  box-shadow: 0 12px 34px rgba(30, 136, 255, .28);
+  transform: translateY(-1px);
+}
+
+.recruit-teaser .btn--primary:active {
+  transform: translateY(0);
+}
+
+/* 画像：他セクションと統一（ポラロイド風の装飾） */
+.recruit-teaser__media {
+  position: relative;
+  background: #fff;
+  border-radius: 18px;
+  padding: 12px;
+  box-shadow: 0 18px 46px rgba(15, 35, 80, .10);
+  transition: transform .3s ease;
+}
+
+.recruit-teaser__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
+}
+
+.recruit-teaser .section__inner:hover .recruit-teaser__media {
+  transform: rotate(-1deg) scale(1.02);
+}
+
+/* モバイル対応 */
+@media (max-width: 900px) {
+  .recruit-teaser .section__inner {
+    grid-template-columns: 1fr;
+    padding: clamp(20px, 4vw, 24px);
+  }
+
+  .recruit-teaser__media {
+    order: -1;
+  }
+
+  .recruit-teaser .btn--primary {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .recruit-teaser .sec-head__title::after {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .recruit-teaser .sec-head__label {
+    padding: 6px 14px;
+    font-size: 11px;
+    letter-spacing: .12em;
+    box-shadow: 2px 2px 0 #bce0fd;
+  }
+
+  .recruit-teaser__lead {
+    font-size: 16px;
+  }
+
+  .recruit-teaser__note {
+    font-size: 13px;
+  }
+}
+
+/* =========================================================
+   Remove Wavy Line Decoration from All Headings
+   すべての見出しから波線装飾を削除
+========================================================= */
+
+/* すべてのh2見出しの波線を無効化 */
+h2::after,
+h2[id^="sec-"]::after,
+.sec-head__title::after,
+.page-company h2::after,
+.page-company .sec-head__title::after,
+.recruit-teaser .sec-head__title::after {
+  display: none !important;
+}
+
+/* 波線用の余白をリセット */
+h2,
+h2[id^="sec-"],
+.sec-head__title,
+.page-company h2,
+.page-company .sec-head__title,
+.recruit-teaser .sec-head__title {
+  padding-bottom: 0 !important;
+}
+
+/* =========================================================
+   CTA Section Unification (Services & Portfolio)
+   設備工事のご相談・ご依頼セクションを統一デザインに
+========================================================= */
+
+/* CTAセクション全体：背景なし */
+.section--cta {
+  background: none !important;
+}
+
+/* CTAバンド：白いカードデザイン（他のセクションと統一） */
+.cta-band--works {
+  background: #ffffff;
+  border-radius: 22px;
+  box-shadow: 0 18px 50px rgba(15, 35, 80, 0.08);
+  padding: clamp(24px, 4vw, 32px);
+
+  /* レイアウト：2カラム */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(32px, 5vw, 48px);
+  align-items: center;
+}
+
+/* 左側のテキストエリア */
+.cta-band--works .cta-band__body {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* 見出し：他セクションと統一 */
+.cta-band--works h2 {
+  margin: 0 0 12px;
+  font-size: clamp(24px, 3vw, 32px);
+  font-weight: 900;
+  letter-spacing: .06em;
+  color: #14286b;
+  line-height: 1.3;
+}
+
+/* 説明文：他セクションと統一 */
+.cta-band--works .note {
+  color: #344056;
+  font-size: 14px;
+  line-height: 1.9;
+  margin: 0 0 8px;
+}
+
+/* ボタンエリア */
+.cta-band--works .cta-band__actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+
+/* プライマリボタン：他セクションと統一 */
+.cta-band--works .btn--primary {
+  background: linear-gradient(135deg, #2a9df4, #0f3fff);
+  color: #fff;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 100px;
+  font-weight: 700;
+  font-size: 15px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 8px 22px rgba(30, 136, 255, .18);
+  transition: all .25s ease;
+}
+
+.cta-band--works .btn--primary:hover {
+  opacity: .9;
+  box-shadow: 0 12px 34px rgba(30, 136, 255, .28);
+  transform: translateY(-1px);
+}
+
+.cta-band--works .btn--primary:active {
+  transform: translateY(0);
+}
+
+/* ゴーストボタン：統一デザイン */
+.cta-band--works .btn.ghost {
+  background: #fff;
+  color: #1f56b3;
+  border: 2px solid #1f56b3;
+  padding: 12px 24px;
+  border-radius: 100px;
+  font-weight: 700;
+  font-size: 15px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all .25s ease;
+}
+
+.cta-band--works .btn.ghost:hover {
+  background: #1f56b3;
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+/* 右側の画像：他セクションと統一（ポラロイド風） */
+.cta-band--works .ph {
+  position: relative;
+  background: #fff;
+  border-radius: 18px;
+  padding: 12px;
+  box-shadow: 0 18px 46px rgba(15, 35, 80, .10);
+  transition: transform .3s ease;
+}
+
+.cta-band--works .ph img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
+}
+
+.cta-band--works:hover .ph {
+  transform: rotate(-1deg) scale(1.02);
+}
+
+/* モバイル対応 */
+@media (max-width: 900px) {
+  .cta-band--works {
+    grid-template-columns: 1fr;
+    padding: clamp(20px, 4vw, 24px);
+  }
+
+  .cta-band--works .ph {
+    order: -1;
+  }
+
+  .cta-band--works .cta-band__actions {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .cta-band--works .btn--primary,
+  .cta-band--works .btn.ghost {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .cta-band--works h2 {
+    font-size: 22px;
+  }
+
+  .cta-band--works .note {
+    font-size: 13px;
+  }
+}
+
+/* =========================================================
+   CTA Section - Portfolio Style (Blue Gradient Background)
+   添付デザインに基づくCTAセクションの統一スタイル
+========================================================= */
+
+/* 既存のCTAスタイルを上書き */
+.section--cta {
+  background: linear-gradient(135deg, #2a9df4 0%, #1e88ff 50%, #0f3fff 100%) !important;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 斜めストライプパターン */
+.section--cta::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(45deg,
+      rgba(255, 255, 255, 0.03) 0px,
+      rgba(255, 255, 255, 0.03) 10px,
+      transparent 10px,
+      transparent 20px);
+  pointer-events: none;
+}
+
+/* CTAバンド：透明背景に変更（青いグラデーション背景を活かす） */
+.cta-band--works {
+  background: transparent !important;
+  box-shadow: none !important;
+  padding: clamp(40px, 6vw, 80px) clamp(24px, 4vw, 40px) !important;
+
+  /* レイアウト：2カラム */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(40px, 6vw, 80px);
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* 左側のテキストエリア */
+.cta-band--works .cta-band__body {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* 見出し：白色で大きく */
+.cta-band--works h2 {
+  margin: 0 0 16px;
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 900;
+  letter-spacing: .08em;
+  color: #ffffff !important;
+  line-height: 1.4;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* 説明文：白色 */
+.cta-band--works .note {
+  color: #ffffff !important;
+  font-size: clamp(14px, 1.6vw, 16px);
+  line-height: 2;
+  margin: 0 0 12px;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* ボタンエリア */
+.cta-band--works .cta-band__actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
+
+/* プライマリボタン：白背景に青文字 */
+.cta-band--works .btn--primary {
+  background: #ffffff !important;
+  color: #1e88ff !important;
+  border: none;
+  padding: 16px 32px;
+  border-radius: 100px;
+  font-weight: 700;
+  font-size: 16px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  transition: all .25s ease;
+}
+
+.cta-band--works .btn--primary:hover {
+  background: #f0f7ff !important;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+}
+
+.cta-band--works .btn--primary:active {
+  transform: translateY(0);
+}
+
+/* ゴーストボタン：白枠に白文字 */
+.cta-band--works .btn.ghost {
+  background: transparent !important;
+  color: #ffffff !important;
+  border: 2px solid #ffffff;
+  padding: 14px 30px;
+  border-radius: 100px;
+  font-weight: 700;
+  font-size: 16px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all .25s ease;
+}
+
+.cta-band--works .btn.ghost:hover {
+  background: rgba(255, 255, 255, 0.15) !important;
+  transform: translateY(-2px);
+}
+
+/* 右側の画像：二重枠のポラロイド風デザイン */
+.cta-band--works .ph {
+  position: relative;
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 16px;
+  box-shadow:
+    0 0 0 8px rgba(255, 255, 255, 0.3),
+    0 20px 60px rgba(0, 0, 0, 0.25);
+  transition: transform .3s ease;
+}
+
+.cta-band--works .ph img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px;
+  display: block;
+}
+
+.cta-band--works:hover .ph {
+  transform: rotate(-1deg) scale(1.03);
+}
+
+/* モバイル対応 */
+@media (max-width: 900px) {
+  .cta-band--works {
+    grid-template-columns: 1fr;
+    padding: clamp(32px, 6vw, 48px) clamp(20px, 4vw, 24px) !important;
+    gap: 32px;
+  }
+
+  .cta-band--works .ph {
+    order: -1;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .cta-band--works .cta-band__actions {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .cta-band--works .btn--primary,
+  .cta-band--works .btn.ghost {
+    width: 100%;
+    justify-content: center;
+    padding: 14px 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .cta-band--works h2 {
+    font-size: 24px;
+    margin-bottom: 12px;
+  }
+
+  .cta-band--works .note {
+    font-size: 14px;
+    line-height: 1.9;
+  }
+
+  .cta-band--works .btn--primary,
+  .cta-band--works .btn.ghost {
+    font-size: 15px;
+  }
+}
+
+/* =========================================================
+   CTA Section - Services Page Style (White Border Frame)
+   servicesページのデザインに統一（白い枠線付き）
+========================================================= */
+
+/* コンテナに白い枠線を追加 */
+.section--cta .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* CTAバンド：白い枠線で囲む */
+.cta-band--works {
+  border: 3px solid rgba(255, 255, 255, 0.4) !important;
+  border-radius: 32px !important;
+  padding: clamp(48px, 7vw, 80px) clamp(32px, 5vw, 60px) !important;
+  backdrop-filter: blur(10px);
+}
+
+/* 「お電話で相談する」ボタンに黄色/オレンジの枠線を追加 */
+.cta-band--works .btn.ghost {
+  background: transparent !important;
+  color: #ffffff !important;
+  border: 3px solid #fbbf24 !important;
+  padding: 14px 30px;
+  border-radius: 100px;
+  font-weight: 700;
+  font-size: 16px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all .25s ease;
+  box-shadow: 0 4px 12px rgba(251, 191, 36, 0.3);
+}
+
+.cta-band--works .btn.ghost:hover {
+  background: rgba(251, 191, 36, 0.1) !important;
+  border-color: #f59e0b !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(251, 191, 36, 0.4);
+}
+
+/* 矢印アイコン付きボタン用（オプション） */
+.cta-band--works .btn--primary::after,
+.cta-band--works .btn.ghost::after {
+  content: "→";
+  margin-left: 4px;
+  transition: transform .25s ease;
+}
+
+.cta-band--works .btn--primary:hover::after,
+.cta-band--works .btn.ghost:hover::after {
+  transform: translateX(4px);
+}
+
+/* モバイル対応の調整 */
+@media (max-width: 900px) {
+  .cta-band--works {
+    border-width: 2px !important;
+    border-radius: 24px !important;
+    padding: clamp(36px, 6vw, 48px) clamp(24px, 4vw, 32px) !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .cta-band--works .btn.ghost {
+    border-width: 2px !important;
+  }
+}
+
+/* =========================================================
+   CTA Section - Revert to Portfolio Style (Simple Blue Gradient)
+   servicesページ用のスタイルを削除してportfolioデザインに統一
+========================================================= */
+
+/* 白い枠線を削除 */
+.cta-band--works {
+  border: none !important;
+  border-radius: 0 !important;
+}
+
+/* 「お電話で相談する」ボタンを元のシンプルな白枠に戻す */
+.cta-band--works .btn.ghost {
+  background: transparent !important;
+  color: #ffffff !important;
+  border: 2px solid #ffffff !important;
+  padding: 14px 30px;
+  border-radius: 100px;
+  font-weight: 700;
+  font-size: 16px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all .25s ease;
+  box-shadow: none !important;
+}
+
+.cta-band--works .btn.ghost:hover {
+  background: rgba(255, 255, 255, 0.15) !important;
+  border-color: #ffffff !important;
+  transform: translateY(-2px);
+  box-shadow: none !important;
+}
+
+/* 矢印アイコンを削除 */
+.cta-band--works .btn--primary::after,
+.cta-band--works .btn.ghost::after {
+  content: none !important;
+}
+
+/* =========================================================
+   CTA Section - Unified Design for All Pages
+   全ページ統一：CTAセクションの完全統一スタイル
+========================================================= */
+
+/* セクション全体のリセット */
+.section--cta {
+  background: none !important;
+  padding: 0 !important;
+  overflow: hidden;
+}
+
+.section--cta .container {
+  padding: 0;
+  max-width: 100%;
+}
+
+/* CTAバンド：全画面背景版 */
+.cta-band--works {
+  width: 100%;
+  padding: 60px clamp(24px, 4vw, 40px) !important;
+
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  margin-top: 0 !important;
+
+  position: relative;
+  overflow: visible !important;
+
+  /* レイアウト */
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 40px !important;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* 全画面背景（疑似要素） */
+.cta-band--works::before {
+  display: block !important;
+  content: "" !important;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 100vw;
+  transform: translateX(-50%);
+  z-index: -1;
+
+  /* 青グラデーション＋ストライプ */
+  background: linear-gradient(135deg, #1e88ff 0%, #40c9ff 100%);
+  background-image:
+    repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.1) 0, rgba(255, 255, 255, 0.1) 10px, transparent 10px, transparent 20px),
+    linear-gradient(135deg, #1e88ff 0%, #40c9ff 100%);
+  box-shadow: 0 10px 40px rgba(30, 136, 255, 0.2);
+}
+
+/* テキストエリア */
+.cta-band--works .cta-band__body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* テキスト色調整 */
+.cta-band--works h2,
+.cta-band--works h3,
+.cta-band--works .note {
+  color: #fff !important;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.1);
+  background: none !important;
+  -webkit-text-fill-color: initial !important;
+}
+
+.cta-band--works h2,
+.cta-band--works h3 {
+  font-size: clamp(28px, 4vw, 40px) !important;
+  margin: 0 0 16px !important;
+  font-weight: 900 !important;
+  letter-spacing: .06em;
+  line-height: 1.4;
+}
+
+.cta-band--works .note {
+  font-size: clamp(14px, 1.6vw, 16px) !important;
+  line-height: 2;
+  margin: 0 0 8px;
+}
+
+/* 画像エリア */
+.cta-band--works .ph {
+  flex: 0 0 auto !important;
+  width: clamp(300px, 35vw, 450px) !important;
+  background: #fff !important;
+  border-radius: 24px !important;
+  padding: 16px !important;
+  box-shadow:
+    0 0 0 8px rgba(255, 255, 255, 0.3),
+    0 20px 60px rgba(0, 0, 0, 0.25) !important;
+  border: none !important;
+  transform: rotate(-2deg) !important;
+  transition: transform .3s ease;
+  aspect-ratio: auto;
+}
+
+.cta-band--works .ph img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px !important;
+  display: block;
+}
+
+/* 画像ホバー */
+.cta-band--works:hover .ph {
+  transform: rotate(0deg) scale(1.02) !important;
+}
+
+/* --- アクションボタンエリア --- */
+.cta-band--works .cta-band__actions {
+  display: flex !important;
+  gap: 16px !important;
+  flex-wrap: wrap !important;
+  margin-top: clamp(20px, 3vw, 32px) !important;
+}
+
+/* メインボタン（黄色） */
+.cta-band--works .btn--primary,
+.cta-band--works .cta-band__actions .btn--primary {
+  background: #ffcc00 !important;
+  color: #0e255a !important;
+  border: 3px solid #fff !important;
+  box-shadow: 0 6px 0 #d4a000 !important;
+  border-radius: 50px !important;
+  padding: 16px 40px !important;
+  font-size: 18px !important;
+  font-weight: 900 !important;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all .25s ease;
+  animation: pulse-btn 2s infinite;
+}
+
+.cta-band--works .btn--primary:hover,
+.cta-band--works .cta-band__actions .btn--primary:hover {
+  background: #ffdb4d !important;
+  transform: translateY(4px) !important;
+  box-shadow: 0 2px 0 #d4a000 !important;
+  opacity: 1 !important;
+}
+
+.cta-band--works .btn--primary:active,
+.cta-band--works .cta-band__actions .btn--primary:active {
+  transform: translateY(6px) !important;
+  box-shadow: 0 0 0 #d4a000 !important;
+}
+
+/* サブボタン（白ゴースト・電話） */
+.cta-band--works .btn.ghost,
+.cta-band--works .cta-band__actions .btn.ghost {
+  background: transparent !important;
+  color: #fff !important;
+  border: 2px solid #fff !important;
+  box-shadow: none !important;
+  border-radius: 50px !important;
+  padding: 16px 32px !important;
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all .25s ease;
+}
+
+.cta-band--works .btn.ghost:hover,
+.cta-band--works .cta-band__actions .btn.ghost:hover {
+  background: #fff !important;
+  color: #1e88ff !important;
+  transform: translateY(-2px) !important;
+}
+
+.cta-band--works .btn.ghost:active,
+.cta-band--works .cta-band__actions .btn.ghost:active {
+  transform: translateY(0) !important;
+}
+
+/* 鼓動アニメーション */
+@keyframes pulse-btn {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.05);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* CTAモバイル調整 */
+@media (max-width: 900px) {
+  .cta-band--works {
+    flex-direction: column-reverse !important;
+    text-align: center !important;
+    padding: 40px clamp(20px, 4vw, 24px) !important;
+  }
+
+  .cta-band--works .ph {
+    width: 80% !important;
+    margin-bottom: 20px;
+  }
+
+  .cta-band--works .cta-band__actions {
+    justify-content: center;
+    flex-direction: column;
+    gap: 12px !important;
+  }
+
+  .cta-band--works .btn--primary,
+  .cta-band--works .cta-band__actions .btn--primary,
+  .cta-band--works .btn.ghost,
+  .cta-band--works .cta-band__actions .btn.ghost {
+    width: 100%;
+    max-width: 400px;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .cta-band--works h2,
+  .cta-band--works h3 {
+    font-size: 24px !important;
+  }
+
+  .cta-band--works .note {
+    font-size: 14px !important;
+    line-height: 1.9;
+  }
+
+  .cta-band--works .btn--primary,
+  .cta-band--works .cta-band__actions .btn--primary {
+    padding: 14px 32px !important;
+    font-size: 16px !important;
+  }
+
+  .cta-band--works .btn.ghost,
+  .cta-band--works .cta-band__actions .btn.ghost {
+    padding: 14px 28px !important;
+    font-size: 15px !important;
+  }
+}
+
+/* 矢印などの余計な要素を削除 */
+.cta-band--works .btn--primary::after,
+.cta-band--works .btn.ghost::after,
+.cta-band--works .cta-band__actions .btn--primary::after,
+.cta-band--works .cta-band__actions .btn.ghost::after {
+  content: none !important;
+  display: none !important;
+}
+
+/* =========================================================
+   CTA Section Override - Force Apply Unified Design
+   services.cssとportfolio.cssの汎用.cta-bandを強制上書き
+========================================================= */
+
+/* 詳細度を上げて確実に適用 */
+.section--cta .container .cta-band.cta-band--works {
+  /* 背景・ボーダーをリセット */
+  background: transparent !important;
+  border: none !important;
+  border-left: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+
+  /* レイアウト */
+  display: flex !important;
+  grid-template-columns: initial !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 40px !important;
+
+  /* パディング・マージン */
+  padding: 60px clamp(24px, 4vw, 40px) !important;
+  margin-top: 0 !important;
+
+  /* ポジション */
+  position: relative !important;
+  overflow: visible !important;
+
+  /* テキストカラー */
+  color: #fff !important;
+}
+
+/* 疑似要素の強制表示 */
+.section--cta .container .cta-band.cta-band--works::before {
+  display: block !important;
+  content: "" !important;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 100vw;
+  transform: translateX(-50%);
+  z-index: -1;
+
+  background: linear-gradient(135deg, #1e88ff 0%, #40c9ff 100%);
+  background-image:
+    repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.1) 0, rgba(255, 255, 255, 0.1) 10px, transparent 10px, transparent 20px),
+    linear-gradient(135deg, #1e88ff 0%, #40c9ff 100%);
+  box-shadow: 0 10px 40px rgba(30, 136, 255, 0.2);
+}
+
+/* 装飾的な疑似要素を削除 */
+.section--cta .container .cta-band.cta-band--works::after {
+  display: none !important;
+  content: none !important;
+}
+
+/* テキスト要素 */
+.section--cta .cta-band.cta-band--works h2,
+.section--cta .cta-band.cta-band--works h3,
+.section--cta .cta-band.cta-band--works .note {
+  color: #fff !important;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.1) !important;
+  background: none !important;
+  -webkit-text-fill-color: initial !important;
+}
+
+/* 画像 */
+.section--cta .cta-band.cta-band--works .ph {
+  flex: 0 0 auto !important;
+  width: clamp(300px, 35vw, 450px) !important;
+  background: #fff !important;
+  border-radius: 24px !important;
+  padding: 16px !important;
+  box-shadow:
+    0 0 0 8px rgba(255, 255, 255, 0.3),
+    0 20px 60px rgba(0, 0, 0, 0.25) !important;
+  border: 1px solid transparent !important;
+  transform: rotate(-2deg) !important;
+  transition: transform .3s ease;
+}
+
+/* ボタン */
+.section--cta .cta-band.cta-band--works .btn--primary,
+.section--cta .cta-band.cta-band--works .cta-band__actions .btn--primary {
+  background: #ffcc00 !important;
+  color: #0e255a !important;
+  border: 3px solid #fff !important;
+  box-shadow: 0 6px 0 #d4a000 !important;
+  border-radius: 50px !important;
+  padding: 16px 40px !important;
+  font-size: 18px !important;
+  font-weight: 900 !important;
+  animation: pulse-btn 2s infinite !important;
+}
+
+.section--cta .cta-band.cta-band--works .btn.ghost,
+.section--cta .cta-band.cta-band--works .cta-band__actions .btn.ghost {
+  background: transparent !important;
+  color: #fff !important;
+  border: 2px solid #fff !important;
+  box-shadow: none !important;
+  border-radius: 50px !important;
+  padding: 16px 32px !important;
+  font-size: 16px !important;
+  font-weight: 700 !important;
+}
+
+/* モバイル */
+@media (max-width: 900px) {
+  .section--cta .container .cta-band.cta-band--works {
+    flex-direction: column-reverse !important;
+    text-align: center !important;
+  }
+}

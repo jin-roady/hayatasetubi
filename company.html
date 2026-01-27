@@ -52,10 +52,7 @@
 
     <!-- ===== 代表挨拶 ===== -->
     <section class="section section--panel" aria-labelledby="sec-greeting">
-      <div class="container section__inner section__inner--reverse fade-scale">
-        <div class="section__image ph is-4x3">
-          <span>代表写真（4:3）</span>
-        </div>
+      <div class="container section__inner fade-scale">
         <div class="section__body">
           <div class="sec-head">
             <p class="sec-head__label">Message</p>
@@ -66,14 +63,21 @@
             <p>
               当社は、地域の皆様の暮らしを支える仕事を通じて、少しでもお役に立てればと、日々努力を重ねてまいりました。水や空気、熱といった目に見えない設備を通じて、安全で快適な暮らしをお届け出来る事は、私たちにとって何よりの喜びです。
             </p>
-            <p>この仕事が成り立つのは、お客様、地域の皆様、そして社員一人ひとりの支えがあってこそです。社員の誠実な働きと人間力が、企業の信頼を築く礎となっております。</p>
-            <p>私たちは、これからも感謝の気持ちを忘れず、社員とともに成長し、地域の暮らしを支え続けることを、何よりの使命と考えております。</p>
-            <p>今後とも皆様の変わらぬご支援とご指導を、心よりお願い申し上げます。</p>
+            <p>
+              この仕事が成り立つのは、お客様、地域の皆様、そして社員一人ひとりの支えがあってこそです。社員の誠実な働きと人間力が、企業の信頼を築く礎となっております。
+            </p>
+            <p>
+              私たちは、これからも感謝の気持ちを忘れず、社員とともに成長し、地域の暮らしを支え続けることを、何よりの使命と考えております。
+            </p>
+            <p>
+              今後とも皆様の変わらぬご支援とご指導を、心よりお願い申し上げます。
+            </p>
             <p class="note section__sign">代表取締役　早田 典道</p>
           </div>
         </div>
       </div>
     </section>
+
 
     <!-- ===== 会社概要 ===== -->
     <section class="section section--soft" aria-labelledby="sec-profile">
@@ -189,9 +193,7 @@
     <section class="section section--panel" aria-labelledby="sec-history">
       <div class="container section__inner fade-left">
         <div class="section__image ph is-4x3">
-          <!-- 古い写真 -->
-          <span>古い写真（4:3）</span>
-          <!-- 実装時：<img src="assets/images/company_history.png" alt="創業当時の写真" loading="lazy"> -->
+          <img src="assets/images/company_history.png" alt="創業当時の写真" loading="lazy">
         </div>
         <div class="section__body">
           <div class="sec-head">
@@ -227,22 +229,36 @@
       </div>
     </section>
 
-    <section class="section section--cta fade-up">
-      <div class="container">
-        <div class="cta-band cta-band--company">
-          <div class="cta-band__body">
+    <!-- ===== RECRUIT SECTION (Unified) ===== -->
+    <section class="section section--panel recruit-teaser fade-up" aria-labelledby="recruit-title">
+      <div class="container section__inner">
+        <div class="section__body">
+          <div class="sec-head">
             <p class="sec-head__label">Recruit</p>
-            <h2>正社員 募集中</h2>
-            <p class="note">地域密着の現場で、一緒に働きませんか。未経験の方も歓迎です。</p>
+            <h2 id="recruit-title" class="sec-head__title">正社員 募集中</h2>
+          </div>
+
+          <p class="recruit-teaser__lead">
+            地域密着の現場で、<br class="br-sm">一緒に働きませんか。
+          </p>
+
+          <p class="note recruit-teaser__note">
+            未経験の方も歓迎です。水・空気・熱という見えないインフラを支える仕事で、
+            技術と誇りを身につけながら長く働ける環境を整えています。
+          </p>
+
+          <div class="recruit-teaser__actions">
             <a class="btn btn--primary" href="recruit.html">採用情報を見る</a>
           </div>
-          <div class="ph is-4x3">
-            <img src="assets/images/recruit.png" alt="採用情報" loading="lazy"
-              style="width:100%; height:100%; object-fit:cover;">
-          </div>
         </div>
+
+        <figure class="ph is-4x3 recruit-teaser__media">
+          <img src="assets/images/recruit.png" alt="採用情報" loading="lazy">
+        </figure>
       </div>
     </section>
+
+
 
   </main>
 
