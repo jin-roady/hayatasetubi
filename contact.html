@@ -8,6 +8,134 @@
 
   <link rel="stylesheet" href="assets/css/main.css" />
   <link rel="stylesheet" href="assets/css/contact.css" />
+  <style>
+    /* プライバシーポリシーモーダル */
+    .privacy-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 9999;
+      overflow-y: auto;
+      padding: 20px;
+    }
+
+    .privacy-modal.is-open {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .privacy-modal__content {
+      background: #fff;
+      border-radius: 16px;
+      max-width: 800px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      position: relative;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    }
+
+    .privacy-modal__header {
+      position: sticky;
+      top: 0;
+      background: #fff;
+      border-bottom: 2px solid #e2e8f0;
+      padding: 24px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-radius: 16px 16px 0 0;
+      z-index: 1;
+    }
+
+    .privacy-modal__title {
+      font-size: 22px;
+      font-weight: 900;
+      color: #1e293b;
+      margin: 0;
+    }
+
+    .privacy-modal__close {
+      width: 40px;
+      height: 40px;
+      border: none;
+      background: #f1f5f9;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      color: #64748b;
+      transition: all 0.2s ease;
+    }
+
+    .privacy-modal__close:hover {
+      background: #e2e8f0;
+      color: #1e293b;
+    }
+
+    .privacy-modal__body {
+      padding: 32px;
+      color: #475569;
+      font-size: 15px;
+      line-height: 1.9;
+    }
+
+    .privacy-modal__body h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: #1e293b;
+      margin: 32px 0 16px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid #e2e8f0;
+    }
+
+    .privacy-modal__body h3:first-child {
+      margin-top: 0;
+    }
+
+    .privacy-modal__body p {
+      margin: 0 0 16px;
+    }
+
+    .privacy-modal__body ul {
+      margin: 16px 0;
+      padding-left: 24px;
+    }
+
+    .privacy-modal__body li {
+      margin-bottom: 8px;
+    }
+
+    @media (max-width: 768px) {
+      .privacy-modal {
+        padding: 10px;
+      }
+
+      .privacy-modal__header {
+        padding: 16px 20px;
+      }
+
+      .privacy-modal__title {
+        font-size: 18px;
+      }
+
+      .privacy-modal__body {
+        padding: 24px 20px;
+        font-size: 14px;
+      }
+
+      .privacy-modal__body h3 {
+        font-size: 16px;
+      }
+    }
+  </style>
 </head>
 
 <body class="page-sub">
@@ -67,7 +195,7 @@
           <dl class="form-group">
             <dt><label for="name">お名前<span class="req-tag">必須</span></label></dt>
             <dd>
-              <input type="text" id="name" name="name" class="input-field" placeholder="例：早田 太郎" required
+              <input type="text" id="name" name="name" class="input-field" placeholder="山田太郎" required
                 autocomplete="name">
             </dd>
           </dl>
@@ -75,15 +203,15 @@
           <dl class="form-group">
             <dt><label for="email">メールアドレス<span class="req-tag">必須</span></label></dt>
             <dd>
-              <input type="email" id="email" name="email" class="input-field" placeholder="例：info@hayata-setsubi.co.jp"
-                required autocomplete="email">
+              <input type="email" id="email" name="email" class="input-field" placeholder="example@email.com" required
+                autocomplete="email">
             </dd>
           </dl>
 
           <dl class="form-group">
             <dt><label for="tel">電話番号<span class="any-tag">任意</span></label></dt>
             <dd>
-              <input type="tel" id="tel" name="tel" class="input-field" placeholder="例：0858-22-7571" autocomplete="tel">
+              <input type="tel" id="tel" name="tel" class="input-field" placeholder="090-1234-5678" autocomplete="tel">
               <p class="form-hint">お電話での連絡をご希望の場合はご入力ください。</p>
             </dd>
           </dl>
@@ -107,7 +235,7 @@
             <dt><label for="msg">お問い合わせ内容<span class="req-tag">必須</span></label></dt>
             <dd>
               <textarea id="msg" name="message" class="input-field input-area"
-                placeholder="具体的なご相談内容や、ご希望の工事時期などをご記入ください。" required></textarea>
+                placeholder="トイレの水漏れを修理してほしい&#13;&#10;給湯器の交換を検討している&#13;&#10;エアコンの取り付けをお願いしたい　など" required></textarea>
             </dd>
           </dl>
 
@@ -122,7 +250,7 @@
           <div class="form-privacy">
             <label>
               <input type="checkbox" name="privacy" required>
-              <span><a href="#" target="_blank">プライバシーポリシー</a>に同意する</span>
+              <span><a href="#" id="privacy-link">プライバシーポリシー</a>に同意する</span>
             </label>
           </div>
 
@@ -198,6 +326,76 @@
 
   </main>
 
+  <!-- プライバシーポリシーモーダル -->
+  <div class="privacy-modal" id="privacy-modal">
+    <div class="privacy-modal__content">
+      <div class="privacy-modal__header">
+        <h3 class="privacy-modal__title">プライバシーポリシー</h3>
+        <button type="button" class="privacy-modal__close" aria-label="閉じる">×</button>
+      </div>
+      <div class="privacy-modal__body">
+        <p>
+          早田設備株式会社（以下「当社」）は、お客様の個人情報保護の重要性について認識し、個人情報の保護に関する法律（以下「個人情報保護法」）を遵守すると共に、以下のプライバシーポリシー（以下「本ポリシー」）に従い、適切な取扱い及び保護に努めます。
+        </p>
+
+        <h3>1. 個人情報の定義</h3>
+        <p>
+          個人情報とは、個人情報保護法第2条第1項により定義された、生存する個人に関する情報であって、当該情報に含まれる氏名、生年月日その他の記述等により特定の個人を識別することができるもの（他の情報と容易に照合することができ、それにより特定の個人を識別することができることとなるものを含む）、又は個人識別符号が含まれるものを指します。
+        </p>
+
+        <h3>2. 個人情報の収集</h3>
+        <p>当社は、以下の目的のために必要な範囲で個人情報を収集することがあります。</p>
+        <ul>
+          <li>お問い合わせ、ご相談への対応</li>
+          <li>お見積りの作成・提示</li>
+          <li>工事のご契約及び施工</li>
+          <li>アフターサービス・メンテナンスのご案内</li>
+          <li>採用選考</li>
+        </ul>
+
+        <h3>3. 個人情報の利用目的</h3>
+        <p>当社は、収集した個人情報を以下の目的で利用いたします。</p>
+        <ul>
+          <li>お客様からのお問い合わせ、ご依頼への対応</li>
+          <li>サービス・商品のご提供、ご案内</li>
+          <li>契約の履行、代金の請求</li>
+          <li>お客様へのアフターサービス、メンテナンスのご連絡</li>
+          <li>当社のサービス向上、品質改善のための分析</li>
+          <li>採用選考に関する連絡・手続き</li>
+        </ul>
+
+        <h3>4. 個人情報の第三者提供</h3>
+        <p>当社は、以下の場合を除き、お客様の同意なく第三者に個人情報を提供することはありません。</p>
+        <ul>
+          <li>法令に基づく場合</li>
+          <li>人の生命、身体又は財産の保護のために必要がある場合であって、本人の同意を得ることが困難である場合</li>
+          <li>公衆衛生の向上又は児童の健全な育成の推進のために特に必要がある場合であって、本人の同意を得ることが困難である場合</li>
+          <li>国の機関もしくは地方公共団体又はその委託を受けた者が法令の定める事務を遂行することに対して協力する必要がある場合であって、本人の同意を得ることにより当該事務の遂行に支障を及ぼすおそれがある場合</li>
+        </ul>
+
+        <h3>5. 個人情報の管理</h3>
+        <p>当社は、個人情報の正確性を保ち、これを安全に管理いたします。個人情報への不正アクセス、紛失、破壊、改ざん及び漏洩等を防止するため、必要かつ適切な安全管理措置を講じます。</p>
+
+        <h3>6. 個人情報の開示・訂正・削除</h3>
+        <p>お客様からご自身の個人情報の開示、訂正、削除等のご要請があった場合は、ご本人であることを確認の上、速やかに対応いたします。</p>
+
+        <h3>7. お問い合わせ窓口</h3>
+        <p>個人情報の取扱いに関するお問い合わせは、以下までご連絡ください。</p>
+        <p>
+          早田設備株式会社<br>
+          〒682-0913 鳥取県倉吉市和田東町115-1<br>
+          電話：0858-22-7571<br>
+          受付時間：9:00～17:00（第2・4土、日祝除く）
+        </p>
+
+        <h3>8. プライバシーポリシーの変更</h3>
+        <p>当社は、必要に応じて本ポリシーの内容を変更することがあります。変更後のプライバシーポリシーは、当社ウェブサイトに掲載した時点で効力を生じるものとします。</p>
+
+        <p style="margin-top: 32px; text-align: right; color: #64748b;">制定日：2026年1月28日</p>
+      </div>
+    </div>
+  </div>
+
   <footer class="footer" role="contentinfo">
     <div class="container">
       <nav class="footer-nav" aria-label="フッターナビゲーション">
@@ -239,6 +437,45 @@
       });
     })();
   </script>
+
+  <script>
+    // プライバシーポリシーモーダル
+    document.addEventListener('DOMContentLoaded', () => {
+      const modal = document.getElementById('privacy-modal');
+      const privacyLink = document.getElementById('privacy-link');
+      const closeBtn = modal.querySelector('.privacy-modal__close');
+
+      // モーダルを開く
+      privacyLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        modal.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+      });
+
+      // モーダルを閉じる
+      const closeModal = () => {
+        modal.classList.remove('is-open');
+        document.body.style.overflow = '';
+      };
+
+      closeBtn.addEventListener('click', closeModal);
+
+      // 背景クリックで閉じる
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+          closeModal();
+        }
+      });
+
+      // ESCキーで閉じる
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('is-open')) {
+          closeModal();
+        }
+      });
+    });
+  </script>
+
 </body>
 
 </html>
