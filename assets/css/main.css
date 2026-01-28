@@ -261,13 +261,17 @@ details[open] .nav__sheet {
   isolation: isolate;
   overflow: hidden;
   background: #f5f9ff;
+  width: 100%;
+  max-width: 100%;
 }
 
 .fv__inner {
   position: relative;
   width: 100%;
+  max-width: 100%;
   min-height: 100svh;
-  margin: 0 auto;
+  margin: 0;
+  padding: 0;
 }
 
 /* スライダー */
@@ -776,11 +780,19 @@ h2::before {
   gap: clamp(12px, 2vw, 24px);
   flex-wrap: wrap;
   margin: 0 0 24px;
+  justify-content: center;
 }
 
 .footer-nav a {
   font-weight: 700;
   text-decoration: none;
+  font-size: clamp(13px, 1.4vw, 15px);
+  padding: 4px 0;
+  transition: color 0.2s ease;
+}
+
+.footer-nav a:hover {
+  color: var(--blue-2);
 }
 
 .foot-flex {
@@ -798,10 +810,95 @@ h2::before {
   color: var(--blue-3);
 }
 
-@media (max-width:768px) {
+/* フッターのコピーライト部分 */
+.footer .container:last-child {
+  padding-top: 20px;
+}
+
+.footer small {
+  font-size: 13px;
+}
+
+/* レスポンシブ: タブレット */
+@media (max-width: 900px) {
+  .footer-nav {
+    gap: 16px 20px;
+  }
+}
+
+/* レスポンシブ: モバイル */
+@media (max-width: 768px) {
+  .footer {
+    padding: 40px 0 24px;
+  }
+
+  .footer-nav {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px 16px;
+    text-align: center;
+    margin-bottom: 28px;
+  }
+
+  .footer-nav a {
+    font-size: 14px;
+    padding: 8px 4px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 8px;
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+
+  .footer-nav a:hover {
+    background: rgba(255, 255, 255, 0.8);
+  }
+
   .foot-flex {
     grid-template-columns: 1fr;
     text-align: center;
+    gap: 16px;
+  }
+
+  .foot-flex>div:last-child {
+    justify-self: center !important;
+  }
+
+  .tel {
+    font-size: 24px;
+  }
+
+  .footer .note {
+    font-size: 12px;
+  }
+
+  .footer .btn {
+    width: 100%;
+    max-width: 280px;
+  }
+
+  .footer .container:last-child {
+    justify-content: center !important;
+    padding-top: 16px;
+  }
+
+  .footer small {
+    font-size: 12px;
+  }
+}
+
+/* レスポンシブ: 小さいモバイル */
+@media (max-width: 480px) {
+  .footer-nav {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px 12px;
+  }
+
+  .footer-nav a {
+    font-size: 13px;
+    padding: 10px 4px;
+  }
+
+  .tel {
+    font-size: 22px;
   }
 }
 
@@ -5697,5 +5794,95 @@ h2[id^="sec-"],
   .section--cta .container .cta-band.cta-band--works {
     flex-direction: column-reverse !important;
     text-align: center !important;
+  }
+}
+
+/* =========================================================
+   CTA Section - Ultimate Override for Mobile
+   レスポンシブ時の青背景を確実に表示
+========================================================= */
+
+@media (max-width: 900px) {
+
+  body .section--cta .container .cta-band.cta-band--works,
+  body .section--cta .cta-band.cta-band--works {
+    background: transparent !important;
+    border: none !important;
+    border-left: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    flex-direction: column-reverse !important;
+    text-align: center !important;
+    padding: 40px clamp(20px, 4vw, 24px) !important;
+  }
+
+  body .section--cta .container .cta-band.cta-band--works::before,
+  body .section--cta .cta-band.cta-band--works::before {
+    display: block !important;
+    content: "" !important;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 100vw;
+    transform: translateX(-50%);
+    z-index: -1;
+    background: linear-gradient(135deg, #1e88ff 0%, #40c9ff 100%) !important;
+    background-image:
+      repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.1) 0, rgba(255, 255, 255, 0.1) 10px, transparent 10px, transparent 20px),
+      linear-gradient(135deg, #1e88ff 0%, #40c9ff 100%) !important;
+    box-shadow: 0 10px 40px rgba(30, 136, 255, 0.2);
+  }
+
+  body .section--cta .cta-band.cta-band--works h2,
+  body .section--cta .cta-band.cta-band--works h3,
+  body .section--cta .cta-band.cta-band--works .note {
+    color: #fff !important;
+  }
+}
+
+@media (max-width: 768px) {
+
+  body .section--cta .container .cta-band.cta-band--works,
+  body .section--cta .cta-band.cta-band--works {
+    background: transparent !important;
+    border: none !important;
+    padding: 32px clamp(16px, 4vw, 20px) !important;
+  }
+
+  body .section--cta .container .cta-band.cta-band--works::before,
+  body .section--cta .cta-band.cta-band--works::before {
+    display: block !important;
+  }
+
+  body .section--cta .cta-band.cta-band--works h2,
+  body .section--cta .cta-band.cta-band--works h3 {
+    font-size: 24px !important;
+    color: #fff !important;
+  }
+
+  body .section--cta .cta-band.cta-band--works .note {
+    font-size: 14px !important;
+    color: #fff !important;
+  }
+}
+
+@media (max-width: 600px) {
+
+  body .section--cta .container .cta-band.cta-band--works,
+  body .section--cta .cta-band.cta-band--works {
+    background: transparent !important;
+    padding: 28px 16px !important;
+  }
+
+  body .section--cta .container .cta-band.cta-band--works::before,
+  body .section--cta .cta-band.cta-band--works::before {
+    display: block !important;
+  }
+
+  body .section--cta .cta-band.cta-band--works h2,
+  body .section--cta .cta-band.cta-band--works h3,
+  body .section--cta .cta-band.cta-band--works .note {
+    color: #fff !important;
   }
 }

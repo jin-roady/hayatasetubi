@@ -18,7 +18,8 @@
   <main class="page-company">
 
     <!-- ===== キービジュアル ===== -->
-    <section class="kv kv--company" style="--kv-img:url('../images/kv-company.png')">
+    <section class="kv kv--company" data-kv-pc="../images/kv-company.png" data-kv-sp="../images/kv-company_sp.png"
+      style="--kv-img:url('../images/kv-company.png')">
       <div class="kv__inner container">
         <div class="kv__body" aria-labelledby="page-title">
 
@@ -302,6 +303,29 @@
       closeBtn?.addEventListener('click', () => { menu.open = false; });
       document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && menu.open) { menu.open = false; }
+      });
+    })();
+  </script>
+
+  <!-- KVレスポンシブ画像切り替え -->
+  <script>
+    (function () {
+      const BREAKPOINT = 768;
+      const kv = document.querySelector('.kv[data-kv-pc][data-kv-sp]');
+      if (!kv) return;
+
+      function updateKvImage() {
+        const isMobile = window.innerWidth <= BREAKPOINT;
+        const img = isMobile ? kv.dataset.kvSp : kv.dataset.kvPc;
+        kv.style.setProperty('--kv-img', `url('${img}')`);
+      }
+
+      updateKvImage();
+
+      let resizeTimer;
+      window.addEventListener('resize', function () {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(updateKvImage, 150);
       });
     })();
   </script>

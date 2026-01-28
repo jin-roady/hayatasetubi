@@ -31,13 +31,16 @@
         <!-- スライダー -->
         <div class="fv-slider" aria-label="キービジュアル">
           <div class="fv-slides" id="fvSlides">
-            <figure class="fv-slide mask-slide is-active" style="background-image:url('assets/images/hero-1.png')">
+            <figure class="fv-slide mask-slide is-active" data-bg-pc="assets/images/hero-1.png"
+              data-bg-sp="assets/images/hero-1_sp.png" style="background-image:url('assets/images/hero-1.png')">
               <div class="ken" aria-hidden="true"></div>
             </figure>
-            <figure class="fv-slide mask-slide" style="background-image:url('assets/images/hero-2.png')">
+            <figure class="fv-slide mask-slide" data-bg-pc="assets/images/hero-2.png"
+              data-bg-sp="assets/images/hero-2_sp.png" style="background-image:url('assets/images/hero-2.png')">
               <div class="ken" aria-hidden="true"></div>
             </figure>
-            <figure class="fv-slide mask-slide" style="background-image:url('assets/images/hero-3.png')">
+            <figure class="fv-slide mask-slide" data-bg-pc="assets/images/hero-3.png"
+              data-bg-sp="assets/images/hero-3_sp.png" style="background-image:url('assets/images/hero-3.png')">
               <div class="ken" aria-hidden="true"></div>
             </figure>
           </div>
@@ -288,6 +291,32 @@
 
   <!-- ===== SCRIPTS ===== -->
   <script>
+    // レスポンシブ画像切り替え（PC/SP）
+    (function () {
+      const BREAKPOINT = 768;
+      const slides = document.querySelectorAll('.fv-slide[data-bg-pc][data-bg-sp]');
+
+      function updateSlideImages() {
+        const isMobile = window.innerWidth <= BREAKPOINT;
+        slides.forEach(slide => {
+          const pcImg = slide.dataset.bgPc;
+          const spImg = slide.dataset.bgSp;
+          const targetImg = isMobile ? spImg : pcImg;
+          slide.style.backgroundImage = `url('${targetImg}')`;
+        });
+      }
+
+      // 初回実行
+      updateSlideImages();
+
+      // リサイズ時に実行（デバウンス付き）
+      let resizeTimer;
+      window.addEventListener('resize', function () {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(updateSlideImages, 150);
+      });
+    })();
+
     // Scroll Animation
     document.addEventListener('DOMContentLoaded', () => {
       const observer = new IntersectionObserver((entries) => {

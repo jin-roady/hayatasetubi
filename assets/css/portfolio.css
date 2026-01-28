@@ -1154,3 +1154,85 @@ article[data-category="other"] .work-category,
 }
 
 /* =========================================================
+
+/* =========================================================
+   CTA Section - Responsive Design Unified
+   レスポンシブ時のCTAセクションを統一
+========================================================= */
+
+@media (max-width: 900px) {
+  .cta-band.cta-band--works {
+    flex-direction: column-reverse !important;
+    text-align: center !important;
+    padding: 40px clamp(20px, 4vw, 24px) !important;
+  }
+
+  .cta-band.cta-band--works .ph {
+    width: 80% !important;
+    max-width: 500px !important;
+    margin: 0 auto 20px !important;
+    transform: rotate(-2deg) !important;
+  }
+
+  .cta-band.cta-band--works .cta-band__actions {
+    justify-content: center !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+  }
+
+  .cta-band.cta-band--works .btn--primary,
+  .cta-band.cta-band--works .cta-band__actions .btn--primary,
+  .cta-band.cta-band--works .btn.ghost,
+  .cta-band.cta-band--works .cta-band__actions .btn.ghost {
+    width: 100% !important;
+    max-width: 400px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .cta-band.cta-band--works {
+    padding: 32px clamp(16px, 4vw, 20px) !important;
+  }
+
+  .cta-band.cta-band--works h2,
+  .cta-band.cta-band--works h3 {
+    font-size: 24px !important;
+    margin-bottom: 12px !important;
+  }
+
+  .cta-band.cta-band--works .note {
+    font-size: 14px !important;
+    line-height: 1.9;
+  }
+
+  .cta-band.cta-band--works .btn--primary,
+  .cta-band.cta-band--works .cta-band__actions .btn--primary {
+    padding: 14px 32px !important;
+    font-size: 16px !important;
+  }
+
+  .cta-band.cta-band--works .btn.ghost,
+  .cta-band.cta-band--works .cta-band__actions .btn.ghost {
+    padding: 14px 28px !important;
+    font-size: 15px !important;
+  }
+
+  .cta-band.cta-band--works .ph {
+    width: 90% !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .cta-band.cta-band--works {
+    padding: 28px 16px !important;
+  }
+
+  .cta-band.cta-band--works h2,
+  .cta-band.cta-band--works h3 {
+    font-size: 20px !important;
+  }
+
+  .cta-band.cta-band--works .note {
+    font-size: 13px !important;
+  }
+}

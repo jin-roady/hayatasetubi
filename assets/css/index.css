@@ -1205,3 +1205,94 @@
         0 0 60px rgba(255, 255, 255, 0.5) !important;
     /* 背景に馴染ませる光 */
 }
+
+/* =========================================
+   FVモバイル対応：画像を画面幅いっぱいに
+========================================= */
+@media (max-width: 900px) {
+
+    /* FV全体を画面幅いっぱいに */
+    .fv,
+    .fv__inner {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow: hidden !important;
+    }
+
+    /* スライダー画像を画面幅いっぱいに */
+    .fv-slider {
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        width: 100% !important;
+    }
+
+    .fv-slides {
+        width: 100% !important;
+    }
+
+    .fv-slide {
+        width: 100% !important;
+        background-size: cover !important;
+        background-position: center center !important;
+    }
+
+    /* CTAボタンを横並びに */
+    .masthead .fv .fv__copy>div {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: wrap !important;
+        gap: 10px !important;
+        justify-content: flex-start !important;
+        margin-top: 20px !important;
+    }
+
+    .masthead .fv .fv__copy .btn,
+    .masthead .fv .fv__copy .btn--primary,
+    .masthead .fv .fv__copy .btn--ghost {
+        display: inline-flex !important;
+        width: auto !important;
+        flex: 0 0 auto !important;
+        margin: 0 !important;
+        padding: 12px 20px !important;
+        font-size: 14px !important;
+        white-space: nowrap !important;
+    }
+}
+
+@media (max-width: 600px) {
+    .fv-slide {
+        background-position: 55% center !important;
+    }
+
+    .masthead .fv .fv__copy>div {
+        gap: 8px !important;
+    }
+
+    .masthead .fv .fv__copy .btn,
+    .masthead .fv .fv__copy .btn--primary,
+    .masthead .fv .fv__copy .btn--ghost {
+        padding: 10px 16px !important;
+        font-size: 13px !important;
+    }
+}
+
+@media (max-width: 400px) {
+
+    /* 非常に狭い画面では縦並びに */
+    .masthead .fv .fv__copy>div {
+        flex-direction: column !important;
+        align-items: stretch !important;
+    }
+
+    .masthead .fv .fv__copy .btn,
+    .masthead .fv .fv__copy .btn--primary,
+    .masthead .fv .fv__copy .btn--ghost {
+        width: 100% !important;
+        justify-content: center !important;
+    }
+}
