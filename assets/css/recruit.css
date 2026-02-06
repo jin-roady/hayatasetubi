@@ -1267,8 +1267,3 @@ details[open] .rec-job-toggle::after {
     opacity: 0.4;
     /* 背景として適切な明るさに調整 */
 }
-
-/* 募集職種 一時非公開 */
-.rec-jobs {
-    display: none;
-}
