@@ -249,3 +249,11 @@ details[open] .faq-q::after {
   font-size: 14px;
   line-height: 1.8;
 }
+
+.hp-wrap {
+  position: absolute !important;
+  left: -9999px !important;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}

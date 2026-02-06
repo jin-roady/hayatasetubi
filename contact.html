@@ -137,6 +137,15 @@
     }
   </style>
 </head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-15PDSE0YF8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+
+  gtag('config', 'G-15PDSE0YF8');
+</script>
 
 <body class="page-sub">
   <script src="assets/js/common-header.js" defer></script>
@@ -190,7 +199,8 @@
           内容を確認後、担当者よりご連絡いたします。
         </p>
 
-        <form class="contact-form" action="#" method="post" enctype="multipart/form-data">
+        <form class="contact-form" action="contact.php" method="post" enctype="multipart/form-data">
+
 
           <dl class="form-group">
             <dt><label for="name">お名前<span class="req-tag">必須</span></label></dt>
@@ -242,7 +252,8 @@
           <dl class="form-group">
             <dt><label for="files">写真・図面の添付<span class="any-tag">任意</span></label></dt>
             <dd>
-              <input type="file" id="files" name="files" class="input-file" multiple accept="image/*,.pdf">
+              <input type="file" id="files" name="files[]" class="input-file" multiple accept="image/*,.pdf">
+
               <p class="form-hint">現状の写真や図面があれば添付してください。（画像・PDF）</p>
             </dd>
           </dl>
@@ -251,6 +262,12 @@
             <label>
               <input type="checkbox" name="privacy" required>
               <span><a href="#" id="privacy-link">プライバシーポリシー</a>に同意する</span>
+            </label>
+          </div>
+          <!-- ハニーポット（Bot対策） -->
+          <div class="hp-wrap" aria-hidden="true">
+            <label>この欄は入力しないでください
+              <input type="text" name="website" tabindex="-1" autocomplete="off">
             </label>
           </div>
 

@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>送信完了｜早田設備株式会社</title>
+    <meta name="robots" content="noindex, nofollow" />
+
+    <style>
+        :root {
+            --bg: #f6f8fb;
+            --card: #ffffff;
+            --text: #0f172a;
+            --muted: #475569;
+            --line: #e2e8f0;
+            --primary: #1d4ed8;
+            --primary2: #2563eb;
+            --shadow: 0 18px 50px rgba(15, 23, 42, .12);
+            --radius: 18px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans JP", "Hiragino Kaku Gothic ProN",
+                "Yu Gothic", "Meiryo", sans-serif;
+            color: var(--text);
+            background:
+                radial-gradient(1100px 600px at 20% -10%, rgba(37, 99, 235, .12), transparent 60%),
+                radial-gradient(900px 500px at 90% 0%, rgba(29, 78, 216, .10), transparent 55%),
+                var(--bg);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+        }
+
+        .wrap {
+            width: min(920px, 100%);
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 18px;
+        }
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+
+        .hero {
+            padding: 28px 26px 22px;
+            display: flex;
+            gap: 18px;
+            align-items: flex-start;
+        }
+
+        .badge {
+            width: 54px;
+            height: 54px;
+            flex: 0 0 auto;
+            border-radius: 16px;
+            display: grid;
+            place-items: center;
+            background: linear-gradient(135deg, rgba(37, 99, 235, .14), rgba(29, 78, 216, .08));
+            border: 1px solid rgba(37, 99, 235, .22);
+        }
+
+        .check {
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary2), var(--primary));
+            position: relative;
+        }
+
+        .check:after {
+            content: "";
+            position: absolute;
+            width: 12px;
+            height: 7px;
+            border-left: 3px solid #fff;
+            border-bottom: 3px solid #fff;
+            transform: rotate(-45deg);
+            left: 7px;
+            top: 8px;
+        }
+
+        h1 {
+            margin: 0 0 6px;
+            font-size: clamp(20px, 2.8vw, 28px);
+            letter-spacing: .02em;
+            line-height: 1.25;
+        }
+
+        .lead {
+            margin: 0;
+            color: var(--muted);
+            line-height: 1.8;
+            font-size: 15px;
+        }
+
+        .split {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            border-top: 1px solid var(--line);
+        }
+
+        .panel {
+            padding: 22px 26px;
+        }
+
+        .panel+.panel {
+            border-left: 1px solid var(--line);
+        }
+
+        .h2 {
+            margin: 0 0 10px;
+            font-size: 16px;
+            letter-spacing: .02em;
+        }
+
+        .list {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            display: grid;
+            gap: 10px;
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .list li {
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+        }
+
+        .dot {
+            margin-top: 7px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(29, 78, 216, .35);
+            flex: 0 0 auto;
+        }
+
+        .actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            padding: 18px 26px 24px;
+            border-top: 1px solid var(--line);
+            background: linear-gradient(180deg, rgba(246, 248, 251, 0), rgba(246, 248, 251, .75));
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            height: 44px;
+            padding: 0 16px;
+            border-radius: 14px;
+            border: 1px solid var(--line);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 14px;
+            letter-spacing: .02em;
+            color: var(--text);
+            background: #fff;
+            transition: transform .12s ease, box-shadow .12s ease, border-color .12s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 10px 20px rgba(15, 23, 42, .10);
+            border-color: rgba(37, 99, 235, .35);
+        }
+
+        .btn--primary {
+            background: linear-gradient(135deg, var(--primary2), var(--primary));
+            color: #fff;
+            border-color: rgba(37, 99, 235, .35);
+        }
+
+        .btn--ghost {
+            background: rgba(255, 255, 255, .75);
+        }
+
+        .foot {
+            text-align: center;
+            color: rgba(71, 85, 105, .9);
+            font-size: 12px;
+            padding: 8px 0 0;
+        }
+
+        @media (max-width: 760px) {
+            .hero {
+                padding: 22px 18px 18px;
+            }
+
+            .panel {
+                padding: 18px;
+            }
+
+            .split {
+                grid-template-columns: 1fr;
+            }
+
+            .panel+.panel {
+                border-left: none;
+                border-top: 1px solid var(--line);
+            }
+
+            .actions {
+                padding: 16px 18px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+
+        <div class="card">
+            <div class="hero">
+
+                <div>
+                    <h1>送信が完了しました</h1>
+                    <p class="lead">
+                        お問い合わせありがとうございます。内容を確認のうえ、担当者よりご連絡いたします。<br>
+                        お急ぎの場合はお電話でのご連絡がスムーズです。
+                    </p>
+                </div>
+            </div>
+
+            <div class="split">
+                <div class="panel">
+                    <p class="h2">このあとについて</p>
+                    <ul class="list">
+                        <li><span class="dot"></span><span>通常、1〜2営業日以内にご連絡いたします。</span></li>
+                        <li><span class="dot"></span><span>迷惑メール設定により返信が届かない場合があります。</span></li>
+                        <li><span class="dot"></span><span>内容によってはお電話で確認させていただく場合があります。</span></li>
+                    </ul>
+                </div>
+
+                <div class="panel">
+                    <p class="h2">お急ぎの方</p>
+                    <ul class="list">
+                        <li><span class="dot"></span><span><strong>0858-22-7571</strong>（受付
+                                9:00–17:00／第2・4土、日祝除く）</span></li>
+                        <li><span class="dot"></span><span>水漏れ・給湯器の故障など緊急トラブルはお電話が確実です。</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="actions">
+                <a class="btn btn--primary" href="/">トップへ戻る</a>
+                <a class="btn btn--ghost" href="/contact.html">お問い合わせに戻る</a>
+                <a class="btn" href="tel:0858227571">📞 お電話する</a>
+            </div>
+        </div>
+
+        <div class="foot">
+            © Hayata Setsubi Co., Ltd.
+        </div>
+
+    </div>
+</body>
+
+</html>
