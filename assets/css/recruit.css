@@ -1267,3 +1267,175 @@ details[open] .rec-job-toggle::after {
     opacity: 0.4;
     /* 背景として適切な明るさに調整 */
 }
+
+/* =========================================================
+   JOBS SECTION - Enhanced Design
+   視認性向上：仕事内容リスト、アイコン付きテーブル、バッジ
+========================================================= */
+
+/* 仕事内容サブタイトル */
+.rec-job__subtitle {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--rec-blue-primary);
+    margin: 0 0 12px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--rec-blue-bright);
+    display: inline-block;
+}
+
+/* 仕事内容リスト */
+.rec-job__task-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 28px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 6px 20px;
+}
+
+.rec-job__task-list li {
+    position: relative;
+    padding-left: 20px;
+    font-size: 14px;
+    line-height: 1.8;
+    color: var(--rec-text-main);
+}
+
+.rec-job__task-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 10px;
+    width: 8px;
+    height: 8px;
+    background: var(--rec-blue-bright);
+    border-radius: 2px;
+    transform: rotate(45deg);
+}
+
+/* テーブル改善 */
+.info-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-top: 4px;
+}
+
+.info-table th {
+    white-space: nowrap;
+    vertical-align: middle;
+    padding: 18px 24px 18px 0;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--rec-blue-dark);
+    border-bottom: 1px solid #e2e8f0;
+    width: 110px;
+    min-width: 90px;
+    position: relative;
+}
+
+.info-table th::before {
+    content: "";
+    position: absolute;
+    left: -16px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 3px;
+    height: 18px;
+    background: var(--rec-blue-bright);
+    border-radius: 2px;
+}
+
+.info-table td {
+    padding: 18px 0;
+    font-size: 14px;
+    line-height: 1.8;
+    color: var(--rec-text-main);
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.info-table tr:last-child th,
+.info-table tr:last-child td {
+    border-bottom: none;
+}
+
+/* 補足テキスト */
+.info-table__note {
+    display: inline-block;
+    font-size: 13px;
+    color: var(--rec-text-sub);
+}
+
+/* 福利厚生バッジ */
+.info-table__badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.info-badge {
+    display: inline-block;
+    background: #eef4fb;
+    border: 1px solid #c5d9ed;
+    color: var(--rec-blue-primary);
+    font-size: 12px;
+    font-weight: 600;
+    padding: 6px 16px;
+    border-radius: 100px;
+    white-space: nowrap;
+}
+
+/* 画像の高さ揃え */
+.rec-job__img {
+    display: flex;
+    align-items: stretch;
+    overflow: hidden;
+    border-radius: 6px;
+}
+
+.rec-job__img img {
+    object-fit: cover;
+    min-height: 100%;
+    border-radius: 6px;
+}
+
+/* コンテンツ背景改善 */
+.rec-job__content {
+    border-radius: 8px;
+}
+
+/* ボタンエリア改善 */
+.rec-job__btn-area {
+    margin-top: 30px;
+    text-align: center;
+}
+
+/* レスポンシブ */
+@media (max-width: 768px) {
+    .rec-job__task-list {
+        grid-template-columns: 1fr;
+    }
+
+    .info-table th {
+        white-space: normal;
+        padding: 14px 16px 14px 0;
+    }
+
+    .info-table td {
+        padding: 14px 0;
+    }
+
+    .info-table th::before {
+        left: -12px;
+    }
+
+    .info-table__badges {
+        gap: 6px;
+    }
+
+    .info-badge {
+        font-size: 11px;
+        padding: 4px 10px;
+    }
+}
